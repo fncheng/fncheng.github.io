@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.0">
+<meta name="generator" content="Hexo 4.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -22,11 +22,11 @@
   var CONFIG = {
     hostname: new URL('https://siwadiya.github.io').hostname,
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Gemini',
     version: '7.5.0',
     exturl: false,
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
+    copycode: {"enable":true,"show_result":true,"style":null},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
@@ -40,27 +40,25 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     sidebarPadding: 40
   };
 </script>
 
   <meta name="description" content="使用float定位元素关于float的理解可以看这篇文章    注意：如果不是浮动有固定宽度的图像，必须要为浮动元素设置宽度，这样浏览器才会流出空间显示围绕它的内容。 margin的auto值对浮动的元素不起作用，没有属性可以让一个浮动元素居中 所以一般使用一个正常的块级元素居中，带着里面浮动的元素居中。 浮动可以让块级元素拍成一排 清除浮动float具有破坏性，会导致父元素坍塌，所以需要清除浮动">
+<meta name="keywords" content="css">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css布局">
-<meta property="og:url" content="https://siwadiya.github.io/2019/12/15/CSS/css%E5%B8%83%E5%B1%80/index.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;siwadiya.github.io&#x2F;2019&#x2F;12&#x2F;15&#x2F;CSS&#x2F;css%E5%B8%83%E5%B1%80&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="使用float定位元素关于float的理解可以看这篇文章    注意：如果不是浮动有固定宽度的图像，必须要为浮动元素设置宽度，这样浏览器才会流出空间显示围绕它的内容。 margin的auto值对浮动的元素不起作用，没有属性可以让一个浮动元素居中 所以一般使用一个正常的块级元素居中，带着里面浮动的元素居中。 浮动可以让块级元素拍成一排 清除浮动float具有破坏性，会导致父元素坍塌，所以需要清除浮动">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.loli.net/2019/12/15/K9iwX5h8R7qupaF.png">
-<meta property="article:published_time" content="2019-12-15T11:57:27.066Z">
-<meta property="article:modified_time" content="2019-12-24T11:49:12.699Z">
-<meta property="article:author" content="siwadiya">
-<meta property="article:tag" content="css">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;12&#x2F;15&#x2F;K9iwX5h8R7qupaF.png">
+<meta property="og:updated_time" content="2019-12-24T11:49:12.699Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2019/12/15/K9iwX5h8R7qupaF.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;12&#x2F;15&#x2F;K9iwX5h8R7qupaF.png">
 
 <link rel="canonical" href="https://siwadiya.github.io/2019/12/15/CSS/css%E5%B8%83%E5%B1%80/">
 
@@ -179,9 +177,34 @@
     <a href="/404/" rel="section"><i class="fa fa-fw fa-heartbeat"></i>公益 404</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
@@ -307,8 +330,8 @@
       <i class="fa fa-chevron-left"></i> hexo标签页显示空白的问题
     </a></div>
       <div class="post-nav-item">
-    <a href="/2019/12/15/%E5%8D%9A%E5%AE%A2/next%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE/" rel="next" title="next主题设置">
-      next主题设置 <i class="fa fa-chevron-right"></i>
+    <a href="/2019/12/15/%E5%8D%9A%E5%AE%A2/next%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE/" rel="next" title="next主题个性化设置">
+      next主题个性化设置 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -361,14 +384,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -404,10 +427,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">siwadiya</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
 
         
@@ -428,17 +451,9 @@
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 <script src="/js/next-boot.js"></script>
-
 
 
 
@@ -446,6 +461,8 @@
 
 
 
+
+  <script src="/js/local-search.js"></script>
 
 
 
