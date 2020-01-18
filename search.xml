@@ -3,7 +3,8 @@
   <entry>
     <title>博客/hexo主题之next折腾记</title>
     <url>/2020/01/18/%E5%8D%9A%E5%AE%A2/hexo%E4%B8%BB%E9%A2%98%E4%B9%8Bnext%E6%8A%98%E8%85%BE%E8%AE%B0/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p>test</p>
+]]></content>
   </entry>
   <entry>
     <title>DOM</title>
@@ -444,7 +445,7 @@
 </blockquote>
 <p>参考链接： <a href="https://blog.csdn.net/mqdxiaoxiao/article/details/93251246" target="_blank" rel="noopener">https://blog.csdn.net/mqdxiaoxiao/article/details/93251246</a> </p>
 <h3 id="设定代码高亮主题"><a href="#设定代码高亮主题" class="headerlink" title="设定代码高亮主题"></a>设定代码高亮主题</h3><p>NexT使用Tomorrow Theme作为代码高亮，共有5款主题供你选择: normal | night | night eighties | night blue | night bright,默认使用的是白色的normal<br> 编辑站点的_config.yml：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Code Highlight theme</span></span><br><span class="line"><span class="comment"># Available value: normal | night | night eighties | night blue | night bright</span></span><br><span class="line"><span class="comment"># https://github.com/chriskempson/tomorrow-theme</span></span><br><span class="line"><span class="attr">highlight_theme:</span> <span class="string">normal</span></span><br></pre></td></tr></table></figure>
 
 
 
