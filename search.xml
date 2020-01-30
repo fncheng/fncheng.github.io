@@ -716,7 +716,23 @@
 
 
 
-<h4 id="Next-Schemes"><a href="#Next-Schemes" class="headerlink" title="Next  Schemes"></a>Next  Schemes</h4><h2 id="Next主题颜色配置"><a href="#Next主题颜色配置" class="headerlink" title="Next主题颜色配置"></a>Next主题颜色配置</h2>]]></content>
+<h4 id="Next-Schemes"><a href="#Next-Schemes" class="headerlink" title="Next  Schemes"></a>Next  Schemes</h4><h2 id="Next主题颜色配置"><a href="#Next主题颜色配置" class="headerlink" title="Next主题颜色配置"></a>Next主题颜色配置</h2><h3 id="主题颜色"><a href="#主题颜色" class="headerlink" title="主题颜色"></a>主题颜色</h3><p>next主题的颜色在模板中都是用形如<code>$gray-lighter</code>,<code>$black-light</code>来定义的,其定义文件目录为:</p>
+<p><code>hexo/themes/next/source/css/_variables/base.styl</code></p>
+<h4 id="知识拓展-styl是什么文件"><a href="#知识拓展-styl是什么文件" class="headerlink" title="知识拓展: styl是什么文件?"></a>知识拓展: styl是什么文件?</h4><blockquote>
+<p> <code>Stylus</code> 是一个CSS的预处理框架，2010年产生，来自Node.js社区，主要用来给Node项目进行CSS预处理支持，所以 <code>Stylus</code> 是一种新型语言，可以创建健壮的、动态的、富有表现力的CSS。比较年轻，其本质上做的事情与 <code>SASS</code>/<code>LESS</code> 等类似，应该是有很多借鉴，所以近似脚本的方式去写CSS代码。 </p>
+<p><a href="https://juejin.im/entry/59a3dd10f265da247d728f26" target="_blank" rel="noopener">参考链接</a></p>
+</blockquote>
+<p>找到Colors代码段</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Colors</span></span><br><span class="line"><span class="comment">// colors for use across theme.</span></span><br><span class="line"><span class="comment">// --------------------------------------------------</span></span><br><span class="line">$whitesmoke   = #f5f5f5;</span><br><span class="line">$gainsboro    = #eee;</span><br><span class="line">$gray-lighter = #ddd;</span><br><span class="line">$grey-light   = #ccc;</span><br><span class="line">$grey         = #bbb;</span><br><span class="line">$grey-dark    = #999;</span><br><span class="line">$grey-dim     = #666;</span><br><span class="line">$black-light  = #555;</span><br><span class="line">$black-dim    = #333;</span><br><span class="line">$black-deep   = #222;</span><br><span class="line">$red          = #ff2a2a;</span><br><span class="line">$blue-bright  = #87daff;</span><br><span class="line">$blue         = #0684bd;</span><br><span class="line">$blue-deep    = #262a30;</span><br><span class="line">$orange       = #fc6423;</span><br><span class="line">$black        = rgba(0,0,0,0.84);</span><br></pre></td></tr></table></figure>
+
+<p>其中最后一个<code>$black</code>是我自己添加的</p>
+<p>具体使用在样式中是这样的</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">blockquote</span> &#123;</span><br><span class="line">  <span class="attribute">border-left</span>: <span class="number">3px</span> solid <span class="variable">$black</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其效果等效于css中的</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">blockquote</span> &#123;</span><br><span class="line">  <span class="attribute">border-left</span>: <span class="number">3px</span> solid <span class="built_in">rgba</span>(0,0,0,0.84);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
       <tags>
         <tag>hexo</tag>
         <tag>next</tag>
