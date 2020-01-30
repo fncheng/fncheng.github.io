@@ -1,6 +1,266 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Typora主题</title>
+    <url>/2020/01/30/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E7%BD%AE/Typora%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE/</url>
+    <content><![CDATA[<p>Typora主题配置文件目录为<code>C:\Users\username\AppData\Roaming\Typora\themes</code></p>
+<p>针对我个人最喜欢的Github主题进行修改.</p>
+<p>1.将<strong><code>块引用</code></strong>的左边框设置为黑色,如下所示:</p>
+<blockquote>
+<p>这是一段引用</p>
+</blockquote>
+<p>修改的样式代码:</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">blockquote</span> &#123;</span><br><span class="line">    <span class="comment">/* border-left: 4px solid #dfe2e5; */</span></span><br><span class="line">    <span class="attribute">border-left</span>: <span class="number">3px</span> solid <span class="built_in">rgba</span>(0, 0, 0, 0.84);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>Typora</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>surge规则</title>
+    <url>/2020/01/30/Http/surge%E8%A7%84%E5%88%99/</url>
+    <content><![CDATA[<blockquote>
+<p> <em>Surge提供三种域名检索方式检索域名（DOMAIN）、检索域名后缀（DOMAIN-SUFFIX）和检索域名关键字（DOMAIN-KEYWORD）。<br>三种网络连接方式直接连接（DIRECT）、使用代理（Proxy）和阻断连接（REJECT）。<br>规则运作就是if…then…的结构，如果检索域名满足什么，则选择什么网络连接方式</em> </p>
+</blockquote>
+<a id="more"></a>
+
+<p>例子:</p>
+<blockquote>
+<p>基于域名判断屏蔽（Reject）请求：<code>DOMAIN,ad.api.3g.youku.com,REJECT</code><br>基于域名后缀判断走代理（Proxy）：<code>DOMAIN-SUFFIX,amazon.com,Proxy</code><br>基于域名关键字判断走代理（Proxy）：<code>DOMAIN-KEYWORD,google,Proxy,force-remote-dns</code><br>基于域名后缀判断走直连（DIRECT）：<code>DOMAIN-SUFFIX,126.net,DIRECT</code><br>判断是否局域网，如果是走直连（DIRECT）:<code>IP-CIRD,IP-CIDR,192.168.0.0/16,DIREC</code><br>检索IP地址，国内选择直连:<code>GEOIP,CN,DIRECT</code><br>其他的走代理:<code>FINAL Proxy</code> </p>
+</blockquote>
+<h3 id="史上最详尽的Surge教程（分阶层）"><a href="#史上最详尽的Surge教程（分阶层）" class="headerlink" title="史上最详尽的Surge教程（分阶层）"></a><a href="https://medium.com/@Zaihuaone/%E5%8F%B2%E4%B8%8A%E6%9C%80%E8%AF%A6%E5%B0%BD%E7%9A%84surge%E6%95%99%E7%A8%8B-%E5%88%86%E9%98%B6%E5%B1%82-1d10720779c7" target="_blank" rel="noopener">史上最详尽的Surge教程（分阶层）</a></h3><h3 id="中文文档"><a href="#中文文档" class="headerlink" title="中文文档"></a><a href="https://docs.cfw.lbyczf.com/contents/ui/profiles/rules.html" target="_blank" rel="noopener">中文文档</a></h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 运营商及声名狼藉网站劫持</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">"Hijacking"</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">select</span></span><br><span class="line">  <span class="attr">proxies:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">"REJECT"</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">"DIRECT"</span></span><br></pre></td></tr></table></figure>
+
+<p>REJECT可以拒绝网站发送的数据</p>
+]]></content>
+      <tags>
+        <tag>http</tag>
+        <tag>surge</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>将本地仓库推送到Github</title>
+    <url>/2020/01/22/Git/%E5%B0%86%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E6%8E%A8%E9%80%81%E5%88%B0Github/</url>
+    <content><![CDATA[<p><a href="https://help.github.com/cn/github/administering-a-repository/setting-repository-visibility" target="_blank" rel="noopener"><span style="font-size:1.75em">参考链接</span></a></p>
+<p>1.打开Git Bash,将当前目录更改为本地仓库</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 新建一个目录，将其初始化为Git代码库</span></span><br><span class="line">$ git init [project-name]</span><br></pre></td></tr></table></figure>
+
+<p>2.在新的本地仓库中添加文件。 这会暂存它们用于第一次提交。 </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git add .</span><br><span class="line"><span class="comment"># Adds the files in the local repository and stages them for commit. 要取消暂存文件，请使用 'git reset HEAD YOUR-FILE'。</span></span><br></pre></td></tr></table></figure>
+
+<p>3.提交暂存在本地仓库中的文件。 </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git commit -m <span class="string">"First commit"</span></span><br><span class="line"><span class="comment"># Commits the tracked changes and prepares them to be pushed to a remote repository. 要删除此提交并修改文件，请使用 'git reset --soft HEAD~1' 并再次提交和添加文件。</span></span><br></pre></td></tr></table></figure>
+
+<p>4.在GitHub建立一个空的仓库,注意不要添加readme.md文件,防止后面报错!</p>
+<p>5.在命令提示中，<a href="https://help.github.com/cn/articles/adding-a-remote" target="_blank" rel="noopener">添加远程仓库的 URL</a>（将在该 URL 推送本地仓库）。 </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git remote add origin [remote repository URL]</span><br><span class="line"><span class="comment"># Sets the new remote</span></span><br><span class="line">$ git remote -v</span><br><span class="line"><span class="comment"># Verifies the new remote URL</span></span><br></pre></td></tr></table></figure>
+
+<p>6.推送更改(本地仓库中)到 GitHub。 </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git push origin master</span><br><span class="line"><span class="comment"># Pushes the changes in your local repository up to the remote repository you specified as the origin</span></span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JQuery学习</title>
+    <url>/2020/01/22/Javascript/JQuery%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h2 id="文档就绪事件"><a href="#文档就绪事件" class="headerlink" title="文档就绪事件"></a>文档就绪事件</h2><p>将 jQuery 函数位于一个 document ready 函数中： </p>
+<p>这是为了防止文档在完全加载（就绪）之前运行 jQuery 代码。</p>
+<p>如果在文档没有完全加载之前就运行函数，操作可能失败。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 开始写 jQuery 代码...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 开始写 jQuery 代码...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>以上两种写法等效</p>
+<p>JQuery语法:</p>
+<article style="color:blue;font-weight:700">$("触发对象").触发条件(function () {<br>
+    <div style="text-indent:2rem">$("要操作的对象,CSS选择符写法").要操作的方法(参数);</div>
+})</article>
+
+<p>例如:</p>
+<article style="color:red;font-weight:700">$("#btn").click(function () {<br>
+    <div style="text-indent:2rem">$(".container").append("divclass="box">1\div>");</div>
+})</article>
+
+<p>例如:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">"#btn"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="string">".container"</span>).append(<span class="string">"&lt;div class=\"box\"&gt;1&lt;/div&gt;"</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>JQuery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Javascript/Http Status状态码</title>
+    <url>/2020/01/20/Javascript/Http%20Status%E7%8A%B6%E6%80%81%E7%A0%81/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>AJAX学习</title>
+    <url>/2020/01/20/Javascript/AJAX%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p>AJAX即 “Asynchronous Javascript And XML “（异步JavaScript和XML）</p>
+<p>AJAX 是一种用于创建快速动态网页的技术。</p>
+<p>Ajax 的核心是 JavaScript 对象 XMLHttpRequest。</p>
+<a id="more"></a>
+
+<h3 id="AJAX工作原理"><a href="#AJAX工作原理" class="headerlink" title="AJAX工作原理"></a>AJAX工作原理</h3><p><img src="https://7n.w3cschool.cn/statics/images/course/ajax.gif" alt=""></p>
+<h3 id="XHR-创建对象"><a href="#XHR-创建对象" class="headerlink" title="XHR 创建对象"></a>XHR 创建对象</h3><h4 id="AJAX-创建-XMLHttpRequest-对象"><a href="#AJAX-创建-XMLHttpRequest-对象" class="headerlink" title="AJAX - 创建 XMLHttpRequest 对象"></a>AJAX - 创建 XMLHttpRequest 对象</h4><p> XMLHttpRequest 是 AJAX 的基础。 </p>
+<p> XMLHttpRequest 术语缩写为XHR，中文可以解释为可扩展超文本传输请求。 </p>
+<p>它执行以下操作：</p>
+<ol>
+<li><p>在后台从客户端发送数据</p>
+</li>
+<li><p>从服务器接收数据</p>
+</li>
+<li><p>更新网页而不重新加载。</p>
+<p>为了应对所有的现代浏览器，包括 IE5 和 IE6，请检查浏览器是否支持 XMLHttpRequest 对象。如果支持，则创建 XMLHttpRequest 对象。如果不支持，则创建 ActiveXObject </p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> xmlhttp;</span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest)</span><br><span class="line">  &#123;<span class="comment">// code for IE7+, Firefox, Chrome, Opera, Safari</span></span><br><span class="line">  xmlhttp=<span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">  &#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  &#123;<span class="comment">// code for IE6, IE5</span></span><br><span class="line">  xmlhttp=<span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="XHR-请求"><a href="#XHR-请求" class="headerlink" title="XHR 请求"></a>XHR 请求</h4><h5 id="AJAX如何工作？"><a href="#AJAX如何工作？" class="headerlink" title="AJAX如何工作？"></a>AJAX如何工作？</h5><hr>
+<p>正如您在上面的示例中所看到的，XMLHttpRequest对象起着重要作用。</p>
+<ol>
+<li>用户从UI发送请求，JavaScript中调用XMLHttpRequest对象。</li>
+<li>HTTP请求由XMLHttpRequest对象发送到服务器。</li>
+<li>服务器使用JSP，PHP，Servlet，ASP.net等与数据库交互。</li>
+<li>检索数据。</li>
+<li>服务器将XML数据或JSON数据发送到XMLHttpRequest回调函数。</li>
+<li>HTML和CSS数据显示在浏览器上。</li>
+</ol>
+<h5 id="向服务器发送请求？"><a href="#向服务器发送请求？" class="headerlink" title="向服务器发送请求？"></a>向服务器发送请求？</h5><hr>
+<p> 如需将请求发送到服务器，我们使用 XMLHttpRequest 对象的<code>open()</code>和<code>send()</code>方法： </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">xmlhttp.open(<span class="string">"GET"</span>,<span class="string">"ajax_info.txt"</span>,<span class="literal">true</span>);        </span><br><span class="line">xmlhttp.send();</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">open(<em>method</em>,<em>url</em>,<em>async</em>)</td>
+<td align="left">规定请求的类型、URL 以及是否异步处理请求。<em>method</em>：请求的类型；GET 或 POST<em>url</em>：文件在服务器上的位置<em>async</em>：true（异步）或 false（同步）</td>
+</tr>
+<tr>
+<td align="left">send(<em>string</em>)</td>
+<td align="left">将请求发送到服务器。<em>string</em>：仅用于 POST 请求</td>
+</tr>
+</tbody></table>
+<h5 id="Async-true"><a href="#Async-true" class="headerlink" title="Async=true"></a>Async=true</h5><hr>
+<p> 当使用 async=true 时，请规定在响应处于 onreadystatechange 事件中的就绪状态时执行的函数： </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line"><span class="comment">// 发送请求...</span></span><br><span class="line">xmlhttp.open(<span class="string">"GET"</span>,<span class="string">"ajax_info.txt"</span>,<span class="literal">true</span>);        </span><br><span class="line">xmlhttp.send();</span><br><span class="line"></span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//200（成功）  服务器已成功处理了请求。通常，这表示服务器提供了请求的网页。</span></span><br><span class="line">    <span class="keyword">if</span> (xhr.readyState === <span class="number">4</span> &amp;&amp; xhr.status === <span class="number">20</span>) &#123;</span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">"view"</span>).innerHTML = xhr.responseText;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="XHR响应"><a href="#XHR响应" class="headerlink" title="XHR响应"></a>XHR响应</h3><h4 id="AJAX-服务器响应"><a href="#AJAX-服务器响应" class="headerlink" title="AJAX - 服务器响应"></a>AJAX - 服务器响应</h4><hr>
+<ul>
+<li><p><strong>状态行</strong><br><code>xhr.status</code>状态码，即<a href="https://blog.csdn.net/unclebober/article/details/86626117" target="_blank" rel="noopener">Http StatusCode</a>,如200，304，404等；</p>
+</li>
+<li><p><strong>响应主体</strong><br><code>xhr.responseText</code>与<code>xhr.responseXML</code>都表示响应主体。</p>
+<p>如需获得来自服务器的响应，请使用 XMLHttpRequest 对象的<code>responseText</code>或<code>responseXML</code>属性。 </p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">responseText</td>
+<td align="left">获得字符串形式的响应数据。</td>
+</tr>
+<tr>
+<td align="left">responseXML</td>
+<td align="left">获得 XML 形式的响应数据。</td>
+</tr>
+</tbody></table>
+<h5 id="responseText-属性"><a href="#responseText-属性" class="headerlink" title="responseText 属性"></a>responseText 属性</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">"myDiv"</span>).innerHTML=xmlhttp.responseText;</span><br></pre></td></tr></table></figure>
+
+<h5 id="responseXML-属性"><a href="#responseXML-属性" class="headerlink" title="responseXML 属性"></a>responseXML 属性</h5><p> 如果来自服务器的响应是 XML，需要对 XML 进行解析 </p>
+<h3 id="XHR-readyState"><a href="#XHR-readyState" class="headerlink" title="XHR readyState"></a>XHR readyState</h3><h4 id="AJAX-onreadystatechange-事件"><a href="#AJAX-onreadystatechange-事件" class="headerlink" title="AJAX - onreadystatechange 事件"></a>AJAX - onreadystatechange 事件</h4><hr>
+<p>当发送一个请求后,客户端需要确定这个请求什么时候完成,因此,XMLHttpRequest对象提供了 <code>onreadystatechange</code>事件机制来捕获请求的状态，继而实现响应 。</p>
+<p> XMLHttpRequest 对象的三个重要的属性： </p>
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>onreadystatechange</code></td>
+<td align="left">存储函数（或函数名），每当<code>readyState</code>属性改变时，就会调用该函数。</td>
+</tr>
+<tr>
+<td align="left"><code>readyState</code></td>
+<td align="left">存有 XMLHttpRequest 的状态。从 0 到 4 发生变化。<br>0: 请求未初始化<br>1: 服务器连接已建立<br/>2: 请求已接收<br/>3: 请求处理中<br/>4: 请求已完成，且响应已就绪</td>
+</tr>
+<tr>
+<td align="left"><code>status</code></td>
+<td align="left">200: “OK” 404: 未找到页面</td>
+</tr>
+</tbody></table>
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Json</title>
+    <url>/2020/01/19/Javascript/Json/</url>
+    <content><![CDATA[<h3 id="Json-JavaScript对象表示法"><a href="#Json-JavaScript对象表示法" class="headerlink" title="Json(JavaScript对象表示法)"></a>Json(JavaScript对象表示法)</h3><p>json的语法可以表示三种类型的值:</p>
+<ul>
+<li>简单值</li>
+<li>对象</li>
+<li>数组</li>
+</ul>
+<a id="more"></a>
+
+<p>1.简单值</p>
+<h4 id="json字符串和json对象"><a href="#json字符串和json对象" class="headerlink" title="json字符串和json对象"></a>json字符串和json对象</h4><figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="comment">//字符串对象格式</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"JSON"</span>,</span><br><span class="line">    <span class="attr">"address"</span>: <span class="string">"北京市西城区"</span>,</span><br><span class="line">    <span class="attr">"age"</span>: <span class="number">25</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="comment">//数组对象格式</span></span><br><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">"name"</span>: <span class="string">"JSON"</span>,</span><br><span class="line">        <span class="attr">"address"</span>: <span class="string">"北京市西城区"</span>,</span><br><span class="line">        <span class="attr">"age"</span>: <span class="number">25</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">"name"</span>: <span class="string">"JSON1"</span>,</span><br><span class="line">        <span class="attr">"address"</span>: <span class="string">"北京市东城区"</span>,</span><br><span class="line">        <span class="attr">"age"</span>: <span class="number">28</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="JSON序列化和反序列化"><a href="#JSON序列化和反序列化" class="headerlink" title="JSON序列化和反序列化"></a>JSON序列化和反序列化</h3><blockquote>
+<h4 id="首先要搞懂什么是序列化"><a href="#首先要搞懂什么是序列化" class="headerlink" title="首先要搞懂什么是序列化?."></a>首先要搞懂什么是序列化?.</h4></blockquote>
+<p> 序列化（Serialization）是将对象的状态信息转换为可以存储或传输的形式的过程。</p>
+<p><span style="color:red">以json为例,简而言之就是将JavaScript对象以json格式存储到到<code>*.json</code>文件中；同理反序列化就是将<code>.json</code>文件中的json对象转换为JavaScript对象。</span></p>
+<h4 id="序列化——JSON-stringify"><a href="#序列化——JSON-stringify" class="headerlink" title="序列化——JSON.stringify()"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify" target="_blank" rel="noopener">序列化——<em>JSON.stringify()</em></a></h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> adress = &#123;</span><br><span class="line">    name: <span class="string">"JSON"</span>,</span><br><span class="line">    address: <span class="string">"北京市西城区"</span>,</span><br><span class="line">    age: <span class="number">25</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> result = <span class="built_in">JSON</span>.stringify(adress, [<span class="string">"name"</span>, <span class="string">"age"</span>]);</span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br><span class="line"><span class="comment">// 输出结果 &#123;"name":"JSON","age":25&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="反序列化——JSON-parse"><a href="#反序列化——JSON-parse" class="headerlink" title="反序列化——JSON.parse()"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse" target="_blank" rel="noopener">反序列化——<em>JSON.parse()</em></a></h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> adress1 = <span class="built_in">JSON</span>.parse(result);</span><br><span class="line"><span class="built_in">console</span>.log(adress1.address);</span><br><span class="line"><span class="comment">//输出结果  北京市西城区</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js事件</title>
+    <url>/2020/01/19/Javascript/js%E4%BA%8B%E4%BB%B6/</url>
+    <content><![CDATA[<h3 id="Json-JavaScript对象表示法"><a href="#Json-JavaScript对象表示法" class="headerlink" title="Json(JavaScript对象表示法)"></a>Json(JavaScript对象表示法)</h3><p>json的语法可以表示三种类型的值:</p>
+<ul>
+<li>简单值</li>
+<li>对象</li>
+<li>数组</li>
+</ul>
+<a id="more"></a>
+
+<p>1.简单值</p>
+]]></content>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>博客/hexo主题之next折腾记</title>
     <url>/2020/01/18/%E5%8D%9A%E5%AE%A2/hexo%E4%B8%BB%E9%A2%98%E4%B9%8Bnext%E6%8A%98%E8%85%BE%E8%AE%B0/</url>
     <content><![CDATA[<p>test</p>
@@ -92,6 +352,8 @@
 
 <p>于是上网查询了下,发现可以通过配置vscode内置的snippet来完成这一效果</p>
 </blockquote>
+<a id="more"></a>
+
 <h3 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h3><p>首先打开snippet的配置文件,每个格式都会有一个,形如<code>$language.json</code>的配置,我要配置的事js的,所以打开javascript.json.</p>
 <p>具体路径:<code>文件\首选项\用户snippet,选择要配置的语言</code></p>
 <p>打开后会有一段注释,注释中已经给出了一个模板</p>
@@ -119,13 +381,13 @@
     <url>/2020/01/08/Javascript/javascript%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<h2 id="js"><a href="#js" class="headerlink" title="js"></a>js</h2><h3 id="js不换行输出"><a href="#js不换行输出" class="headerlink" title="js不换行输出"></a><a href="https://blog.csdn.net/hsj1669666567/article/details/83240102" target="_blank" rel="noopener">js不换行输出</a></h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">process.stdout.write();</span><br></pre></td></tr></table></figure>
 
+<a id="more"></a>
+
 <h3 id="split-方法"><a href="#split-方法" class="headerlink" title="split() 方法"></a><a href="https://www.runoob.com/jsref/jsref-split.html" target="_blank" rel="noopener">split() 方法</a></h3><blockquote>
 <p>split() 方法用于把一个字符串分割成字符串数组。</p>
 <p><strong>提示：</strong> 如果把空字符串 (“”) 用作 separator，那么 stringObject 中的每个字符之间都会被分割。</p>
 <p><strong>注意：</strong> split() 方法不改变原始字符串。</p>
 </blockquote>
-<a id="more"></a>
-
 <h3 id="sort-方法"><a href="#sort-方法" class="headerlink" title="sort()方法"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/sort" target="_blank" rel="noopener">sort()方法</a></h3><blockquote>
 <p>如果没有指明 <code>compareFunction</code> ，那么元素会按照转换为的字符串的诸个字符的Unicode位点进行排序。字母会按照<code>abcd...</code>排序例如 “Banana” 会被排列到 “cherry” 之前。当数字按由小到大排序时，9 出现在 80 之前，但因为（没有指明 <code>compareFunction</code>），比较的数字会先被转换为字符串，所以在Unicode顺序上 “80” 要比 “9” 要靠前。 </p>
 </blockquote>
@@ -148,7 +410,9 @@
   <entry>
     <title>javascript笔记</title>
     <url>/2020/01/06/Javascript/javascript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h3 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h3><h4 id="相等操作符"><a href="#相等操作符" class="headerlink" title="相等操作符"></a>相等操作符</h4><h5 id="1-相等和不相等"><a href="#1-相等和不相等" class="headerlink" title="1. 相等和不相等(==)"></a>1. 相等和不相等(==)</h5><h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><h4 id="函数签名"><a href="#函数签名" class="headerlink" title="函数签名"></a>函数签名</h4><p> <strong>函数签名</strong>（或者<em>类型</em>签名，抑或<em>方法</em>签名）定义了 <a href="https://developer.mozilla.org/en-US/docs/Glossary/Function" target="_blank" rel="noopener">函数</a>或<a href="https://developer.mozilla.org/en-US/docs/Glossary/Method" target="_blank" rel="noopener">方法</a>的输入与输出。 </p>
+    <content><![CDATA[<h3 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h3><h4 id="相等操作符"><a href="#相等操作符" class="headerlink" title="相等操作符"></a>相等操作符</h4><h5 id="1-相等和不相等"><a href="#1-相等和不相等" class="headerlink" title="1. 相等和不相等(==)"></a>1. 相等和不相等(==)</h5><a id="more"></a>
+
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><h4 id="函数签名"><a href="#函数签名" class="headerlink" title="函数签名"></a>函数签名</h4><p> <strong>函数签名</strong>（或者<em>类型</em>签名，抑或<em>方法</em>签名）定义了 <a href="https://developer.mozilla.org/en-US/docs/Glossary/Function" target="_blank" rel="noopener">函数</a>或<a href="https://developer.mozilla.org/en-US/docs/Glossary/Method" target="_blank" rel="noopener">方法</a>的输入与输出。 </p>
 <p>签名可包含以下内容：</p>
 <ul>
 <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Parameter" target="_blank" rel="noopener">参数</a> 及参数的 <a href="https://developer.mozilla.org/en-US/docs/Glossary/Type" target="_blank" rel="noopener">类型</a></li>
@@ -232,8 +496,9 @@
   <entry>
     <title>git</title>
     <url>/2020/01/04/Git/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<p>使用当前目录作为Git仓库，初始化本地仓库</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<p><a href="https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener"><span style="font-size:1.75em">参考链接</span></a></p>
+<h2 id="一、新建代码库"><a href="#一、新建代码库" class="headerlink" title="一、新建代码库"></a>一、新建代码库</h2><p>使用当前目录作为Git仓库，初始化本地仓库</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在当前目录新建一个Git代码库</span></span><br><span class="line">$ git init</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建一个目录，将其初始化为Git代码库</span></span><br><span class="line">$ git init [project-name]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载一个项目和它的整个代码历史</span></span><br><span class="line">$ git <span class="built_in">clone</span> [url]</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <tags>
@@ -438,7 +703,9 @@
   <entry>
     <title>next主题个性化设置</title>
     <url>/2019/12/15/%E5%8D%9A%E5%AE%A2/next%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE/</url>
-    <content><![CDATA[<h2 id="Next主题个性化设置"><a href="#Next主题个性化设置" class="headerlink" title="Next主题个性化设置"></a>Next主题个性化设置</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<a id="more"></a>
+
+<h2 id="Next主题个性化设置"><a href="#Next主题个性化设置" class="headerlink" title="Next主题个性化设置"></a>Next主题个性化设置</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
 
 <h3 id="Next安装后修改站点语言的问题"><a href="#Next安装后修改站点语言的问题" class="headerlink" title="Next安装后修改站点语言的问题"></a>Next安装后修改站点语言的问题</h3><blockquote>
 <p>在安装后站点根目录配置文件/_config.yml中language属性是 zh-Hans，但是站点语言并不是中文？</p>
@@ -449,9 +716,10 @@
 
 
 
-<h4 id="Next-Schemes"><a href="#Next-Schemes" class="headerlink" title="Next  Schemes"></a>Next  Schemes</h4>]]></content>
+<h4 id="Next-Schemes"><a href="#Next-Schemes" class="headerlink" title="Next  Schemes"></a>Next  Schemes</h4><h2 id="Next主题颜色配置"><a href="#Next主题颜色配置" class="headerlink" title="Next主题颜色配置"></a>Next主题颜色配置</h2>]]></content>
       <tags>
-        <tag>博客</tag>
+        <tag>hexo</tag>
+        <tag>next</tag>
       </tags>
   </entry>
   <entry>
