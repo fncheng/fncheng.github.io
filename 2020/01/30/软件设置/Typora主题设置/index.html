@@ -55,7 +55,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="用Typora很久了,最喜欢的主题是Github,一直想更改其中一些样式,参考了一些方法,今天终于修改了.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-03T08:39:28.475Z">
+<meta property="og:updated_time" content="2020-02-03T08:53:31.501Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://siwadiya.github.io/2020/01/30/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E7%BD%AE/Typora%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE/">
@@ -256,7 +256,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-03 16:39:28" itemprop="dateModified" datetime="2020-02-03T16:39:28+08:00">2020-02-03</time>
+                <time title="修改时间：2020-02-03 16:53:31" itemprop="dateModified" datetime="2020-02-03T16:53:31+08:00">2020-02-03</time>
               </span>
 
           
@@ -295,9 +295,10 @@
 <h2 id="调整图像大小"><a href="#调整图像大小" class="headerlink" title="调整图像大小"></a>调整图像大小</h2><p>有关详细信息，请参见此<a href="http://support.typora.io/Resize-Image/" target="_blank" rel="noopener">链接</a>。</p>
 </blockquote>
 <p>于是我在theme.css文件中添加了如下代码</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> <span class="selector-class">.md-image</span><span class="selector-pseudo">:only-child</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">80%</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: inherit;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> <span class="selector-class">.md-image</span><span class="selector-pseudo">:only-child</span>&#123;</span><br><span class="line">    <span class="attribute">zoom</span>: <span class="number">80%</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: inherit;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>图片的大小就默认缩放至80%了</p>
+<p><strong><span style="color:red">注意:这里我用的是zoom属性,如果用width属性,图片还是不够清晰,具体原因以后再探究.</span></strong></p>
 
     </div>
 
