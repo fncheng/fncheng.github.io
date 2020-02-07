@@ -55,7 +55,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Linux scp命令语法 1234$ scpusage: scp [-346BCpqrv] [-c cipher] [-F ssh_config] [-i identity_file]           [-l limit] [-o ssh_option] [-P port] [-S program]           [[user@]host1:]file1 [...] [[user@]h">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-03T08:55:09.034Z">
+<meta property="og:updated_time" content="2020-02-06T11:57:37.955Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://siwadiya.github.io/2020/02/01/Linux/scp%E5%91%BD%E4%BB%A4/">
@@ -256,7 +256,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-03 16:55:09" itemprop="dateModified" datetime="2020-02-03T16:55:09+08:00">2020-02-03</time>
+                <time title="修改时间：2020-02-06 19:57:37" itemprop="dateModified" datetime="2020-02-06T19:57:37+08:00">2020-02-06</time>
               </span>
 
           
@@ -274,9 +274,16 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ scp</span><br><span class="line">usage: scp [-346BCpqrv] [-c cipher] [-F ssh_config] [-i identity_file]</span><br><span class="line">           [-l <span class="built_in">limit</span>] [-o ssh_option] [-P port] [-S program]</span><br><span class="line">           [[user@]host1:]file1 [...] [[user@]host2:]file2</span><br></pre></td></tr></table></figure>
 
 <h3 id="在Linux中安全传输文件的14个SCP命令示例"><a href="#在Linux中安全传输文件的14个SCP命令示例" class="headerlink" title="在Linux中安全传输文件的14个SCP命令示例"></a><a href="https://www.linuxtechi.com/scp-command-examples-in-linux/" target="_blank" rel="noopener">在Linux中安全传输文件的14个SCP命令示例</a></h3><p>例如:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp -P local_file remote_username@remote_ip:remote_folder </span><br><span class="line"><span class="comment">#-P port：注意是大写的P, port是指定数据传输用到的端口号</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp -P port local_file remote_username@remote_ip:remote_folder </span><br><span class="line"><span class="comment">#-P port：注意是大写的P, port是指定数据传输用到的端口号</span></span><br></pre></td></tr></table></figure>
+
+<p>实例:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -P 50000 sga.txt cheng@***.***.**.**:/www/wwwroot/filelist/</span><br></pre></td></tr></table></figure>
 
 <p><a href="https://www.runoob.com/linux/linux-comm-scp.html" target="_blank" rel="noopener"><span style="font-size:1.5rem">runoob教程</span></a></p>
+<p>报错提示</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp: /www/wwwroot/filelist//sga.txt: Permission denied</span><br></pre></td></tr></table></figure>
+
+<p>上网查了才知道原来是由于没有该目录的操作权限，默认的是在/tmp有权限</p>
 
     </div>
 
@@ -354,7 +361,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
