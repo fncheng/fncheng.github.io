@@ -222,6 +222,235 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/02/12/Linux/linux%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="siwadiya">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/12/Linux/linux%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">linux权限问题详解</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-02-12 12:51:19 / 修改时间：13:08:43" itemprop="dateCreated datePublished" datetime="2020-02-12T12:51:19+08:00">2020-02-12</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          linux的权限问题有三种,rwx,分别对应着读,写,和操作
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/12/Linux/linux%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/02/11/Javascript/javascriptvoid(0)%E5%92%8Cjavascript;%E7%9A%84%E7%94%A8%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="siwadiya">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/11/Javascript/javascriptvoid(0)%E5%92%8Cjavascript;%E7%9A%84%E7%94%A8%E6%B3%95/" class="post-title-link" itemprop="url">javascript:void(0)和javascript:;的用法</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-11 14:25:18" itemprop="dateCreated datePublished" datetime="2020-02-11T14:25:18+08:00">2020-02-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-12 00:02:42" itemprop="dateModified" datetime="2020-02-12T00:02:42+08:00">2020-02-12</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="https://www.cnblogs.com/Qian123/p/5345697.html" target="_blank" rel="noopener"><h3>参考链接</h3></a></p>
+<h2 id="javascript-void-0"><a href="#javascript-void-0" class="headerlink" title="javascript:void(0)"></a>javascript:void(0)</h2><p>我们经常会使用到 javascript:void(0) 这样的代码，那么在 JavaScript 中 javascript:void(0) 代表的是什么意思呢？</p>
+<p>void 是 JavaScript 中非常重要的关键字，该操作符指定要计算一个表达式但是不返回值。</p>
+<p>下面的代码创建了一个超级链接，当用户点击以后不会发生任何事。当用户点击链接时，void(0) 计算为 0，但在 JavaScript 上没有任何效果。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"javascript:void(0)"</span>&gt;单击此处什么也不会发生&lt;<span class="regexp">/a&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"javascript:void(document.form.submit())"</span>&gt;单此处提交表单&lt;<span class="regexp">/a&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>其实我们可以这样用<code>&lt;a href=&quot;javascript:void(document.form.submit())&quot;&gt;</code>，这句话会进行一次submit操作。那什么情况下用void(0)比较多呢，无刷新，当然是Ajax了，看一下Ajax的web页面的话，一般都会看到有很多的void(0)，所以在使用void(0)之前,最好先想一想,这个页面是否需要整体刷新。</p>
+<h2 id="标签中href-”javascript-”"><a href="#标签中href-”javascript-”" class="headerlink" title="标签中href=”javascript:;”"></a>标签中href=”javascript:;”</h2><p>这里的href=”javascript:;”，其中javascript:是伪协议，它可以让我们通过一个链接来调用javascript函数.而采用这个方式 javascript:;可以实现A标签的点击事件运行时，如果页面内容很多，有滚动条时，页面不会乱跳，用户体验更好。</p>
+<p>javascript:是表示在触发&lt;a&gt;默认动作时，执行一段JavaScript代码，而 javascript:; 表示什么都不执行，这样点击&lt;a&gt;时就没有任何反应。</p>
+<p>javascript:;表示这是一个空连接。点击之后没任何反应。<br>类似的是#，但是一个#点击之后页面很长的情况下会会滚到顶部；而javascript:;没这样的问题；</p>
+<h2 id="href-”-”与href-”javascript-void-0-”的区别"><a href="#href-”-”与href-”javascript-void-0-”的区别" class="headerlink" title="href=”#”与href=”javascript:void(0)”的区别"></a>href=”#”与href=”javascript:void(0)”的区别</h2><p>在做页面时，如果想做一个链接点击后不做任何事情，或者响应点击而完成其他事情，可以设置其属性 href = “#”，但是，这样会有一个问题，就是当页面有滚动条时，点击后会返回到页面顶端，用户体验不好。 </p>
+<p>目前有如下几种解决办法： </p>
+<ol>
+<li>点击链接后不做任何事情 </li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>&lt;a href=<span class="string">"javascript:void(0);"</span> &gt;test&lt;<span class="regexp">/a&gt;   </span></span><br><span class="line"><span class="regexp">2.&lt;a href="javascript:;" &gt;test&lt;/</span>a&gt;   </span><br><span class="line"><span class="number">3.</span>&lt;a href=<span class="string">"####"</span> &gt;test&lt;<span class="regexp">/a&gt; /</span><span class="regexp">/使用2个到4个#，见的大多是"####"，也有使用"#all"等其他的</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>点击链接后，响应用户自定义的点击事件 </li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>&lt;a href=<span class="string">"javascript:void(0)"</span> onclick=<span class="string">"doSomething()"</span>&gt;test&lt;<span class="regexp">/a&gt;   </span></span><br><span class="line"><span class="regexp">2.&lt;a href="#" onclick="doSomething();return false;"&gt;什么问题都解决了,包括浏览器不兼容问题&lt;/</span>a&gt; <span class="comment">//或者直接使用href=""   </span></span><br><span class="line"><span class="number">3.</span>&lt;a href=<span class="string">"#"</span> onclick=<span class="string">"alert();event.returnValue=false;"</span>&gt;test&lt;<span class="regexp">/a&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/02/08/Javascript/%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="siwadiya">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/08/Javascript/%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/" class="post-title-link" itemprop="url">js事件委托</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-08 11:27:54" itemprop="dateCreated datePublished" datetime="2020-02-08T11:27:54+08:00">2020-02-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-12 13:08:58" itemprop="dateModified" datetime="2020-02-12T13:08:58+08:00">2020-02-12</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>事件委托，通俗地来讲，就是把一个元素响应事件（click、keydown……）的函数委托到另一个元素；</p>
+<p>一般来讲，会把一个或者一组元素的事件委托到它的父层或者更外层元素上，真正绑定事件的是外层元素，当事件响应到需要绑定的元素上时，会通过<strong>事件冒泡机制</strong>从而触发它的外层元素的绑定事件上，然后在外层元素上去执行函数。</p>
+<p><img src="https://i.loli.net/2020/02/10/Pjci6mMzJOsFV7a.png" alt=""></p>
+<p>我们可以在绑定事件的时候指定指是在哪个阶段触发事件，element.addEventListener(event, function, useCapture)，==useCapture默认为false==，即默认在冒泡阶段触发事件</p>
+<h3 id="功能实现"><a href="#功能实现" class="headerlink" title="功能实现"></a>功能实现</h3><p>比如有这样一个HTML片段</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"list"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>item 1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>item 2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>item 3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  ......</span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>item n<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">// ...... 代表中间还有未知数个 li</span><br></pre></td></tr></table></figure>
+
+<p>通过事件委托把li元素的事件代理委托到它的父级元素也就是ul上:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 给父层元素绑定事件</span></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'list'</span>).addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 兼容性处理</span></span><br><span class="line">  <span class="keyword">var</span> event = e || <span class="built_in">window</span>.event;</span><br><span class="line">  <span class="keyword">var</span> target = event.target || event.srcElement;</span><br><span class="line">  <span class="comment">// 判断是否匹配目标元素</span></span><br><span class="line">  <span class="keyword">if</span> (target.nodeName.toLocaleLowerCase === <span class="string">'li'</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'the content is: '</span>, target.innerHTML);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong><code>Event.srcElement</code></strong> 是标准的 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Event/target" target="_blank" rel="noopener"><code>Event.target</code></a> 属性的一个别名。它只对老版本的IE浏览器有效。目的是兼容老版本的IE。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/02/06/Linux/ls%E5%91%BD%E4%BB%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -253,7 +482,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-07 11:13:02" itemprop="dateModified" datetime="2020-02-07T11:13:02+08:00">2020-02-07</time>
+                <time title="修改时间：2020-02-12 13:09:04" itemprop="dateModified" datetime="2020-02-12T13:09:04+08:00">2020-02-12</time>
               </span>
 
           
@@ -391,7 +620,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-06 19:57:37" itemprop="dateModified" datetime="2020-02-06T19:57:37+08:00">2020-02-06</time>
+                <time title="修改时间：2020-02-12 12:39:12" itemprop="dateModified" datetime="2020-02-12T12:39:12+08:00">2020-02-12</time>
               </span>
 
           
@@ -728,221 +957,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/01/22/Git/%E5%B0%86%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E6%8E%A8%E9%80%81%E5%88%B0Github/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="siwadiya">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/22/Git/%E5%B0%86%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E6%8E%A8%E9%80%81%E5%88%B0Github/" class="post-title-link" itemprop="url">将本地仓库推送到Github</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-22 18:47:37" itemprop="dateCreated datePublished" datetime="2020-01-22T18:47:37+08:00">2020-01-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-02 22:38:45" itemprop="dateModified" datetime="2020-02-02T22:38:45+08:00">2020-02-02</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          git常用命令,本地仓库推送到github.
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/01/22/Git/%E5%B0%86%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E6%8E%A8%E9%80%81%E5%88%B0Github/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/01/22/Javascript/JQuery%E5%AD%A6%E4%B9%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="siwadiya">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/22/Javascript/JQuery%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">JQuery学习</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-22 18:05:10" itemprop="dateCreated datePublished" datetime="2020-01-22T18:05:10+08:00">2020-01-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-01-28 16:02:09" itemprop="dateModified" datetime="2020-01-28T16:02:09+08:00">2020-01-28</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="文档就绪事件"><a href="#文档就绪事件" class="headerlink" title="文档就绪事件"></a>文档就绪事件</h2><p>将 jQuery 函数位于一个 document ready 函数中： </p>
-<p>这是为了防止文档在完全加载（就绪）之前运行 jQuery 代码。</p>
-<p>如果在文档没有完全加载之前就运行函数，操作可能失败。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 开始写 jQuery 代码...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 开始写 jQuery 代码...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>以上两种写法等效</p>
-<p>JQuery语法:</p>
-<article style="color:blue;font-weight:700">$("触发对象").触发条件(function () {<br>
-    <div style="text-indent:2rem">$("要操作的对象,CSS选择符写法").要操作的方法(参数);</div>
-})</article>
-
-<p>例如:</p>
-<article style="color:red;font-weight:700">$("#btn").click(function () {<br>
-    <div style="text-indent:2rem">$(".container").append("divclass="box">1\div>");</div>
-})</article>
-
-<p>例如:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#btn"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="string">".container"</span>).append(<span class="string">"&lt;div class=\"box\"&gt;1&lt;/div&gt;"</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/01/20/Javascript/Http%20Status%E7%8A%B6%E6%80%81%E7%A0%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="siwadiya">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/20/Javascript/Http%20Status%E7%8A%B6%E6%80%81%E7%A0%81/" class="post-title-link" itemprop="url">Javascript/Http Status状态码</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-01-20 16:44:39 / 修改时间：16:50:46" itemprop="dateCreated datePublished" datetime="2020-01-20T16:44:39+08:00">2020-01-20</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -991,7 +1005,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">56</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

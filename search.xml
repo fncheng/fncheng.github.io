@@ -1,6 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>linux权限问题详解</title>
+    <url>/2020/02/12/Linux/linux%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>linux中的每个用户必须属于一个组,不能独立于组外.</p>
+<p>在linux中每个文件都有所有者,所在组,其他组的概念.</p>
+<p>首先在linux目录下通过<code>ls -lh</code>命令查看目录下所有文件的权限</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">total 7.5M</span><br><span class="line">drwxr-xr-x  5 root root 4.0K Aug 27 17:35 backup</span><br><span class="line">drwxrwxrwx  3 root root 4.0K Jan 31 17:13 Recycle_bin</span><br><span class="line">drwxr-xr-x 11 root root 4.0K Aug 29 09:26 server</span><br><span class="line">drwxr-xr-x  3 root root 4.0K Nov 10 18:27 themes</span><br><span class="line">-rw-r--r--  1 root root 7.5M Sep  5 08:57 wordpress-4.6.15.tar.gz</span><br><span class="line">drwxrwxrwx  3 root root 4.0K Jan 31 17:13 wwwlogs</span><br><span class="line">drwxrwxrw-  7 root root 4.0K Jan 31 17:13 wwwroot</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdn.net/20170513152626838?watermark/2/text/aHR0cD" alt=""></p>
+<p>其中rwx分别代表着read,write,eXecute</p>
+<ul>
+<li>r(Read，读取)：对文件而言，具有读取文件内容的权限；对目录来说，具有浏览目录的权限。</li>
+<li>w(Write,写入)：对文件而言，具有新增,修改,删除文件内容的权限；对目录来说，具有新建，删除，修改，移动目录内文件的权限。</li>
+<li>x(eXecute，执行)：对文件而言，具有执行文件的权限；对目录了来说该用户具有进入目录的权限。</li>
+</ul>
+<ol>
+<li>目录的只读访问不允许使用cd进入目录，必须要有执行的权限才能进入。</li>
+<li>只有执行权限只能进入目录，不能看到目录下的内容，要想看到目录下的文件名和目录名，需要可读权限。</li>
+<li>一个文件能不能被删除，主要看该文件所在的目录对用户是否具有写权限(<strong>即w权限</strong>)，如果目录对用户没有写权限，则该目录下的所有文件都不能被删除，文件所有者除外</li>
+<li>目录的w位不设置，即使你拥有目录中某文件的w权限也不能写该文件</li>
+</ol>
+<p><img src="https://i.loli.net/2020/02/12/zOotH9qUC12ce5y.png" alt=""></p>
+<p>在<code>-rwxr-xr-x 1 www   www   644 Jan 31 17:12 index.html</code>中</p>
+<p>index.html文件属于www用户,www组;</p>
+]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>javascript:void(0)和javascript:;的用法</title>
+    <url>/2020/02/11/Javascript/javascriptvoid(0)%E5%92%8Cjavascript;%E7%9A%84%E7%94%A8%E6%B3%95/</url>
+    <content><![CDATA[<p><a href="https://www.cnblogs.com/Qian123/p/5345697.html" target="_blank" rel="noopener"><h3>参考链接</h3></a></p>
+<h2 id="javascript-void-0"><a href="#javascript-void-0" class="headerlink" title="javascript:void(0)"></a>javascript:void(0)</h2><p>我们经常会使用到 javascript:void(0) 这样的代码，那么在 JavaScript 中 javascript:void(0) 代表的是什么意思呢？</p>
+<p>void 是 JavaScript 中非常重要的关键字，该操作符指定要计算一个表达式但是不返回值。</p>
+<p>下面的代码创建了一个超级链接，当用户点击以后不会发生任何事。当用户点击链接时，void(0) 计算为 0，但在 JavaScript 上没有任何效果。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;a href=<span class="string">"javascript:void(0)"</span>&gt;单击此处什么也不会发生&lt;<span class="regexp">/a&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;a href=<span class="string">"javascript:void(document.form.submit())"</span>&gt;单此处提交表单&lt;<span class="regexp">/a&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>其实我们可以这样用<code>&lt;a href=&quot;javascript:void(document.form.submit())&quot;&gt;</code>，这句话会进行一次submit操作。那什么情况下用void(0)比较多呢，无刷新，当然是Ajax了，看一下Ajax的web页面的话，一般都会看到有很多的void(0)，所以在使用void(0)之前,最好先想一想,这个页面是否需要整体刷新。</p>
+<h2 id="标签中href-”javascript-”"><a href="#标签中href-”javascript-”" class="headerlink" title="标签中href=”javascript:;”"></a>标签中href=”javascript:;”</h2><p>这里的href=”javascript:;”，其中javascript:是伪协议，它可以让我们通过一个链接来调用javascript函数.而采用这个方式 javascript:;可以实现A标签的点击事件运行时，如果页面内容很多，有滚动条时，页面不会乱跳，用户体验更好。</p>
+<p>javascript:是表示在触发&lt;a&gt;默认动作时，执行一段JavaScript代码，而 javascript:; 表示什么都不执行，这样点击&lt;a&gt;时就没有任何反应。</p>
+<p>javascript:;表示这是一个空连接。点击之后没任何反应。<br>类似的是#，但是一个#点击之后页面很长的情况下会会滚到顶部；而javascript:;没这样的问题；</p>
+<h2 id="href-”-”与href-”javascript-void-0-”的区别"><a href="#href-”-”与href-”javascript-void-0-”的区别" class="headerlink" title="href=”#”与href=”javascript:void(0)”的区别"></a>href=”#”与href=”javascript:void(0)”的区别</h2><p>在做页面时，如果想做一个链接点击后不做任何事情，或者响应点击而完成其他事情，可以设置其属性 href = “#”，但是，这样会有一个问题，就是当页面有滚动条时，点击后会返回到页面顶端，用户体验不好。 </p>
+<p>目前有如下几种解决办法： </p>
+<ol>
+<li>点击链接后不做任何事情 </li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span>&lt;a href=<span class="string">"javascript:void(0);"</span> &gt;test&lt;<span class="regexp">/a&gt;   </span></span><br><span class="line"><span class="regexp">2.&lt;a href="javascript:;" &gt;test&lt;/</span>a&gt;   </span><br><span class="line"><span class="number">3.</span>&lt;a href=<span class="string">"####"</span> &gt;test&lt;<span class="regexp">/a&gt; /</span><span class="regexp">/使用2个到4个#，见的大多是"####"，也有使用"#all"等其他的</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>点击链接后，响应用户自定义的点击事件 </li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span>&lt;a href=<span class="string">"javascript:void(0)"</span> onclick=<span class="string">"doSomething()"</span>&gt;test&lt;<span class="regexp">/a&gt;   </span></span><br><span class="line"><span class="regexp">2.&lt;a href="#" onclick="doSomething();return false;"&gt;什么问题都解决了,包括浏览器不兼容问题&lt;/</span>a&gt; <span class="comment">//或者直接使用href=""   </span></span><br><span class="line"><span class="number">3.</span>&lt;a href=<span class="string">"#"</span> onclick=<span class="string">"alert();event.returnValue=false;"</span>&gt;test&lt;<span class="regexp">/a&gt;</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js事件委托</title>
+    <url>/2020/02/08/Javascript/%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/</url>
+    <content><![CDATA[<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>事件委托，通俗地来讲，就是把一个元素响应事件（click、keydown……）的函数委托到另一个元素；</p>
+<p>一般来讲，会把一个或者一组元素的事件委托到它的父层或者更外层元素上，真正绑定事件的是外层元素，当事件响应到需要绑定的元素上时，会通过<strong>事件冒泡机制</strong>从而触发它的外层元素的绑定事件上，然后在外层元素上去执行函数。</p>
+<p><img src="https://i.loli.net/2020/02/10/Pjci6mMzJOsFV7a.png" alt=""></p>
+<p>我们可以在绑定事件的时候指定指是在哪个阶段触发事件，element.addEventListener(event, function, useCapture)，==useCapture默认为false==，即默认在冒泡阶段触发事件</p>
+<h3 id="功能实现"><a href="#功能实现" class="headerlink" title="功能实现"></a>功能实现</h3><p>比如有这样一个HTML片段</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"list"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>item 1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>item 2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>item 3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  ......</span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>item n<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">// ...... 代表中间还有未知数个 li</span><br></pre></td></tr></table></figure>
+
+<p>通过事件委托把li元素的事件代理委托到它的父级元素也就是ul上:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 给父层元素绑定事件</span></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'list'</span>).addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 兼容性处理</span></span><br><span class="line">  <span class="keyword">var</span> event = e || <span class="built_in">window</span>.event;</span><br><span class="line">  <span class="keyword">var</span> target = event.target || event.srcElement;</span><br><span class="line">  <span class="comment">// 判断是否匹配目标元素</span></span><br><span class="line">  <span class="keyword">if</span> (target.nodeName.toLocaleLowerCase === <span class="string">'li'</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'the content is: '</span>, target.innerHTML);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong><code>Event.srcElement</code></strong> 是标准的 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Event/target" target="_blank" rel="noopener"><code>Event.target</code></a> 属性的一个别名。它只对老版本的IE浏览器有效。目的是兼容老版本的IE。</p>
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ls命令</title>
     <url>/2020/02/06/Linux/ls%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h2 id="Linux-ls命令"><a href="#Linux-ls命令" class="headerlink" title="Linux ls命令"></a>Linux ls命令</h2><p><strong>语法</strong></p>
