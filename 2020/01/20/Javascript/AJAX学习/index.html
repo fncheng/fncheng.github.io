@@ -56,7 +56,7 @@
 <meta property="og:description" content="AJAX即 “Asynchronous Javascript And XML “（异步JavaScript和XML） AJAX 是一种用于创建快速动态网页的技术。 Ajax 的核心是 JavaScript 对象 XMLHttpRequest。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;7n.w3cschool.cn&#x2F;statics&#x2F;images&#x2F;course&#x2F;ajax.gif">
-<meta property="og:updated_time" content="2020-01-21T05:04:21.380Z">
+<meta property="og:updated_time" content="2020-03-01T15:07:18.230Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;7n.w3cschool.cn&#x2F;statics&#x2F;images&#x2F;course&#x2F;ajax.gif">
 
@@ -258,7 +258,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-01-21 13:04:21" itemprop="dateModified" datetime="2020-01-21T13:04:21+08:00">2020-01-21</time>
+                <time title="修改时间：2020-03-01 23:07:18" itemprop="dateModified" datetime="2020-03-01T23:07:18+08:00">2020-03-01</time>
               </span>
 
           
@@ -277,8 +277,25 @@
 <p>Ajax 的核心是 JavaScript 对象 XMLHttpRequest。</p>
 <a id="more"></a>
 
-<h3 id="AJAX工作原理"><a href="#AJAX工作原理" class="headerlink" title="AJAX工作原理"></a>AJAX工作原理</h3><p><img src="https://7n.w3cschool.cn/statics/images/course/ajax.gif" alt=""></p>
-<h3 id="XHR-创建对象"><a href="#XHR-创建对象" class="headerlink" title="XHR 创建对象"></a>XHR 创建对象</h3><h4 id="AJAX-创建-XMLHttpRequest-对象"><a href="#AJAX-创建-XMLHttpRequest-对象" class="headerlink" title="AJAX - 创建 XMLHttpRequest 对象"></a>AJAX - 创建 XMLHttpRequest 对象</h4><p> XMLHttpRequest 是 AJAX 的基础。 </p>
+<h2 id="AJAX工作原理"><a href="#AJAX工作原理" class="headerlink" title="AJAX工作原理"></a>AJAX工作原理</h2><p><img src="https://7n.w3cschool.cn/statics/images/course/ajax.gif" alt=""></p>
+<h2 id="XHR的用法"><a href="#XHR的用法" class="headerlink" title="XHR的用法"></a>XHR的用法</h2><ul>
+<li><p>创建xhr对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置请求头部信息</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//请求行</span></span><br><span class="line">xhr.open(<span class="string">"get"</span>,<span class="string">""</span>)</span><br><span class="line"><span class="comment">//请求头</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>发送请求</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xhr.send(<span class="literal">null</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>接收服务器响应</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h3 id="创建XHR对象"><a href="#创建XHR对象" class="headerlink" title="创建XHR对象"></a>创建XHR对象</h3><h4 id="AJAX-创建-XMLHttpRequest-对象"><a href="#AJAX-创建-XMLHttpRequest-对象" class="headerlink" title="AJAX - 创建 XMLHttpRequest 对象"></a>AJAX - 创建 XMLHttpRequest 对象</h4><p> XMLHttpRequest 是 AJAX 的基础。 </p>
 <p> XMLHttpRequest 术语缩写为XHR，中文可以解释为可扩展超文本传输请求。 </p>
 <p>它执行以下操作：</p>
 <ol>
@@ -294,7 +311,7 @@
 
 
 
-<h4 id="XHR-请求"><a href="#XHR-请求" class="headerlink" title="XHR 请求"></a>XHR 请求</h4><h5 id="AJAX如何工作？"><a href="#AJAX如何工作？" class="headerlink" title="AJAX如何工作？"></a>AJAX如何工作？</h5><hr>
+<h3 id="XHR-请求"><a href="#XHR-请求" class="headerlink" title="XHR 请求"></a>XHR 请求</h3><h4 id="AJAX工作步骤"><a href="#AJAX工作步骤" class="headerlink" title="AJAX工作步骤"></a>AJAX工作步骤</h4><hr>
 <p>正如您在上面的示例中所看到的，XMLHttpRequest对象起着重要作用。</p>
 <ol>
 <li>用户从UI发送请求，JavaScript中调用XMLHttpRequest对象。</li>
@@ -304,7 +321,7 @@
 <li>服务器将XML数据或JSON数据发送到XMLHttpRequest回调函数。</li>
 <li>HTML和CSS数据显示在浏览器上。</li>
 </ol>
-<h5 id="向服务器发送请求？"><a href="#向服务器发送请求？" class="headerlink" title="向服务器发送请求？"></a>向服务器发送请求？</h5><hr>
+<h5 id="发送请求至服务器"><a href="#发送请求至服务器" class="headerlink" title="发送请求至服务器"></a>发送请求至服务器</h5><hr>
 <p> 如需将请求发送到服务器，我们使用 XMLHttpRequest 对象的<code>open()</code>和<code>send()</code>方法： </p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xmlhttp.open(<span class="string">"GET"</span>,<span class="string">"ajax_info.txt"</span>,<span class="literal">true</span>);        </span><br><span class="line">xmlhttp.send();</span><br></pre></td></tr></table></figure>
 
@@ -324,10 +341,13 @@
 <td align="left">将请求发送到服务器。<em>string</em>：仅用于 POST 请求</td>
 </tr>
 </tbody></table>
-<h5 id="Async-true"><a href="#Async-true" class="headerlink" title="Async=true"></a>Async=true</h5><hr>
+<p>Async=true</p>
+<hr>
 <p> 当使用 async=true 时，请规定在响应处于 onreadystatechange 事件中的就绪状态时执行的函数： </p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line"><span class="comment">// 发送请求...</span></span><br><span class="line">xmlhttp.open(<span class="string">"GET"</span>,<span class="string">"ajax_info.txt"</span>,<span class="literal">true</span>);        </span><br><span class="line">xmlhttp.send();</span><br><span class="line"></span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//200（成功）  服务器已成功处理了请求。通常，这表示服务器提供了请求的网页。</span></span><br><span class="line">    <span class="keyword">if</span> (xhr.readyState === <span class="number">4</span> &amp;&amp; xhr.status === <span class="number">20</span>) &#123;</span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">"view"</span>).innerHTML = xhr.responseText;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
+<p>这里也可以使用<code>onload</code>事件</p>
+<h4 id="onload和onreadystatechange"><a href="#onload和onreadystatechange" class="headerlink" title="onload和onreadystatechange"></a>onload和onreadystatechange</h4><p>IE不支持onload,只支持onreadystatechange</p>
 <h3 id="XHR响应"><a href="#XHR响应" class="headerlink" title="XHR响应"></a>XHR响应</h3><h4 id="AJAX-服务器响应"><a href="#AJAX-服务器响应" class="headerlink" title="AJAX - 服务器响应"></a>AJAX - 服务器响应</h4><hr>
 <ul>
 <li><p><strong>状态行</strong><br><code>xhr.status</code>状态码，即<a href="https://blog.csdn.net/unclebober/article/details/86626117" target="_blank" rel="noopener">Http StatusCode</a>,如200，304，404等；</p>
@@ -396,8 +416,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/01/19/Javascript/Json/" rel="prev" title="Json">
-      <i class="fa fa-chevron-left"></i> Json
+    <a href="/2020/01/19/Javascript/Json/" rel="prev" title="Json的表示及序列化和反序列化">
+      <i class="fa fa-chevron-left"></i> Json的表示及序列化和反序列化
     </a></div>
       <div class="post-nav-item">
     <a href="/2020/01/20/Javascript/Http%20Status%E7%8A%B6%E6%80%81%E7%A0%81/" rel="next" title="Javascript/Http Status状态码">
@@ -440,7 +460,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#AJAX工作原理"><span class="nav-number">1.</span> <span class="nav-text">AJAX工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XHR-创建对象"><span class="nav-number">2.</span> <span class="nav-text">XHR 创建对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AJAX-创建-XMLHttpRequest-对象"><span class="nav-number">2.1.</span> <span class="nav-text">AJAX - 创建 XMLHttpRequest 对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XHR-请求"><span class="nav-number">2.2.</span> <span class="nav-text">XHR 请求</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#AJAX如何工作？"><span class="nav-number">2.2.1.</span> <span class="nav-text">AJAX如何工作？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#向服务器发送请求？"><span class="nav-number">2.2.2.</span> <span class="nav-text">向服务器发送请求？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Async-true"><span class="nav-number">2.2.3.</span> <span class="nav-text">Async=true</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XHR响应"><span class="nav-number">3.</span> <span class="nav-text">XHR响应</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AJAX-服务器响应"><span class="nav-number">3.1.</span> <span class="nav-text">AJAX - 服务器响应</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#responseText-属性"><span class="nav-number">3.1.1.</span> <span class="nav-text">responseText 属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#responseXML-属性"><span class="nav-number">3.1.2.</span> <span class="nav-text">responseXML 属性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XHR-readyState"><span class="nav-number">4.</span> <span class="nav-text">XHR readyState</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AJAX-onreadystatechange-事件"><span class="nav-number">4.1.</span> <span class="nav-text">AJAX - onreadystatechange 事件</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX工作原理"><span class="nav-number">1.</span> <span class="nav-text">AJAX工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XHR的用法"><span class="nav-number">2.</span> <span class="nav-text">XHR的用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建XHR对象"><span class="nav-number">2.1.</span> <span class="nav-text">创建XHR对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AJAX-创建-XMLHttpRequest-对象"><span class="nav-number">2.1.1.</span> <span class="nav-text">AJAX - 创建 XMLHttpRequest 对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XHR-请求"><span class="nav-number">2.2.</span> <span class="nav-text">XHR 请求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AJAX工作步骤"><span class="nav-number">2.2.1.</span> <span class="nav-text">AJAX工作步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#发送请求至服务器"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">发送请求至服务器</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#onload和onreadystatechange"><span class="nav-number">2.2.2.</span> <span class="nav-text">onload和onreadystatechange</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XHR响应"><span class="nav-number">2.3.</span> <span class="nav-text">XHR响应</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AJAX-服务器响应"><span class="nav-number">2.3.1.</span> <span class="nav-text">AJAX - 服务器响应</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#responseText-属性"><span class="nav-number">2.3.1.1.</span> <span class="nav-text">responseText 属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#responseXML-属性"><span class="nav-number">2.3.1.2.</span> <span class="nav-text">responseXML 属性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XHR-readyState"><span class="nav-number">2.4.</span> <span class="nav-text">XHR readyState</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AJAX-onreadystatechange-事件"><span class="nav-number">2.4.1.</span> <span class="nav-text">AJAX - onreadystatechange 事件</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -454,7 +474,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-count">73</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

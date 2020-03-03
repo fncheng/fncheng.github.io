@@ -55,7 +55,7 @@
 <meta property="og:site_name" content="風之萬里">
 <meta property="og:description" content="参考链接起因是这样的  我在写js的时候输入for会有智能提示(js snippet插件的) 1234for (let index = 0; index &amp;lt; array.length; index++) &amp;#123;    const element = array[index];    &amp;#125;  但我目前只是刚接触js,所以想让他的效果是这样的 123for ( i = 0; i &amp;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-19T04:50:56.952Z">
+<meta property="og:updated_time" content="2020-03-02T08:23:46.959Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://siwadiya.github.io/2020/01/09/Vscode/vscode%20snippet%E9%85%8D%E7%BD%AE/">
@@ -256,7 +256,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-01-19 12:50:56" itemprop="dateModified" datetime="2020-01-19T12:50:56+08:00">2020-01-19</time>
+                <time title="修改时间：2020-03-02 16:23:46" itemprop="dateModified" datetime="2020-03-02T16:23:46+08:00">2020-03-02</time>
               </span>
 
           
@@ -282,13 +282,13 @@
 </blockquote>
 <a id="more"></a>
 
-<h3 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h3><p>首先打开snippet的配置文件,每个格式都会有一个,形如<code>$language.json</code>的配置,我要配置的事js的,所以打开javascript.json.</p>
+<h3 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h3><p>首先打开snippet的配置文件,每个格式都会有一个,形如<code>$language.json</code>的配置,我要配置的是js的,所以打开javascript.json.</p>
 <p>具体路径:<code>文件\首选项\用户snippet,选择要配置的语言</code></p>
 <p>打开后会有一段注释,注释中已经给出了一个模板</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">"Print to console": &#123;</span><br><span class="line">	"prefix": "log",</span><br><span class="line">	"body": [</span><br><span class="line">		"console.log('$1');",</span><br><span class="line">		<span class="string">"$2"</span></span><br><span class="line">	],</span><br><span class="line">	"description": "Log output to console"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><code>console.log</code> 对应代码片段名称。</li>
+<li><code>Print to console</code> 对应代码片段名称。</li>
 <li><code>prefix</code> 对应触发代码片段的字符。</li>
 <li><code>body</code> 对应代码片段内容，可以是字符串，也可以为数组，若为数组每个元素都做为单独的一行插入。<code>body</code> 的内容支持js的转义字符，如 <code>\n\r</code>  等，我个人不建议用 <code>\n</code> ，可另起一行给数组多插入一项，不然一行太多的话不容易观察代码块的格式。</li>
 <li><code>description</code> 对应代码片段描述。</li>
@@ -375,7 +375,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-count">73</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

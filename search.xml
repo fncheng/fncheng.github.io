@@ -1,6 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>centos升级git</title>
+    <url>/2020/03/03/Linux/centos%E5%8D%87%E7%BA%A7git/</url>
+    <content><![CDATA[<h2 id="centos7编译安装最新版git"><a href="#centos7编译安装最新版git" class="headerlink" title="centos7编译安装最新版git"></a>centos7编译安装最新版git</h2><p><a href="https://learnku.com/articles/30501" target="_blank" rel="noopener">参考链接</a></p>
+]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cygwin安装教程</title>
+    <url>/2020/03/03/Linux/cygwin%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h2 id="cygwin"><a href="#cygwin" class="headerlink" title="cygwin"></a>cygwin</h2><p>参考链接:</p>
+<p><a href="https://www.linuxidc.com/Linux/2019-02/156968.htm" target="_blank" rel="noopener">https://www.linuxidc.com/Linux/2019-02/156968.htm</a></p>
+<p><a href="https://www.cnblogs.com/lsdb/p/8075178.html" target="_blank" rel="noopener">https://www.cnblogs.com/lsdb/p/8075178.html</a></p>
+]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>remote-ssh的使用过程</title>
+    <url>/2020/03/03/Vscode/remote-ssh%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="remote-ssh"><a href="#remote-ssh" class="headerlink" title="remote-ssh"></a>remote-ssh</h2><p>首先在vscode下载remote-ssh相关插件</p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接:"></a>参考链接:</h3><p><a href="https://xirikm.net/2019/619-1" target="_blank" rel="noopener">VSCode 配置 Remote-SSH 远程开发</a></p>
+<h3 id="配置SSH密钥登陆"><a href="#配置SSH密钥登陆" class="headerlink" title="配置SSH密钥登陆"></a>配置SSH密钥登陆</h3><p>用户目录下的 <code>.ssh</code> 文件夹内的 id_rsa 和 id_rsa.pub 两个文件,分别对应为私钥和公钥。将 id_rsa.pub 文件中的内容复制到你远程主机用户目录下 .ssh 文件夹内名为 authorized_keys 的文件中即可。</p>
+<p>或者将id_rsa.pub复制到.ssh目录下,然后执行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat id_rsa.pub &gt;&gt; authorized_keys</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><ul>
+<li><p>用<code>ssh-keygen</code>生成密钥的时候,如果本地已经存在id_rsa,id_rsa.pub 文件,可以直接使用.</p>
+</li>
+<li><p>如果服务器不支持密钥登陆,则需要开启.参考链接:<a href="https://hyjk2000.github.io/2012/03/16/how-to-set-up-ssh-keys/" target="_blank" rel="noopener">设置SSH通过密钥登陆</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line"><span class="comment">#修改如下内容</span></span><br><span class="line">RSAAuthentication yes</span><br><span class="line">PubkeyAuthentication yes</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>完成以上操作后,使用root用户可以正常登陆,但是用普通用户登陆仍然要输入密码</p>
+<p><strong>这里的原因是.ssh目录与authorized_keys文件的权限不能太大,像766这种肯定是无法登陆的.</strong></p>
+<p><strong>于是我对照root用户下的权限,改成了700,测试发现可以登陆了</strong></p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>linux</tag>
+        <tag>vscode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>linux新建用户</title>
+    <url>/2020/03/03/Linux/linux%E6%96%B0%E5%BB%BA%E7%94%A8%E6%88%B7/</url>
+    <content><![CDATA[<blockquote>
+<p>起因:</p>
+<p>想远程通过remote ssh远程连接服务器,写代码,保存在服务器上运行,而不用本地运行.而通过root用户登陆不太好,所以需要创建一个用户,并设置好权限.</p>
+</blockquote>
+<p>创建用户前,我们需要了解一下<a href="https://blog.csdn.net/yue7603835/article/details/73699258" target="_blank" rel="noopener">linux的用户和用户组以及权限的概念</a>.</p>
+<h2 id="新建用户"><a href="#新建用户" class="headerlink" title="新建用户"></a><a href="https://blog.csdn.net/beitiandijun/article/details/41678251" target="_blank" rel="noopener">新建用户</a></h2><h3 id="adduser命令"><a href="#adduser命令" class="headerlink" title="adduser命令"></a>adduser命令</h3><p>会自动为创建的用户指定主目录、系统shell版本，会在创建时输入用户密码。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">adduser apple</span><br></pre></td></tr></table></figure>
+
+<p>这样在创建用户名时，就创建了用户的主目录(/home/apple)以及密码。</p>
+<p>默认情况下：</p>
+<p>adduser在创建用户时会主动调用  /etc/adduser.conf；</p>
+<p>在创建用户主目录时默认在/home下，而且创建为 /home/用户名</p>
+<h3 id="useradd命令"><a href="#useradd命令" class="headerlink" title="useradd命令"></a>useradd命令</h3><p>需要使用参数选项指定上述基本设置，如果不使用任何参数，则创建的用户无密码、无主目录、没有指定shell版本。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">useradd tt</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<p><a href="https://www.cnblogs.com/52php/p/5677628.html" target="_blank" rel="noopener">参考链接</a></p>
+]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>模板引擎初接触--art-template</title>
+    <url>/2020/03/03/Javascript/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E4%B9%8Barttemplate%E5%88%9D%E6%8E%A5%E8%A7%A6/</url>
+    <content><![CDATA[<h3 id="art-template官网"><a href="#art-template官网" class="headerlink" title="art-template官网"></a><a href="https://aui.github.io/art-template/zh-cn/" target="_blank" rel="noopener">art-template官网</a></h3>]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>http协议的学习</title>
+    <url>/2020/03/01/Http/http%E4%BB%8B%E7%BB%8D/</url>
+    <content><![CDATA[<h2 id="关于HTTP协议"><a href="#关于HTTP协议" class="headerlink" title="关于HTTP协议"></a><a href="https://www.cnblogs.com/ranyonsue/p/5984001.html" target="_blank" rel="noopener">关于HTTP协议</a></h2><h3 id="HTTP简介"><a href="#HTTP简介" class="headerlink" title="HTTP简介"></a>HTTP简介</h3><p>HTTP协议是Hyper Text Transfer Protocol（超文本传输协议）的缩写,是用于从万维网（WWW:World Wide Web ）服务器传输超文本到本地浏览器的传送协议。</p>
+<p>HTTP是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2964446-5a35e17f298a48e1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2" alt=""></p>
+<h3 id="HTTP-URL"><a href="#HTTP-URL" class="headerlink" title="HTTP-URL"></a>HTTP-URL</h3><p>HTTP使用统一资源标识符（Uniform Resource Identifiers, URI）来传输数据和建立连接。URL是一种特殊类型的URI，包含了用于查找某个资源的足够的信息</p>
+<p>URL,全称是UniformResourceLocator, 中文叫统一资源定位符,是互联网上用来标识某一处资源的地址。以下面这个URL为例，介绍下普通URL的各部分组成：</p>
+<p><code>http://www.aspxfans.com:8080/news/index.asp?boardID=5&amp;ID=24618&amp;page=1#name</code></p>
+<p>从上面的URL可以看出，一个完整的URL包括以下几部分：</p>
+<ol>
+<li>协议部分：该URL的协议部分为“http：”，这代表网页使用的是HTTP协议。在Internet中可以使用多种协议，如HTTP，FTP等等本例中使用的是HTTP协议。在”HTTP”后面的“//”为分隔符.</li>
+<li>域名部分：该URL的域名部分为“<a href="http://www.aspxfans.com”。一个URL中，也可以使用IP地址作为域名使用" target="_blank" rel="noopener">www.aspxfans.com”。一个URL中，也可以使用IP地址作为域名使用</a></li>
+<li>端口部分：跟在域名后面的是端口，域名和端口之间使用“:”作为分隔符。端口不是一个URL必须的部分，如果省略端口部分，将采用默认端口.http默认端口80/tcp;https默认端口443/tcp 443/udp.参见<a href="https://blog.csdn.net/u014421556/article/details/51671353" target="_blank" rel="noopener">常见的默认端口</a></li>
+<li>虚拟目录部分：从域名后的第一个“/”开始到最后一个“/”为止，是虚拟目录部分。虚拟目录也不是一个URL必须的部分。本例中的虚拟目录是“/news/”</li>
+<li>文件名部分：从域名后的最后一个“/”开始到“？”为止，是文件名部分，如果没有“?”,则是从域名后的最后一个“/”开始到“#”为止，是文件部分，如果没有“？”和“#”，那么从域名后的最后一个“/”开始到结束，都是文件名部分。本例中的文件名是“index.asp”。文件名部分也不是一个URL必须的部分，如果省略该部分，则使用默认的文件名</li>
+<li>锚部分：从“#”开始到最后，都是锚部分。本例中的锚部分是“name”。锚部分也不是一个URL必须的部分</li>
+<li>参数部分：从“？”开始到“#”为止之间的部分为参数部分，又称搜索部分、查询部分。本例中的参数部分为“boardID=5&amp;ID=24618&amp;page=1”。参数可以允许有多个参数，参数与参数之间用“&amp;”作为分隔符。</li>
+</ol>
+<h3 id="HTTP之请求消息Request"><a href="#HTTP之请求消息Request" class="headerlink" title="HTTP之请求消息Request"></a>HTTP之请求消息Request</h3><p>客户端发送一个HTTP请求到服务器的请求消息包括以下格式:</p>
+<ul>
+<li>请求行(request line)</li>
+<li>请求头部(header)</li>
+<li>空行</li>
+<li>请求数据</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>http</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo为首页添加分类</title>
     <url>/2020/02/29/%E5%8D%9A%E5%AE%A2/hexo%E4%B8%BA%E9%A6%96%E9%A1%B5%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB/</url>
     <content><![CDATA[<p><a href="https://github.com/ahonn/hexo-theme-even/wiki/%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2" target="_blank" rel="noopener"><span style="font-size:1.5em">hexo操作指南</span></a>    <a href="http://yearito.cn/posts/hexo-advanced-settings.html" target="_blank" rel="noopener"><span style="font-size:1.5em">hexo个性化设置</span></a></p>
@@ -83,6 +200,10 @@
 <li>作用域链(Scope chain)</li>
 <li>this</li>
 </ul>
+<h2 id="this的用法"><a href="#this的用法" class="headerlink" title="this的用法"></a>this的用法</h2><p>1.纯粹的函数调用</p>
+<p>2.作为对象方法的调用</p>
+<p>3.作为构造函数调用</p>
+<p>4.apply调用</p>
 ]]></content>
       <tags>
         <tag>JavaScript</tag>
@@ -115,7 +236,9 @@
 <li>:q! 不保存文件，强制<strong>退出</strong>vi.</li>
 <li>:e! 放弃所有修改，从上次保存文件开始再编辑</li>
 </ol>
-<p><img src="D:%5Cblog%5Csource_posts%5CLinux%5Cvim%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets%5Cimage-20200220222616951.png" alt="image-20200220222616951"></p>
+<a id="more"></a>
+
+<p><img src="https://i.loli.net/2020/02/29/Lms4So3gw1ixyGW.png" alt=""></p>
 <p><img src="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-cheat-sheet-sch.gif" alt=""></p>
 ]]></content>
       <tags>
@@ -175,8 +298,8 @@
 
 ]]></content>
       <tags>
-        <tag>linux</tag>
         <tag>http</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -528,7 +651,8 @@
 </li>
 <li><p><strong><a href="https://www.bootcdn.cn/jquery/" target="_blank" rel="noopener">Boot cdn</a></strong></p>
 <p><strong>版本:1.12.4</strong></p>
-<p><code>&lt;script src=&quot;https://cdn.bootcss.com/jquery/1.12.4/jquery.js&quot;&gt;&lt;/script&gt;</code></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/jquery/1.12.4/jquery.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 </li>
@@ -576,8 +700,25 @@
 <p>Ajax 的核心是 JavaScript 对象 XMLHttpRequest。</p>
 <a id="more"></a>
 
-<h3 id="AJAX工作原理"><a href="#AJAX工作原理" class="headerlink" title="AJAX工作原理"></a>AJAX工作原理</h3><p><img src="https://7n.w3cschool.cn/statics/images/course/ajax.gif" alt=""></p>
-<h3 id="XHR-创建对象"><a href="#XHR-创建对象" class="headerlink" title="XHR 创建对象"></a>XHR 创建对象</h3><h4 id="AJAX-创建-XMLHttpRequest-对象"><a href="#AJAX-创建-XMLHttpRequest-对象" class="headerlink" title="AJAX - 创建 XMLHttpRequest 对象"></a>AJAX - 创建 XMLHttpRequest 对象</h4><p> XMLHttpRequest 是 AJAX 的基础。 </p>
+<h2 id="AJAX工作原理"><a href="#AJAX工作原理" class="headerlink" title="AJAX工作原理"></a>AJAX工作原理</h2><p><img src="https://7n.w3cschool.cn/statics/images/course/ajax.gif" alt=""></p>
+<h2 id="XHR的用法"><a href="#XHR的用法" class="headerlink" title="XHR的用法"></a>XHR的用法</h2><ul>
+<li><p>创建xhr对象</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置请求头部信息</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//请求行</span></span><br><span class="line">xhr.open(<span class="string">"get"</span>,<span class="string">""</span>)</span><br><span class="line"><span class="comment">//请求头</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>发送请求</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">xhr.send(<span class="literal">null</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>接收服务器响应</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h3 id="创建XHR对象"><a href="#创建XHR对象" class="headerlink" title="创建XHR对象"></a>创建XHR对象</h3><h4 id="AJAX-创建-XMLHttpRequest-对象"><a href="#AJAX-创建-XMLHttpRequest-对象" class="headerlink" title="AJAX - 创建 XMLHttpRequest 对象"></a>AJAX - 创建 XMLHttpRequest 对象</h4><p> XMLHttpRequest 是 AJAX 的基础。 </p>
 <p> XMLHttpRequest 术语缩写为XHR，中文可以解释为可扩展超文本传输请求。 </p>
 <p>它执行以下操作：</p>
 <ol>
@@ -593,7 +734,7 @@
 
 
 
-<h4 id="XHR-请求"><a href="#XHR-请求" class="headerlink" title="XHR 请求"></a>XHR 请求</h4><h5 id="AJAX如何工作？"><a href="#AJAX如何工作？" class="headerlink" title="AJAX如何工作？"></a>AJAX如何工作？</h5><hr>
+<h3 id="XHR-请求"><a href="#XHR-请求" class="headerlink" title="XHR 请求"></a>XHR 请求</h3><h4 id="AJAX工作步骤"><a href="#AJAX工作步骤" class="headerlink" title="AJAX工作步骤"></a>AJAX工作步骤</h4><hr>
 <p>正如您在上面的示例中所看到的，XMLHttpRequest对象起着重要作用。</p>
 <ol>
 <li>用户从UI发送请求，JavaScript中调用XMLHttpRequest对象。</li>
@@ -603,7 +744,7 @@
 <li>服务器将XML数据或JSON数据发送到XMLHttpRequest回调函数。</li>
 <li>HTML和CSS数据显示在浏览器上。</li>
 </ol>
-<h5 id="向服务器发送请求？"><a href="#向服务器发送请求？" class="headerlink" title="向服务器发送请求？"></a>向服务器发送请求？</h5><hr>
+<h5 id="发送请求至服务器"><a href="#发送请求至服务器" class="headerlink" title="发送请求至服务器"></a>发送请求至服务器</h5><hr>
 <p> 如需将请求发送到服务器，我们使用 XMLHttpRequest 对象的<code>open()</code>和<code>send()</code>方法： </p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">xmlhttp.open(<span class="string">"GET"</span>,<span class="string">"ajax_info.txt"</span>,<span class="literal">true</span>);        </span><br><span class="line">xmlhttp.send();</span><br></pre></td></tr></table></figure>
 
@@ -623,10 +764,13 @@
 <td align="left">将请求发送到服务器。<em>string</em>：仅用于 POST 请求</td>
 </tr>
 </tbody></table>
-<h5 id="Async-true"><a href="#Async-true" class="headerlink" title="Async=true"></a>Async=true</h5><hr>
+<p>Async=true</p>
+<hr>
 <p> 当使用 async=true 时，请规定在响应处于 onreadystatechange 事件中的就绪状态时执行的函数： </p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line"><span class="comment">// 发送请求...</span></span><br><span class="line">xmlhttp.open(<span class="string">"GET"</span>,<span class="string">"ajax_info.txt"</span>,<span class="literal">true</span>);        </span><br><span class="line">xmlhttp.send();</span><br><span class="line"></span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//200（成功）  服务器已成功处理了请求。通常，这表示服务器提供了请求的网页。</span></span><br><span class="line">    <span class="keyword">if</span> (xhr.readyState === <span class="number">4</span> &amp;&amp; xhr.status === <span class="number">20</span>) &#123;</span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">"view"</span>).innerHTML = xhr.responseText;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
+<p>这里也可以使用<code>onload</code>事件</p>
+<h4 id="onload和onreadystatechange"><a href="#onload和onreadystatechange" class="headerlink" title="onload和onreadystatechange"></a>onload和onreadystatechange</h4><p>IE不支持onload,只支持onreadystatechange</p>
 <h3 id="XHR响应"><a href="#XHR响应" class="headerlink" title="XHR响应"></a>XHR响应</h3><h4 id="AJAX-服务器响应"><a href="#AJAX-服务器响应" class="headerlink" title="AJAX - 服务器响应"></a>AJAX - 服务器响应</h4><hr>
 <ul>
 <li><p><strong>状态行</strong><br><code>xhr.status</code>状态码，即<a href="https://blog.csdn.net/unclebober/article/details/86626117" target="_blank" rel="noopener">Http StatusCode</a>,如200，304，404等；</p>
@@ -683,7 +827,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Json</title>
+    <title>Json的表示及序列化和反序列化</title>
     <url>/2020/01/19/Javascript/Json/</url>
     <content><![CDATA[<h3 id="Json-JavaScript对象表示法"><a href="#Json-JavaScript对象表示法" class="headerlink" title="Json(JavaScript对象表示法)"></a>Json(JavaScript对象表示法)</h3><p>json的语法可以表示三种类型的值:</p>
 <ul>
@@ -925,13 +1069,13 @@
 </blockquote>
 <a id="more"></a>
 
-<h3 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h3><p>首先打开snippet的配置文件,每个格式都会有一个,形如<code>$language.json</code>的配置,我要配置的事js的,所以打开javascript.json.</p>
+<h3 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h3><p>首先打开snippet的配置文件,每个格式都会有一个,形如<code>$language.json</code>的配置,我要配置的是js的,所以打开javascript.json.</p>
 <p>具体路径:<code>文件\首选项\用户snippet,选择要配置的语言</code></p>
 <p>打开后会有一段注释,注释中已经给出了一个模板</p>
 <figure class="highlight"><table><tr><td class="code"><pre><span class="line">"Print to console": &#123;</span><br><span class="line">	"prefix": "log",</span><br><span class="line">	"body": [</span><br><span class="line">		"console.log('$1');",</span><br><span class="line">		<span class="string">"$2"</span></span><br><span class="line">	],</span><br><span class="line">	"description": "Log output to console"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><code>console.log</code> 对应代码片段名称。</li>
+<li><code>Print to console</code> 对应代码片段名称。</li>
 <li><code>prefix</code> 对应触发代码片段的字符。</li>
 <li><code>body</code> 对应代码片段内容，可以是字符串，也可以为数组，若为数组每个元素都做为单独的一行插入。<code>body</code> 的内容支持js的转义字符，如 <code>\n\r</code>  等，我个人不建议用 <code>\n</code> ，可另起一行给数组多插入一项，不然一行太多的话不容易观察代码块的格式。</li>
 <li><code>description</code> 对应代码片段描述。</li>

@@ -47,15 +47,15 @@
   };
 </script>
 
-  <meta name="description" content="变量对象当 JavaScript 代码执行一段可执行代码(executable code)时，会创建对应的执行上下文(execution context)。 对于每个执行上下文，都有三个重要属性：  变量对象(Variable object，VO) 作用域链(Scope chain) this">
+  <meta name="description" content="变量对象当 JavaScript 代码执行一段可执行代码(executable code)时，会创建对应的执行上下文(execution context)。 对于每个执行上下文，都有三个重要属性：  变量对象(Variable object，VO) 作用域链(Scope chain) this  this的用法1.纯粹的函数调用 2.作为对象方法的调用 3.作为构造函数调用 4.apply调用">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript深入学习">
 <meta property="og:url" content="https:&#x2F;&#x2F;siwadiya.github.io&#x2F;2020&#x2F;02&#x2F;24&#x2F;Javascript&#x2F;js%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0&#x2F;index.html">
 <meta property="og:site_name" content="風之萬里">
-<meta property="og:description" content="变量对象当 JavaScript 代码执行一段可执行代码(executable code)时，会创建对应的执行上下文(execution context)。 对于每个执行上下文，都有三个重要属性：  变量对象(Variable object，VO) 作用域链(Scope chain) this">
+<meta property="og:description" content="变量对象当 JavaScript 代码执行一段可执行代码(executable code)时，会创建对应的执行上下文(execution context)。 对于每个执行上下文，都有三个重要属性：  变量对象(Variable object，VO) 作用域链(Scope chain) this  this的用法1.纯粹的函数调用 2.作为对象方法的调用 3.作为构造函数调用 4.apply调用">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-24T09:07:26.780Z">
+<meta property="og:updated_time" content="2020-03-01T06:55:30.947Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://siwadiya.github.io/2020/02/24/Javascript/js%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0/">
@@ -248,10 +248,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-02-24 17:01:25 / 修改时间：17:07:26" itemprop="dateCreated datePublished" datetime="2020-02-24T17:01:25+08:00">2020-02-24</time>
+              <time title="创建时间：2020-02-24 17:01:25" itemprop="dateCreated datePublished" datetime="2020-02-24T17:01:25+08:00">2020-02-24</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-01 14:55:30" itemprop="dateModified" datetime="2020-03-01T14:55:30+08:00">2020-03-01</time>
+              </span>
 
           
 
@@ -271,6 +277,10 @@
 <li>作用域链(Scope chain)</li>
 <li>this</li>
 </ul>
+<h2 id="this的用法"><a href="#this的用法" class="headerlink" title="this的用法"></a>this的用法</h2><p>1.纯粹的函数调用</p>
+<p>2.作为对象方法的调用</p>
+<p>3.作为构造函数调用</p>
+<p>4.apply调用</p>
 
     </div>
 
@@ -333,7 +343,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#变量对象"><span class="nav-number">1.</span> <span class="nav-text">变量对象</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#变量对象"><span class="nav-number">1.</span> <span class="nav-text">变量对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this的用法"><span class="nav-number">2.</span> <span class="nav-text">this的用法</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -347,7 +357,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-count">73</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
