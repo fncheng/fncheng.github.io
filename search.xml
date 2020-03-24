@@ -1,6 +1,268 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>代码高亮插件prism</title>
+    <url>/2020/03/21/js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE%E6%8F%92%E4%BB%B6Prism/</url>
+    <content><![CDATA[<p>待写</p>
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git忽略文件及目录之.gitignore的使用</title>
+    <url>/2020/03/21/Git/Git%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6%E5%8F%8A%E7%9B%AE%E5%BD%95/</url>
+    <content><![CDATA[<h3 id="创建-gitignore文件"><a href="#创建-gitignore文件" class="headerlink" title="创建.gitignore文件"></a>创建.gitignore文件</h3><h4 id="使用git-bash"><a href="#使用git-bash" class="headerlink" title="使用git bash"></a>使用git bash</h4><ul>
+<li>根目录下右键选择“Git Bash Here”进入bash命令窗口；</li>
+<li>输入<code>vim .gitignore</code>命令，打开文件（没有文件会自动创建）；</li>
+<li>按i键切换到编辑状态，输入规则，例如node_modules/，然后按Esc键退出编辑，输入:wq保存退出。</li>
+</ul>
+<h3 id="常用规则"><a href="#常用规则" class="headerlink" title="常用规则"></a>常用规则</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/mtk/ 过滤整个文件夹</span><br><span class="line">*.zip 过滤所有.zip文件</span><br><span class="line">/mtk/do.c 过滤某个具体文件</span><br><span class="line"></span><br><span class="line">!src/   不过滤该文件夹</span><br><span class="line">!*.zip   不过滤所有.zip文件</span><br><span class="line">!/mtk/do.c 不过滤该文件</span><br></pre></td></tr></table></figure>
+
+<p>以上规则意思是：被过滤掉的文件就不会出现在你的GitHub库中了，当然本地库中还有，只是push的时候不会上传。</p>
+]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>bootstrap使用总结</title>
+    <url>/2020/03/18/js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/bootstrap%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h3 id="模态框"><a href="#模态框" class="headerlink" title="模态框"></a>模态框</h3><p><code>data-toggle=&quot;modal&quot;</code>  指定当前盒子具备的功能</p>
+<p><code>data-target=&quot;#box1&quot;</code>指向模态框的名字</p>
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>bootstrap</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>echarts数据可视化</title>
+    <url>/2020/03/14/js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/echarts%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
+    <content><![CDATA[<h3 id="echarts数据可视化-图表-插件"><a href="#echarts数据可视化-图表-插件" class="headerlink" title="echarts数据可视化(图表)插件"></a>echarts数据可视化(图表)插件</h3><p><a href="https://www.echartsjs.com/zh/tutorial.html#5%20%E5%88%86%E9%92%9F%E4%B8%8A%E6%89%8B%20ECharts" target="_blank" rel="noopener">中文官网教程</a></p>
+<h4 id="引入echarts"><a href="#引入echarts" class="headerlink" title="引入echarts"></a>引入echarts</h4><hr>
+<p>通过标签方式直接引入构建好的 echarts 文件</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 引入 ECharts 文件 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"echarts.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="绘制一个简单的图表"><a href="#绘制一个简单的图表" class="headerlink" title="绘制一个简单的图表"></a>绘制一个简单的图表</h4><p>在绘图前我们需要为 ECharts 准备一个具备高宽的 DOM 容器。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 为 ECharts 准备一个具备大小（宽高）的 DOM --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main"</span> <span class="attr">style</span>=<span class="string">"width: 600px;height:400px;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">	<span class="comment">// 基于准备好的dom，初始化echarts实例</span></span><br><span class="line">	<span class="keyword">var</span> myChart = echarts.init(<span class="built_in">document</span>.getElementById(<span class="string">'main'</span>));</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 指定图表的配置项和数据</span></span><br><span class="line">    <span class="keyword">var</span> option = &#123;</span><br><span class="line">        title: &#123;</span><br><span class="line">		text: <span class="string">'ECharts 入门示例'</span></span><br><span class="line">		&#125;,</span><br><span class="line">	tooltip: &#123;&#125;,</span><br><span class="line">	legend: &#123;			<span class="comment">//表格说明</span></span><br><span class="line">		data:[<span class="string">'销量'</span>]</span><br><span class="line">	&#125;,</span><br><span class="line">	xAxis: &#123;			<span class="comment">//x轴</span></span><br><span class="line">		data: [<span class="string">"衬衫"</span>,<span class="string">"羊毛衫"</span>,<span class="string">"雪纺衫"</span>,<span class="string">"裤子"</span>,<span class="string">"高跟鞋"</span>,<span class="string">"袜子"</span>]</span><br><span class="line">	&#125;,</span><br><span class="line">	yAxis: &#123;&#125;,			<span class="comment">//y轴</span></span><br><span class="line">	series: [&#123;</span><br><span class="line">		name: <span class="string">'销量'</span>,</span><br><span class="line">		type: <span class="string">'bar'</span>, <span class="comment">// bar 柱状图,line 折线图,pie 饼图</span></span><br><span class="line">		data: [<span class="number">5</span>, <span class="number">20</span>, <span class="number">36</span>, <span class="number">10</span>, <span class="number">10</span>, <span class="number">20</span>]</span><br><span class="line">		&#125;]</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 使用刚指定的配置项和数据显示图表。</span></span><br><span class="line">	myChart.setOption(option);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>js插件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>表单和按钮的绑定</title>
+    <url>/2020/03/14/Html/%E8%A1%A8%E5%8D%95%E5%92%8C%E6%8C%89%E9%92%AE%E7%9A%84%E7%BB%91%E5%AE%9A/</url>
+    <content><![CDATA[<h3 id="表单和按钮的绑定"><a href="#表单和按钮的绑定" class="headerlink" title="表单和按钮的绑定"></a>表单和按钮的绑定</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">form</span>=<span class="string">"myForm"</span>&gt;</span></span><br><span class="line">    这是一个表单</span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">// 完成绑定</span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">form</span>=<span class="string">"myForm"</span>&gt;</span>提交按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Bootstrap_Paginator分页插件</title>
+    <url>/2020/03/11/js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/bootstrap-paginaterAPI%E6%96%87%E6%A1%A3/</url>
+    <content><![CDATA[<h2 id="Bootstrap-PaginatorAPI文档"><a href="#Bootstrap-PaginatorAPI文档" class="headerlink" title="Bootstrap PaginatorAPI文档"></a>Bootstrap PaginatorAPI文档</h2><p>Bootstrap Paginator是一款基于Bootstrap的js分页插件，功能很丰富，个人觉得这款插件已经无可挑剔了。它提供了一系列的参数用来支持用户的定制，提供了公共的方法可随时获得插件状态的改变，以及事件来监听用户的动作。目前经过测试的浏览器包括： Firefox 5+, Chrome 14+, Safari 5+, Opera 11.6+ and IE 7+。</p>
+<p>GitHub 官网地址：<a href="https://github.com/lyonlai/bootstrap-paginator" target="_blank" rel="noopener">https://github.com/lyonlai/bootstrap-paginator</a></p>
+<p><strong>参数介绍：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>参数名</strong></th>
+<th><strong>数据类型</strong></th>
+<th><strong>默认值</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>bootstrapMajorVersion</td>
+<td>number</td>
+<td>2</td>
+<td>搭配使用的Bootstrap版本，2.X 的 分页必须使用div元素，3.X分页的必须使用ul元素。请注意与所使用的bootstrap版本对应上。</td>
+</tr>
+<tr>
+<td>size</td>
+<td>string</td>
+<td>“normal”</td>
+<td>设置控件的显示大小，是个字符串. 允许的值: <em>mini</em>, <em>small</em>, <em>normal</em>,<em>large。</em>值：mini版的、小号的、正常的、大号的。</td>
+</tr>
+<tr>
+<td>itemContainerClass</td>
+<td>function</td>
+<td></td>
+<td>该参数接收一个函数，返回一个字符串，该字符串是一个我们自定义的class类样式。当控件内的每个操纵按钮被渲染(render)时，都会调用该函数，同时把有关该按钮的信息作为参数传入。参数：<strong>type</strong>,<strong>page</strong>, <strong>current</strong> 。<strong>type</strong>为该控件的操作按钮的类型，如上图所示的五种类型：first、prev、page、next、last。<strong>page</strong>为该按钮所属第几页。<strong>current</strong> 指示整个控件的当前页是第几页。</td>
+</tr>
+<tr>
+<td>currentPage</td>
+<td>number</td>
+<td>1</td>
+<td>设置当前页.</td>
+</tr>
+<tr>
+<td>numberOfPages</td>
+<td>number</td>
+<td>5</td>
+<td>设置控件显示的页码数.即：类型为”page”的操作按钮的数量。</td>
+</tr>
+<tr>
+<td>totalPages</td>
+<td>number</td>
+<td>1</td>
+<td>设置总页数.</td>
+</tr>
+<tr>
+<td>pageUrl</td>
+<td>function</td>
+<td></td>
+<td>实际上，控件内的每个操作按钮最终会被渲染成超链接，该参数的作用就是设置超链接的链接地址。该参数是个函数，参数为：<strong>type</strong>,<strong>page</strong>, <strong>current。</strong>这样我们就可以通过这个函数为每个操作按钮动态设置链接地址。如：”<a href="http://example.com/list/page/&quot;+page" target="_blank" rel="noopener">http://example.com/list/page/&quot;+page</a></td>
+</tr>
+<tr>
+<td>shouldShowPage</td>
+<td>boolean/function</td>
+<td>true</td>
+<td>该参数用于设置某个操作按钮是否显示，可是个布尔值也可是个函数。当为true时，显示。当为false时，不显示。如果该参数是个函数，需要返回个布尔值，通过这个返回值判断是否显示。函数有3个参数: <strong>type</strong>, <strong>page</strong>, <strong>current。</strong>使用函数的好处是，可以对每个操作按钮进行显示控制。</td>
+</tr>
+<tr>
+<td>itemTexts</td>
+<td>function</td>
+<td></td>
+<td>控制每个操作按钮的显示文字。是个函数，有3个参数: <strong>type</strong>, <strong>page</strong>, <strong>current。</strong>通过这个参数我们就可以将操作按钮上的英文改为中文，如first–&gt;首页，last–&gt;尾页。</td>
+</tr>
+<tr>
+<td>tooltipTitles</td>
+<td>function</td>
+<td></td>
+<td>设置操作按钮的title属性。是个函数，有3个参数: <strong>type</strong>, <strong>page</strong>, <strong>current。</strong></td>
+</tr>
+<tr>
+<td>useBootstrapTooltip</td>
+<td>boolean</td>
+<td>false</td>
+<td>设置是否使用Bootstrap内置的tooltip。 true是使用，false是不使用,默认是不使用。注意：如果使用，则需要引入bootstrap-tooltip.js插件。</td>
+</tr>
+<tr>
+<td>bootstrapTooltipOptions</td>
+<td>object</td>
+<td></td>
+<td>Default:    {        animation: true,        html: true,        placement: ‘top’,        selector: false,        title: “”,        container: false }该参数是个js对象。当参数useBootstrapTooltip为true时，会将该对象传给Bootstrap的bootstrap-tooltip.js插件。</td>
+</tr>
+<tr>
+<td>onPageClicked</td>
+<td>function</td>
+<td></td>
+<td>为操作按钮绑定click事件。回调函数的参数：<strong>event</strong>, <strong>originalEvent</strong>, <strong>type</strong>,<strong>page。</strong></td>
+</tr>
+<tr>
+<td>onPageChanged</td>
+<td>function</td>
+<td></td>
+<td>为操作按钮绑定页码改变事件，回调函数的参数：<strong>event</strong>, <strong>oldPage</strong>, <strong>newPage。</strong></td>
+</tr>
+</tbody></table>
+<p><strong>公共命令：</strong></p>
+<p>另外该插件还提供了几个公共的命令，可以通过如下方法调用，如：$(‘.example’).bootstrapPaginator(“show”,3) 调用show命令$(‘.example’).bootstrapPaginator(“getPages”) 调用getPages命令。</p>
+<table>
+<thead>
+<tr>
+<th><strong>命令名</strong></th>
+<th><strong>参数</strong></th>
+<th><strong>返回值</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>show</td>
+<td>page</td>
+<td></td>
+<td><strong>show</strong>命令用于直接跳转到特定的page，与直接点击操作按钮的效果是一样的。使用方法，如：$(‘#example’).bootstrapPaginator(“show”,3) 直接跳转到第3页，$(‘#example’).bootstrapPaginator(“show”,100)直接跳转到100页。</td>
+</tr>
+<tr>
+<td>showFirst</td>
+<td></td>
+<td></td>
+<td><strong>showFirst</strong> 命令用于直接跳转到首页，与点击first按钮相同。使用方法：$(‘#example’).bootstrapPaginator(“showFirst”)</td>
+</tr>
+<tr>
+<td>showPrevious</td>
+<td></td>
+<td></td>
+<td><strong>showPrevious</strong> 命令用于直接跳转到上一页。使用方法：$(‘#example’).bootstrapPaginator(“showPrevious”)</td>
+</tr>
+<tr>
+<td>showNext</td>
+<td></td>
+<td></td>
+<td><strong>showNext</strong>命令用于直接跳转到下一页。</td>
+</tr>
+<tr>
+<td>showLast</td>
+<td></td>
+<td></td>
+<td><strong>showLast</strong> 命令用于直接跳转到上一页。</td>
+</tr>
+<tr>
+<td>getPages</td>
+<td></td>
+<td><em>object</em></td>
+<td><strong>getPages</strong>命令用于返回当前控件中显示的页码，以数组形式返回。使用方法：var arra = $(‘#example’).bootstrapPaginator(“getPages”)</td>
+</tr>
+<tr>
+<td>setOptions</td>
+<td><em>object</em></td>
+<td></td>
+<td><strong>setOptions</strong> 命令用于重新设置参数，使用方法：$(‘#example’).bootstrapPaginator(“setOptions”,newoptions)</td>
+</tr>
+</tbody></table>
+<p><strong>事件Events：</strong></p>
+<p>Bootstrap Paginator 提供了俩个事件：<em>page-clicked</em>和<em>page-changed</em>。这俩个事件作为参数使用，分别对应<em>onPageClicked</em>和<em>onPageChanged</em>。</p>
+<table>
+<thead>
+<tr>
+<th><strong>事件名</strong></th>
+<th><strong>回调函数</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>page-clicked</td>
+<td>function(<em>event</em>, <em>originalEvent</em>, <em>type</em>, <em>page</em>)</td>
+<td>同上文。另外，参数<em>event</em>, <em>originalEvent是俩个jquery事件对象，可参考jquery相关文档</em></td>
+</tr>
+<tr>
+<td>page-changed</td>
+<td>function(<em>event</em>, <em>oldPage</em>, <em>newPage</em>)</td>
+<td>同上文</td>
+</tr>
+</tbody></table>
+<p><strong>Demo 示例：</strong></p>
+<p>1-引包</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;script src=<span class="string">"./lib/jquery/jquery.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script src=<span class="string">"./lib/bootstrap-validator/js/bootstrapValidator.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script src=<span class="string">"./lib/bootstrap-paginator/bootstrap-paginator.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>2-准备一个分页父容器：</p>
+<blockquote>
+<p>搭配使用的Bootstrap版本，2.X 的 分页必须使用div元素，3.X分页的必须使用ul元素。请注意与所使用的bootstrap版本对应上。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"paginator"</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>3-初始化分页插件</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">"#paginator"</span>).bootstrapPaginator(&#123;</span><br><span class="line">      bootstrapMajorVersion:<span class="number">3</span>,<span class="comment">//默认是2，如果是bootstrap3版本，这个参数必填</span></span><br><span class="line">      currentPage:<span class="number">1</span>,<span class="comment">//当前页</span></span><br><span class="line">      totalPages:<span class="number">10</span>,<span class="comment">//总页数</span></span><br><span class="line">      size:<span class="string">"small"</span>,<span class="comment">//设置控件的大小，mini, small, normal,large</span></span><br><span class="line">      onPageClicked:<span class="function"><span class="keyword">function</span>(<span class="params">event, originalEvent, type,page</span>)</span>&#123;</span><br><span class="line">        <span class="comment">//为按钮绑定点击事件 page:当前点击的按钮值</span></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>注意：分页样式用BootStrap 的，如果单独使用，请去BootStrap中把分页样式拷出来。jQuery版本需要1.8及以上。</p>
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>bootstrap</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>centos升级git</title>
     <url>/2020/03/03/Linux/centos%E5%8D%87%E7%BA%A7git/</url>
     <content><![CDATA[<h2 id="centos7编译安装最新版git"><a href="#centos7编译安装最新版git" class="headerlink" title="centos7编译安装最新版git"></a>centos7编译安装最新版git</h2><p><a href="https://learnku.com/articles/30501" target="_blank" rel="noopener">参考链接</a></p>
@@ -80,8 +342,21 @@
   </entry>
   <entry>
     <title>模板引擎初接触之arttemplate</title>
-    <url>/2020/03/03/Javascript/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E4%B9%8Barttemplate%E5%88%9D%E6%8E%A5%E8%A7%A6/</url>
-    <content><![CDATA[<p>1. </p>
+    <url>/2020/03/03/js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E4%B9%8Barttemplate%E5%88%9D%E6%8E%A5%E8%A7%A6/</url>
+    <content><![CDATA[<h2 id="art-template官网"><a href="#art-template官网" class="headerlink" title="art-template官网"></a><a href="https://aui.github.io/art-template/zh-cn/" target="_blank" rel="noopener">art-template官网</a></h2><h2 id="渲染模板"><a href="#渲染模板" class="headerlink" title="渲染模板"></a>渲染模板</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">success: <span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 模板引擎渲染</span></span><br><span class="line">    $(<span class="string">"tbody"</span>).html(template(<span class="string">"tmp"</span>, response));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中<strong><a href="https://www.jquery123.com/html/" target="_blank" rel="noopener">html()</a></strong>方法是jQuery中提供的,作用是获取集合中第一个匹配元素的HTML内容。</p>
+<p>response是服务器返回的响应数据</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>art-template 支持标准语法与原始语法。标准语法可以让模板易读写，而原始语法拥有强大的逻辑表达能力。</p>
+<p>标准语法支持基本模板语法以及基本 JavaScript 表达式；原始语法支持任意 JavaScript 语句，这和 EJS 一样。</p>
+<h3 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;&#123;if value&#125;&#125;</span><br><span class="line">... </span><br><span class="line">&#123;&#123;/if&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;if $value.isDelete == 0&#125;&#125;     //如果$value.isDelete值为0,就使用按钮"启用"</span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-success"</span> <span class="attr">data-toggle</span>=<span class="string">"modal"</span> <span class="attr">data-target</span>=<span class="string">".modal-user"</span>&gt;</span>启用<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">&#123;&#123;else&#125;&#125;	//否则就使用按钮"禁用"</span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-danger"</span> <span class="attr">data-toggle</span>=<span class="string">"modal"</span> <span class="attr">data-target</span>=<span class="string">".modal-user"</span>&gt;</span>禁用<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">&#123;&#123;/if&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;&#123;each target&#125;&#125;</span><br><span class="line">    &#123;&#123;$index&#125;&#125; &#123;&#123;$value&#125;&#125;</span><br><span class="line">&#123;&#123;/each&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><code>target</code> 支持 <code>array</code> 与 <code>object</code> 的迭代，其默认值为 <code>$data</code>。</li>
+<li><code>$value</code> 与 <code>$index</code> 可以自定义：<code>each target val key</code>。</li>
+</ol>
 ]]></content>
       <tags>
         <tag>JavaScript</tag>
@@ -1228,6 +1503,9 @@
 <ul>
 <li>“行（row）”必须包含在 <code>.container</code> （固定宽度）或 <code>.container-fluid</code> （100% 宽度）中，以便为其赋予合适的排列（aligment）和内补（padding）。 </li>
 </ul>
+<h3 id="bootstrap面板组件"><a href="#bootstrap面板组件" class="headerlink" title="bootstrap面板组件"></a><a href="https://v3.bootcss.com/components/#panels" target="_blank" rel="noopener">bootstrap面板组件</a></h3><h3 id="bootstrap-validator插件的使用"><a href="#bootstrap-validator插件的使用" class="headerlink" title="bootstrap-validator插件的使用"></a>bootstrap-validator插件的使用</h3><h4 id="重置表单"><a href="#重置表单" class="headerlink" title="重置表单"></a>重置表单</h4><p>四、重置表单校验样式<br>    1- 重置 reset  作用是重置表单的数据 ， 无法样式<br>    2- 可以使用 插件提供 resetForm()方法， 用于重置表单校验样式</p>
+<p>表单插件提供了很多方法， 需要通过插件实例去进行调用：<br>获取插件实例：  <code>$(表单).data(&#39;bootstrapValidator&#39;)</code><br>通过插件实例 去调用插件方法；<br>$(‘.login-form’).data(‘bootstrapValidator’).resetForm();</p>
+<p>思路：<br>  点击重置按钮，重置表单的数据和校验样式</p>
 ]]></content>
   </entry>
   <entry>

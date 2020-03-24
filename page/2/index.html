@@ -222,6 +222,447 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/03/03/js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E4%B9%8Barttemplate%E5%88%9D%E6%8E%A5%E8%A7%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="siwadiya">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="風之萬里">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/03/js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E4%B9%8Barttemplate%E5%88%9D%E6%8E%A5%E8%A7%A6/" class="post-title-link" itemprop="url">模板引擎初接触之arttemplate</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-03 14:23:44" itemprop="dateCreated datePublished" datetime="2020-03-03T14:23:44+08:00">2020-03-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-24 13:42:59" itemprop="dateModified" datetime="2020-03-24T13:42:59+08:00">2020-03-24</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="art-template官网"><a href="#art-template官网" class="headerlink" title="art-template官网"></a><a href="https://aui.github.io/art-template/zh-cn/" target="_blank" rel="noopener">art-template官网</a></h2><h2 id="渲染模板"><a href="#渲染模板" class="headerlink" title="渲染模板"></a>渲染模板</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">success: <span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 模板引擎渲染</span></span><br><span class="line">    $(<span class="string">"tbody"</span>).html(template(<span class="string">"tmp"</span>, response));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中<strong><a href="https://www.jquery123.com/html/" target="_blank" rel="noopener">html()</a></strong>方法是jQuery中提供的,作用是获取集合中第一个匹配元素的HTML内容。</p>
+<p>response是服务器返回的响应数据</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>art-template 支持标准语法与原始语法。标准语法可以让模板易读写，而原始语法拥有强大的逻辑表达能力。</p>
+<p>标准语法支持基本模板语法以及基本 JavaScript 表达式；原始语法支持任意 JavaScript 语句，这和 EJS 一样。</p>
+<h3 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;if value&#125;&#125;</span><br><span class="line">... </span><br><span class="line">&#123;&#123;/if&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;if $value.isDelete == 0&#125;&#125;     //如果$value.isDelete值为0,就使用按钮"启用"</span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-success"</span> <span class="attr">data-toggle</span>=<span class="string">"modal"</span> <span class="attr">data-target</span>=<span class="string">".modal-user"</span>&gt;</span>启用<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">&#123;&#123;else&#125;&#125;	//否则就使用按钮"禁用"</span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-danger"</span> <span class="attr">data-toggle</span>=<span class="string">"modal"</span> <span class="attr">data-target</span>=<span class="string">".modal-user"</span>&gt;</span>禁用<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">&#123;&#123;/if&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;each target&#125;&#125;</span><br><span class="line">    &#123;&#123;$index&#125;&#125; &#123;&#123;$value&#125;&#125;</span><br><span class="line">&#123;&#123;/each&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><code>target</code> 支持 <code>array</code> 与 <code>object</code> 的迭代，其默认值为 <code>$data</code>。</li>
+<li><code>$value</code> 与 <code>$index</code> 可以自定义：<code>each target val key</code>。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/03/01/Http/http%E4%BB%8B%E7%BB%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="siwadiya">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="風之萬里">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/01/Http/http%E4%BB%8B%E7%BB%8D/" class="post-title-link" itemprop="url">http协议的学习</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-01 13:07:47" itemprop="dateCreated datePublished" datetime="2020-03-01T13:07:47+08:00">2020-03-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-02 13:36:16" itemprop="dateModified" datetime="2020-03-02T13:36:16+08:00">2020-03-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="关于HTTP协议"><a href="#关于HTTP协议" class="headerlink" title="关于HTTP协议"></a><a href="https://www.cnblogs.com/ranyonsue/p/5984001.html" target="_blank" rel="noopener">关于HTTP协议</a></h2><h3 id="HTTP简介"><a href="#HTTP简介" class="headerlink" title="HTTP简介"></a>HTTP简介</h3><p>HTTP协议是Hyper Text Transfer Protocol（超文本传输协议）的缩写,是用于从万维网（WWW:World Wide Web ）服务器传输超文本到本地浏览器的传送协议。</p>
+<p>HTTP是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2964446-5a35e17f298a48e1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2" alt=""></p>
+<h3 id="HTTP-URL"><a href="#HTTP-URL" class="headerlink" title="HTTP-URL"></a>HTTP-URL</h3><p>HTTP使用统一资源标识符（Uniform Resource Identifiers, URI）来传输数据和建立连接。URL是一种特殊类型的URI，包含了用于查找某个资源的足够的信息</p>
+<p>URL,全称是UniformResourceLocator, 中文叫统一资源定位符,是互联网上用来标识某一处资源的地址。以下面这个URL为例，介绍下普通URL的各部分组成：</p>
+<p><code>http://www.aspxfans.com:8080/news/index.asp?boardID=5&amp;ID=24618&amp;page=1#name</code></p>
+<p>从上面的URL可以看出，一个完整的URL包括以下几部分：</p>
+<ol>
+<li>协议部分：该URL的协议部分为“http：”，这代表网页使用的是HTTP协议。在Internet中可以使用多种协议，如HTTP，FTP等等本例中使用的是HTTP协议。在”HTTP”后面的“//”为分隔符.</li>
+<li>域名部分：该URL的域名部分为“<a href="http://www.aspxfans.com”。一个URL中，也可以使用IP地址作为域名使用" target="_blank" rel="noopener">www.aspxfans.com”。一个URL中，也可以使用IP地址作为域名使用</a></li>
+<li>端口部分：跟在域名后面的是端口，域名和端口之间使用“:”作为分隔符。端口不是一个URL必须的部分，如果省略端口部分，将采用默认端口.http默认端口80/tcp;https默认端口443/tcp 443/udp.参见<a href="https://blog.csdn.net/u014421556/article/details/51671353" target="_blank" rel="noopener">常见的默认端口</a></li>
+<li>虚拟目录部分：从域名后的第一个“/”开始到最后一个“/”为止，是虚拟目录部分。虚拟目录也不是一个URL必须的部分。本例中的虚拟目录是“/news/”</li>
+<li>文件名部分：从域名后的最后一个“/”开始到“？”为止，是文件名部分，如果没有“?”,则是从域名后的最后一个“/”开始到“#”为止，是文件部分，如果没有“？”和“#”，那么从域名后的最后一个“/”开始到结束，都是文件名部分。本例中的文件名是“index.asp”。文件名部分也不是一个URL必须的部分，如果省略该部分，则使用默认的文件名</li>
+<li>锚部分：从“#”开始到最后，都是锚部分。本例中的锚部分是“name”。锚部分也不是一个URL必须的部分</li>
+<li>参数部分：从“？”开始到“#”为止之间的部分为参数部分，又称搜索部分、查询部分。本例中的参数部分为“boardID=5&amp;ID=24618&amp;page=1”。参数可以允许有多个参数，参数与参数之间用“&amp;”作为分隔符。</li>
+</ol>
+<h3 id="HTTP之请求消息Request"><a href="#HTTP之请求消息Request" class="headerlink" title="HTTP之请求消息Request"></a>HTTP之请求消息Request</h3><p>客户端发送一个HTTP请求到服务器的请求消息包括以下格式:</p>
+<ul>
+<li>请求行(request line)</li>
+<li>请求头部(header)</li>
+<li>空行</li>
+<li>请求数据</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/02/29/%E5%8D%9A%E5%AE%A2/hexo%E4%B8%BA%E9%A6%96%E9%A1%B5%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="siwadiya">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="風之萬里">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/29/%E5%8D%9A%E5%AE%A2/hexo%E4%B8%BA%E9%A6%96%E9%A1%B5%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB/" class="post-title-link" itemprop="url">hexo为首页添加分类</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-02-29 18:51:09 / 修改时间：19:52:31" itemprop="dateCreated datePublished" datetime="2020-02-29T18:51:09+08:00">2020-02-29</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          事情的起因是这样的,我想为博客的首页添加额外的分类,以方便跳转.但是hexo配置文件很多,不知道修改什么,于是就有了这篇文章.
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/29/%E5%8D%9A%E5%AE%A2/hexo%E4%B8%BA%E9%A6%96%E9%A1%B5%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/02/28/Linux/lnmp%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="siwadiya">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="風之萬里">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/28/Linux/lnmp%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">lnmp环境搭建</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-28 11:38:47" itemprop="dateCreated datePublished" datetime="2020-02-28T11:38:47+08:00">2020-02-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-29 20:01:47" itemprop="dateModified" datetime="2020-02-29T20:01:47+08:00">2020-02-29</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          搭建基于Linux+Apache+MySQL+PHP的运行环境
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/28/Linux/lnmp%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/02/28/Linux/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="siwadiya">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="風之萬里">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/28/Linux/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">linux目录介绍及软件安装目录</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-02-28 10:12:59 / 修改时间：10:28:54" itemprop="dateCreated datePublished" datetime="2020-02-28T10:12:59+08:00">2020-02-28</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          linux目录和windows目录有很大的不同.linux目录类似一个树型结构,最顶层是跟目录
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/28/Linux/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/02/26/%E6%90%9E%E6%9C%BA%E6%8A%98%E8%85%BE/win10%E4%BD%BF%E7%94%A8cmder%E4%BB%A3%E6%9B%BFcmd/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="siwadiya">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="風之萬里">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/26/%E6%90%9E%E6%9C%BA%E6%8A%98%E8%85%BE/win10%E4%BD%BF%E7%94%A8cmder%E4%BB%A3%E6%9B%BFcmd/" class="post-title-link" itemprop="url">使用cmder代替cmd</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-26 16:45:44" itemprop="dateCreated datePublished" datetime="2020-02-26T16:45:44+08:00">2020-02-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-01 14:55:27" itemprop="dateModified" datetime="2020-03-01T14:55:27+08:00">2020-03-01</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          cmder用来代替cmd,界面美观
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/26/%E6%90%9E%E6%9C%BA%E6%8A%98%E8%85%BE/win10%E4%BD%BF%E7%94%A8cmder%E4%BB%A3%E6%9B%BFcmd/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/02/24/Javascript/js%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -516,432 +957,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/02/16/Linux/linux%E7%AB%AF%E5%8F%A3%E5%BC%80%E6%94%BE%E5%A4%B1%E8%B4%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="siwadiya">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="風之萬里">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/16/Linux/linux%E7%AB%AF%E5%8F%A3%E5%BC%80%E6%94%BE%E5%A4%B1%E8%B4%A5/" class="post-title-link" itemprop="url">linux端开放失败的问题</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-02-16 17:45:00 / 修改时间：18:17:36" itemprop="dateCreated datePublished" datetime="2020-02-16T17:45:00+08:00">2020-02-16</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          本想上宝塔面板管理下网页的,发现打不开,扫描发现8888端口关闭,于是连上服务器,防火墙开放端口,并检测显示端口是开放的.但是端口扫描显示就是关闭的,且无法访问.
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/02/16/Linux/linux%E7%AB%AF%E5%8F%A3%E5%BC%80%E6%94%BE%E5%A4%B1%E8%B4%A5/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/02/16/Http/nmap%E5%AD%A6%E4%B9%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="siwadiya">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="風之萬里">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/16/Http/nmap%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">namp学习</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-02-16 12:56:53" itemprop="dateCreated datePublished" datetime="2020-02-16T12:56:53+08:00">2020-02-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-29 20:03:58" itemprop="dateModified" datetime="2020-02-29T20:03:58+08:00">2020-02-29</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          nmap命令学习.用于端口扫描.
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/02/16/Http/nmap%E5%AD%A6%E4%B9%A0/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/02/15/CSS/css%E9%80%89%E6%8B%A9%E5%99%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="siwadiya">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="風之萬里">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/15/CSS/css%E9%80%89%E6%8B%A9%E5%99%A8/" class="post-title-link" itemprop="url">css选择器总结</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-02-15 16:49:28 / 修改时间：23:35:33" itemprop="dateCreated datePublished" datetime="2020-02-15T16:49:28+08:00">2020-02-15</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="css交集选择器-并集选择器-兄弟选择器"><a href="#css交集选择器-并集选择器-兄弟选择器" class="headerlink" title="css交集选择器,并集选择器,兄弟选择器"></a>css交集选择器,并集选择器,兄弟选择器</h2><p><a href="https://www.w3school.com.cn/cssref/css_selectors.asp" target="_blank" rel="noopener"><span style="font-size:1.25em">参考链接</span>&gt;</a></p>
-<h3 id="交集选择器"><a href="#交集选择器" class="headerlink" title="交集选择器"></a>交集选择器</h3><p>交集选择器,相交的部分就是要设置属性值的标签</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span><span class="selector-class">.para1</span> &#123;<span class="attribute">color</span>: red&#125;;</span><br></pre></td></tr></table></figure>
-
-<p><strong>含义:类名为para的p标签文字颜色为红色</strong></p>
-<h3 id="并集选择器"><a href="#并集选择器" class="headerlink" title="并集选择器"></a>并集选择器</h3><p>并集选择器就是同时操控多个元素,选择器之间用<code>,</code>相隔</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span>,<span class="selector-tag">h2</span>,<span class="selector-tag">h3</span> &#123;<span class="attribute">color</span>: red&#125;;</span><br><span class="line"><span class="comment">/*等效于*/</span></span><br><span class="line"><span class="selector-tag">h1</span> &#123;<span class="attribute">color</span>:red&#125;;</span><br><span class="line"><span class="selector-tag">h2</span> &#123;<span class="attribute">color</span>:red&#125;;</span><br><span class="line"><span class="selector-tag">h3</span> &#123;<span class="attribute">color</span>:red&#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="兄弟选择器"><a href="#兄弟选择器" class="headerlink" title="兄弟选择器"></a>兄弟选择器</h3><p>相邻兄弟选择器（Adjacent sibling selector）可选择紧接在另一元素后的元素，且二者有相同父元素。</p>
-<p>例如，如果要增加紧接在 <strong>h1 元素后出现的段落</strong>的上边距，可以这样写：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> + <span class="selector-tag">p</span> &#123;<span class="attribute">margin-top</span>:<span class="number">50px</span>;&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>这个选择器读作：“选择紧接在 h1 元素后出现的段落，h1 和 p 元素拥有共同的父元素”。</strong></p>
-<p><strong>注意:必须是紧接着的元素!!!</strong></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/02/12/Linux/linux%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="siwadiya">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="風之萬里">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/12/Linux/linux%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">linux权限问题详解</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-02-12 12:51:19" itemprop="dateCreated datePublished" datetime="2020-02-12T12:51:19+08:00">2020-02-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-29 18:27:03" itemprop="dateModified" datetime="2020-02-29T18:27:03+08:00">2020-02-29</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          linux的权限问题有三种,rwx,分别对应着读,写,和操作.linux中的每个用户必须属于一个组,不能独立于组外.在linux中每个文件都有所有者,所在组,其他组的概念.
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/02/12/Linux/linux%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/02/11/Javascript/javascriptvoid(0)%E5%92%8Cjavascript;%E7%9A%84%E7%94%A8%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="siwadiya">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="風之萬里">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/11/Javascript/javascriptvoid(0)%E5%92%8Cjavascript;%E7%9A%84%E7%94%A8%E6%B3%95/" class="post-title-link" itemprop="url">javascript:void(0)和javascript:;的用法</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-02-11 14:25:18" itemprop="dateCreated datePublished" datetime="2020-02-11T14:25:18+08:00">2020-02-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 13:34:46" itemprop="dateModified" datetime="2020-02-12T13:34:46+08:00">2020-02-12</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          我们经常会使用到javascript:void(0)这样的代码，那么在 JavaScript中javascript:void(0)代表的是什么意思呢？
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/02/11/Javascript/javascriptvoid(0)%E5%92%8Cjavascript;%E7%9A%84%E7%94%A8%E6%B3%95/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/02/08/Javascript/%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="siwadiya">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="風之萬里">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/08/Javascript/%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/" class="post-title-link" itemprop="url">js事件委托</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-02-08 11:27:54" itemprop="dateCreated datePublished" datetime="2020-02-08T11:27:54+08:00">2020-02-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 13:35:47" itemprop="dateModified" datetime="2020-02-12T13:35:47+08:00">2020-02-12</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          事件委托，通俗地来讲，就是把一个元素响应事件（click、keydown......）的函数委托到另一个元素；通常这个元素会是当前元素的父元素.
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/02/08/Javascript/%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -990,14 +1005,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">73</span>
+          <span class="site-state-item-count">79</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
