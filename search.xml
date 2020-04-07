@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>vscode之js-beautify插件配置</title>
+    <url>/2020/04/07/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E7%BD%AE/js-beautify%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h2 id="js-beautify插件配置"><a href="#js-beautify插件配置" class="headerlink" title="js-beautify插件配置"></a>js-beautify插件配置</h2><p><a href="https://github.com/beautify-web/js-beautify" target="_blank" rel="noopener">官方文档</a></p>
+<h3 id="配置项"><a href="#配置项" class="headerlink" title="配置项"></a>配置项</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">CLI Options:</span><br><span class="line">  -f, --file       Input file(s) (Pass <span class="string">'-'</span> <span class="keyword">for</span> stdin)</span><br><span class="line">  -r, --replace    Write output <span class="keyword">in</span>-place, replacing input</span><br><span class="line">  -o, --outfile    Write output to file (default stdout)</span><br><span class="line">  --config         Path to config file</span><br><span class="line">  --<span class="built_in">type</span>           [js|css|html] [<span class="string">"js"</span>] Select beautifier <span class="built_in">type</span> (NOTE: Does *not* filter files, only defines <span class="built_in">which</span> beautifier <span class="built_in">type</span> to run)</span><br><span class="line">  -q, --quiet      Suppress logging to stdout</span><br><span class="line">  -h, --<span class="built_in">help</span>       Show this <span class="built_in">help</span></span><br><span class="line">  -v, --version    Show the version</span><br><span class="line"></span><br><span class="line">Beautifier Options:</span><br><span class="line">  -s, --indent-size                 Indentation size [4]</span><br><span class="line">  -c, --indent-char                 Indentation character [<span class="string">" "</span>]</span><br><span class="line">  -t, --indent-with-tabs            Indent with tabs, overrides -s and -c</span><br><span class="line">  -e, --eol                         Character(s) to use as line terminators.</span><br><span class="line">                                    [first newline <span class="keyword">in</span> file, otherwise <span class="string">"\n]</span></span><br><span class="line"><span class="string">  -n, --end-with-newline            End output with newline</span></span><br><span class="line"><span class="string">  --editorconfig                    Use EditorConfig to set up the options</span></span><br><span class="line"><span class="string">  -l, --indent-level                Initial indentation level [0]</span></span><br><span class="line"><span class="string">  -p, --preserve-newlines           Preserve line-breaks (--no-preserve-newlines disables)</span></span><br><span class="line"><span class="string">  -m, --max-preserve-newlines       Number of line-breaks to be preserved in one chunk [10]</span></span><br><span class="line"><span class="string">  -P, --space-in-paren              Add padding spaces within paren, ie. f( a, b )</span></span><br><span class="line"><span class="string">  									#在括号内添加空格，即f（a，b）</span></span><br><span class="line"><span class="string">  -E, --space-in-empty-paren        Add a single space inside empty paren, ie. f( )</span></span><br><span class="line"><span class="string">  									#在空括号内添加一个空格，即F（ ）</span></span><br><span class="line"><span class="string">  -j, --jslint-happy                Enable jslint-stricter mode</span></span><br><span class="line"><span class="string">  -a, --space-after-anon-function   Add a space before an anonymous function's parens, ie. function ()</span></span><br><span class="line"><span class="string">  									# 在匿名函数的括号之前添加一个空格，即。功能（）</span></span><br><span class="line"><span class="string">  --space-after-named-function      Add a space before a named function's parens, i.e. function example ()</span></span><br><span class="line"><span class="string">  									#在命名函数的括号之前添加一个空格，即函数示例（）</span></span><br><span class="line"><span class="string">  -b, --brace-style                 [collapse|expand|end-expand|none][,preserve-inline] [collapse,preserve-inline]</span></span><br><span class="line"><span class="string">  -u, --unindent-chained-methods    Don't indent chained method calls</span></span><br><span class="line"><span class="string">  -B, --break-chained-methods       Break chained method calls across subsequent lines</span></span><br><span class="line"><span class="string">  -k, --keep-array-indentation      Preserve array indentation</span></span><br><span class="line"><span class="string">  -x, --unescape-strings            Decode printable characters encoded in xNN notation</span></span><br><span class="line"><span class="string">  -w, --wrap-line-length            Wrap lines that exceed N characters [0]</span></span><br><span class="line"><span class="string">  -X, --e4x                         Pass E4X xml literals through untouched</span></span><br><span class="line"><span class="string">  --good-stuff                      Warm the cockles of Crockford's heart</span></span><br><span class="line"><span class="string">  -C, --comma-first                 Put commas at the beginning of new line instead of end</span></span><br><span class="line"><span class="string">  -O, --operator-position           Set operator position (before-newline|after-newline|preserve-newline) [before-newline]</span></span><br><span class="line"><span class="string">  --indent-empty-lines              Keep indentation on empty lines</span></span><br><span class="line"><span class="string">  --templating                      List of templating languages (auto,django,erb,handlebars,php) ["</span>auto<span class="string">"] auto = none in JavaScript, all in html</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>vscodejs</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vuejs的学习</title>
+    <url>/2020/04/03/vue/vuejs%E5%88%9D%E6%8E%A5%E8%A7%A6/</url>
+    <content><![CDATA[<h3 id="script引入"><a href="#script引入" class="headerlink" title="script引入"></a>script引入</h3><ul>
+<li><pre><code class="html"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/vue/dist/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+<span class="comment"><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">**BootCdn**</span><br><span class="line"></span><br><span class="line">- ```html</span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/vue/2.6.11/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></span>
+</code></pre>
+</li>
+</ul>
+<h3 id="vue-js有什么用，是用来做什么的（整理）"><a href="#vue-js有什么用，是用来做什么的（整理）" class="headerlink" title="vue.js有什么用，是用来做什么的（整理）"></a><a href="https://www.cnblogs.com/Renyi-Fan/p/9419742.html#_label6" target="_blank" rel="noopener">vue.js有什么用，是用来做什么的（整理）</a></h3><h3 id="vue事件修饰符"><a href="#vue事件修饰符" class="headerlink" title="vue事件修饰符"></a>vue事件修饰符</h3><ul>
+<li><code>.stop</code>    =&gt;    <code>e.stopPropagation()</code>    阻止冒泡</li>
+<li><code>.prevent</code>   =&gt;   <code>e.preventDefault()</code>    阻止默认行为</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>npm使用</title>
+    <url>/2020/04/01/js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/npm%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>nodejs</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>代码高亮插件prism</title>
     <url>/2020/03/21/js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE%E6%8F%92%E4%BB%B6Prism/</url>
     <content><![CDATA[<p>待写</p>
@@ -574,8 +611,8 @@
 
 ]]></content>
       <tags>
-        <tag>http</tag>
         <tag>linux</tag>
+        <tag>http</tag>
       </tags>
   </entry>
   <entry>
@@ -1452,7 +1489,7 @@
 <p><code>.prettierrc</code>就是上面写的配置文件,只要在<code>setting.json</code>中指定配置文件,就会应用到全局</p>
 <p><strong style="color:red">需要注意的是,如果设置了这个选项,那你项目目录的<code>.prettierrc</code>文件就会失效.</strong></p>
 <h2 id="prettier设置详解"><a href="#prettier设置详解" class="headerlink" title="prettier设置详解"></a>prettier设置详解</h2><p>prettier给出了如下设置选项</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">prettier.arrowParens</span><br><span class="line">prettier.bracketSpacing</span><br><span class="line">prettier.endOfLine</span><br><span class="line">prettier.htmlWhitespaceSensitivity</span><br><span class="line">prettier.insertPragma</span><br><span class="line">prettier.jsxBracketSameLine</span><br><span class="line">prettier.jsxSingleQuote</span><br><span class="line">prettier.printWidth</span><br><span class="line">prettier.proseWrap</span><br><span class="line">prettier.quoteProps</span><br><span class="line">prettier.requirePragma</span><br><span class="line">prettier.semi	//行末分号</span><br><span class="line">prettier.singleQuote	//使用单引号</span><br><span class="line">prettier.tabWidth	//tab的宽度</span><br><span class="line">prettier.trailingComma</span><br><span class="line">prettier.useTabs   //使用制表符代替空格缩进</span><br><span class="line">prettier.vueIndentScriptAndStyle</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">prettier.arrowParens	//在单独的箭头函数周围加上()</span><br><span class="line">prettier.bracketSpacing	//在对象&#123;&#125;之间加上空格</span><br><span class="line">prettier.endOfLine</span><br><span class="line">prettier.htmlWhitespaceSensitivity</span><br><span class="line">prettier.insertPragma</span><br><span class="line">prettier.jsxBracketSameLine</span><br><span class="line">prettier.jsxSingleQuote</span><br><span class="line">prettier.printWidth</span><br><span class="line">prettier.proseWrap</span><br><span class="line">prettier.quoteProps</span><br><span class="line">prettier.requirePragma</span><br><span class="line">prettier.semi	//行末分号</span><br><span class="line">prettier.singleQuote	//使用单引号而不是双引号</span><br><span class="line">prettier.tabWidth	//tab的宽度</span><br><span class="line">prettier.trailingComma	//尾随逗号</span><br><span class="line">prettier.useTabs   //使用制表符代替空格缩进</span><br><span class="line">prettier.vueIndentScriptAndStyle</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <tags>
