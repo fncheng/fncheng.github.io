@@ -288,15 +288,23 @@
 <li><p><code>clear:both</code></p>
 </li>
 <li><p>Clearfix方法</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span>&#123;</span><br><span class="line">    <span class="attribute">content</span>:<span class="string">''</span>;</span><br><span class="line">    <span class="attribute">display</span>:table;</span><br><span class="line">    <span class="attribute">clear</span>:both;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clearfix</span>&#123;</span><br><span class="line">    *zoom:1; /* 兼容IE低版本 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="css">.clearfix:after{
+    content:&#39;&#39;;
+    display:table;
+    clear:both;
+}
+.clearfix{
+    *zoom:1; /* 兼容IE低版本 */
+}</code></pre>
 </li>
 </ol>
 <h2 id="position属性定位元素"><a href="#position属性定位元素" class="headerlink" title="position属性定位元素"></a>position属性定位元素</h2><p><a href="https://segmentfault.com/a/1190000009754431" target="_blank" rel="noopener">position详解</a></p>
-<h3 id="固定导航栏"><a href="#固定导航栏" class="headerlink" title="固定导航栏"></a>固定导航栏</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.banner</span>&#123;</span><br><span class="line">	<span class="attribute">position</span>: fixed;</span><br><span class="line">	<span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">	<span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">	<span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h3 id="固定导航栏"><a href="#固定导航栏" class="headerlink" title="固定导航栏"></a>固定导航栏</h3><pre><code class="css">.banner{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+}</code></pre>
 <p>固定定位的的元素从HTML流中移除了，而页面中的其他元素并不知道这些元素的存在。这些元素会出现在固定元素的后面。使用外边距把这些内容从那些区域后面移出来。</p>
 <p>鼠标观滚动对固定定位元素没有用</p>
 <h2 id="Transform属性"><a href="#Transform属性" class="headerlink" title="Transform属性"></a>Transform属性</h2><blockquote>
@@ -384,14 +392,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -432,6 +440,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

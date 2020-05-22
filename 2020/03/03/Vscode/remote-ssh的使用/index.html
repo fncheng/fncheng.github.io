@@ -47,13 +47,13 @@
   };
 </script>
 
-  <meta name="description" content="remote-ssh首先在vscode下载remote-ssh相关插件 参考链接:VSCode 配置 Remote-SSH 远程开发 在服务器上安装公钥键入以下命令，在服务器上安装公钥： 12cd .sshcat id_rsa.pub &amp;gt;&amp;gt; authorized_keys    配置SSH密钥登陆用户目录下的 .ssh 文件夹内的 id_rsa 和 id_rsa.pub 两个文件,分别">
+  <meta name="description" content="remote-ssh首先在vscode下载remote-ssh相关插件 参考链接:VSCode 配置 Remote-SSH 远程开发 在服务器上安装公钥键入以下命令，在服务器上安装公钥： cd .ssh cat id_rsa.pub &amp;gt;&amp;gt; authorized_keys 配置SSH密钥登陆用户目录下的 .ssh 文件夹内的 id_rsa 和 id_rsa.pub 两个文件,分别对应为私">
 <meta name="keywords" content="linux,vscode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="remote-ssh的使用过程">
 <meta property="og:url" content="https:&#x2F;&#x2F;siwadiya.github.io&#x2F;2020&#x2F;03&#x2F;03&#x2F;Vscode&#x2F;remote-ssh%E7%9A%84%E4%BD%BF%E7%94%A8&#x2F;index.html">
 <meta property="og:site_name" content="風之萬里">
-<meta property="og:description" content="remote-ssh首先在vscode下载remote-ssh相关插件 参考链接:VSCode 配置 Remote-SSH 远程开发 在服务器上安装公钥键入以下命令，在服务器上安装公钥： 12cd .sshcat id_rsa.pub &amp;gt;&amp;gt; authorized_keys    配置SSH密钥登陆用户目录下的 .ssh 文件夹内的 id_rsa 和 id_rsa.pub 两个文件,分别">
+<meta property="og:description" content="remote-ssh首先在vscode下载remote-ssh相关插件 参考链接:VSCode 配置 Remote-SSH 远程开发 在服务器上安装公钥键入以下命令，在服务器上安装公钥： cd .ssh cat id_rsa.pub &amp;gt;&amp;gt; authorized_keys 配置SSH密钥登陆用户目录下的 .ssh 文件夹内的 id_rsa 和 id_rsa.pub 两个文件,分别对应为私">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2020-04-18T14:58:06.117Z">
 <meta name="twitter:card" content="summary">
@@ -273,21 +273,19 @@
         <h2 id="remote-ssh"><a href="#remote-ssh" class="headerlink" title="remote-ssh"></a>remote-ssh</h2><p>首先在vscode下载remote-ssh相关插件</p>
 <h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接:"></a>参考链接:</h3><p><a href="https://xirikm.net/2019/619-1" target="_blank" rel="noopener">VSCode 配置 Remote-SSH 远程开发</a></p>
 <h3 id="在服务器上安装公钥"><a href="#在服务器上安装公钥" class="headerlink" title="在服务器上安装公钥"></a>在服务器上安装公钥</h3><p>键入以下命令，在服务器上安装公钥：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> .ssh</span><br><span class="line">cat id_rsa.pub &gt;&gt; authorized_keys</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="bash">cd .ssh
+cat id_rsa.pub &gt;&gt; authorized_keys</code></pre>
 <h3 id="配置SSH密钥登陆"><a href="#配置SSH密钥登陆" class="headerlink" title="配置SSH密钥登陆"></a>配置SSH密钥登陆</h3><p>用户目录下的 <code>.ssh</code> 文件夹内的 id_rsa 和 id_rsa.pub 两个文件,分别对应为私钥和公钥。将 id_rsa.pub 文件中的内容复制到你远程主机用户目录下 .ssh 文件夹内名为 authorized_keys 的文件中即可。</p>
 <p>或者将id_rsa.pub复制到.ssh目录下,然后执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat id_rsa.pub &gt;&gt; authorized_keys</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="bash">cat id_rsa.pub &gt;&gt; authorized_keys</code></pre>
 <h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><ul>
 <li><p>用<code>ssh-keygen</code>生成密钥的时候,如果本地已经存在id_rsa,id_rsa.pub 文件,可以直接使用.</p>
 </li>
 <li><p>如果服务器不支持密钥登陆,则需要开启.参考链接:<a href="https://hyjk2000.github.io/2012/03/16/how-to-set-up-ssh-keys/" target="_blank" rel="noopener">设置SSH通过密钥登陆</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line"><span class="comment">#修改如下内容</span></span><br><span class="line">RSAAuthentication yes</span><br><span class="line">PubkeyAuthentication yes</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">vim /etc/ssh/sshd_config
+#修改如下内容
+RSAAuthentication yes
+PubkeyAuthentication yes</code></pre>
 </li>
 <li><p>完成以上操作后,使用root用户可以正常登陆,但是用普通用户登陆仍然要输入密码</p>
 <p><strong>这里的原因是.ssh目录与authorized_keys文件的权限不能太大,像766这种肯定是无法登陆的.</strong></p>
@@ -295,7 +293,7 @@
 <p>注意: .ssh目录权限改为700,authorized_keys 权限改为600</p>
 </li>
 </ul>
-<h3 id="etc-ssh-sshd-config配置"><a href="#etc-ssh-sshd-config配置" class="headerlink" title="/etc/ssh/sshd_config配置"></a>/etc/ssh/sshd_config配置</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">PasswordAuthentication</span> <span class="literal">no</span>	<span class="comment">#禁用密码登陆</span></span><br></pre></td></tr></table></figure>
+<h3 id="etc-ssh-sshd-config配置"><a href="#etc-ssh-sshd-config配置" class="headerlink" title="/etc/ssh/sshd_config配置"></a>/etc/ssh/sshd_config配置</h3><pre><code>PasswordAuthentication no    #禁用密码登陆</code></pre>
     </div>
 
     
@@ -372,14 +370,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -420,6 +418,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

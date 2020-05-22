@@ -47,13 +47,13 @@
   };
 </script>
 
-  <meta name="description" content="一般总是建议，Promise 对象后面要跟catch()方法，这样可以处理 Promise 内部发生的错误。&#96;catch()方法返回的还是一个 Promise 对象，因此后面还可以接着调用then()&#96;方法。 12345678910111213141516const someAsyncThing = function() &amp;#123;  return new Promise(function(re">
+  <meta name="description" content="一般总是建议，Promise 对象后面要跟catch()方法，这样可以处理 Promise 内部发生的错误。&#96;catch()方法返回的还是一个 Promise 对象，因此后面还可以接着调用then()&#96;方法。 const someAsyncThing = function() {   return new Promise(function(resolve, reject) {     &#x2F;&#x2F; 下面一">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="es6之Promise对象的学习">
 <meta property="og:url" content="https:&#x2F;&#x2F;siwadiya.github.io&#x2F;2020&#x2F;04&#x2F;12&#x2F;Javascript&#x2F;es6%E4%B9%8BPromise%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0&#x2F;index.html">
 <meta property="og:site_name" content="風之萬里">
-<meta property="og:description" content="一般总是建议，Promise 对象后面要跟catch()方法，这样可以处理 Promise 内部发生的错误。&#96;catch()方法返回的还是一个 Promise 对象，因此后面还可以接着调用then()&#96;方法。 12345678910111213141516const someAsyncThing = function() &amp;#123;  return new Promise(function(re">
+<meta property="og:description" content="一般总是建议，Promise 对象后面要跟catch()方法，这样可以处理 Promise 内部发生的错误。&#96;catch()方法返回的还是一个 Promise 对象，因此后面还可以接着调用then()&#96;方法。 const someAsyncThing = function() {   return new Promise(function(resolve, reject) {     &#x2F;&#x2F; 下面一">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2020-04-12T14:35:05.795Z">
 <meta name="twitter:card" content="summary">
@@ -265,8 +265,22 @@
 
       
         <p><strong>一般总是建议，Promise 对象后面要跟<code>catch()</code>方法，这样可以处理 Promise 内部发生的错误。`c</strong>atch()<code>方法返回的还是一个 Promise 对象，因此后面还可以接着调用</code>then()`方法。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> someAsyncThing = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 下面一行会报错，因为x没有声明</span></span><br><span class="line">    resolve(x + <span class="number">2</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">someAsyncThing()</span><br><span class="line">.catch(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'oh no'</span>, error);</span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'carry on'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// oh no [ReferenceError: x is not defined]</span></span><br><span class="line"><span class="comment">// carry on</span></span><br></pre></td></tr></table></figure>
+<pre><code class="js">const someAsyncThing = function() {
+  return new Promise(function(resolve, reject) {
+    // 下面一行会报错，因为x没有声明
+    resolve(x + 2);
+  });
+};
 
+someAsyncThing()
+.catch(function(error) {
+  console.log(&#39;oh no&#39;, error);
+})
+.then(function() {
+  console.log(&#39;carry on&#39;);
+});
+// oh no [ReferenceError: x is not defined]
+// carry on</code></pre>
 <p>上面代码运行完<code>catch()</code>方法指定的回调函数，会接着运行后面那个<code>then()</code>方法指定的回调函数。如果没有报错，则会跳过<code>catch()</code>方法。</p>
 
     </div>
@@ -343,14 +357,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -391,6 +405,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

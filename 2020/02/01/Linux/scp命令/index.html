@@ -272,18 +272,18 @@
 
       
         <h2 id="Linux-scp命令"><a href="#Linux-scp命令" class="headerlink" title="Linux scp命令"></a>Linux scp命令</h2><p><strong>语法</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ scp</span><br><span class="line">usage: scp [-346BCpqrv] [-c cipher] [-F ssh_config] [-i identity_file]</span><br><span class="line">           [-l <span class="built_in">limit</span>] [-o ssh_option] [-P port] [-S program]</span><br><span class="line">           [[user@]host1:]file1 [...] [[user@]host2:]file2</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">$ scp
+usage: scp [-346BCpqrv] [-c cipher] [-F ssh_config] [-i identity_file]
+           [-l limit] [-o ssh_option] [-P port] [-S program]
+           [[user@]host1:]file1 [...] [[user@]host2:]file2</code></pre>
 <h3 id="在Linux中安全传输文件的14个SCP命令示例"><a href="#在Linux中安全传输文件的14个SCP命令示例" class="headerlink" title="在Linux中安全传输文件的14个SCP命令示例"></a><a href="https://www.linuxtechi.com/scp-command-examples-in-linux/" target="_blank" rel="noopener">在Linux中安全传输文件的14个SCP命令示例</a></h3><p>例如:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp -P port local_file remote_username@remote_ip:remote_folder </span><br><span class="line"><span class="comment">#-P port：注意是大写的P, port是指定数据传输用到的端口号</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">scp -P port local_file remote_username@remote_ip:remote_folder 
+#-P port：注意是大写的P, port是指定数据传输用到的端口号</code></pre>
 <p>实例:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -P 50000 sga.txt cheng@***.***.**.**:/www/wwwroot/filelist/</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">scp -P 50000 sga.txt cheng@***.***.**.**:/www/wwwroot/filelist/</code></pre>
 <p><a href="https://www.runoob.com/linux/linux-comm-scp.html" target="_blank" rel="noopener"><span style="font-size:1.5rem">runoob教程</span></a></p>
 <p>报错提示</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp: /www/wwwroot/filelist//sga.txt: Permission denied</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">scp: /www/wwwroot/filelist//sga.txt: Permission denied</code></pre>
 <p>上网查了才知道原来是由于没有该目录的操作权限，默认的是在/tmp有权限</p>
 
     </div>
@@ -362,14 +362,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -410,6 +410,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

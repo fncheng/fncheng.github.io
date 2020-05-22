@@ -47,13 +47,13 @@
   };
 </script>
 
-  <meta name="description" content="js-beautify插件配置官方文档 配置项123456789101112131415161718192021222324252627282930313233343536373839404142CLI Options:  -f, --file       Input file(s) (Pass &amp;apos;-&amp;apos; for stdin)  -r, --replace    Write output in-pl">
+  <meta name="description" content="js-beautify插件配置官方文档 配置项CLI Options:   -f, --file       Input file(s) (Pass &amp;#39;-&amp;#39; for stdin)   -r, --replace    Write output in-place, replacing input   -o, --outfile    Write output to file (def">
 <meta name="keywords" content="vscodejs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vscode之js-beautify插件配置">
 <meta property="og:url" content="https:&#x2F;&#x2F;siwadiya.github.io&#x2F;2020&#x2F;04&#x2F;07&#x2F;%E8%BD%AF%E4%BB%B6%E8%AE%BE%E7%BD%AE&#x2F;js-beautify%E9%85%8D%E7%BD%AE&#x2F;index.html">
 <meta property="og:site_name" content="風之萬里">
-<meta property="og:description" content="js-beautify插件配置官方文档 配置项123456789101112131415161718192021222324252627282930313233343536373839404142CLI Options:  -f, --file       Input file(s) (Pass &amp;apos;-&amp;apos; for stdin)  -r, --replace    Write output in-pl">
+<meta property="og:description" content="js-beautify插件配置官方文档 配置项CLI Options:   -f, --file       Input file(s) (Pass &amp;#39;-&amp;#39; for stdin)   -r, --replace    Write output in-place, replacing input   -o, --outfile    Write output to file (def">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2020-04-07T07:21:45.669Z">
 <meta name="twitter:card" content="summary">
@@ -265,7 +265,48 @@
 
       
         <h2 id="js-beautify插件配置"><a href="#js-beautify插件配置" class="headerlink" title="js-beautify插件配置"></a>js-beautify插件配置</h2><p><a href="https://github.com/beautify-web/js-beautify" target="_blank" rel="noopener">官方文档</a></p>
-<h3 id="配置项"><a href="#配置项" class="headerlink" title="配置项"></a>配置项</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">CLI Options:</span><br><span class="line">  -f, --file       Input file(s) (Pass <span class="string">'-'</span> <span class="keyword">for</span> stdin)</span><br><span class="line">  -r, --replace    Write output <span class="keyword">in</span>-place, replacing input</span><br><span class="line">  -o, --outfile    Write output to file (default stdout)</span><br><span class="line">  --config         Path to config file</span><br><span class="line">  --<span class="built_in">type</span>           [js|css|html] [<span class="string">"js"</span>] Select beautifier <span class="built_in">type</span> (NOTE: Does *not* filter files, only defines <span class="built_in">which</span> beautifier <span class="built_in">type</span> to run)</span><br><span class="line">  -q, --quiet      Suppress logging to stdout</span><br><span class="line">  -h, --<span class="built_in">help</span>       Show this <span class="built_in">help</span></span><br><span class="line">  -v, --version    Show the version</span><br><span class="line"></span><br><span class="line">Beautifier Options:</span><br><span class="line">  -s, --indent-size                 Indentation size [4]</span><br><span class="line">  -c, --indent-char                 Indentation character [<span class="string">" "</span>]</span><br><span class="line">  -t, --indent-with-tabs            Indent with tabs, overrides -s and -c</span><br><span class="line">  -e, --eol                         Character(s) to use as line terminators.</span><br><span class="line">                                    [first newline <span class="keyword">in</span> file, otherwise <span class="string">"\n]</span></span><br><span class="line"><span class="string">  -n, --end-with-newline            End output with newline</span></span><br><span class="line"><span class="string">  --editorconfig                    Use EditorConfig to set up the options</span></span><br><span class="line"><span class="string">  -l, --indent-level                Initial indentation level [0]</span></span><br><span class="line"><span class="string">  -p, --preserve-newlines           Preserve line-breaks (--no-preserve-newlines disables)</span></span><br><span class="line"><span class="string">  -m, --max-preserve-newlines       Number of line-breaks to be preserved in one chunk [10]</span></span><br><span class="line"><span class="string">  -P, --space-in-paren              Add padding spaces within paren, ie. f( a, b )</span></span><br><span class="line"><span class="string">  									#在括号内添加空格，即f（a，b）</span></span><br><span class="line"><span class="string">  -E, --space-in-empty-paren        Add a single space inside empty paren, ie. f( )</span></span><br><span class="line"><span class="string">  									#在空括号内添加一个空格，即F（ ）</span></span><br><span class="line"><span class="string">  -j, --jslint-happy                Enable jslint-stricter mode</span></span><br><span class="line"><span class="string">  -a, --space-after-anon-function   Add a space before an anonymous function's parens, ie. function ()</span></span><br><span class="line"><span class="string">  									# 在匿名函数的括号之前添加一个空格，即。功能（）</span></span><br><span class="line"><span class="string">  --space-after-named-function      Add a space before a named function's parens, i.e. function example ()</span></span><br><span class="line"><span class="string">  									#在命名函数的括号之前添加一个空格，即函数示例（）</span></span><br><span class="line"><span class="string">  -b, --brace-style                 [collapse|expand|end-expand|none][,preserve-inline] [collapse,preserve-inline]</span></span><br><span class="line"><span class="string">  -u, --unindent-chained-methods    Don't indent chained method calls</span></span><br><span class="line"><span class="string">  -B, --break-chained-methods       Break chained method calls across subsequent lines</span></span><br><span class="line"><span class="string">  -k, --keep-array-indentation      Preserve array indentation</span></span><br><span class="line"><span class="string">  -x, --unescape-strings            Decode printable characters encoded in xNN notation</span></span><br><span class="line"><span class="string">  -w, --wrap-line-length            Wrap lines that exceed N characters [0]</span></span><br><span class="line"><span class="string">  -X, --e4x                         Pass E4X xml literals through untouched</span></span><br><span class="line"><span class="string">  --good-stuff                      Warm the cockles of Crockford's heart</span></span><br><span class="line"><span class="string">  -C, --comma-first                 Put commas at the beginning of new line instead of end</span></span><br><span class="line"><span class="string">  -O, --operator-position           Set operator position (before-newline|after-newline|preserve-newline) [before-newline]</span></span><br><span class="line"><span class="string">  --indent-empty-lines              Keep indentation on empty lines</span></span><br><span class="line"><span class="string">  --templating                      List of templating languages (auto,django,erb,handlebars,php) ["</span>auto<span class="string">"] auto = none in JavaScript, all in html</span></span><br></pre></td></tr></table></figure>
+<h3 id="配置项"><a href="#配置项" class="headerlink" title="配置项"></a>配置项</h3><pre><code class="bash">CLI Options:
+  -f, --file       Input file(s) (Pass &#39;-&#39; for stdin)
+  -r, --replace    Write output in-place, replacing input
+  -o, --outfile    Write output to file (default stdout)
+  --config         Path to config file
+  --type           [js|css|html] [&quot;js&quot;] Select beautifier type (NOTE: Does *not* filter files, only defines which beautifier type to run)
+  -q, --quiet      Suppress logging to stdout
+  -h, --help       Show this help
+  -v, --version    Show the version
+
+Beautifier Options:
+  -s, --indent-size                 Indentation size [4]
+  -c, --indent-char                 Indentation character [&quot; &quot;]
+  -t, --indent-with-tabs            Indent with tabs, overrides -s and -c
+  -e, --eol                         Character(s) to use as line terminators.
+                                    [first newline in file, otherwise &quot;\n]
+  -n, --end-with-newline            End output with newline
+  --editorconfig                    Use EditorConfig to set up the options
+  -l, --indent-level                Initial indentation level [0]
+  -p, --preserve-newlines           Preserve line-breaks (--no-preserve-newlines disables)
+  -m, --max-preserve-newlines       Number of line-breaks to be preserved in one chunk [10]
+  -P, --space-in-paren              Add padding spaces within paren, ie. f( a, b )
+                                      #在括号内添加空格，即f（a，b）
+  -E, --space-in-empty-paren        Add a single space inside empty paren, ie. f( )
+                                      #在空括号内添加一个空格，即F（ ）
+  -j, --jslint-happy                Enable jslint-stricter mode
+  -a, --space-after-anon-function   Add a space before an anonymous function&#39;s parens, ie. function ()
+                                      # 在匿名函数的括号之前添加一个空格，即。功能（）
+  --space-after-named-function      Add a space before a named function&#39;s parens, i.e. function example ()
+                                      #在命名函数的括号之前添加一个空格，即函数示例（）
+  -b, --brace-style                 [collapse|expand|end-expand|none][,preserve-inline] [collapse,preserve-inline]
+  -u, --unindent-chained-methods    Don&#39;t indent chained method calls
+  -B, --break-chained-methods       Break chained method calls across subsequent lines
+  -k, --keep-array-indentation      Preserve array indentation
+  -x, --unescape-strings            Decode printable characters encoded in xNN notation
+  -w, --wrap-line-length            Wrap lines that exceed N characters [0]
+  -X, --e4x                         Pass E4X xml literals through untouched
+  --good-stuff                      Warm the cockles of Crockford&#39;s heart
+  -C, --comma-first                 Put commas at the beginning of new line instead of end
+  -O, --operator-position           Set operator position (before-newline|after-newline|preserve-newline) [before-newline]
+  --indent-empty-lines              Keep indentation on empty lines
+  --templating                      List of templating languages (auto,django,erb,handlebars,php) [&quot;auto&quot;] auto = none in JavaScript, all in html</code></pre>
 
     </div>
 
@@ -342,14 +383,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -390,6 +431,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

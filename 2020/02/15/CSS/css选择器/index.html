@@ -47,13 +47,13 @@
   };
 </script>
 
-  <meta name="description" content="css交集选择器,并集选择器,兄弟选择器参考链接&amp;gt; 交集选择器交集选择器,相交的部分就是要设置属性值的标签 1p.para1 &amp;#123;color: red&amp;#125;;  含义:类名为para的p标签文字颜色为红色 并集选择器并集选择器就是同时操控多个元素,选择器之间用,相隔 12345h1,h2,h3 &amp;#123;color: red&amp;#125;;&#x2F;*等效于*&#x2F;h1 &amp;#123;col">
+  <meta name="description" content="css交集选择器,并集选择器,兄弟选择器参考链接&amp;gt; 交集选择器交集选择器,相交的部分就是要设置属性值的标签 p.para1 {color: red}; 含义:类名为para的p标签文字颜色为红色 并集选择器并集选择器就是同时操控多个元素,选择器之间用,相隔 h1,h2,h3 {color: red}; &#x2F;*等效于*&#x2F; h1 {color:red}; h2 {color:red}; h3 {c">
 <meta name="keywords" content="css">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css选择器总结">
 <meta property="og:url" content="https:&#x2F;&#x2F;siwadiya.github.io&#x2F;2020&#x2F;02&#x2F;15&#x2F;CSS&#x2F;css%E9%80%89%E6%8B%A9%E5%99%A8&#x2F;index.html">
 <meta property="og:site_name" content="風之萬里">
-<meta property="og:description" content="css交集选择器,并集选择器,兄弟选择器参考链接&amp;gt; 交集选择器交集选择器,相交的部分就是要设置属性值的标签 1p.para1 &amp;#123;color: red&amp;#125;;  含义:类名为para的p标签文字颜色为红色 并集选择器并集选择器就是同时操控多个元素,选择器之间用,相隔 12345h1,h2,h3 &amp;#123;color: red&amp;#125;;&#x2F;*等效于*&#x2F;h1 &amp;#123;col">
+<meta property="og:description" content="css交集选择器,并集选择器,兄弟选择器参考链接&amp;gt; 交集选择器交集选择器,相交的部分就是要设置属性值的标签 p.para1 {color: red}; 含义:类名为para的p标签文字颜色为红色 并集选择器并集选择器就是同时操控多个元素,选择器之间用,相隔 h1,h2,h3 {color: red}; &#x2F;*等效于*&#x2F; h1 {color:red}; h2 {color:red}; h3 {c">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2020-02-15T15:35:33.945Z">
 <meta name="twitter:card" content="summary">
@@ -266,16 +266,17 @@
       
         <h2 id="css交集选择器-并集选择器-兄弟选择器"><a href="#css交集选择器-并集选择器-兄弟选择器" class="headerlink" title="css交集选择器,并集选择器,兄弟选择器"></a>css交集选择器,并集选择器,兄弟选择器</h2><p><a href="https://www.w3school.com.cn/cssref/css_selectors.asp" target="_blank" rel="noopener"><span style="font-size:1.25em">参考链接</span>&gt;</a></p>
 <h3 id="交集选择器"><a href="#交集选择器" class="headerlink" title="交集选择器"></a>交集选择器</h3><p>交集选择器,相交的部分就是要设置属性值的标签</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span><span class="selector-class">.para1</span> &#123;<span class="attribute">color</span>: red&#125;;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="css">p.para1 {color: red};</code></pre>
 <p><strong>含义:类名为para的p标签文字颜色为红色</strong></p>
 <h3 id="并集选择器"><a href="#并集选择器" class="headerlink" title="并集选择器"></a>并集选择器</h3><p>并集选择器就是同时操控多个元素,选择器之间用<code>,</code>相隔</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span>,<span class="selector-tag">h2</span>,<span class="selector-tag">h3</span> &#123;<span class="attribute">color</span>: red&#125;;</span><br><span class="line"><span class="comment">/*等效于*/</span></span><br><span class="line"><span class="selector-tag">h1</span> &#123;<span class="attribute">color</span>:red&#125;;</span><br><span class="line"><span class="selector-tag">h2</span> &#123;<span class="attribute">color</span>:red&#125;;</span><br><span class="line"><span class="selector-tag">h3</span> &#123;<span class="attribute">color</span>:red&#125;;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="css">h1,h2,h3 {color: red};
+/*等效于*/
+h1 {color:red};
+h2 {color:red};
+h3 {color:red};</code></pre>
 <h3 id="兄弟选择器"><a href="#兄弟选择器" class="headerlink" title="兄弟选择器"></a>兄弟选择器</h3><p>相邻兄弟选择器（Adjacent sibling selector）可选择紧接在另一元素后的元素，且二者有相同父元素。</p>
 <p>例如，如果要增加紧接在 <strong>h1 元素后出现的段落</strong>的上边距，可以这样写：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> + <span class="selector-tag">p</span> &#123;<span class="attribute">margin-top</span>:<span class="number">50px</span>;&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="css">h1 + p {margin-top:50px;}</code></pre>
 <p><strong>这个选择器读作：“选择紧接在 h1 元素后出现的段落，h1 和 p 元素拥有共同的父元素”。</strong></p>
 <p><strong>注意:必须是紧接着的元素!!!</strong></p>
 
@@ -354,14 +355,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -402,6 +403,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

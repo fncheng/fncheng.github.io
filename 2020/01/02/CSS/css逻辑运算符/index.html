@@ -47,13 +47,13 @@
   };
 </script>
 
-  <meta name="description" content="参考链接 CSS :not()选择器使用技巧1、使用:not()去除列表最后一个元素的右边框css代码: 123li:not(:last-child) &amp;#123;    border-right: 3px solid red;&amp;#125;  其中需要注意的是,li必须是最后一个子代标签.">
+  <meta name="description" content="参考链接 CSS :not()选择器使用技巧1、使用:not()去除列表最后一个元素的右边框css代码: li:not(:last-child) {     border-right: 3px solid red; } 其中需要注意的是,li必须是最后一个子代标签.">
 <meta name="keywords" content="css">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css逻辑运算符">
 <meta property="og:url" content="https:&#x2F;&#x2F;siwadiya.github.io&#x2F;2020&#x2F;01&#x2F;02&#x2F;CSS&#x2F;css%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6&#x2F;index.html">
 <meta property="og:site_name" content="風之萬里">
-<meta property="og:description" content="参考链接 CSS :not()选择器使用技巧1、使用:not()去除列表最后一个元素的右边框css代码: 123li:not(:last-child) &amp;#123;    border-right: 3px solid red;&amp;#125;  其中需要注意的是,li必须是最后一个子代标签.">
+<meta property="og:description" content="参考链接 CSS :not()选择器使用技巧1、使用:not()去除列表最后一个元素的右边框css代码: li:not(:last-child) {     border-right: 3px solid red; } 其中需要注意的是,li必须是最后一个子代标签.">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2020-01-02T14:53:11.642Z">
 <meta name="twitter:card" content="summary">
@@ -266,13 +266,101 @@
       
         <p><a href="http://blog.mingsixue.com/effect/CSS-not-use-skill.html" target="_blank" rel="noopener">参考链接</a></p>
 <h1 id="CSS-not-选择器使用技巧"><a href="#CSS-not-选择器使用技巧" class="headerlink" title="CSS :not()选择器使用技巧"></a>CSS :not()选择器使用技巧</h1><h2 id="1、使用-not-去除列表最后一个元素的右边框"><a href="#1、使用-not-去除列表最后一个元素的右边框" class="headerlink" title="1、使用:not()去除列表最后一个元素的右边框"></a>1、使用:not()去除列表最后一个元素的右边框</h2><p>css代码:</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">li</span><span class="selector-pseudo">:not(</span><span class="selector-pseudo">:last-child)</span> &#123;</span><br><span class="line">    <span class="attribute">border-right</span>: <span class="number">3px</span> solid red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="css">li:not(:last-child) {
+    border-right: 3px solid red;
+}</code></pre>
 <p>其中需要注意的是,li必须是最后一个子代标签.</p>
 <a id="more"></a>
 
-<h3 id="子代选择器的规则"><a href="#子代选择器的规则" class="headerlink" title="子代选择器的规则"></a>子代选择器的规则</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">        * &#123;</span><br><span class="line">            padding: 0;</span><br><span class="line">            margin: 0;</span><br><span class="line">            box-sizing: border-box;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">        <span class="selector-class">.father</span> &#123;</span></span><br><span class="line">            list-style: none;</span><br><span class="line">            width: 600px;</span><br><span class="line">            height: 400px;</span><br><span class="line">            background-color: pink;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">        <span class="selector-class">.son</span> &#123;</span></span><br><span class="line">            width: 50px;</span><br><span class="line">            height: 50px;</span><br><span class="line">            float: left;</span><br><span class="line">            background-color: lime;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        span &#123;</span><br><span class="line">            width: 100px;</span><br><span class="line">            height: 100px;</span><br><span class="line">            background-color: blue;</span><br><span class="line"><span class="css">            <span class="comment">/* border-right: 3px solid red; */</span></span></span><br><span class="line">            float: left;</span><br><span class="line">            margin-right: 20px;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">        <span class="comment">/* 子元素中的标签,如果是span标签,则生效;如果被其他元素占用,则无效 */</span></span></span><br><span class="line">        /* span:nth-child(5) &#123;</span><br><span class="line">            background-color: yellow;</span><br><span class="line">            border-right: 5px solid red;</span><br><span class="line">        &#125; */</span><br><span class="line"></span><br><span class="line"><span class="css">        <span class="comment">/* 子元素中的span标签,其他元素的占用不影响span顺序 */</span></span></span><br><span class="line">        /* span:nth-of-type(4) &#123;</span><br><span class="line">            background-color: yellow;</span><br><span class="line">            border-right: 3px solid red;</span><br><span class="line">        &#125; */</span><br><span class="line"></span><br><span class="line"><span class="css">        <span class="comment">/* 子元素中的span标签,最后一个元素是span,则生效;反之无效 */</span></span></span><br><span class="line">        /* span:last-child &#123;</span><br><span class="line">            border-right: 3px solid red;</span><br><span class="line">        &#125; */</span><br><span class="line"></span><br><span class="line"><span class="css">        <span class="comment">/* 与nth-child相反,从反方向开始计数,如果被其他元素占用,则无效 */</span></span></span><br><span class="line">        /* span:nth-last-child(2) &#123;</span><br><span class="line">            border-right: 3px solid red;</span><br><span class="line">        &#125; */</span><br><span class="line"></span><br><span class="line"><span class="css">        <span class="comment">/* 与nth-child相反,从反方向开始计数,其他元素的占用不影响 */</span></span></span><br><span class="line">        /* span:nth-last-of-type(2) &#123;</span><br><span class="line">            border-right: 3px solid red;</span><br><span class="line">        &#125; */</span><br><span class="line"></span><br><span class="line"><span class="css">        <span class="comment">/* 除最后一个span元素外都生效,其他元素会影响 */</span></span></span><br><span class="line">        /* span:not(:last-child) &#123;</span><br><span class="line">            border-right: 3px solid red;</span><br><span class="line">        &#125; */</span><br><span class="line"></span><br><span class="line"><span class="css">        <span class="comment">/* 除最后一个span元素外都生效,其他元素不影响 */</span></span></span><br><span class="line"><span class="css">        <span class="selector-tag">span</span><span class="selector-pseudo">:not(</span><span class="selector-pseudo">:last-of-type)</span> &#123;</span></span><br><span class="line">            border-right: 3px solid red;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"father"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"son"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="子代选择器的规则"><a href="#子代选择器的规则" class="headerlink" title="子代选择器的规则"></a>子代选择器的规则</h3><pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
 
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .father {
+            list-style: none;
+            width: 600px;
+            height: 400px;
+            background-color: pink;
+        }
+
+        .son {
+            width: 50px;
+            height: 50px;
+            float: left;
+            background-color: lime;
+        }
+
+        span {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            /* border-right: 3px solid red; */
+            float: left;
+            margin-right: 20px;
+        }
+
+        /* 子元素中的标签,如果是span标签,则生效;如果被其他元素占用,则无效 */
+        /* span:nth-child(5) {
+            background-color: yellow;
+            border-right: 5px solid red;
+        } */
+
+        /* 子元素中的span标签,其他元素的占用不影响span顺序 */
+        /* span:nth-of-type(4) {
+            background-color: yellow;
+            border-right: 3px solid red;
+        } */
+
+        /* 子元素中的span标签,最后一个元素是span,则生效;反之无效 */
+        /* span:last-child {
+            border-right: 3px solid red;
+        } */
+
+        /* 与nth-child相反,从反方向开始计数,如果被其他元素占用,则无效 */
+        /* span:nth-last-child(2) {
+            border-right: 3px solid red;
+        } */
+
+        /* 与nth-child相反,从反方向开始计数,其他元素的占用不影响 */
+        /* span:nth-last-of-type(2) {
+            border-right: 3px solid red;
+        } */
+
+        /* 除最后一个span元素外都生效,其他元素会影响 */
+        /* span:not(:last-child) {
+            border-right: 3px solid red;
+        } */
+
+        /* 除最后一个span元素外都生效,其他元素不影响 */
+        span:not(:last-of-type) {
+            border-right: 3px solid red;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div class=&quot;father&quot;&gt;
+        &lt;span&gt;&lt;/span&gt;
+        &lt;span&gt;&lt;/span&gt;
+        &lt;span&gt;&lt;/span&gt;
+        &lt;div class=&quot;son&quot;&gt;&lt;/div&gt;
+        &lt;span&gt;&lt;/span&gt;
+        &lt;a href=&quot;&quot;&gt;&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
 
     </div>
 
@@ -349,14 +437,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -397,6 +485,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

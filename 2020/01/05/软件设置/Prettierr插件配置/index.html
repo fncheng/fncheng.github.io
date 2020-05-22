@@ -281,13 +281,38 @@
 <li><h4 id="官方文档-1"><a href="#官方文档-1" class="headerlink" title="官方文档"></a><a href="https://github.com/prettier/prettier-vscode" target="_blank" rel="noopener">官方文档</a></h4></li>
 </ul>
 <p>之前看了官方文档,在vscode全局配置文件<code>setting.json</code>中修改使不同语言使用不同格式化插件</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">"[html]": &#123;</span><br><span class="line">        "editor.defaultFormatter": "HookyQR.beautify"</span><br><span class="line">    &#125;,</span><br><span class="line">"[css]": &#123;</span><br><span class="line">        "editor.defaultFormatter": "esbenp.prettier-vscode"</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
-
+<pre><code class="json">&quot;[html]&quot;: {
+        &quot;editor.defaultFormatter&quot;: &quot;HookyQR.beautify&quot;
+    },
+&quot;[css]&quot;: {
+        &quot;editor.defaultFormatter&quot;: &quot;esbenp.prettier-vscode&quot;
+    },</code></pre>
 <p>这样虽然解决了问题,但是很麻烦</p>
 <h3 id="1-单个项目配置"><a href="#1-单个项目配置" class="headerlink" title="1. 单个项目配置"></a>1. 单个项目配置</h3><p>prettier官方给出了针对不同项目配置prettier的方法:</p>
 <p>在项目根目录建立<code>.prettierrc</code>文件</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"semi"</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">"overrides"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"files"</span>: <span class="string">"*.test.js"</span>,</span><br><span class="line">            <span class="attr">"options"</span>: &#123;</span><br><span class="line">                <span class="attr">"semi"</span>: <span class="literal">true</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"files"</span>: [<span class="string">"*.html"</span>, <span class="string">"legacy/**/*.js"</span>],</span><br><span class="line">            <span class="attr">"options"</span>: &#123;</span><br><span class="line">                <span class="attr">"tabWidth"</span>: <span class="number">4</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"files"</span>: [<span class="string">"*.css"</span>],</span><br><span class="line">            <span class="attr">"options"</span>: &#123;</span><br><span class="line">                <span class="attr">"tabWidth"</span>: <span class="number">2</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="json">{
+    &quot;semi&quot;: false,
+    &quot;overrides&quot;: [
+        {
+            &quot;files&quot;: &quot;*.test.js&quot;,
+            &quot;options&quot;: {
+                &quot;semi&quot;: true
+            }
+        },
+        {
+            &quot;files&quot;: [&quot;*.html&quot;, &quot;legacy/**/*.js&quot;],
+            &quot;options&quot;: {
+                &quot;tabWidth&quot;: 4
+            }
+        },
+        {
+            &quot;files&quot;: [&quot;*.css&quot;],
+            &quot;options&quot;: {
+                &quot;tabWidth&quot;: 2
+            }
+        }
+    ]
+}</code></pre>
 <p>从上面可以看出,<code>.prettierrc</code>文件对不同格式的文件自定义了不同的<code>tabWidth</code>值,而<code>tabWidth</code>就是缩进的空格数,这样做可以方便地配置不同格式下prettier的选项,但是对我来说还不够,因为每建一个项目就要建一个这个文件(我有时候会忘记).于是我想弄成全局配置.</p>
 <h3 id="2-全局配置"><a href="#2-全局配置" class="headerlink" title="2. 全局配置"></a>2. 全局配置</h3><p>官方文档在扩展设置一栏中给了一个<code>prettier.configPath</code></p>
 <blockquote>
@@ -295,13 +320,28 @@
 <p>注意，如果设置了该值，将始终使用该值，并且本地配置文件将被忽略。全局默认值的一个更好的选择是将~/.prettierrc文件放在主目录中。</p>
 </blockquote>
 <p>在setting.json中配置如下:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//指定全局全局配置文件</span></span><br><span class="line">"prettier.configPath": "***\\.prettierrc",</span><br></pre></td></tr></table></figure>
-
+<pre><code class="json">//指定全局全局配置文件
+&quot;prettier.configPath&quot;: &quot;***\\.prettierrc&quot;,</code></pre>
 <p><code>.prettierrc</code>就是上面写的配置文件,只要在<code>setting.json</code>中指定配置文件,就会应用到全局</p>
 <p><strong style="color:red">需要注意的是,如果设置了这个选项,那你项目目录的<code>.prettierrc</code>文件就会失效.</strong></p>
 <h2 id="prettier设置详解"><a href="#prettier设置详解" class="headerlink" title="prettier设置详解"></a>prettier设置详解</h2><p>prettier给出了如下设置选项</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">prettier.arrowParens	//在单独的箭头函数周围加上()	默认always</span><br><span class="line">prettier.bracketSpacing	//在对象&#123;&#125;之间加上空格</span><br><span class="line">prettier.endOfLine</span><br><span class="line">prettier.htmlWhitespaceSensitivity</span><br><span class="line">prettier.insertPragma</span><br><span class="line">prettier.jsxBracketSameLine	//在jsx中把'&gt;' 是否单独放一行</span><br><span class="line">prettier.jsxSingleQuote</span><br><span class="line">prettier.printWidth</span><br><span class="line">prettier.proseWrap</span><br><span class="line">prettier.quoteProps</span><br><span class="line">prettier.requirePragma</span><br><span class="line">prettier.semi	//行末分号</span><br><span class="line">prettier.singleQuote	//使用单引号而不是双引号</span><br><span class="line">prettier.tabWidth	//tab的宽度</span><br><span class="line">prettier.trailingComma	//尾随逗号</span><br><span class="line">prettier.useTabs   //使用制表符代替空格缩进</span><br><span class="line">prettier.vueIndentScriptAndStyle</span><br></pre></td></tr></table></figure>
-
+<pre><code class="json">prettier.arrowParens    //在单独的箭头函数周围加上()    默认always
+prettier.bracketSpacing    //在对象{}之间加上空格
+prettier.endOfLine
+prettier.htmlWhitespaceSensitivity
+prettier.insertPragma
+prettier.jsxBracketSameLine    //在jsx中把&#39;&gt;&#39; 是否单独放一行
+prettier.jsxSingleQuote
+prettier.printWidth
+prettier.proseWrap
+prettier.quoteProps
+prettier.requirePragma
+prettier.semi    //行末分号
+prettier.singleQuote    //使用单引号而不是双引号
+prettier.tabWidth    //tab的宽度
+prettier.trailingComma    //尾随逗号
+prettier.useTabs   //使用制表符代替空格缩进
+prettier.vueIndentScriptAndStyle</code></pre>
 
     </div>
 
@@ -379,14 +419,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -427,6 +467,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

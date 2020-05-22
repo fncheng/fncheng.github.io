@@ -47,13 +47,13 @@
   };
 </script>
 
-  <meta name="description" content="echarts数据可视化(图表)插件中文官网教程 引入echarts 通过标签方式直接引入构建好的 echarts 文件 12345678&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charset=&quot;utf-8&quot;&amp;gt;    &amp;lt;!-- 引入 ECharts 文件 --&amp;gt;    &amp;lt;script src=&quot;ec">
+  <meta name="description" content="echarts数据可视化(图表)插件中文官网教程 引入echarts 通过标签方式直接引入构建好的 echarts 文件 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt;     &amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;     &amp;lt;!-- 引入 ECharts 文件 --&amp;gt;     &amp;lt;script">
 <meta name="keywords" content="JavaScript,js插件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="echarts数据可视化">
 <meta property="og:url" content="https:&#x2F;&#x2F;siwadiya.github.io&#x2F;2020&#x2F;03&#x2F;14&#x2F;js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8&#x2F;echarts%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96&#x2F;index.html">
 <meta property="og:site_name" content="風之萬里">
-<meta property="og:description" content="echarts数据可视化(图表)插件中文官网教程 引入echarts 通过标签方式直接引入构建好的 echarts 文件 12345678&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charset=&quot;utf-8&quot;&amp;gt;    &amp;lt;!-- 引入 ECharts 文件 --&amp;gt;    &amp;lt;script src=&quot;ec">
+<meta property="og:description" content="echarts数据可视化(图表)插件中文官网教程 引入echarts 通过标签方式直接引入构建好的 echarts 文件 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt;     &amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;     &amp;lt;!-- 引入 ECharts 文件 --&amp;gt;     &amp;lt;script">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2020-03-18T01:26:51.006Z">
 <meta name="twitter:card" content="summary">
@@ -273,13 +273,46 @@
         <h3 id="echarts数据可视化-图表-插件"><a href="#echarts数据可视化-图表-插件" class="headerlink" title="echarts数据可视化(图表)插件"></a>echarts数据可视化(图表)插件</h3><p><a href="https://www.echartsjs.com/zh/tutorial.html#5%20%E5%88%86%E9%92%9F%E4%B8%8A%E6%89%8B%20ECharts" target="_blank" rel="noopener">中文官网教程</a></p>
 <h4 id="引入echarts"><a href="#引入echarts" class="headerlink" title="引入echarts"></a>引入echarts</h4><hr>
 <p>通过标签方式直接引入构建好的 echarts 文件</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 引入 ECharts 文件 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"echarts.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;!-- 引入 ECharts 文件 --&gt;
+    &lt;script src=&quot;echarts.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;/html&gt;</code></pre>
 <h4 id="绘制一个简单的图表"><a href="#绘制一个简单的图表" class="headerlink" title="绘制一个简单的图表"></a>绘制一个简单的图表</h4><p>在绘图前我们需要为 ECharts 准备一个具备高宽的 DOM 容器。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 为 ECharts 准备一个具备大小（宽高）的 DOM --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main"</span> <span class="attr">style</span>=<span class="string">"width: 600px;height:400px;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="html">&lt;body&gt;
+    &lt;!-- 为 ECharts 准备一个具备大小（宽高）的 DOM --&gt;
+    &lt;div id=&quot;main&quot; style=&quot;width: 600px;height:400px;&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;</code></pre>
+<pre><code class="js">&lt;script type=&quot;text/javascript&quot;&gt;
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById(&#39;main&#39;));
 
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">	<span class="comment">// 基于准备好的dom，初始化echarts实例</span></span><br><span class="line">	<span class="keyword">var</span> myChart = echarts.init(<span class="built_in">document</span>.getElementById(<span class="string">'main'</span>));</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 指定图表的配置项和数据</span></span><br><span class="line">    <span class="keyword">var</span> option = &#123;</span><br><span class="line">        title: &#123;</span><br><span class="line">		text: <span class="string">'ECharts 入门示例'</span></span><br><span class="line">		&#125;,</span><br><span class="line">	tooltip: &#123;&#125;,</span><br><span class="line">	legend: &#123;			<span class="comment">//表格说明</span></span><br><span class="line">		data:[<span class="string">'销量'</span>]</span><br><span class="line">	&#125;,</span><br><span class="line">	xAxis: &#123;			<span class="comment">//x轴</span></span><br><span class="line">		data: [<span class="string">"衬衫"</span>,<span class="string">"羊毛衫"</span>,<span class="string">"雪纺衫"</span>,<span class="string">"裤子"</span>,<span class="string">"高跟鞋"</span>,<span class="string">"袜子"</span>]</span><br><span class="line">	&#125;,</span><br><span class="line">	yAxis: &#123;&#125;,			<span class="comment">//y轴</span></span><br><span class="line">	series: [&#123;</span><br><span class="line">		name: <span class="string">'销量'</span>,</span><br><span class="line">		type: <span class="string">'bar'</span>, <span class="comment">// bar 柱状图,line 折线图,pie 饼图</span></span><br><span class="line">		data: [<span class="number">5</span>, <span class="number">20</span>, <span class="number">36</span>, <span class="number">10</span>, <span class="number">10</span>, <span class="number">20</span>]</span><br><span class="line">		&#125;]</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 使用刚指定的配置项和数据显示图表。</span></span><br><span class="line">	myChart.setOption(option);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+        text: &#39;ECharts 入门示例&#39;
+        },
+    tooltip: {},
+    legend: {            //表格说明
+        data:[&#39;销量&#39;]
+    },
+    xAxis: {            //x轴
+        data: [&quot;衬衫&quot;,&quot;羊毛衫&quot;,&quot;雪纺衫&quot;,&quot;裤子&quot;,&quot;高跟鞋&quot;,&quot;袜子&quot;]
+    },
+    yAxis: {},            //y轴
+    series: [{
+        name: &#39;销量&#39;,
+        type: &#39;bar&#39;, // bar 柱状图,line 折线图,pie 饼图
+        data: [5, 20, 36, 10, 10, 20]
+        }]
+    };
 
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+&lt;/script&gt;</code></pre>
 
     </div>
 
@@ -357,14 +390,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -405,6 +438,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

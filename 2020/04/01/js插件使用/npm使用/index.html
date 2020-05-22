@@ -47,13 +47,13 @@
   };
 </script>
 
-  <meta name="description" content="NPM CLI vs Yarn CLIhttps:&#x2F;&#x2F;github.com&#x2F;zuojj&#x2F;fedlab&#x2F;issues&#x2F;3 命令安装模块 1npm install [package]  -S, –save 安装包信息将加入到dependencies（生产阶段的依赖） 123npm install gulp --save 或 npm install gulp -Syarn add [package]">
+  <meta name="description" content="NPM CLI vs Yarn CLIhttps:&#x2F;&#x2F;github.com&#x2F;zuojj&#x2F;fedlab&#x2F;issues&#x2F;3 命令安装模块 npm install [package] -S, –save 安装包信息将加入到dependencies（生产阶段的依赖） npm install gulp --save 或 npm install gulp -S  yarn add [package] pack">
 <meta name="keywords" content="nodejs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="npm使用">
 <meta property="og:url" content="https:&#x2F;&#x2F;siwadiya.github.io&#x2F;2020&#x2F;04&#x2F;01&#x2F;js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8&#x2F;npm%E4%BD%BF%E7%94%A8&#x2F;index.html">
 <meta property="og:site_name" content="風之萬里">
-<meta property="og:description" content="NPM CLI vs Yarn CLIhttps:&#x2F;&#x2F;github.com&#x2F;zuojj&#x2F;fedlab&#x2F;issues&#x2F;3 命令安装模块 1npm install [package]  -S, –save 安装包信息将加入到dependencies（生产阶段的依赖） 123npm install gulp --save 或 npm install gulp -Syarn add [package]">
+<meta property="og:description" content="NPM CLI vs Yarn CLIhttps:&#x2F;&#x2F;github.com&#x2F;zuojj&#x2F;fedlab&#x2F;issues&#x2F;3 命令安装模块 npm install [package] -S, –save 安装包信息将加入到dependencies（生产阶段的依赖） npm install gulp --save 或 npm install gulp -S  yarn add [package] pack">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2020-04-09T15:04:55.575Z">
 <meta name="twitter:card" content="summary">
@@ -272,19 +272,24 @@
       
         <h2 id="NPM-CLI-vs-Yarn-CLI"><a href="#NPM-CLI-vs-Yarn-CLI" class="headerlink" title="NPM CLI vs Yarn CLI"></a>NPM CLI vs Yarn CLI</h2><p><a href="https://github.com/zuojj/fedlab/issues/3" target="_blank" rel="noopener">https://github.com/zuojj/fedlab/issues/3</a></p>
 <h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><p>安装模块</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install [package]</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">npm install [package]</code></pre>
 <p><strong>-S, –save 安装包信息将加入到dependencies（生产阶段的依赖）</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp --save 或 npm install gulp -S</span><br><span class="line"></span><br><span class="line">yarn add [package]</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">npm install gulp --save 或 npm install gulp -S
 
+yarn add [package]</code></pre>
 <p>package.json 文件的 dependencies 字段：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"dependencies": &#123;</span><br><span class="line">    "gulp": "^3.9.1"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="json">&quot;dependencies&quot;: {
+    &quot;gulp&quot;: &quot;^3.9.1&quot;
+}</code></pre>
 <p><strong>-D, –save-dev 安装包信息将加入到devDependencies（开发阶段的依赖），所以开发阶段一般使用它</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp --save-dev 或 npm install gulp -D</span><br><span class="line"></span><br><span class="line">yarn add [package] [--dev/-D]</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">npm install gulp --save-dev 或 npm install gulp -D
 
+yarn add [package] [--dev/-D]</code></pre>
 <p>package.json 文件的 devDependencies字段：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"gulp"</span>: <span class="string">"^3.9.1"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">&quot;devDependencies&quot;: {
+    &quot;gulp&quot;: &quot;^3.9.1&quot;
+}</code></pre>
+
     </div>
 
     
@@ -360,14 +365,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -408,6 +413,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

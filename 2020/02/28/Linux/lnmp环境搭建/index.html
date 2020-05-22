@@ -271,8 +271,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="lnmp环境-Linux-Apache-MySQL-PHP"><a href="#lnmp环境-Linux-Apache-MySQL-PHP" class="headerlink" title="lnmp环境(Linux+Apache+MySQL+PHP)"></a>lnmp环境(Linux+Apache+MySQL+PHP)</h2><h3 id="nginx安装"><a href="#nginx安装" class="headerlink" title="nginx安装"></a>nginx安装</h3><h4 id="nginx的启动和停止"><a href="#nginx的启动和停止" class="headerlink" title="nginx的启动和停止"></a>nginx的启动和停止</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start nginx</span><br></pre></td></tr></table></figure>
-
+        <h2 id="lnmp环境-Linux-Apache-MySQL-PHP"><a href="#lnmp环境-Linux-Apache-MySQL-PHP" class="headerlink" title="lnmp环境(Linux+Apache+MySQL+PHP)"></a>lnmp环境(Linux+Apache+MySQL+PHP)</h2><h3 id="nginx安装"><a href="#nginx安装" class="headerlink" title="nginx安装"></a>nginx安装</h3><h4 id="nginx的启动和停止"><a href="#nginx的启动和停止" class="headerlink" title="nginx的启动和停止"></a>nginx的启动和停止</h4><pre><code class="bash">start nginx
+</code></pre>
 
     </div>
 
@@ -349,14 +349,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -397,6 +397,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

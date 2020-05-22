@@ -272,8 +272,7 @@
 
       
         <h2 id="Linux-ls命令"><a href="#Linux-ls命令" class="headerlink" title="Linux ls命令"></a>Linux ls命令</h2><p><strong>语法</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls [选项] [目录名]</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">ls [选项] [目录名]</code></pre>
 <p><strong>常用参数</strong></p>
 <p>-a, –all 列出目录下的所有文件，包括以 . 开头的隐含文件</p>
 <p>-A 同-a，但不列出“.”(表示当前目录)和“..”(表示当前目录的父目录)。</p>
@@ -299,8 +298,15 @@
 <p>-r, –reverse 依相反次序排列</p>
 <p>-R, –recursive 同时列出所有子目录层</p>
 <h3 id="ls-lh命令"><a href="#ls-lh命令" class="headerlink" title="ls -lh命令"></a>ls -lh命令</h3><p>功能: 查看权限</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ ls -lh</span><br><span class="line">total 600K</span><br><span class="line">drwxr-xr-x 1 qq862 197609    0 1月  18 17:37 node_modules/</span><br><span class="line">-rw-r--r-- 1 qq862 197609  782 1月  18 17:34 package.json</span><br><span class="line">-rw-r--r-- 1 qq862 197609 243K 1月  18 17:37 package-lock.json</span><br><span class="line">drwxr-xr-x 1 qq862 197609    0 2月   3 17:01 public/</span><br><span class="line">drwxr-xr-x 1 qq862 197609    0 11月 10 12:05 scaffolds/</span><br><span class="line">drwxr-xr-x 1 qq862 197609    0 12月 13 20:57 <span class="built_in">source</span>/</span><br><span class="line">drwxr-xr-x 1 qq862 197609    0 11月 26 12:41 themes/</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">$ ls -lh
+total 600K
+drwxr-xr-x 1 qq862 197609    0 1月  18 17:37 node_modules/
+-rw-r--r-- 1 qq862 197609  782 1月  18 17:34 package.json
+-rw-r--r-- 1 qq862 197609 243K 1月  18 17:37 package-lock.json
+drwxr-xr-x 1 qq862 197609    0 2月   3 17:01 public/
+drwxr-xr-x 1 qq862 197609    0 11月 10 12:05 scaffolds/
+drwxr-xr-x 1 qq862 197609    0 12月 13 20:57 source/
+drwxr-xr-x 1 qq862 197609    0 11月 26 12:41 themes/</code></pre>
 
     </div>
 
@@ -377,14 +383,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -425,6 +431,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

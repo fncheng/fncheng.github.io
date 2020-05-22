@@ -47,12 +47,12 @@
   };
 </script>
 
-  <meta name="description" content="官方配置文档参考文档 挂载onedrive参考文档 挂载onedrive1rclone mount myonedrive:&#x2F; o: --cache-dir D:\OneDriveTemp --allow-other --vfs-cache-mode writes --allow-non-empty &amp;amp;  这样会有个cmd框一直在后台运行.不是很方便 新建一个Start.vbs文件 1Cre">
+  <meta name="description" content="官方配置文档参考文档 挂载onedrive参考文档 挂载onedriverclone mount myonedrive:&#x2F; o: --cache-dir D:\OneDriveTemp --allow-other --vfs-cache-mode writes --allow-non-empty &amp;amp; 这样会有个cmd框一直在后台运行.不是很方便 新建一个Start.vbs文件 Create">
 <meta property="og:type" content="article">
 <meta property="og:title" content="rclone使用">
 <meta property="og:url" content="https:&#x2F;&#x2F;siwadiya.github.io&#x2F;2020&#x2F;04&#x2F;16&#x2F;%E6%90%9E%E6%9C%BA%E6%8A%98%E8%85%BE&#x2F;rclone%E4%BD%BF%E7%94%A8&#x2F;index.html">
 <meta property="og:site_name" content="風之萬里">
-<meta property="og:description" content="官方配置文档参考文档 挂载onedrive参考文档 挂载onedrive1rclone mount myonedrive:&#x2F; o: --cache-dir D:\OneDriveTemp --allow-other --vfs-cache-mode writes --allow-non-empty &amp;amp;  这样会有个cmd框一直在后台运行.不是很方便 新建一个Start.vbs文件 1Cre">
+<meta property="og:description" content="官方配置文档参考文档 挂载onedrive参考文档 挂载onedriverclone mount myonedrive:&#x2F; o: --cache-dir D:\OneDriveTemp --allow-other --vfs-cache-mode writes --allow-non-empty &amp;amp; 这样会有个cmd框一直在后台运行.不是很方便 新建一个Start.vbs文件 Create">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2020-04-17T14:51:22.576Z">
 <meta name="twitter:card" content="summary">
@@ -271,24 +271,22 @@
       
         <h3 id="官方配置文档"><a href="#官方配置文档" class="headerlink" title="官方配置文档"></a><a href="https://rclone.org/commands/rclone_config/" target="_blank" rel="noopener">官方配置文档</a></h3><p><a href="https://softlns.github.io/2016/11/28/rclone-guide/" target="_blank" rel="noopener">参考文档</a></p>
 <p><a href="https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html" target="_blank" rel="noopener">挂载onedrive参考文档</a></p>
-<h3 id="挂载onedrive"><a href="#挂载onedrive" class="headerlink" title="挂载onedrive"></a>挂载onedrive</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rclone mount myonedrive:/ o: --cache-dir D:\OneDriveTemp --allow-other --vfs-cache-mode writes --allow-non-empty &amp;</span><br></pre></td></tr></table></figure>
-
+<h3 id="挂载onedrive"><a href="#挂载onedrive" class="headerlink" title="挂载onedrive"></a>挂载onedrive</h3><pre><code class="bash">rclone mount myonedrive:/ o: --cache-dir D:\OneDriveTemp --allow-other --vfs-cache-mode writes --allow-non-empty &amp;</code></pre>
 <p>这样会有个cmd框一直在后台运行.不是很方便</p>
 <p>新建一个Start.vbs文件</p>
-<figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CreateObject</span>(<span class="string">"WScript.Shell"</span>).Run <span class="string">"rclone mount myonedrive:/ o: --cache-dir D:\OneDriveTemp --allow-other --vfs-cache-mode writes --allow-non-empty"</span>,<span class="number">0</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="vbscript">CreateObject(&quot;WScript.Shell&quot;).Run &quot;rclone mount myonedrive:/ o: --cache-dir D:\OneDriveTemp --allow-other --vfs-cache-mode writes --allow-non-empty&quot;,0</code></pre>
 <p>即可后台运行</p>
 <hr>
 <h3 id="VBscript"><a href="#VBscript" class="headerlink" title="VBscript"></a>VBscript</h3><p><strong>WScript.Shell对象的 run 和 exec 函数功能使用详解</strong></p>
-<figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Set</span> Ws = <span class="built_in">CreateObject</span>(<span class="string">"Wscript.Shell"</span>)</span><br><span class="line"><span class="keyword">Function</span> Exec(<span class="keyword">ByVal</span> Command As <span class="built_in">String</span>) As WshExec</span><br><span class="line"><span class="keyword">Function</span> Run(<span class="keyword">ByVal</span> Command As <span class="built_in">String</span>, [<span class="keyword">ByVal</span> WindowStyle], [<span class="keyword">ByVal</span> WaitOnReturn]) As Integer</span><br></pre></td></tr></table></figure>
-
+<pre><code class="vbscript">Set Ws = CreateObject(&quot;Wscript.Shell&quot;)
+Function Exec(ByVal Command As String) As WshExec
+Function Run(ByVal Command As String, [ByVal WindowStyle], [ByVal WaitOnReturn]) As Integer</code></pre>
 <p>2.执行参数<br>  Run 的后两个参数，一个是 cmd 窗口的风格，一个是是否等待执行完成。</p>
 <p>第二个参数是窗口的形式，0是在后台运行；1表示正常运行；2表示激活程序并且显示为最小化；3表示激活程序并且显示为最大化；一共有10个这样的参数如下表。</p>
 <p>第三个参数是表示这个脚本是等待还是继续执行，如果设为了 true，脚本就会等待调用的程序退出后再向后执行。</p>
-<figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">'创建一个对象引用'</span></span><br><span class="line"><span class="keyword">Set</span> Ws = <span class="built_in">CreateObject</span>(<span class="string">"Wscript.Shell"</span>)</span><br><span class="line">Ws.Run(<span class="string">"strCommand"</span>,<span class="number">0</span>,<span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="vbscript">&#39;创建一个对象引用&#39;
+Set Ws = CreateObject(&quot;Wscript.Shell&quot;)
+Ws.Run(&quot;strCommand&quot;,0,true)</code></pre>
 
     </div>
 
@@ -362,14 +360,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -410,6 +408,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

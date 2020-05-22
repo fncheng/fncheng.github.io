@@ -289,8 +289,7 @@
 </li>
 <li><p><strong><a href="https://www.bootcdn.cn/jquery/" target="_blank" rel="noopener">Boot cdn</a></strong></p>
 <p><strong>版本:1.12.4</strong></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/jquery/1.12.4/jquery.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="html">&lt;script src=&quot;https://cdn.bootcss.com/jquery/1.12.4/jquery.js&quot;&gt;&lt;/script&gt;</code></pre>
 </li>
 </ul>
 </li>
@@ -298,10 +297,12 @@
 <h2 id="文档就绪事件"><a href="#文档就绪事件" class="headerlink" title="文档就绪事件"></a>文档就绪事件</h2><p>将 jQuery 函数位于一个 document ready 函数中： </p>
 <p>这是为了防止文档在完全加载（就绪）之前运行 jQuery 代码。</p>
 <p>如果在文档没有完全加载之前就运行函数，操作可能失败。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 开始写 jQuery 代码...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 开始写 jQuery 代码...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
+<pre><code class="js"> $(document).ready(function(){
+   // 开始写 jQuery 代码...
+ }); </code></pre>
+<pre><code class="js"> $(function(){
+   // 开始写 jQuery 代码...
+ }); </code></pre>
 <p>以上两种写法等效</p>
 <p>JQuery语法:</p>
 <article style="color:blue;font-weight:700">$("触发对象").触发条件(function () {<br>
@@ -314,12 +315,16 @@
 })</article>
 
 <p>例如:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#btn"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="string">".container"</span>).append(<span class="string">"&lt;div class=\"box\"&gt;1&lt;/div&gt;"</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
+<pre><code class="js">$(&quot;#btn&quot;).click(function () {
+    $(&quot;.container&quot;).append(&quot;&lt;div class=\&quot;box\&quot;&gt;1&lt;/div&gt;&quot;);
+})</code></pre>
 <h3 id="jQuery-捕获"><a href="#jQuery-捕获" class="headerlink" title="jQuery 捕获"></a>jQuery 捕获</h3><h4 id="jQuery-DOM-操作"><a href="#jQuery-DOM-操作" class="headerlink" title="jQuery DOM 操作"></a>jQuery DOM 操作</h4><p><strong>text()</strong>类似于原生js的<strong>innerText</strong></p>
 <p><strong>html()</strong>类似于原生js的<strong>innerHTML</strong></p>
 <h4 id="获取属性-attr"><a href="#获取属性-attr" class="headerlink" title="获取属性 - attr()"></a>获取属性 - attr()</h4><p>jQuery attr() 方法用于获取属性值。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"button"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  alert($(<span class="string">"#w3s"</span>).attr(<span class="string">"href"</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<pre><code class="js">$(&quot;button&quot;).click(function(){
+  alert($(&quot;#w3s&quot;).attr(&quot;href&quot;));
+});</code></pre>
+
     </div>
 
     
@@ -396,14 +401,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -444,6 +449,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

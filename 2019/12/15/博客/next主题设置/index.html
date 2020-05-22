@@ -273,17 +273,16 @@
       
         <a id="more"></a>
 
-<h2 id="Next主题个性化设置"><a href="#Next主题个性化设置" class="headerlink" title="Next主题个性化设置"></a>Next主题个性化设置</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-
+<h2 id="Next主题个性化设置"><a href="#Next主题个性化设置" class="headerlink" title="Next主题个性化设置"></a>Next主题个性化设置</h2><pre><code class="sh">git clone https://github.com/theme-next/hexo-theme-next themes/next</code></pre>
 <h3 id="Next安装后修改站点语言的问题"><a href="#Next安装后修改站点语言的问题" class="headerlink" title="Next安装后修改站点语言的问题"></a>Next安装后修改站点语言的问题</h3><blockquote>
 <p>在安装后站点根目录配置文件/_config.yml中language属性是 zh-Hans，但是站点语言并不是中文？</p>
 </blockquote>
 <p>参考链接： <a href="https://blog.csdn.net/mqdxiaoxiao/article/details/93251246" target="_blank" rel="noopener">https://blog.csdn.net/mqdxiaoxiao/article/details/93251246</a> </p>
 <h3 id="设定代码高亮主题"><a href="#设定代码高亮主题" class="headerlink" title="设定代码高亮主题"></a>设定代码高亮主题</h3><p>NexT使用Tomorrow Theme作为代码高亮，共有5款主题供你选择: normal | night | night eighties | night blue | night bright,默认使用的是白色的normal<br> 编辑站点的_config.yml：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Code Highlight theme</span></span><br><span class="line"><span class="comment"># Available value: normal | night | night eighties | night blue | night bright</span></span><br><span class="line"><span class="comment"># https://github.com/chriskempson/tomorrow-theme</span></span><br><span class="line"><span class="attr">highlight_theme:</span> <span class="string">normal</span></span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="yaml"># Code Highlight theme
+# Available value: normal | night | night eighties | night blue | night bright
+# https://github.com/chriskempson/tomorrow-theme
+highlight_theme: normal</code></pre>
 <h4 id="Next-Schemes"><a href="#Next-Schemes" class="headerlink" title="Next  Schemes"></a>Next  Schemes</h4><h2 id="Next主题颜色配置"><a href="#Next主题颜色配置" class="headerlink" title="Next主题颜色配置"></a>Next主题颜色配置</h2><h3 id="主题颜色"><a href="#主题颜色" class="headerlink" title="主题颜色"></a>主题颜色</h3><p>next主题的颜色在模板中都是用形如<code>$gray-lighter</code>,<code>$black-light</code>来定义的,其定义文件目录为:</p>
 <p><code>hexo/themes/next/source/css/_variables/base.styl</code></p>
 <h4 id="知识拓展-styl是什么文件"><a href="#知识拓展-styl是什么文件" class="headerlink" title="知识拓展: styl是什么文件?"></a>知识拓展: styl是什么文件?</h4><blockquote>
@@ -291,15 +290,34 @@
 <p><a href="https://juejin.im/entry/59a3dd10f265da247d728f26" target="_blank" rel="noopener">参考链接</a></p>
 </blockquote>
 <p>找到Colors代码段</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Colors</span></span><br><span class="line"><span class="comment">// colors for use across theme.</span></span><br><span class="line"><span class="comment">// --------------------------------------------------</span></span><br><span class="line">$whitesmoke   = #f5f5f5;</span><br><span class="line">$gainsboro    = #eee;</span><br><span class="line">$gray-lighter = #ddd;</span><br><span class="line">$grey-light   = #ccc;</span><br><span class="line">$grey         = #bbb;</span><br><span class="line">$grey-dark    = #999;</span><br><span class="line">$grey-dim     = #666;</span><br><span class="line">$black-light  = #555;</span><br><span class="line">$black-dim    = #333;</span><br><span class="line">$black-deep   = #222;</span><br><span class="line">$red          = #ff2a2a;</span><br><span class="line">$blue-bright  = #87daff;</span><br><span class="line">$blue         = #0684bd;</span><br><span class="line">$blue-deep    = #262a30;</span><br><span class="line">$orange       = #fc6423;</span><br><span class="line">$black        = rgba(0,0,0,0.84);</span><br></pre></td></tr></table></figure>
-
+<pre><code class="stylus">// Colors
+// colors for use across theme.
+// --------------------------------------------------
+$whitesmoke   = #f5f5f5;
+$gainsboro    = #eee;
+$gray-lighter = #ddd;
+$grey-light   = #ccc;
+$grey         = #bbb;
+$grey-dark    = #999;
+$grey-dim     = #666;
+$black-light  = #555;
+$black-dim    = #333;
+$black-deep   = #222;
+$red          = #ff2a2a;
+$blue-bright  = #87daff;
+$blue         = #0684bd;
+$blue-deep    = #262a30;
+$orange       = #fc6423;
+$black        = rgba(0,0,0,0.84);</code></pre>
 <p>其中最后一个<code>$black</code>是我自己添加的</p>
 <p>具体使用在样式中是这样的</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">blockquote</span> &#123;</span><br><span class="line">  <span class="attribute">border-left</span>: <span class="number">3px</span> solid <span class="variable">$black</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="stylus">blockquote {
+  border-left: 3px solid $black;
+}</code></pre>
 <p>其效果等效于css中的</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">blockquote</span> &#123;</span><br><span class="line">  <span class="attribute">border-left</span>: <span class="number">3px</span> solid <span class="built_in">rgba</span>(0,0,0,0.84);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="css">blockquote {
+  border-left: 3px solid rgba(0,0,0,0.84);
+}</code></pre>
 
     </div>
 
@@ -377,14 +395,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -425,6 +443,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

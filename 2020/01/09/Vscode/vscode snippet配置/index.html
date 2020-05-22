@@ -47,13 +47,13 @@
   };
 </script>
 
-  <meta name="description" content="参考链接起因是这样的  我在写js的时候输入for会有智能提示(js snippet插件的) 1234for (let index = 0; index &amp;lt; array.length; index++) &amp;#123;    const element = array[index];    &amp;#125;  但我目前只是刚接触js,所以想让他的效果是这样的 123for ( i = 0; i &amp;">
+  <meta name="description" content="参考链接起因是这样的  我在写js的时候输入for会有智能提示(js snippet插件的) for (let index = 0; index &amp;lt; array.length; index++) {     const element = array[index];  } 但我目前只是刚接触js,所以想让他的效果是这样的 for ( i = 0; i &amp;lt; array.length; i">
 <meta name="keywords" content="javascript,vscode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vscode snippet设置">
 <meta property="og:url" content="https:&#x2F;&#x2F;siwadiya.github.io&#x2F;2020&#x2F;01&#x2F;09&#x2F;Vscode&#x2F;vscode%20snippet%E9%85%8D%E7%BD%AE&#x2F;index.html">
 <meta property="og:site_name" content="風之萬里">
-<meta property="og:description" content="参考链接起因是这样的  我在写js的时候输入for会有智能提示(js snippet插件的) 1234for (let index = 0; index &amp;lt; array.length; index++) &amp;#123;    const element = array[index];    &amp;#125;  但我目前只是刚接触js,所以想让他的效果是这样的 123for ( i = 0; i &amp;">
+<meta property="og:description" content="参考链接起因是这样的  我在写js的时候输入for会有智能提示(js snippet插件的) for (let index = 0; index &amp;lt; array.length; index++) {     const element = array[index];  } 但我目前只是刚接触js,所以想让他的效果是这样的 for ( i = 0; i &amp;lt; array.length; i">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2020-03-02T08:23:46.959Z">
 <meta name="twitter:card" content="summary">
@@ -273,11 +273,14 @@
         <h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a><a href="https://juejin.im/post/5d0496415188257fff23b077" target="_blank" rel="noopener">参考链接</a></h3><p>起因是这样的</p>
 <blockquote>
 <p>我在写js的时候输入for会有智能提示(js snippet插件的)</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> index = <span class="number">0</span>; index &lt; array.length; index++) &#123;</span><br><span class="line">    <span class="keyword">const</span> element = array[index];</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="js">for (let index = 0; index &lt; array.length; index++) {
+    const element = array[index];
 
+}</code></pre>
 <p>但我目前只是刚接触js,所以想让他的效果是这样的</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> ( i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="js">for ( i = 0; i &lt; array.length; i++) {
 
+}</code></pre>
 <p>于是上网查询了下,发现可以通过配置vscode内置的snippet来完成这一效果</p>
 </blockquote>
 <a id="more"></a>
@@ -285,8 +288,14 @@
 <h3 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h3><p>首先打开snippet的配置文件,每个格式都会有一个,形如<code>$language.json</code>的配置,我要配置的是js的,所以打开javascript.json.</p>
 <p>具体路径:<code>文件\首选项\用户snippet,选择要配置的语言</code></p>
 <p>打开后会有一段注释,注释中已经给出了一个模板</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">"Print to console": &#123;</span><br><span class="line">	"prefix": "log",</span><br><span class="line">	"body": [</span><br><span class="line">		"console.log('$1');",</span><br><span class="line">		<span class="string">"$2"</span></span><br><span class="line">	],</span><br><span class="line">	"description": "Log output to console"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="json">    &quot;Print to console&quot;: {
+        &quot;prefix&quot;: &quot;log&quot;,
+        &quot;body&quot;: [
+            &quot;console.log(&#39;$1&#39;);&quot;,
+            &quot;$2&quot;
+        ],
+        &quot;description&quot;: &quot;Log output to console&quot;
+    }</code></pre>
 <ul>
 <li><code>Print to console</code> 对应代码片段名称。</li>
 <li><code>prefix</code> 对应触发代码片段的字符。</li>
@@ -294,8 +303,15 @@
 <li><code>description</code> 对应代码片段描述。</li>
 </ul>
 <p>要达到我需要的效果,改写成如下代码</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">"Print to for": &#123;</span><br><span class="line">	"prefix": "for",</span><br><span class="line">	"body": [</span><br><span class="line">		"for ( $&#123;1:index&#125; = 0; $&#123;1:index&#125; &lt; $&#123;2:array&#125;.length; $&#123;1:index&#125;++) &#123;",</span><br><span class="line">		"\t$0",</span><br><span class="line">		<span class="string">"&#125;"</span></span><br><span class="line">	],</span><br><span class="line">	"description": "Print to for"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="json">    &quot;Print to for&quot;: {
+        &quot;prefix&quot;: &quot;for&quot;,
+        &quot;body&quot;: [
+            &quot;for ( ${1:index} = 0; ${1:index} &lt; ${2:array}.length; ${1:index}++) {&quot;,
+            &quot;\t$0&quot;,
+            &quot;}&quot;
+        ],
+        &quot;description&quot;: &quot;Print to for&quot;
+    }</code></pre>
 <p>其中\t是制表符,用来对齐的</p>
 <p>$1是光标的位置,按下Tab光标移动到$2,而$0则是终止Tab键的光标操作.</p>
 
@@ -375,14 +391,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -423,6 +439,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

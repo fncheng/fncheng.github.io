@@ -47,13 +47,13 @@
   };
 </script>
 
-  <meta name="description" content="表单和按钮的绑定12345&amp;lt;form form=&quot;myForm&quot;&amp;gt;    这是一个表单&amp;lt;&#x2F;form&amp;gt;&#x2F;&#x2F; 完成绑定&amp;lt;button form=&quot;myForm&quot;&amp;gt;提交按钮&amp;lt;&#x2F;button&amp;gt;">
+  <meta name="description" content="表单和按钮的绑定&amp;lt;form form=&amp;quot;myForm&amp;quot;&amp;gt;     这是一个表单 &amp;lt;&#x2F;form&amp;gt; &#x2F;&#x2F; 完成绑定 &amp;lt;button form=&amp;quot;myForm&amp;quot;&amp;gt;提交按钮&amp;lt;&#x2F;button&amp;gt;">
 <meta name="keywords" content="html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="表单和按钮的绑定">
 <meta property="og:url" content="https:&#x2F;&#x2F;siwadiya.github.io&#x2F;2020&#x2F;03&#x2F;14&#x2F;Html&#x2F;%E8%A1%A8%E5%8D%95%E5%92%8C%E6%8C%89%E9%92%AE%E7%9A%84%E7%BB%91%E5%AE%9A&#x2F;index.html">
 <meta property="og:site_name" content="風之萬里">
-<meta property="og:description" content="表单和按钮的绑定12345&amp;lt;form form=&quot;myForm&quot;&amp;gt;    这是一个表单&amp;lt;&#x2F;form&amp;gt;&#x2F;&#x2F; 完成绑定&amp;lt;button form=&quot;myForm&quot;&amp;gt;提交按钮&amp;lt;&#x2F;button&amp;gt;">
+<meta property="og:description" content="表单和按钮的绑定&amp;lt;form form=&amp;quot;myForm&amp;quot;&amp;gt;     这是一个表单 &amp;lt;&#x2F;form&amp;gt; &#x2F;&#x2F; 完成绑定 &amp;lt;button form=&amp;quot;myForm&amp;quot;&amp;gt;提交按钮&amp;lt;&#x2F;button&amp;gt;">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2020-03-14T02:22:54.058Z">
 <meta name="twitter:card" content="summary">
@@ -264,8 +264,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="表单和按钮的绑定"><a href="#表单和按钮的绑定" class="headerlink" title="表单和按钮的绑定"></a>表单和按钮的绑定</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">form</span>=<span class="string">"myForm"</span>&gt;</span></span><br><span class="line">    这是一个表单</span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">// 完成绑定</span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">form</span>=<span class="string">"myForm"</span>&gt;</span>提交按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+        <h3 id="表单和按钮的绑定"><a href="#表单和按钮的绑定" class="headerlink" title="表单和按钮的绑定"></a>表单和按钮的绑定</h3><pre><code class="html">&lt;form form=&quot;myForm&quot;&gt;
+    这是一个表单
+&lt;/form&gt;
+// 完成绑定
+&lt;button form=&quot;myForm&quot;&gt;提交按钮&lt;/button&gt;</code></pre>
 
     </div>
 
@@ -342,14 +345,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -390,6 +393,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

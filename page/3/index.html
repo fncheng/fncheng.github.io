@@ -222,6 +222,323 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/03/11/js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/bootstrap-paginaterAPI%E6%96%87%E6%A1%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="siwadiya">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="風之萬里">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/11/js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/bootstrap-paginaterAPI%E6%96%87%E6%A1%A3/" class="post-title-link" itemprop="url">Bootstrap_Paginator分页插件</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-11 09:24:54" itemprop="dateCreated datePublished" datetime="2020-03-11T09:24:54+08:00">2020-03-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-24 13:35:58" itemprop="dateModified" datetime="2020-03-24T13:35:58+08:00">2020-03-24</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Bootstrap-PaginatorAPI文档"><a href="#Bootstrap-PaginatorAPI文档" class="headerlink" title="Bootstrap PaginatorAPI文档"></a>Bootstrap PaginatorAPI文档</h2><p>Bootstrap Paginator是一款基于Bootstrap的js分页插件，功能很丰富，个人觉得这款插件已经无可挑剔了。它提供了一系列的参数用来支持用户的定制，提供了公共的方法可随时获得插件状态的改变，以及事件来监听用户的动作。目前经过测试的浏览器包括： Firefox 5+, Chrome 14+, Safari 5+, Opera 11.6+ and IE 7+。</p>
+<p>GitHub 官网地址：<a href="https://github.com/lyonlai/bootstrap-paginator" target="_blank" rel="noopener">https://github.com/lyonlai/bootstrap-paginator</a></p>
+<p><strong>参数介绍：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>参数名</strong></th>
+<th><strong>数据类型</strong></th>
+<th><strong>默认值</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>bootstrapMajorVersion</td>
+<td>number</td>
+<td>2</td>
+<td>搭配使用的Bootstrap版本，2.X 的 分页必须使用div元素，3.X分页的必须使用ul元素。请注意与所使用的bootstrap版本对应上。</td>
+</tr>
+<tr>
+<td>size</td>
+<td>string</td>
+<td>“normal”</td>
+<td>设置控件的显示大小，是个字符串. 允许的值: <em>mini</em>, <em>small</em>, <em>normal</em>,<em>large。</em>值：mini版的、小号的、正常的、大号的。</td>
+</tr>
+<tr>
+<td>itemContainerClass</td>
+<td>function</td>
+<td></td>
+<td>该参数接收一个函数，返回一个字符串，该字符串是一个我们自定义的class类样式。当控件内的每个操纵按钮被渲染(render)时，都会调用该函数，同时把有关该按钮的信息作为参数传入。参数：<strong>type</strong>,<strong>page</strong>, <strong>current</strong> 。<strong>type</strong>为该控件的操作按钮的类型，如上图所示的五种类型：first、prev、page、next、last。<strong>page</strong>为该按钮所属第几页。<strong>current</strong> 指示整个控件的当前页是第几页。</td>
+</tr>
+<tr>
+<td>currentPage</td>
+<td>number</td>
+<td>1</td>
+<td>设置当前页.</td>
+</tr>
+<tr>
+<td>numberOfPages</td>
+<td>number</td>
+<td>5</td>
+<td>设置控件显示的页码数.即：类型为”page”的操作按钮的数量。</td>
+</tr>
+<tr>
+<td>totalPages</td>
+<td>number</td>
+<td>1</td>
+<td>设置总页数.</td>
+</tr>
+<tr>
+<td>pageUrl</td>
+<td>function</td>
+<td></td>
+<td>实际上，控件内的每个操作按钮最终会被渲染成超链接，该参数的作用就是设置超链接的链接地址。该参数是个函数，参数为：<strong>type</strong>,<strong>page</strong>, <strong>current。</strong>这样我们就可以通过这个函数为每个操作按钮动态设置链接地址。如：”<a href="http://example.com/list/page/&quot;+page" target="_blank" rel="noopener">http://example.com/list/page/&quot;+page</a></td>
+</tr>
+<tr>
+<td>shouldShowPage</td>
+<td>boolean/function</td>
+<td>true</td>
+<td>该参数用于设置某个操作按钮是否显示，可是个布尔值也可是个函数。当为true时，显示。当为false时，不显示。如果该参数是个函数，需要返回个布尔值，通过这个返回值判断是否显示。函数有3个参数: <strong>type</strong>, <strong>page</strong>, <strong>current。</strong>使用函数的好处是，可以对每个操作按钮进行显示控制。</td>
+</tr>
+<tr>
+<td>itemTexts</td>
+<td>function</td>
+<td></td>
+<td>控制每个操作按钮的显示文字。是个函数，有3个参数: <strong>type</strong>, <strong>page</strong>, <strong>current。</strong>通过这个参数我们就可以将操作按钮上的英文改为中文，如first–&gt;首页，last–&gt;尾页。</td>
+</tr>
+<tr>
+<td>tooltipTitles</td>
+<td>function</td>
+<td></td>
+<td>设置操作按钮的title属性。是个函数，有3个参数: <strong>type</strong>, <strong>page</strong>, <strong>current。</strong></td>
+</tr>
+<tr>
+<td>useBootstrapTooltip</td>
+<td>boolean</td>
+<td>false</td>
+<td>设置是否使用Bootstrap内置的tooltip。 true是使用，false是不使用,默认是不使用。注意：如果使用，则需要引入bootstrap-tooltip.js插件。</td>
+</tr>
+<tr>
+<td>bootstrapTooltipOptions</td>
+<td>object</td>
+<td></td>
+<td>Default:    {        animation: true,        html: true,        placement: ‘top’,        selector: false,        title: “”,        container: false }该参数是个js对象。当参数useBootstrapTooltip为true时，会将该对象传给Bootstrap的bootstrap-tooltip.js插件。</td>
+</tr>
+<tr>
+<td>onPageClicked</td>
+<td>function</td>
+<td></td>
+<td>为操作按钮绑定click事件。回调函数的参数：<strong>event</strong>, <strong>originalEvent</strong>, <strong>type</strong>,<strong>page。</strong></td>
+</tr>
+<tr>
+<td>onPageChanged</td>
+<td>function</td>
+<td></td>
+<td>为操作按钮绑定页码改变事件，回调函数的参数：<strong>event</strong>, <strong>oldPage</strong>, <strong>newPage。</strong></td>
+</tr>
+</tbody></table>
+<p><strong>公共命令：</strong></p>
+<p>另外该插件还提供了几个公共的命令，可以通过如下方法调用，如：$(‘.example’).bootstrapPaginator(“show”,3) 调用show命令$(‘.example’).bootstrapPaginator(“getPages”) 调用getPages命令。</p>
+<table>
+<thead>
+<tr>
+<th><strong>命令名</strong></th>
+<th><strong>参数</strong></th>
+<th><strong>返回值</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>show</td>
+<td>page</td>
+<td></td>
+<td><strong>show</strong>命令用于直接跳转到特定的page，与直接点击操作按钮的效果是一样的。使用方法，如：$(‘#example’).bootstrapPaginator(“show”,3) 直接跳转到第3页，$(‘#example’).bootstrapPaginator(“show”,100)直接跳转到100页。</td>
+</tr>
+<tr>
+<td>showFirst</td>
+<td></td>
+<td></td>
+<td><strong>showFirst</strong> 命令用于直接跳转到首页，与点击first按钮相同。使用方法：$(‘#example’).bootstrapPaginator(“showFirst”)</td>
+</tr>
+<tr>
+<td>showPrevious</td>
+<td></td>
+<td></td>
+<td><strong>showPrevious</strong> 命令用于直接跳转到上一页。使用方法：$(‘#example’).bootstrapPaginator(“showPrevious”)</td>
+</tr>
+<tr>
+<td>showNext</td>
+<td></td>
+<td></td>
+<td><strong>showNext</strong>命令用于直接跳转到下一页。</td>
+</tr>
+<tr>
+<td>showLast</td>
+<td></td>
+<td></td>
+<td><strong>showLast</strong> 命令用于直接跳转到上一页。</td>
+</tr>
+<tr>
+<td>getPages</td>
+<td></td>
+<td><em>object</em></td>
+<td><strong>getPages</strong>命令用于返回当前控件中显示的页码，以数组形式返回。使用方法：var arra = $(‘#example’).bootstrapPaginator(“getPages”)</td>
+</tr>
+<tr>
+<td>setOptions</td>
+<td><em>object</em></td>
+<td></td>
+<td><strong>setOptions</strong> 命令用于重新设置参数，使用方法：$(‘#example’).bootstrapPaginator(“setOptions”,newoptions)</td>
+</tr>
+</tbody></table>
+<p><strong>事件Events：</strong></p>
+<p>Bootstrap Paginator 提供了俩个事件：<em>page-clicked</em>和<em>page-changed</em>。这俩个事件作为参数使用，分别对应<em>onPageClicked</em>和<em>onPageChanged</em>。</p>
+<table>
+<thead>
+<tr>
+<th><strong>事件名</strong></th>
+<th><strong>回调函数</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>page-clicked</td>
+<td>function(<em>event</em>, <em>originalEvent</em>, <em>type</em>, <em>page</em>)</td>
+<td>同上文。另外，参数<em>event</em>, <em>originalEvent是俩个jquery事件对象，可参考jquery相关文档</em></td>
+</tr>
+<tr>
+<td>page-changed</td>
+<td>function(<em>event</em>, <em>oldPage</em>, <em>newPage</em>)</td>
+<td>同上文</td>
+</tr>
+</tbody></table>
+<p><strong>Demo 示例：</strong></p>
+<p>1-引包</p>
+<pre><code class="js">    &lt;script src=&quot;./lib/jquery/jquery.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;./lib/bootstrap-validator/js/bootstrapValidator.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;./lib/bootstrap-paginator/bootstrap-paginator.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+<p>2-准备一个分页父容器：</p>
+<blockquote>
+<p>搭配使用的Bootstrap版本，2.X 的 分页必须使用div元素，3.X分页的必须使用ul元素。请注意与所使用的bootstrap版本对应上。</p>
+</blockquote>
+<pre><code class="html">    &lt;ul id=&quot;paginator&quot;&gt;&lt;/ul&gt;</code></pre>
+<p>3-初始化分页插件</p>
+<pre><code class="js">$(&quot;#paginator&quot;).bootstrapPaginator({
+      bootstrapMajorVersion:3,//默认是2，如果是bootstrap3版本，这个参数必填
+      currentPage:1,//当前页
+      totalPages:10,//总页数
+      size:&quot;small&quot;,//设置控件的大小，mini, small, normal,large
+      onPageClicked:function(event, originalEvent, type,page){
+        //为按钮绑定点击事件 page:当前点击的按钮值
+      }
+
+});</code></pre>
+<p>注意：分页样式用BootStrap 的，如果单独使用，请去BootStrap中把分页样式拷出来。jQuery版本需要1.8及以上。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/03/03/Linux/centos%E5%8D%87%E7%BA%A7git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="siwadiya">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="風之萬里">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/03/Linux/centos%E5%8D%87%E7%BA%A7git/" class="post-title-link" itemprop="url">centos升级git</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-03-03 22:49:04 / 修改时间：23:25:08" itemprop="dateCreated datePublished" datetime="2020-03-03T22:49:04+08:00">2020-03-03</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="centos7编译安装最新版git"><a href="#centos7编译安装最新版git" class="headerlink" title="centos7编译安装最新版git"></a>centos7编译安装最新版git</h2><p><a href="https://learnku.com/articles/30501" target="_blank" rel="noopener">参考链接</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/03/03/Linux/cygwin%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -340,21 +657,19 @@
           <h2 id="remote-ssh"><a href="#remote-ssh" class="headerlink" title="remote-ssh"></a>remote-ssh</h2><p>首先在vscode下载remote-ssh相关插件</p>
 <h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接:"></a>参考链接:</h3><p><a href="https://xirikm.net/2019/619-1" target="_blank" rel="noopener">VSCode 配置 Remote-SSH 远程开发</a></p>
 <h3 id="在服务器上安装公钥"><a href="#在服务器上安装公钥" class="headerlink" title="在服务器上安装公钥"></a>在服务器上安装公钥</h3><p>键入以下命令，在服务器上安装公钥：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> .ssh</span><br><span class="line">cat id_rsa.pub &gt;&gt; authorized_keys</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="bash">cd .ssh
+cat id_rsa.pub &gt;&gt; authorized_keys</code></pre>
 <h3 id="配置SSH密钥登陆"><a href="#配置SSH密钥登陆" class="headerlink" title="配置SSH密钥登陆"></a>配置SSH密钥登陆</h3><p>用户目录下的 <code>.ssh</code> 文件夹内的 id_rsa 和 id_rsa.pub 两个文件,分别对应为私钥和公钥。将 id_rsa.pub 文件中的内容复制到你远程主机用户目录下 .ssh 文件夹内名为 authorized_keys 的文件中即可。</p>
 <p>或者将id_rsa.pub复制到.ssh目录下,然后执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat id_rsa.pub &gt;&gt; authorized_keys</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="bash">cat id_rsa.pub &gt;&gt; authorized_keys</code></pre>
 <h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><ul>
 <li><p>用<code>ssh-keygen</code>生成密钥的时候,如果本地已经存在id_rsa,id_rsa.pub 文件,可以直接使用.</p>
 </li>
 <li><p>如果服务器不支持密钥登陆,则需要开启.参考链接:<a href="https://hyjk2000.github.io/2012/03/16/how-to-set-up-ssh-keys/" target="_blank" rel="noopener">设置SSH通过密钥登陆</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line"><span class="comment">#修改如下内容</span></span><br><span class="line">RSAAuthentication yes</span><br><span class="line">PubkeyAuthentication yes</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">vim /etc/ssh/sshd_config
+#修改如下内容
+RSAAuthentication yes
+PubkeyAuthentication yes</code></pre>
 </li>
 <li><p>完成以上操作后,使用root用户可以正常登陆,但是用普通用户登陆仍然要输入密码</p>
 <p><strong>这里的原因是.ssh目录与authorized_keys文件的权限不能太大,像766这种肯定是无法登陆的.</strong></p>
@@ -362,7 +677,7 @@
 <p>注意: .ssh目录权限改为700,authorized_keys 权限改为600</p>
 </li>
 </ul>
-<h3 id="etc-ssh-sshd-config配置"><a href="#etc-ssh-sshd-config配置" class="headerlink" title="/etc/ssh/sshd_config配置"></a>/etc/ssh/sshd_config配置</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">PasswordAuthentication</span> <span class="literal">no</span>	<span class="comment">#禁用密码登陆</span></span><br></pre></td></tr></table></figure>
+<h3 id="etc-ssh-sshd-config配置"><a href="#etc-ssh-sshd-config配置" class="headerlink" title="/etc/ssh/sshd_config配置"></a>/etc/ssh/sshd_config配置</h3><pre><code>PasswordAuthentication no    #禁用密码登陆</code></pre>
       
     </div>
 
@@ -432,29 +747,88 @@
 </blockquote>
 <p>创建用户前,我们需要了解一下<a href="https://blog.csdn.net/yue7603835/article/details/73699258" target="_blank" rel="noopener">linux的用户和用户组以及权限的概念</a>.</p>
 <h2 id="新建用户"><a href="#新建用户" class="headerlink" title="新建用户"></a><a href="https://blog.csdn.net/beitiandijun/article/details/41678251" target="_blank" rel="noopener">新建用户</a></h2><h3 id="adduser命令"><a href="#adduser命令" class="headerlink" title="adduser命令"></a>adduser命令</h3><p>会自动为创建的用户指定主目录、系统shell版本，会在创建时输入用户密码。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adduser apple</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">adduser apple</code></pre>
 <p>这样在创建用户名时，就创建了用户的主目录(/home/apple)以及密码。</p>
 <p>默认情况下：</p>
 <p>adduser在创建用户时会主动调用  /etc/adduser.conf；</p>
 <p>在创建用户主目录时默认在/home下，而且创建为 /home/用户名</p>
 <h3 id="useradd命令"><a href="#useradd命令" class="headerlink" title="useradd命令"></a>useradd命令</h3><p>需要使用参数选项指定上述基本设置，如果不使用任何参数，则创建的用户无密码、无主目录、没有指定shell版本。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd tt</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">useradd tt</code></pre>
+<pre><code class="bash">useradd
+Usage: useradd [options] LOGIN
+       useradd -D
+       useradd -D [options]
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">useradd</span><br><span class="line">Usage: useradd [options] LOGIN</span><br><span class="line">       useradd -D</span><br><span class="line">       useradd -D [options]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  -b, --base-dir BASE_DIR       base directory <span class="keyword">for</span> the home directory of the</span><br><span class="line">                                new account</span><br><span class="line">                                <span class="comment">#为新用户指定home目录</span></span><br><span class="line">  -c, --comment COMMENT         GECOS field of the new account</span><br><span class="line">  <span class="comment">#加上备注文字。备注文字会保存在passwd的备注栏位中；</span></span><br><span class="line">  -d, --home-dir HOME_DIR       home directory of the new account</span><br><span class="line">  <span class="comment">#指定用户登入时的启始目录；</span></span><br><span class="line">  -D, --defaults                <span class="built_in">print</span> or change default useradd configuration</span><br><span class="line">  -e, --expiredate EXPIRE_DATE  expiration date of the new account</span><br><span class="line">  -f, --inactive INACTIVE       password inactivity period of the new account</span><br><span class="line">  -g, --gid GROUP               name or ID of the primary group of the new</span><br><span class="line">                                account</span><br><span class="line">  -G, --groups GROUPS           list of supplementary groups of the new</span><br><span class="line">                                account</span><br><span class="line">  -h, --<span class="built_in">help</span>                    display this <span class="built_in">help</span> message and <span class="built_in">exit</span></span><br><span class="line">  -k, --skel SKEL_DIR           use this alternative skeleton directory</span><br><span class="line">  -K, --key KEY=VALUE           override /etc/login.defs defaults</span><br><span class="line">  -l, --no-log-init             <span class="keyword">do</span> not add the user to the lastlog and</span><br><span class="line">                                faillog databases</span><br><span class="line">                                <span class="comment">#不要将用户添加到lastlog和faillog数据库</span></span><br><span class="line">  -m, --create-home             create the user<span class="string">'s home directory</span></span><br><span class="line"><span class="string">  								#自动建立用户的登入目录</span></span><br><span class="line"><span class="string">  -M, --no-create-home          do not create the user'</span>s home directory</span><br><span class="line">  -N, --no-user-group           <span class="keyword">do</span> not create a group with the same name as</span><br><span class="line">                                the user</span><br><span class="line">  -o, --non-unique              allow to create users with duplicate</span><br><span class="line">                                (non-unique) UID</span><br><span class="line">  -p, --password PASSWORD       encrypted password of the new </span><br><span class="line">  								<span class="comment">#新帐号的密码</span></span><br><span class="line">  -r, --system                  create a system account</span><br><span class="line">  								<span class="comment">#建立系统帐号</span></span><br><span class="line">  -R, --root CHROOT_DIR         directory to chroot into</span><br><span class="line">  								</span><br><span class="line">  -s, --shell SHELL             login shell of the new account</span><br><span class="line">  								<span class="comment">#指定用户登入后所使用的shell</span></span><br><span class="line">  -u, --uid UID                 user ID of the new account</span><br><span class="line">  								<span class="comment">#指定用户id</span></span><br><span class="line">  -U, --user-group              create a group with the same name as the user</span><br><span class="line">  -Z, --selinux-user SEUSER     use a specific SEUSER <span class="keyword">for</span> the SELinux user mapping</span><br></pre></td></tr></table></figure>
+Options:
+  -b, --base-dir BASE_DIR       base directory for the home directory of the
+                                new account
+                                #为新用户指定home目录
+  -c, --comment COMMENT         GECOS field of the new account
+  #加上备注文字。备注文字会保存在passwd的备注栏位中；
+  -d, --home-dir HOME_DIR       home directory of the new account
+  #指定用户登入时的启始目录；
+  -D, --defaults                print or change default useradd configuration
+  -e, --expiredate EXPIRE_DATE  expiration date of the new account
+  -f, --inactive INACTIVE       password inactivity period of the new account
+  -g, --gid GROUP               name or ID of the primary group of the new
+                                account
+  -G, --groups GROUPS           list of supplementary groups of the new
+                                account
+  -h, --help                    display this help message and exit
+  -k, --skel SKEL_DIR           use this alternative skeleton directory
+  -K, --key KEY=VALUE           override /etc/login.defs defaults
+  -l, --no-log-init             do not add the user to the lastlog and
+                                faillog databases
+                                #不要将用户添加到lastlog和faillog数据库
+  -m, --create-home             create the user&#39;s home directory
+                                  #自动建立用户的登入目录
+  -M, --no-create-home          do not create the user&#39;s home directory
+  -N, --no-user-group           do not create a group with the same name as
+                                the user
+  -o, --non-unique              allow to create users with duplicate
+                                (non-unique) UID
+  -p, --password PASSWORD       encrypted password of the new 
+                                  #新帐号的密码
+  -r, --system                  create a system account
+                                  #建立系统帐号
+  -R, --root CHROOT_DIR         directory to chroot into
 
-
-
+  -s, --shell SHELL             login shell of the new account
+                                  #指定用户登入后所使用的shell
+  -u, --uid UID                 user ID of the new account
+                                  #指定用户id
+  -U, --user-group              create a group with the same name as the user
+  -Z, --selinux-user SEUSER     use a specific SEUSER for the SELinux user mapping</code></pre>
 <p><a href="https://www.cnblogs.com/52php/p/5677628.html" target="_blank" rel="noopener">参考链接</a></p>
 <h2 id="深入理解-sudo-与-su-之间的区别"><a href="#深入理解-sudo-与-su-之间的区别" class="headerlink" title="深入理解 sudo 与 su 之间的区别"></a>深入理解 sudo 与 su 之间的区别</h2><p>两个命令的最大区别是：</p>
 <p><code>sudo</code>命令需要输入当前用户的密码,而<code>su</code>命令则需要输入root用户的密码.另外一个区别是其默认行为。sudo 命令只允许使用提升的权限运行单个命令，而 su 命令会启动一个新的 shell，同时允许使用 root 权限运行尽可能多的命令，直到明确退出登录。</p>
-<h3 id="su命令"><a href="#su命令" class="headerlink" title="su命令"></a><a href="https://wangchujiang.com/linux-command/c/su.html" target="_blank" rel="noopener">su命令</a></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">su [options] [-] [USER [arg]...]</span><br><span class="line"></span><br><span class="line">Change the effective user id and group id to that of USER.</span><br><span class="line">A mere - implies -l.   If USER not given, assume root.</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line"> -m, -p, --preserve-environment  <span class="keyword">do</span> not reset environment variables </span><br><span class="line"> 								 <span class="comment">#变更身份时，不要变更环境变量；</span></span><br><span class="line"> -g, --group &lt;group&gt;             specify the primary group</span><br><span class="line"> -G, --supp-group &lt;group&gt;        specify a supplemental group</span><br><span class="line"></span><br><span class="line"> -, -l, --login                  make the shell a login shell</span><br><span class="line"> <span class="comment">#改变身份时，也同时变更工作目录，以及HOME,SHELL,USER,logname。此外，也会变更PATH变量；</span></span><br><span class="line"> -c, --<span class="built_in">command</span> &lt;<span class="built_in">command</span>&gt;         pass a single <span class="built_in">command</span> to the shell with -c</span><br><span class="line"><span class="comment">#执行完指定的指令后，即恢复原来的身份；</span></span><br><span class="line"> --session-command &lt;<span class="built_in">command</span>&gt;     pass a single <span class="built_in">command</span> to the shell with -c</span><br><span class="line">                                 and <span class="keyword">do</span> not create a new session</span><br><span class="line"><span class="comment">#执行完指定的指令后，即恢复原来的身份；并且不会创建一个新的会话</span></span><br><span class="line"> -f, --fast                      pass -f to the shell (<span class="keyword">for</span> csh or tcsh)</span><br><span class="line"> -s, --shell &lt;shell&gt;             run shell <span class="keyword">if</span> /etc/shells allows it</span><br><span class="line"></span><br><span class="line"> -h, --<span class="built_in">help</span>     display this <span class="built_in">help</span> and <span class="built_in">exit</span></span><br><span class="line"> -V, --version  output version information and <span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+<h3 id="su命令"><a href="#su命令" class="headerlink" title="su命令"></a><a href="https://wangchujiang.com/linux-command/c/su.html" target="_blank" rel="noopener">su命令</a></h3><pre><code class="bash">su [options] [-] [USER [arg]...]
 
+Change the effective user id and group id to that of USER.
+A mere - implies -l.   If USER not given, assume root.
 
+Options:
+ -m, -p, --preserve-environment  do not reset environment variables 
+                                  #变更身份时，不要变更环境变量；
+ -g, --group &lt;group&gt;             specify the primary group
+ -G, --supp-group &lt;group&gt;        specify a supplemental group
 
+ -, -l, --login                  make the shell a login shell
+ #改变身份时，也同时变更工作目录，以及HOME,SHELL,USER,logname。此外，也会变更PATH变量；
+ -c, --command &lt;command&gt;         pass a single command to the shell with -c
+#执行完指定的指令后，即恢复原来的身份；
+ --session-command &lt;command&gt;     pass a single command to the shell with -c
+                                 and do not create a new session
+#执行完指定的指令后，即恢复原来的身份；并且不会创建一个新的会话
+ -f, --fast                      pass -f to the shell (for csh or tcsh)
+ -s, --shell &lt;shell&gt;             run shell if /etc/shells allows it
+
+ -h, --help     display this help and exit
+ -V, --version  output version information and exit</code></pre>
 <h2 id="linux—user-and-group-用户和组的概念"><a href="#linux—user-and-group-用户和组的概念" class="headerlink" title="linux—user and group 用户和组的概念"></a><a href="https://blog.51cto.com/13438667/2061590" target="_blank" rel="noopener">linux—user and group 用户和组的概念</a></h2><p>Linux用户分为管理员和普通用户，普通用户又分为系统用户和自定义用户。可以查看/etc/passwd来查看。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root:x:0:0:root:/root:/bin/bash</span><br><span class="line">sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin</span><br><span class="line">www:x:1000:1000::/home/www:/bin/bash</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">root:x:0:0:root:/root:/bin/bash
+sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+www:x:1000:1000::/home/www:/bin/bash</code></pre>
 <p>以<code>root:x:0:0:root:/root:/bin/bash</code> 为例</p>
 <p><img src="https://pic1.zhimg.com/80/v2-83338ceda500e5ffc3bc56b9477da368_720w.jpg" alt=""></p>
 <ul>
@@ -466,8 +840,39 @@
 <li>home_directory 用户主目录     /home/www</li>
 <li>shell 登陆shell  —&gt; /bin/bash</li>
 </ul>
-<h2 id="在linux中为用户设置root权限"><a href="#在linux中为用户设置root权限" class="headerlink" title="在linux中为用户设置root权限"></a><a href="https://linoxide.com/usr-mgmt/give-normal-user-root-privileges/" target="_blank" rel="noopener">在linux中为用户设置root权限</a></h2><h4 id="usermod命令"><a href="#usermod命令" class="headerlink" title="usermod命令"></a>usermod命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">Usage: usermod [options] LOGIN</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  -c, --comment COMMENT         new value of the GECOS field</span><br><span class="line">  -d, --home HOME_DIR           new home directory <span class="keyword">for</span> the user account</span><br><span class="line">  -e, --expiredate EXPIRE_DATE  <span class="built_in">set</span> account expiration date to EXPIRE_DATE</span><br><span class="line">  -f, --inactive INACTIVE       <span class="built_in">set</span> password inactive after expiration</span><br><span class="line">                                to INACTIVE</span><br><span class="line">  -g, --gid GROUP               force use GROUP as new primary group</span><br><span class="line">  <span class="comment">#强制使用GROUP作为新的主要组</span></span><br><span class="line">  -G, --groups GROUPS           new list of supplementary GROUPS</span><br><span class="line">  -a, --append                  append the user to the supplemental GROUPS</span><br><span class="line">                                mentioned by the -G option without removing</span><br><span class="line">                                the user from other groups</span><br><span class="line">  <span class="comment">#将用户添加到-G选项提到的附加GROUPS上，而不将用户从其他组中删除</span></span><br><span class="line">  -h, --<span class="built_in">help</span>                    display this <span class="built_in">help</span> message and <span class="built_in">exit</span></span><br><span class="line">  -l, --login NEW_LOGIN         new value of the login name</span><br><span class="line">  -L, --lock                    lock the user account</span><br><span class="line">  -m, --move-home               move contents of the home directory to the</span><br><span class="line">                                new location (use only with -d)</span><br><span class="line">  -o, --non-unique              allow using duplicate (non-unique) UID</span><br><span class="line">  -p, --password PASSWORD       use encrypted password <span class="keyword">for</span> the new password</span><br><span class="line">  -R, --root CHROOT_DIR         directory to chroot into</span><br><span class="line">  -P, --prefix PREFIX_DIR       prefix directory <span class="built_in">where</span> are located the /etc/* files</span><br><span class="line">  -s, --shell SHELL             new login shell <span class="keyword">for</span> the user account</span><br><span class="line">  -u, --uid UID                 new UID <span class="keyword">for</span> the user account</span><br><span class="line">  -U, --unlock                  unlock the user account</span><br><span class="line">  -v, --add-subuids FIRST-LAST  add range of subordinate uids</span><br><span class="line">  -V, --del-subuids FIRST-LAST  remove range of subordinate uids</span><br><span class="line">  -w, --add-subgids FIRST-LAST  add range of subordinate gids</span><br><span class="line">  -W, --del-subgids FIRST-LAST  remove range of subordinate gids</span><br><span class="line">  -Z, --selinux-user SEUSER     new SELinux user mapping <span class="keyword">for</span> the user account</span><br></pre></td></tr></table></figure>
+<h2 id="在linux中为用户设置root权限"><a href="#在linux中为用户设置root权限" class="headerlink" title="在linux中为用户设置root权限"></a><a href="https://linoxide.com/usr-mgmt/give-normal-user-root-privileges/" target="_blank" rel="noopener">在linux中为用户设置root权限</a></h2><h4 id="usermod命令"><a href="#usermod命令" class="headerlink" title="usermod命令"></a>usermod命令</h4><pre><code class="bash">Usage: usermod [options] LOGIN
 
+Options:
+  -c, --comment COMMENT         new value of the GECOS field
+  -d, --home HOME_DIR           new home directory for the user account
+  -e, --expiredate EXPIRE_DATE  set account expiration date to EXPIRE_DATE
+  -f, --inactive INACTIVE       set password inactive after expiration
+                                to INACTIVE
+  -g, --gid GROUP               force use GROUP as new primary group
+  #强制使用GROUP作为新的主要组
+  -G, --groups GROUPS           new list of supplementary GROUPS
+  -a, --append                  append the user to the supplemental GROUPS
+                                mentioned by the -G option without removing
+                                the user from other groups
+  #将用户添加到-G选项提到的附加GROUPS上，而不将用户从其他组中删除
+  -h, --help                    display this help message and exit
+  -l, --login NEW_LOGIN         new value of the login name
+  -L, --lock                    lock the user account
+  -m, --move-home               move contents of the home directory to the
+                                new location (use only with -d)
+  -o, --non-unique              allow using duplicate (non-unique) UID
+  -p, --password PASSWORD       use encrypted password for the new password
+  -R, --root CHROOT_DIR         directory to chroot into
+  -P, --prefix PREFIX_DIR       prefix directory where are located the /etc/* files
+  -s, --shell SHELL             new login shell for the user account
+  -u, --uid UID                 new UID for the user account
+  -U, --unlock                  unlock the user account
+  -v, --add-subuids FIRST-LAST  add range of subordinate uids
+  -V, --del-subuids FIRST-LAST  remove range of subordinate uids
+  -w, --add-subgids FIRST-LAST  add range of subordinate gids
+  -W, --del-subgids FIRST-LAST  remove range of subordinate gids
+  -Z, --selinux-user SEUSER     new SELinux user mapping for the user account
+</code></pre>
 
       
     </div>
@@ -532,16 +937,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="art-template官网"><a href="#art-template官网" class="headerlink" title="art-template官网"></a><a href="https://aui.github.io/art-template/zh-cn/" target="_blank" rel="noopener">art-template官网</a></h2><h2 id="渲染模板"><a href="#渲染模板" class="headerlink" title="渲染模板"></a>渲染模板</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">success: <span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 模板引擎渲染</span></span><br><span class="line">    $(<span class="string">"tbody"</span>).html(template(<span class="string">"tmp"</span>, response));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+          <h2 id="art-template官网"><a href="#art-template官网" class="headerlink" title="art-template官网"></a><a href="https://aui.github.io/art-template/zh-cn/" target="_blank" rel="noopener">art-template官网</a></h2><h2 id="渲染模板"><a href="#渲染模板" class="headerlink" title="渲染模板"></a>渲染模板</h2><pre><code class="js">success: function(response) {
+    // 模板引擎渲染
+    $(&quot;tbody&quot;).html(template(&quot;tmp&quot;, response));
+}</code></pre>
 <p>其中<strong><a href="https://www.jquery123.com/html/" target="_blank" rel="noopener">html()</a></strong>方法是jQuery中提供的,作用是获取集合中第一个匹配元素的HTML内容。</p>
 <p>response是服务器返回的响应数据</p>
 <h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>art-template 支持标准语法与原始语法。标准语法可以让模板易读写，而原始语法拥有强大的逻辑表达能力。</p>
 <p>标准语法支持基本模板语法以及基本 JavaScript 表达式；原始语法支持任意 JavaScript 语句，这和 EJS 一样。</p>
-<h3 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;if value&#125;&#125;</span><br><span class="line">... </span><br><span class="line">&#123;&#123;/if&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;if $value.isDelete == 0&#125;&#125;     //如果$value.isDelete值为0,就使用按钮"启用"</span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-success"</span> <span class="attr">data-toggle</span>=<span class="string">"modal"</span> <span class="attr">data-target</span>=<span class="string">".modal-user"</span>&gt;</span>启用<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">&#123;&#123;else&#125;&#125;	//否则就使用按钮"禁用"</span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-danger"</span> <span class="attr">data-toggle</span>=<span class="string">"modal"</span> <span class="attr">data-target</span>=<span class="string">".modal-user"</span>&gt;</span>禁用<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">&#123;&#123;/if&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h3><pre><code class="html">{{if value}}
+... 
+{{/if}}
 
-<h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;each target&#125;&#125;</span><br><span class="line">    &#123;&#123;$index&#125;&#125; &#123;&#123;$value&#125;&#125;</span><br><span class="line">&#123;&#123;/each&#125;&#125;</span><br></pre></td></tr></table></figure>
-
+{{if $value.isDelete == 0}}     //如果$value.isDelete值为0,就使用按钮&quot;启用&quot;
+&lt;button class=&quot;btn btn-success&quot; data-toggle=&quot;modal&quot; data-target=&quot;.modal-user&quot;&gt;启用&lt;/button&gt;
+{{else}}    //否则就使用按钮&quot;禁用&quot;
+&lt;button class=&quot;btn btn-danger&quot; data-toggle=&quot;modal&quot; data-target=&quot;.modal-user&quot;&gt;禁用&lt;/button&gt;
+{{/if}}</code></pre>
+<h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><pre><code class="html">{{each target}}
+    {{$index}} {{$value}}
+{{/each}}</code></pre>
 <ol>
 <li><code>target</code> 支持 <code>array</code> 与 <code>object</code> 的迭代，其默认值为 <code>$data</code>。</li>
 <li><code>$value</code> 与 <code>$index</code> 可以自定义：<code>each target val key</code>。</li>
@@ -858,153 +1273,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/02/26/%E6%90%9E%E6%9C%BA%E6%8A%98%E8%85%BE/win10%E4%BD%BF%E7%94%A8cmder%E4%BB%A3%E6%9B%BFcmd/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="siwadiya">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="風之萬里">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/26/%E6%90%9E%E6%9C%BA%E6%8A%98%E8%85%BE/win10%E4%BD%BF%E7%94%A8cmder%E4%BB%A3%E6%9B%BFcmd/" class="post-title-link" itemprop="url">使用cmder代替cmd</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-02-26 16:45:44" itemprop="dateCreated datePublished" datetime="2020-02-26T16:45:44+08:00">2020-02-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-01 14:55:27" itemprop="dateModified" datetime="2020-03-01T14:55:27+08:00">2020-03-01</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          cmder用来代替cmd,界面美观
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/02/26/%E6%90%9E%E6%9C%BA%E6%8A%98%E8%85%BE/win10%E4%BD%BF%E7%94%A8cmder%E4%BB%A3%E6%9B%BFcmd/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/02/24/Javascript/js%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="siwadiya">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="風之萬里">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/24/Javascript/js%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">JavaScript深入学习</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-02-24 17:01:25" itemprop="dateCreated datePublished" datetime="2020-02-24T17:01:25+08:00">2020-02-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-01 14:55:30" itemprop="dateModified" datetime="2020-03-01T14:55:30+08:00">2020-03-01</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="变量对象"><a href="#变量对象" class="headerlink" title="变量对象"></a><a href="https://github.com/mqyqingfeng/Blog/issues/5" target="_blank" rel="noopener">变量对象</a></h2><p>当 JavaScript 代码执行一段可执行代码(executable code)时，会创建对应的执行上下文(execution context)。</p>
-<p>对于每个执行上下文，都有三个重要属性：</p>
-<ul>
-<li>变量对象(Variable object，VO)</li>
-<li>作用域链(Scope chain)</li>
-<li>this</li>
-</ul>
-<h2 id="this的用法"><a href="#this的用法" class="headerlink" title="this的用法"></a>this的用法</h2><p>1.纯粹的函数调用</p>
-<p>2.作为对象方法的调用</p>
-<p>3.作为构造函数调用</p>
-<p>4.apply调用</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1053,14 +1321,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1101,6 +1369,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

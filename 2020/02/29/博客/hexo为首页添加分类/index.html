@@ -270,15 +270,23 @@
         <p><a href="https://github.com/ahonn/hexo-theme-even/wiki/%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2" target="_blank" rel="noopener"><span style="font-size:1.5em">hexo操作指南</span></a>    <a href="http://yearito.cn/posts/hexo-advanced-settings.html" target="_blank" rel="noopener"><span style="font-size:1.5em">hexo个性化设置</span></a></p>
 <h3 id="添加菜单入口"><a href="#添加菜单入口" class="headerlink" title="添加菜单入口"></a>添加菜单入口</h3><p><img src="https://i.loli.net/2020/02/29/OLvdAZQnIblucsf.png" alt=""></p>
 <p>就是添加像分类,归档这样的菜单入口</p>
-<h4 id="1-首先新建一个自定义页面-以linux页为例"><a href="#1-首先新建一个自定义页面-以linux页为例" class="headerlink" title="1.首先新建一个自定义页面(以linux页为例)"></a>1.首先新建一个自定义页面(以linux页为例)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page linux</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-编辑生成的-about-index-md-文件，设置布局为-page"><a href="#2-编辑生成的-about-index-md-文件，设置布局为-page" class="headerlink" title="2.编辑生成的 about/index.md 文件，设置布局为 page:"></a>2.编辑生成的 <code>about/index.md</code> 文件，设置布局为 <code>page</code>:</h4><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">title:</span> linux</span><br><span class="line"><span class="symbol">layout:</span> page</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-修改themes-next-config-yml"><a href="#3-修改themes-next-config-yml" class="headerlink" title="3.修改themes\next_config.yml"></a>3.修改<code>themes\next_config.yml</code></h4><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  <span class="attr">menu:</span></span><br><span class="line">    <span class="attr">home:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">home</span></span><br><span class="line"><span class="string">+</span>   <span class="attr">top:</span> <span class="string">/linux/</span> <span class="string">||</span> <span class="string">signal</span></span><br><span class="line">    <span class="attr">tags:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">tags</span></span><br><span class="line">    <span class="attr">categories:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">th</span></span><br><span class="line">    <span class="attr">archives:</span> <span class="string">/archives/</span> <span class="string">||</span> <span class="string">archive</span></span><br><span class="line">    <span class="attr">about:</span> <span class="string">/about/</span> <span class="string">||</span> <span class="string">user</span></span><br></pre></td></tr></table></figure>
-
+<h4 id="1-首先新建一个自定义页面-以linux页为例"><a href="#1-首先新建一个自定义页面-以linux页为例" class="headerlink" title="1.首先新建一个自定义页面(以linux页为例)"></a>1.首先新建一个自定义页面(以linux页为例)</h4><pre><code class="bash">hexo new page linux</code></pre>
+<h4 id="2-编辑生成的-about-index-md-文件，设置布局为-page"><a href="#2-编辑生成的-about-index-md-文件，设置布局为-page" class="headerlink" title="2.编辑生成的 about/index.md 文件，设置布局为 page:"></a>2.编辑生成的 <code>about/index.md</code> 文件，设置布局为 <code>page</code>:</h4><pre><code>title: linux
+layout: page</code></pre><h4 id="3-修改themes-next-config-yml"><a href="#3-修改themes-next-config-yml" class="headerlink" title="3.修改themes\next_config.yml"></a>3.修改<code>themes\next_config.yml</code></h4><pre><code class="yml">  menu:
+    home: / || home
++   top: /linux/ || signal
+    tags: /tags/ || tags
+    categories: /categories/ || th
+    archives: /archives/ || archive
+    about: /about/ || user</code></pre>
 <p>并且在语言包中新增菜单中文<code>themes\next\languages\zh-CN.yml</code></p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  <span class="attr">menu:</span></span><br><span class="line">    <span class="attr">home:</span> <span class="string">首页</span></span><br><span class="line">    <span class="attr">archives:</span> <span class="string">归档</span></span><br><span class="line">    <span class="attr">categories:</span> <span class="string">分类</span></span><br><span class="line">    <span class="attr">tags:</span> <span class="string">标签</span></span><br><span class="line">    <span class="attr">about:</span> <span class="string">关于</span></span><br><span class="line"><span class="string">+</span>   <span class="attr">linux:</span> <span class="string">每天一个linux命令</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="yml">  menu:
+    home: 首页
+    archives: 归档
+    categories: 分类
+    tags: 标签
+    about: 关于
++   linux: 每天一个linux命令</code></pre>
 <p>这样这个菜单入口就生成了</p>
 
     </div>
@@ -356,14 +364,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -404,6 +412,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

@@ -271,16 +271,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Git-bash-cmd设置临时代理"><a href="#Git-bash-cmd设置临时代理" class="headerlink" title="Git bash,cmd设置临时代理"></a>Git bash,cmd设置临时代理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">环境：shadowsocks、windows</span><br><span class="line">本地ss端口设置(这里1080)</span><br><span class="line"></span><br><span class="line">cmd命令行:(不用socks5)(临时设置)(也可放置环境变量)</span><br><span class="line"><span class="built_in">set</span> http_proxy=http://127.0.0.1:7890</span><br><span class="line"><span class="built_in">set</span> https_proxy=http://127.0.0.1:7890</span><br><span class="line"></span><br><span class="line">ps:一定要用cmd命令行，千万别用powershell !!!</span><br><span class="line">简易测试命令：curl https://www.google.com（别用ping）</span><br></pre></td></tr></table></figure>
+        <h2 id="Git-bash-cmd设置临时代理"><a href="#Git-bash-cmd设置临时代理" class="headerlink" title="Git bash,cmd设置临时代理"></a>Git bash,cmd设置临时代理</h2><pre><code class="bash">环境：shadowsocks、windows
+本地ss端口设置(这里1080)
 
+cmd命令行:(不用socks5)(临时设置)(也可放置环境变量)
+set http_proxy=http://127.0.0.1:7890
+set https_proxy=http://127.0.0.1:7890
+
+ps:一定要用cmd命令行，千万别用powershell !!!
+简易测试命令：curl https://www.google.com（别用ping）</code></pre>
 <p> <strong>上面命令的作用是设置环境变量，不用担心，这种环境变量只会持续到cmd窗口关闭，不是系统环境变量。</strong> </p>
 <p>以git clone为例:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#https方式</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/siwadiya/Photo_Show.git </span><br><span class="line"><span class="comment">#ssh</span></span><br><span class="line">git <span class="built_in">clone</span> git@github.com:siwadiya/Photo_Show.git</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">#https方式
+git clone https://github.com/siwadiya/Photo_Show.git 
+#ssh
+git clone git@github.com:siwadiya/Photo_Show.git</code></pre>
 <h2 id="HTTPS全局代理"><a href="#HTTPS全局代理" class="headerlink" title="HTTPS全局代理"></a>HTTPS全局代理</h2><p>目前来看，设置代理后加速最明显的是 <code>HTTPS</code>， 为其设置代理的方式如下</p>
 <p>打开 <code>git bash</code>，然后输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy <span class="string">"http://127.0.0.1:7890"</span></span><br><span class="line">git config --global https.proxy <span class="string">"https://127.0.0.1:7890"</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">git config --global http.proxy &quot;http://127.0.0.1:7890&quot;
+git config --global https.proxy &quot;https://127.0.0.1:7890&quot;</code></pre>
 <p>这样设置之后，<code>git clone https://github.com/username/repo.git</code> 的速度基本能跑满带宽</p>
 <p>但是，这种方式并不适用于 <code>git clone git@github.com:username/repo.git</code> (ssh方式通信)</p>
 <h2 id="npm和yarn的源-代理设置"><a href="#npm和yarn的源-代理设置" class="headerlink" title="npm和yarn的源,代理设置"></a><a href="https://www.51noip.cn/2018/02/01/npm-yarn-proxy/" target="_blank" rel="noopener">npm和yarn的源,代理设置</a></h2>
@@ -360,14 +369,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -408,6 +417,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

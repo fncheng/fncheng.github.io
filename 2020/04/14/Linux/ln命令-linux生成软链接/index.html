@@ -47,13 +47,13 @@
   };
 </script>
 
-  <meta name="description" content="ln命令语法1ln  1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950[cheng@104 ~]$ ln --helpUsage: ln [OPTION]... [-T] TARGET LINK_NAME   (1st form)  or:  ln [OPTION]">
+  <meta name="description" content="ln命令语法ln  [cheng@104 ~]$ ln --help Usage: ln [OPTION]... [-T] TARGET LINK_NAME   (1st form)   or:  ln [OPTION]... TARGET                  (2nd form)   or:  ln [OPTION]... TARGET... DIRECTORY     (3rd">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ln命令">
 <meta property="og:url" content="https:&#x2F;&#x2F;siwadiya.github.io&#x2F;2020&#x2F;04&#x2F;14&#x2F;Linux&#x2F;ln%E5%91%BD%E4%BB%A4-linux%E7%94%9F%E6%88%90%E8%BD%AF%E9%93%BE%E6%8E%A5&#x2F;index.html">
 <meta property="og:site_name" content="風之萬里">
-<meta property="og:description" content="ln命令语法1ln  1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950[cheng@104 ~]$ ln --helpUsage: ln [OPTION]... [-T] TARGET LINK_NAME   (1st form)  or:  ln [OPTION]">
+<meta property="og:description" content="ln命令语法ln  [cheng@104 ~]$ ln --help Usage: ln [OPTION]... [-T] TARGET LINK_NAME   (1st form)   or:  ln [OPTION]... TARGET                  (2nd form)   or:  ln [OPTION]... TARGET... DIRECTORY     (3rd">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2020-05-06T12:03:31.840Z">
 <meta name="twitter:card" content="summary">
@@ -270,10 +270,58 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="ln命令语法"><a href="#ln命令语法" class="headerlink" title="ln命令语法"></a>ln命令语法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln</span><br></pre></td></tr></table></figure>
+        <h3 id="ln命令语法"><a href="#ln命令语法" class="headerlink" title="ln命令语法"></a>ln命令语法</h3><pre><code class="bash">ln </code></pre>
+<pre><code class="bash">[cheng@104 ~]$ ln --help
+Usage: ln [OPTION]... [-T] TARGET LINK_NAME   (1st form)
+  or:  ln [OPTION]... TARGET                  (2nd form)
+  or:  ln [OPTION]... TARGET... DIRECTORY     (3rd form)
+  or:  ln [OPTION]... -t DIRECTORY TARGET...  (4th form)
+In the 1st form, create a link to TARGET with the name LINK_NAME.
+In the 2nd form, create a link to TARGET in the current directory.
+In the 3rd and 4th forms, create links to each TARGET in DIRECTORY.
+Create hard links by default, symbolic links with --symbolic.
+By default, each destination (name of new link) should not already exist.
+When creating hard links, each TARGET must exist.  Symbolic links
+can hold arbitrary text; if later resolved, a relative link is
+interpreted in relation to its parent directory.
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">[cheng@104 ~]$ ln --<span class="built_in">help</span></span><br><span class="line">Usage: ln [OPTION]... [-T] TARGET LINK_NAME   (1st form)</span><br><span class="line">  or:  ln [OPTION]... TARGET                  (2nd form)</span><br><span class="line">  or:  ln [OPTION]... TARGET... DIRECTORY     (3rd form)</span><br><span class="line">  or:  ln [OPTION]... -t DIRECTORY TARGET...  (4th form)</span><br><span class="line">In the 1st form, create a link to TARGET with the name LINK_NAME.</span><br><span class="line">In the 2nd form, create a link to TARGET <span class="keyword">in</span> the current directory.</span><br><span class="line">In the 3rd and 4th forms, create links to each TARGET <span class="keyword">in</span> DIRECTORY.</span><br><span class="line">Create hard links by default, symbolic links with --symbolic.</span><br><span class="line">By default, each destination (name of new link) should not already exist.</span><br><span class="line">When creating hard links, each TARGET must exist.  Symbolic links</span><br><span class="line">can hold arbitrary text; <span class="keyword">if</span> later resolved, a relative link is</span><br><span class="line">interpreted <span class="keyword">in</span> relation to its parent directory.</span><br><span class="line"></span><br><span class="line">Mandatory arguments to long options are mandatory <span class="keyword">for</span> short options too.</span><br><span class="line">      --backup[=CONTROL]      make a backup of each existing destination file</span><br><span class="line">  -b                          like --backup but does not accept an argument</span><br><span class="line">  -d, -F, --directory         allow the superuser to attempt to hard link</span><br><span class="line">                                directories (note: will probably fail due to</span><br><span class="line">                                system restrictions, even <span class="keyword">for</span> the superuser)</span><br><span class="line">  -f, --force                 remove existing destination files</span><br><span class="line">  -i, --interactive           prompt whether to remove destinations</span><br><span class="line">  -L, --logical               dereference TARGETs that are symbolic links</span><br><span class="line">  -n, --no-dereference        treat LINK_NAME as a normal file <span class="keyword">if</span></span><br><span class="line">                                it is a symbolic link to a directory</span><br><span class="line">  -P, --physical              make hard links directly to symbolic links</span><br><span class="line">  -r, --relative              create symbolic links relative to link location</span><br><span class="line">  -s, --symbolic              make symbolic links instead of hard links</span><br><span class="line">  -S, --suffix=SUFFIX         override the usual backup suffix</span><br><span class="line">  -t, --target-directory=DIRECTORY  specify the DIRECTORY <span class="keyword">in</span> <span class="built_in">which</span> to create</span><br><span class="line">                                the links</span><br><span class="line">  -T, --no-target-directory   treat LINK_NAME as a normal file always</span><br><span class="line">  -v, --verbose               <span class="built_in">print</span> name of each linked file</span><br><span class="line">      --<span class="built_in">help</span>     display this <span class="built_in">help</span> and <span class="built_in">exit</span></span><br><span class="line">      --version  output version information and <span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line">The backup suffix is <span class="string">'~'</span>, unless <span class="built_in">set</span> with --suffix or SIMPLE_BACKUP_SUFFIX.</span><br><span class="line">The version control method may be selected via the --backup option or through</span><br><span class="line">the VERSION_CONTROL environment variable.  Here are the values:</span><br><span class="line"></span><br><span class="line">  none, off       never make backups (even <span class="keyword">if</span> --backup is given)</span><br><span class="line">  numbered, t     make numbered backups</span><br><span class="line">  existing, nil   numbered <span class="keyword">if</span> numbered backups exist, simple otherwise</span><br><span class="line">  simple, never   always make simple backups</span><br><span class="line"></span><br><span class="line">Using -s ignores -L and -P.  Otherwise, the last option specified controls</span><br><span class="line">behavior when a TARGET is a symbolic link, defaulting to -P.</span><br><span class="line"></span><br><span class="line">GNU coreutils online <span class="built_in">help</span>: &lt;http://www.gnu.org/software/coreutils/&gt;</span><br><span class="line">For complete documentation, run: info coreutils <span class="string">'ln invocation'</span></span><br></pre></td></tr></table></figure>
+Mandatory arguments to long options are mandatory for short options too.
+      --backup[=CONTROL]      make a backup of each existing destination file
+  -b                          like --backup but does not accept an argument
+  -d, -F, --directory         allow the superuser to attempt to hard link
+                                directories (note: will probably fail due to
+                                system restrictions, even for the superuser)
+  -f, --force                 remove existing destination files
+  -i, --interactive           prompt whether to remove destinations
+  -L, --logical               dereference TARGETs that are symbolic links
+  -n, --no-dereference        treat LINK_NAME as a normal file if
+                                it is a symbolic link to a directory
+  -P, --physical              make hard links directly to symbolic links
+  -r, --relative              create symbolic links relative to link location
+  -s, --symbolic              make symbolic links instead of hard links
+  -S, --suffix=SUFFIX         override the usual backup suffix
+  -t, --target-directory=DIRECTORY  specify the DIRECTORY in which to create
+                                the links
+  -T, --no-target-directory   treat LINK_NAME as a normal file always
+  -v, --verbose               print name of each linked file
+      --help     display this help and exit
+      --version  output version information and exit
 
+The backup suffix is &#39;~&#39;, unless set with --suffix or SIMPLE_BACKUP_SUFFIX.
+The version control method may be selected via the --backup option or through
+the VERSION_CONTROL environment variable.  Here are the values:
+
+  none, off       never make backups (even if --backup is given)
+  numbered, t     make numbered backups
+  existing, nil   numbered if numbered backups exist, simple otherwise
+  simple, never   always make simple backups
+
+Using -s ignores -L and -P.  Otherwise, the last option specified controls
+behavior when a TARGET is a symbolic link, defaulting to -P.
+
+GNU coreutils online help: &lt;http://www.gnu.org/software/coreutils/&gt;
+For complete documentation, run: info coreutils &#39;ln invocation&#39;
+</code></pre>
 
     </div>
 
@@ -350,14 +398,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -398,6 +446,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

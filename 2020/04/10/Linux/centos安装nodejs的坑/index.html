@@ -47,13 +47,13 @@
   };
 </script>
 
-  <meta name="description" content="centos安装nodejs遇到的坑https:&#x2F;&#x2F;linuxize.com&#x2F;post&#x2F;how-to-install-node-js-on-centos-7&#x2F; 1.添加NodeSource yum存储库1curl -sL https:&#x2F;&#x2F;rpm.nodesource.com&#x2F;setup_10.x | sudo bash -  2.安装Node.js和npm1sudo yum install nod">
+  <meta name="description" content="centos安装nodejs遇到的坑https:&#x2F;&#x2F;linuxize.com&#x2F;post&#x2F;how-to-install-node-js-on-centos-7&#x2F; 1.添加NodeSource yum存储库curl -sL https:&#x2F;&#x2F;rpm.nodesource.com&#x2F;setup_10.x | sudo bash - 2.安装Node.js和npmsudo yum install nodejs">
 <meta name="keywords" content="linux,nodejs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="centos安装nodejs的坑">
 <meta property="og:url" content="https:&#x2F;&#x2F;siwadiya.github.io&#x2F;2020&#x2F;04&#x2F;10&#x2F;Linux&#x2F;centos%E5%AE%89%E8%A3%85nodejs%E7%9A%84%E5%9D%91&#x2F;index.html">
 <meta property="og:site_name" content="風之萬里">
-<meta property="og:description" content="centos安装nodejs遇到的坑https:&#x2F;&#x2F;linuxize.com&#x2F;post&#x2F;how-to-install-node-js-on-centos-7&#x2F; 1.添加NodeSource yum存储库1curl -sL https:&#x2F;&#x2F;rpm.nodesource.com&#x2F;setup_10.x | sudo bash -  2.安装Node.js和npm1sudo yum install nod">
+<meta property="og:description" content="centos安装nodejs遇到的坑https:&#x2F;&#x2F;linuxize.com&#x2F;post&#x2F;how-to-install-node-js-on-centos-7&#x2F; 1.添加NodeSource yum存储库curl -sL https:&#x2F;&#x2F;rpm.nodesource.com&#x2F;setup_10.x | sudo bash - 2.安装Node.js和npmsudo yum install nodejs">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="d:%5Cblog%5Csource_posts%5CLinux%5Ccentos%E5%AE%89%E8%A3%85nodejs%E7%9A%84%E5%9D%91.assets%5Cimage-20200410175256657.png">
 <meta property="og:updated_time" content="2020-04-10T09:53:39.532Z">
@@ -267,12 +267,10 @@
 
       
         <h3 id="centos安装nodejs遇到的坑"><a href="#centos安装nodejs遇到的坑" class="headerlink" title="centos安装nodejs遇到的坑"></a>centos安装nodejs遇到的坑</h3><p><a href="https://linuxize.com/post/how-to-install-node-js-on-centos-7/" target="_blank" rel="noopener">https://linuxize.com/post/how-to-install-node-js-on-centos-7/</a></p>
-<h4 id="1-添加NodeSource-yum存储库"><a href="#1-添加NodeSource-yum存储库" class="headerlink" title="1.添加NodeSource yum存储库"></a>1.添加NodeSource yum存储库</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-安装Node-js和npm"><a href="#2-安装Node-js和npm" class="headerlink" title="2.安装Node.js和npm"></a>2.安装Node.js和npm</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install nodejs</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-验证Node-js和npm安装"><a href="#3-验证Node-js和npm安装" class="headerlink" title="3.验证Node.js和npm安装"></a>3.验证Node.js和npm安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node --version</span><br><span class="line">npm --version</span><br></pre></td></tr></table></figure>
-
+<h4 id="1-添加NodeSource-yum存储库"><a href="#1-添加NodeSource-yum存储库" class="headerlink" title="1.添加NodeSource yum存储库"></a>1.添加NodeSource yum存储库</h4><pre><code class="bash">curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -</code></pre>
+<h4 id="2-安装Node-js和npm"><a href="#2-安装Node-js和npm" class="headerlink" title="2.安装Node.js和npm"></a>2.安装Node.js和npm</h4><pre><code class="bash">sudo yum install nodejs</code></pre>
+<h4 id="3-验证Node-js和npm安装"><a href="#3-验证Node-js和npm安装" class="headerlink" title="3.验证Node.js和npm安装"></a>3.验证Node.js和npm安装</h4><pre><code class="bash">node --version
+npm --version</code></pre>
 <p><img src="D:%5Cblog%5Csource_posts%5CLinux%5Ccentos%E5%AE%89%E8%A3%85nodejs%E7%9A%84%E5%9D%91.assets%5Cimage-20200410175256657.png" alt="image-20200410175256657"></p>
 
     </div>
@@ -351,14 +349,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -399,6 +397,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

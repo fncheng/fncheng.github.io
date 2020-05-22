@@ -266,7 +266,11 @@
 
       
         <h3 id="linux端口常用命令"><a href="#linux端口常用命令" class="headerlink" title="linux端口常用命令"></a>linux端口常用命令</h3><blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=8888/tcp --permanent	<span class="comment">#开启端口</span></span><br><span class="line">firewall-cmd --list-ports	<span class="comment">#查看开放的端口</span></span><br><span class="line">firewall-cmd --query-port=8888/tcp	<span class="comment">#查看端口是否开启</span></span><br><span class="line">lsof -i:8888	<span class="comment">#查看端口占用</span></span><br><span class="line">netstat -tunlp |grep 8888	<span class="comment">#查看指定端口的进程情况</span></span><br></pre></td></tr></table></figure>
+<pre><code class="bash">firewall-cmd --zone=public --add-port=8888/tcp --permanent    #开启端口
+firewall-cmd --list-ports    #查看开放的端口
+firewall-cmd --query-port=8888/tcp    #查看端口是否开启
+lsof -i:8888    #查看端口占用
+netstat -tunlp |grep 8888    #查看指定端口的进程情况</code></pre>
 </blockquote>
 <p>最后是怎么解决的呢…</p>
 <p><code>reboot</code>重启下服务器就好了</p>
@@ -348,14 +352,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -396,6 +400,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

@@ -279,22 +279,40 @@
 <a id="more"></a>
 
 <p>1.简单值</p>
-<h4 id="json字符串和json对象"><a href="#json字符串和json对象" class="headerlink" title="json字符串和json对象"></a>json字符串和json对象</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//字符串对象格式</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"JSON"</span>,</span><br><span class="line">    <span class="attr">"address"</span>: <span class="string">"北京市西城区"</span>,</span><br><span class="line">    <span class="attr">"age"</span>: <span class="number">25</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//数组对象格式</span></span><br><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">"name"</span>: <span class="string">"JSON"</span>,</span><br><span class="line">        <span class="attr">"address"</span>: <span class="string">"北京市西城区"</span>,</span><br><span class="line">        <span class="attr">"age"</span>: <span class="number">25</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">"name"</span>: <span class="string">"JSON1"</span>,</span><br><span class="line">        <span class="attr">"address"</span>: <span class="string">"北京市东城区"</span>,</span><br><span class="line">        <span class="attr">"age"</span>: <span class="number">28</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-
-
+<h4 id="json字符串和json对象"><a href="#json字符串和json对象" class="headerlink" title="json字符串和json对象"></a>json字符串和json对象</h4><pre><code class="json">//字符串对象格式
+{
+    &quot;name&quot;: &quot;JSON&quot;,
+    &quot;address&quot;: &quot;北京市西城区&quot;,
+    &quot;age&quot;: 25
+}</code></pre>
+<pre><code class="json">//数组对象格式
+[
+    {
+        &quot;name&quot;: &quot;JSON&quot;,
+        &quot;address&quot;: &quot;北京市西城区&quot;,
+        &quot;age&quot;: 25
+    },
+    {
+        &quot;name&quot;: &quot;JSON1&quot;,
+        &quot;address&quot;: &quot;北京市东城区&quot;,
+        &quot;age&quot;: 28
+    }
+]</code></pre>
 <h3 id="JSON序列化和反序列化"><a href="#JSON序列化和反序列化" class="headerlink" title="JSON序列化和反序列化"></a>JSON序列化和反序列化</h3><blockquote>
 <h4 id="首先要搞懂什么是序列化"><a href="#首先要搞懂什么是序列化" class="headerlink" title="首先要搞懂什么是序列化?."></a>首先要搞懂什么是序列化?.</h4></blockquote>
 <p> 序列化（Serialization）是将对象的状态信息转换为可以存储或传输的形式的过程。</p>
 <p><span style="color:red">以json为例,简而言之就是将JavaScript对象以json格式存储到到<code>*.json</code>文件中；同理反序列化就是将<code>.json</code>文件中的json对象转换为JavaScript对象。</span></p>
-<h4 id="序列化——JSON-stringify"><a href="#序列化——JSON-stringify" class="headerlink" title="序列化——JSON.stringify()"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify" target="_blank" rel="noopener">序列化——<em>JSON.stringify()</em></a></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> adress = &#123;</span><br><span class="line">    name: <span class="string">"JSON"</span>,</span><br><span class="line">    address: <span class="string">"北京市西城区"</span>,</span><br><span class="line">    age: <span class="number">25</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> result = <span class="built_in">JSON</span>.stringify(adress, [<span class="string">"name"</span>, <span class="string">"age"</span>]);</span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br><span class="line"><span class="comment">// 输出结果 &#123;"name":"JSON","age":25&#125;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="反序列化——JSON-parse"><a href="#反序列化——JSON-parse" class="headerlink" title="反序列化——JSON.parse()"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse" target="_blank" rel="noopener">反序列化——<em>JSON.parse()</em></a></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> adress1 = <span class="built_in">JSON</span>.parse(result);</span><br><span class="line"><span class="built_in">console</span>.log(adress1.address);</span><br><span class="line"><span class="comment">//输出结果  北京市西城区</span></span><br></pre></td></tr></table></figure>
-
+<h4 id="序列化——JSON-stringify"><a href="#序列化——JSON-stringify" class="headerlink" title="序列化——JSON.stringify()"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify" target="_blank" rel="noopener">序列化——<em>JSON.stringify()</em></a></h4><pre><code class="js">var adress = {
+    name: &quot;JSON&quot;,
+    address: &quot;北京市西城区&quot;,
+    age: 25
+};
+var result = JSON.stringify(adress, [&quot;name&quot;, &quot;age&quot;]);
+console.log(result);
+// 输出结果 {&quot;name&quot;:&quot;JSON&quot;,&quot;age&quot;:25}</code></pre>
+<h4 id="反序列化——JSON-parse"><a href="#反序列化——JSON-parse" class="headerlink" title="反序列化——JSON.parse()"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse" target="_blank" rel="noopener">反序列化——<em>JSON.parse()</em></a></h4><pre><code class="js">var adress1 = JSON.parse(result);
+console.log(adress1.address);
+//输出结果  北京市西城区</code></pre>
 
     </div>
 
@@ -371,14 +389,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -419,6 +437,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

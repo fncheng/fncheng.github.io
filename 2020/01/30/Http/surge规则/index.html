@@ -292,8 +292,12 @@
 <li>MATCH：全匹配（一般放在最后）</li>
 </ul>
 <h3 id="史上最详尽的Surge教程（分阶层）"><a href="#史上最详尽的Surge教程（分阶层）" class="headerlink" title="史上最详尽的Surge教程（分阶层）"></a><a href="https://medium.com/@Zaihuaone/%E5%8F%B2%E4%B8%8A%E6%9C%80%E8%AF%A6%E5%B0%BD%E7%9A%84surge%E6%95%99%E7%A8%8B-%E5%88%86%E9%98%B6%E5%B1%82-1d10720779c7" target="_blank" rel="noopener">史上最详尽的Surge教程（分阶层）</a></h3><h3 id="中文文档"><a href="#中文文档" class="headerlink" title="中文文档"></a><a href="https://docs.cfw.lbyczf.com/contents/ui/profiles/rules.html" target="_blank" rel="noopener">中文文档</a></h3><h3 id="合理使用-REJECT-规则"><a href="#合理使用-REJECT-规则" class="headerlink" title="合理使用 REJECT 规则"></a>合理使用 REJECT 规则</h3><p> 规则中添加 REJECT，可以用来拦截隐私和广告请求，但是有些应用会无限制的尝试重新连接。 </p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 运营商及声名狼藉网站劫持</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">"Hijacking"</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">select</span></span><br><span class="line">  <span class="attr">proxies:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">"REJECT"</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">"DIRECT"</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="yaml"># 运营商及声名狼藉网站劫持
+- name: &quot;Hijacking&quot;
+  type: select
+  proxies:
+    - &quot;REJECT&quot;
+    - &quot;DIRECT&quot;</code></pre>
 <p>REJECT可以拒绝网站发送的数据</p>
 <h3 id="规则列表中的最后两项"><a href="#规则列表中的最后两项" class="headerlink" title="规则列表中的最后两项"></a>规则列表中的最后两项</h3><p>规则列表中只有必要的一些域名或 IP，大多数时候 Recent Requests 记录的 Policy 部分，能看到的是规则配置文件最后两项判断：</p>
 <ul>
@@ -378,14 +382,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -426,6 +430,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

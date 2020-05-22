@@ -306,11 +306,9 @@
 </tbody></table>
 <p>在js中两个方法创建正则表达式</p>
 <p>1.字面量</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> re = <span class="regexp">/ab+c/</span>;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="js">var re = /ab+c/;</code></pre>
 <p>2.构造函数</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> re = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"ab+c"</span>);</span><br></pre></td></tr></table></figure>
-
+<pre><code class="js">var re = new RegExp(&quot;ab+c&quot;);</code></pre>
 <h3 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h3><table>
 <thead>
 <tr>
@@ -396,11 +394,9 @@
 </tr>
 </tbody></table>
 <p><strong>语法</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> re = <span class="regexp">/pattern/</span>flags; <span class="comment">//字面量</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="js">var re = /pattern/flags; //字面量</code></pre>
 <p>或</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> re = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"parttern"</span>,<span class="string">"flags"</span>); <span class="comment">//构造函数</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="js">var re = new RegExp(&quot;parttern&quot;,&quot;flags&quot;); //构造函数</code></pre>
 <p>正则工具<a href="https://www.baidufe.com/fehelper/index/index.html" target="_blank" rel="noopener">FeHelper</a></p>
 
     </div>
@@ -478,14 +474,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -526,6 +522,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

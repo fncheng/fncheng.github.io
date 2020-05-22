@@ -47,12 +47,12 @@
   };
 </script>
 
-  <meta name="description" content="列表有序列表、无序列表、自定义列表 12345ol	有序列表ul	无序列表dl	定义列表li	列表项">
+  <meta name="description" content="列表有序列表、无序列表、自定义列表 ol    有序列表 ul    无序列表 dl    定义列表  li    列表项">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Html&#x2F;列表">
 <meta property="og:url" content="https:&#x2F;&#x2F;siwadiya.github.io&#x2F;2019&#x2F;12&#x2F;09&#x2F;Html&#x2F;%E5%88%97%E8%A1%A8&#x2F;index.html">
 <meta property="og:site_name" content="風之萬里">
-<meta property="og:description" content="列表有序列表、无序列表、自定义列表 12345ol	有序列表ul	无序列表dl	定义列表li	列表项">
+<meta property="og:description" content="列表有序列表、无序列表、自定义列表 ol    有序列表 ul    无序列表 dl    定义列表  li    列表项">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-12-10T02:36:35.276Z">
 <meta name="twitter:card" content="summary">
@@ -270,10 +270,11 @@
 
       
         <h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p>有序列表、无序列表、自定义列表</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ol	有序列表</span><br><span class="line">ul	无序列表</span><br><span class="line">dl	定义列表</span><br><span class="line"></span><br><span class="line">li	列表项</span><br></pre></td></tr></table></figure>
+<pre><code class="html">ol    有序列表
+ul    无序列表
+dl    定义列表
 
-
-
+li    列表项</code></pre>
 
     </div>
 
@@ -347,14 +348,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -395,6 +396,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

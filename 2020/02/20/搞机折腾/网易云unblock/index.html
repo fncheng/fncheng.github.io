@@ -276,15 +276,21 @@
 <p>准备工作,以下方法基于centos7</p>
 <blockquote>
 <p>1.安装nodejs</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#安装c/c++编译器</span></span><br><span class="line">yum install -y gcc-c++ make</span><br><span class="line">curl -sL https://rpm.nodesource.com/setup_12.x | sudo -E bash -</span><br><span class="line"><span class="comment">#安装nodejs</span></span><br><span class="line">yum install nodejs -y</span><br><span class="line"><span class="comment">#安装pm2</span></span><br><span class="line">npm install pm2 -g</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">#安装c/c++编译器
+yum install -y gcc-c++ make
+curl -sL https://rpm.nodesource.com/setup_12.x | sudo -E bash -
+#安装nodejs
+yum install nodejs -y
+#安装pm2
+npm install pm2 -g</code></pre>
 </blockquote>
 <p>期间遇到了一个问题:==yum安装软件竟然报错：rpmdb open failed==</p>
 <p><a href="">解决办法</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#首先清除掉缓存，之后再重建就可以了</span></span><br><span class="line">rm -f /var/lib/rpm/__db*</span><br><span class="line">rpm --rebuilddb</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">#首先清除掉缓存，之后再重建就可以了
+rm -f /var/lib/rpm/__db*
+rpm --rebuilddb</code></pre>
 <h3 id="正式开始"><a href="#正式开始" class="headerlink" title="正式开始"></a>正式开始</h3><p>下载 UnblockNeteaseMusic</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx @nondanee/unblockneteasemusic</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">npx @nondanee/unblockneteasemusic</code></pre>
 <p><a href="https://www.ruanyifeng.com/blog/2019/02/npx.html" target="_blank" rel="noopener"><strong>npx使用教程</strong></a></p>
 
     </div>
@@ -362,14 +368,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -410,6 +416,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

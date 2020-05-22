@@ -275,8 +275,14 @@
 
       
         <h2 id="ls-lh命令查看权限"><a href="#ls-lh命令查看权限" class="headerlink" title="ls -lh命令查看权限"></a>ls -lh命令查看权限</h2><p>首先在linux目录下通过<code>ls -lh</code>命令查看目录下所有文件的权限</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">total 7.5M</span><br><span class="line">drwxr-xr-x  5 root root 4.0K Aug 27 17:35 backup</span><br><span class="line">drwxrwxrwx  3 root root 4.0K Jan 31 17:13 Recycle_bin</span><br><span class="line">drwxr-xr-x 11 root root 4.0K Aug 29 09:26 server</span><br><span class="line">drwxr-xr-x  3 root root 4.0K Nov 10 18:27 themes</span><br><span class="line">-rw-r--r--  1 root root 7.5M Sep  5 08:57 wordpress-4.6.15.tar.gz</span><br><span class="line">drwxrwxrwx  3 root root 4.0K Jan 31 17:13 wwwlogs</span><br><span class="line">drwxrwxrw-  7 root root 4.0K Jan 31 17:13 wwwroot</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">total 7.5M
+drwxr-xr-x  5 root root 4.0K Aug 27 17:35 backup
+drwxrwxrwx  3 root root 4.0K Jan 31 17:13 Recycle_bin
+drwxr-xr-x 11 root root 4.0K Aug 29 09:26 server
+drwxr-xr-x  3 root root 4.0K Nov 10 18:27 themes
+-rw-r--r--  1 root root 7.5M Sep  5 08:57 wordpress-4.6.15.tar.gz
+drwxrwxrwx  3 root root 4.0K Jan 31 17:13 wwwlogs
+drwxrwxrw-  7 root root 4.0K Jan 31 17:13 wwwroot</code></pre>
 <p><img src="https://img-blog.csdn.net/20170513152626838?watermark/2/text/aHR0cD" alt=""></p>
 <p>其中rwx分别代表着read,write,eXecute</p>
 <ul>
@@ -369,14 +375,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -417,6 +423,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

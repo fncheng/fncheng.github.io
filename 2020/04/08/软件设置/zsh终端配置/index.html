@@ -47,13 +47,13 @@
   };
 </script>
 
-  <meta name="description" content="oh-my-zsh官网 安装zshcentos 123yum install zsh	#安装zshchsh -s $(which zsh)	#使其成为默认shell  安装oh-my-zsh1$ sh -c &quot;$(wget https:&#x2F;&#x2F;raw.github.com&#x2F;ohmyzsh&#x2F;ohmyzsh&#x2F;master&#x2F;tools&#x2F;install.sh -O -)&quot;  插件配置autojump自动跳转插">
+  <meta name="description" content="oh-my-zsh官网 安装zshcentos yum install zsh    #安装zsh  chsh -s $(which zsh)    #使其成为默认shell 安装oh-my-zsh$ sh -c &amp;quot;$(wget https:&#x2F;&#x2F;raw.github.com&#x2F;ohmyzsh&#x2F;ohmyzsh&#x2F;master&#x2F;tools&#x2F;install.sh -O -)&amp;quot; 插件配置a">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="zsh终端配置">
 <meta property="og:url" content="https:&#x2F;&#x2F;siwadiya.github.io&#x2F;2020&#x2F;04&#x2F;08&#x2F;%E8%BD%AF%E4%BB%B6%E8%AE%BE%E7%BD%AE&#x2F;zsh%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AE&#x2F;index.html">
 <meta property="og:site_name" content="風之萬里">
-<meta property="og:description" content="oh-my-zsh官网 安装zshcentos 123yum install zsh	#安装zshchsh -s $(which zsh)	#使其成为默认shell  安装oh-my-zsh1$ sh -c &quot;$(wget https:&#x2F;&#x2F;raw.github.com&#x2F;ohmyzsh&#x2F;ohmyzsh&#x2F;master&#x2F;tools&#x2F;install.sh -O -)&quot;  插件配置autojump自动跳转插">
+<meta property="og:description" content="oh-my-zsh官网 安装zshcentos yum install zsh    #安装zsh  chsh -s $(which zsh)    #使其成为默认shell 安装oh-my-zsh$ sh -c &amp;quot;$(wget https:&#x2F;&#x2F;raw.github.com&#x2F;ohmyzsh&#x2F;ohmyzsh&#x2F;master&#x2F;tools&#x2F;install.sh -O -)&amp;quot; 插件配置a">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2020-04-14T07:02:31.281Z">
 <meta name="twitter:card" content="summary">
@@ -272,33 +272,44 @@
       
         <p><a href="https://github.com/ohmyzsh/ohmyzsh" target="_blank" rel="noopener">oh-my-zsh官网</a></p>
 <h3 id="安装zsh"><a href="#安装zsh" class="headerlink" title="安装zsh"></a><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH" target="_blank" rel="noopener">安装zsh</a></h3><p>centos</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install zsh	<span class="comment">#安装zsh</span></span><br><span class="line"></span><br><span class="line">chsh -s $(<span class="built_in">which</span> zsh)	<span class="comment">#使其成为默认shell</span></span><br></pre></td></tr></table></figure>
+<pre><code class="bash">yum install zsh    #安装zsh
 
-<h3 id="安装oh-my-zsh"><a href="#安装oh-my-zsh" class="headerlink" title="安装oh-my-zsh"></a>安装oh-my-zsh</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sh -c <span class="string">"<span class="variable">$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)</span>"</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="插件配置"><a href="#插件配置" class="headerlink" title="插件配置"></a>插件配置</h3><h4 id="autojump自动跳转插件"><a href="#autojump自动跳转插件" class="headerlink" title="autojump自动跳转插件"></a><a href="https://github.com/wting/autojump" target="_blank" rel="noopener">autojump</a>自动跳转插件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># clone 到本地</span></span><br><span class="line">git <span class="built_in">clone</span> git://github.com/wting/autojump.git</span><br><span class="line"><span class="comment"># 进入clone目录，接着执行安装文件</span></span><br><span class="line"><span class="built_in">cd</span> autojump</span><br><span class="line">./install.py</span><br><span class="line"><span class="comment"># 接着根据安装完成后的提示，在~/.zshrc最后添加下面语句：</span></span><br><span class="line">vim ~/.zshrc    </span><br><span class="line">[[ -s /home/cheng/.autojump/etc/profile.d/autojump.sh ]] &amp;&amp; <span class="built_in">source</span> /home/cheng/</span><br><span class="line">.autojump/etc/profile.d/autojump.sh</span><br></pre></td></tr></table></figure>
-
+chsh -s $(which zsh)    #使其成为默认shell</code></pre>
+<h3 id="安装oh-my-zsh"><a href="#安装oh-my-zsh" class="headerlink" title="安装oh-my-zsh"></a>安装oh-my-zsh</h3><pre><code class="bash">$ sh -c &quot;$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)&quot;</code></pre>
+<h3 id="插件配置"><a href="#插件配置" class="headerlink" title="插件配置"></a>插件配置</h3><h4 id="autojump自动跳转插件"><a href="#autojump自动跳转插件" class="headerlink" title="autojump自动跳转插件"></a><a href="https://github.com/wting/autojump" target="_blank" rel="noopener">autojump</a>自动跳转插件</h4><pre><code class="bash"># clone 到本地
+git clone git://github.com/wting/autojump.git
+# 进入clone目录，接着执行安装文件
+cd autojump
+./install.py
+# 接着根据安装完成后的提示，在~/.zshrc最后添加下面语句：
+vim ~/.zshrc    
+[[ -s /home/cheng/.autojump/etc/profile.d/autojump.sh ]] &amp;&amp; source /home/cheng/
+.autojump/etc/profile.d/autojump.sh</code></pre>
 <p>安装后启用插件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编辑~/.zshrc   </span></span><br><span class="line">vim ~/.zshrc    </span><br><span class="line"><span class="comment"># 在plugins后括号里添加安装的插件名字</span></span><br><span class="line">plugins=(</span><br><span class="line">  git </span><br><span class="line">  autojump </span><br><span class="line">  zsh-autosuggestions</span><br><span class="line">  zsh-syntax-highlighting</span><br><span class="line">)</span><br><span class="line"><span class="comment"># 最后刷新</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="bash"># 编辑~/.zshrc   
+vim ~/.zshrc    
+# 在plugins后括号里添加安装的插件名字
+plugins=(
+  git 
+  autojump 
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
+# 最后刷新
+source ~/.zshrc    </code></pre>
 <h4 id="zsh-autosuggestions"><a href="#zsh-autosuggestions" class="headerlink" title="zsh-autosuggestions"></a><a href="">zsh-autosuggestions</a></h4><ol>
 <li>安装到<code>$ZSH_CUSTOM/plugins</code>（默认情况下<code>~/.oh-my-zsh/custom/plugins</code>）</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions</code></pre>
 <p>2.将插件添加到插件列表中，以供Oh My Zsh加载（在内部<code>~/.zshrc</code>）：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plugins=(zsh-autosuggestions)</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">plugins=(zsh-autosuggestions)</code></pre>
 <h4 id="语法高亮插件-zsh-syntax-highlighting"><a href="#语法高亮插件-zsh-syntax-highlighting" class="headerlink" title="语法高亮插件 zsh-syntax-highlighting"></a><a href="https://github.com/zsh-users/zsh-syntax-highlighting" target="_blank" rel="noopener">语法高亮插件 zsh-syntax-highlighting</a></h4><p>请注意，<code>zsh-syntax-highlighting</code>该插件必须是最后一个来源。</p>
 <ol>
 <li><p>将此存储库克隆到oh-my-zsh的plugins目录中：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting</code></pre>
 </li>
 <li><p>在中激活插件<code>~/.zshrc</code>：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plugins=( [plugins...] zsh-syntax-highlighting)</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">plugins=( [plugins...] zsh-syntax-highlighting)</code></pre>
 </li>
 </ol>
 
@@ -377,14 +388,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -425,6 +436,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

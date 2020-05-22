@@ -47,13 +47,13 @@
   };
 </script>
 
-  <meta name="description" content="创建.gitignore文件使用git bash 根目录下右键选择“Git Bash Here”进入bash命令窗口； 输入vim .gitignore命令，打开文件（没有文件会自动创建）； 按i键切换到编辑状态，输入规则，例如node_modules&#x2F;，然后按Esc键退出编辑，输入:wq保存退出。  常用规则1234567&#x2F;mtk&#x2F; 过滤整个文件夹*.zip 过滤所有.zip文件&#x2F;mtk&#x2F;do.">
+  <meta name="description" content="创建.gitignore文件使用git bash 根目录下右键选择“Git Bash Here”进入bash命令窗口； 输入vim .gitignore命令，打开文件（没有文件会自动创建）； 按i键切换到编辑状态，输入规则，例如node_modules&#x2F;，然后按Esc键退出编辑，输入:wq保存退出。  常用规则&#x2F;mtk&#x2F; 过滤整个文件夹 *.zip 过滤所有.zip文件 &#x2F;mtk&#x2F;do.c 过滤某">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git忽略文件及目录之.gitignore的使用">
 <meta property="og:url" content="https:&#x2F;&#x2F;siwadiya.github.io&#x2F;2020&#x2F;03&#x2F;21&#x2F;Git&#x2F;Git%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6%E5%8F%8A%E7%9B%AE%E5%BD%95&#x2F;index.html">
 <meta property="og:site_name" content="風之萬里">
-<meta property="og:description" content="创建.gitignore文件使用git bash 根目录下右键选择“Git Bash Here”进入bash命令窗口； 输入vim .gitignore命令，打开文件（没有文件会自动创建）； 按i键切换到编辑状态，输入规则，例如node_modules&#x2F;，然后按Esc键退出编辑，输入:wq保存退出。  常用规则1234567&#x2F;mtk&#x2F; 过滤整个文件夹*.zip 过滤所有.zip文件&#x2F;mtk&#x2F;do.">
+<meta property="og:description" content="创建.gitignore文件使用git bash 根目录下右键选择“Git Bash Here”进入bash命令窗口； 输入vim .gitignore命令，打开文件（没有文件会自动创建）； 按i键切换到编辑状态，输入规则，例如node_modules&#x2F;，然后按Esc键退出编辑，输入:wq保存退出。  常用规则&#x2F;mtk&#x2F; 过滤整个文件夹 *.zip 过滤所有.zip文件 &#x2F;mtk&#x2F;do.c 过滤某">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2020-03-21T01:31:32.581Z">
 <meta name="twitter:card" content="summary">
@@ -269,8 +269,13 @@
 <li>输入<code>vim .gitignore</code>命令，打开文件（没有文件会自动创建）；</li>
 <li>按i键切换到编辑状态，输入规则，例如node_modules/，然后按Esc键退出编辑，输入:wq保存退出。</li>
 </ul>
-<h3 id="常用规则"><a href="#常用规则" class="headerlink" title="常用规则"></a>常用规则</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/mtk/ 过滤整个文件夹</span><br><span class="line">*.zip 过滤所有.zip文件</span><br><span class="line">/mtk/do.c 过滤某个具体文件</span><br><span class="line"></span><br><span class="line">!src/   不过滤该文件夹</span><br><span class="line">!*.zip   不过滤所有.zip文件</span><br><span class="line">!/mtk/do.c 不过滤该文件</span><br></pre></td></tr></table></figure>
+<h3 id="常用规则"><a href="#常用规则" class="headerlink" title="常用规则"></a>常用规则</h3><pre><code class="bash">/mtk/ 过滤整个文件夹
+*.zip 过滤所有.zip文件
+/mtk/do.c 过滤某个具体文件
 
+!src/   不过滤该文件夹
+!*.zip   不过滤所有.zip文件
+!/mtk/do.c 不过滤该文件</code></pre>
 <p>以上规则意思是：被过滤掉的文件就不会出现在你的GitHub库中了，当然本地库中还有，只是push的时候不会上传。</p>
 
     </div>
@@ -348,14 +353,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -396,6 +401,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

@@ -47,13 +47,13 @@
   };
 </script>
 
-  <meta name="description" content="首先在 「用户文件夹」（%appdata%）目录下新建2个文件default.custom.yaml和weasel.custom.yaml 其中 default.custom.yaml是设置一些默认设置的配置文件,而weasel.custom.yaml是我们自定义设置的配置文件 官方定制指南 定制字体12345# weasel.custom.yamlpatch:  &quot;style&#x2F;font_face">
+  <meta name="description" content="首先在 「用户文件夹」（%appdata%）目录下新建2个文件default.custom.yaml和weasel.custom.yaml 其中 default.custom.yaml是设置一些默认设置的配置文件,而weasel.custom.yaml是我们自定义设置的配置文件 官方定制指南 定制字体# weasel.custom.yaml  patch:   &amp;quot;style&#x2F;font_f">
 <meta name="keywords" content="电脑好软">
 <meta property="og:type" content="article">
 <meta property="og:title" content="rime输入法配置问题">
 <meta property="og:url" content="https:&#x2F;&#x2F;siwadiya.github.io&#x2F;2019&#x2F;12&#x2F;30&#x2F;%E8%BD%AF%E4%BB%B6%E8%AE%BE%E7%BD%AE&#x2F;rime%E8%BE%93%E5%85%A5%E6%B3%95%E9%85%8D%E7%BD%AE&#x2F;index.html">
 <meta property="og:site_name" content="風之萬里">
-<meta property="og:description" content="首先在 「用户文件夹」（%appdata%）目录下新建2个文件default.custom.yaml和weasel.custom.yaml 其中 default.custom.yaml是设置一些默认设置的配置文件,而weasel.custom.yaml是我们自定义设置的配置文件 官方定制指南 定制字体12345# weasel.custom.yamlpatch:  &quot;style&#x2F;font_face">
+<meta property="og:description" content="首先在 「用户文件夹」（%appdata%）目录下新建2个文件default.custom.yaml和weasel.custom.yaml 其中 default.custom.yaml是设置一些默认设置的配置文件,而weasel.custom.yaml是我们自定义设置的配置文件 官方定制指南 定制字体# weasel.custom.yaml  patch:   &amp;quot;style&#x2F;font_f">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-12-30T16:03:18.730Z">
 <meta name="twitter:card" content="summary">
@@ -273,8 +273,11 @@
         <p>首先在 「用户文件夹」（%appdata%）目录下新建2个文件<code>default.custom.yaml</code>和<code>weasel.custom.yaml</code></p>
 <p>其中 <code>default.custom.yaml</code>是设置一些默认设置的配置文件,而<code>weasel.custom.yaml</code>是我们自定义设置的配置文件</p>
 <p><a href="https://github.com/rime/home/wiki/CustomizationGuide" target="_blank" rel="noopener">官方定制指南</a></p>
-<h4 id="定制字体"><a href="#定制字体" class="headerlink" title="定制字体"></a>定制字体</h4><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># weasel.custom.yaml</span></span><br><span class="line"></span><br><span class="line"><span class="attr">patch:</span></span><br><span class="line">  <span class="attr">"style/font_face":</span> <span class="string">"明兰"</span>  <span class="comment"># 字體名稱，從記事本等處的系統字體對話框裏能看到</span></span><br><span class="line">  <span class="attr">"style/font_point":</span> <span class="number">14</span>     <span class="comment"># 字號，只認數字的，不認「五號」、「小五」這樣的</span></span><br></pre></td></tr></table></figure>
+<h4 id="定制字体"><a href="#定制字体" class="headerlink" title="定制字体"></a>定制字体</h4><pre><code class="yaml"># weasel.custom.yaml
 
+patch:
+  &quot;style/font_face&quot;: &quot;明兰&quot;  # 字體名稱，從記事本等處的系統字體對話框裏能看到
+  &quot;style/font_point&quot;: 14     # 字號，只認數字的，不認「五號」、「小五」這樣的</code></pre>
 
     </div>
 
@@ -351,14 +354,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -399,6 +402,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

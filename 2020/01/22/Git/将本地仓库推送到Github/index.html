@@ -275,28 +275,41 @@
 
 <p><a href="https://help.github.com/cn/github/administering-a-repository/setting-repository-visibility" target="_blank" rel="noopener"><span style="font-size:1.75em">参考链接</span></a></p>
 <h2 id="将本地仓库推送到Github的流程"><a href="#将本地仓库推送到Github的流程" class="headerlink" title="将本地仓库推送到Github的流程"></a>将本地仓库推送到Github的流程</h2><p>1.打开Git Bash,将当前目录更改为本地仓库</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新建一个目录，将其初始化为Git代码库</span></span><br><span class="line">$ git init [project-name]</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash"># 新建一个目录，将其初始化为Git代码库
+$ git init [project-name]</code></pre>
 <p>2.在新的本地仓库中添加文件。 这会暂存它们用于第一次提交。 </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br><span class="line"><span class="comment"># Adds the files in the local repository and stages them for commit. 要取消暂存文件，请使用 'git reset HEAD YOUR-FILE'。</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">$ git add .
+# Adds the files in the local repository and stages them for commit. 要取消暂存文件，请使用 &#39;git reset HEAD YOUR-FILE&#39;。</code></pre>
 <p>3.提交暂存在本地仓库中的文件。 </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m <span class="string">"First commit"</span></span><br><span class="line"><span class="comment"># Commits the tracked changes and prepares them to be pushed to a remote repository. 要删除此提交并修改文件，请使用 'git reset --soft HEAD~1' 并再次提交和添加文件。</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">$ git commit -m &quot;First commit&quot;
+# Commits the tracked changes and prepares them to be pushed to a remote repository. 要删除此提交并修改文件，请使用 &#39;git reset --soft HEAD~1&#39; 并再次提交和添加文件。</code></pre>
 <p>4.在GitHub建立一个空的仓库,注意不要添加readme.md文件,防止后面报错!</p>
 <p>5.在命令提示中，<a href="https://help.github.com/cn/articles/adding-a-remote" target="_blank" rel="noopener">添加远程仓库的 URL</a>（将在该 URL 推送本地仓库）。 </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin [remote repository URL]</span><br><span class="line"><span class="comment"># Sets the new remote</span></span><br><span class="line">$ git remote -v</span><br><span class="line"><span class="comment"># Verifies the new remote URL</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">$ git remote add origin [remote repository URL]
+# Sets the new remote
+$ git remote -v
+# Verifies the new remote URL</code></pre>
 <blockquote>
 <p> 对应的如果远程分支创建错误可以使用<code>git remote rm</code>或<code>git remote remove</code>命令删除远程URL</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ git remote -v</span><br><span class="line"># 查看当前远程</span><br><span class="line">&gt; origin  https://github.com/OWNER/REPOSITORY.git (fetch)</span><br><span class="line">&gt; origin  https://github.com/OWNER/REPOSITORY.git (push)</span><br><span class="line">&gt; destination  https://github.com/FORKER/REPOSITORY.git (fetch)</span><br><span class="line">&gt; destination  https://github.com/FORKER/REPOSITORY.git (push)</span><br><span class="line"></span><br><span class="line">$ git remote rm destination</span><br><span class="line"># 删除远程</span><br><span class="line">$ git remote -v</span><br><span class="line"># 验证其已删除</span><br><span class="line">&gt; origin  https://github.com/OWNER/REPOSITORY.git (fetch)</span><br><span class="line">&gt; origin  https://github.com/OWNER/REPOSITORY.git (push)</span><br></pre></td></tr></table></figure>
+<pre><code class="git">$ git remote -v
+# 查看当前远程
+&gt; origin  https://github.com/OWNER/REPOSITORY.git (fetch)
+&gt; origin  https://github.com/OWNER/REPOSITORY.git (push)
+&gt; destination  https://github.com/FORKER/REPOSITORY.git (fetch)
+&gt; destination  https://github.com/FORKER/REPOSITORY.git (push)
 
+$ git remote rm destination
+# 删除远程
+$ git remote -v
+# 验证其已删除
+&gt; origin  https://github.com/OWNER/REPOSITORY.git (fetch)
+&gt; origin  https://github.com/OWNER/REPOSITORY.git (push)</code></pre>
 <p> <strong>注</strong>：<code>git remote rm</code> 不会从服务器中删除远程仓库。 它只是从本地仓库中删除远程及其引用。 </p>
 <div style="background-color:#ffdce0">**注**：`git remote rm` 不会从服务器中删除远程仓库。 它只是从本地仓库中删除远程及其引用。</div>
 </blockquote>
 <p>6.推送更改(本地仓库中)到 GitHub。 </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin master</span><br><span class="line"><span class="comment"># Pushes the changes in your local repository up to the remote repository you specified as the origin</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">$ git push origin master
+# Pushes the changes in your local repository up to the remote repository you specified as the origin</code></pre>
 <h3 id="Git常用命令-易百教程"><a href="#Git常用命令-易百教程" class="headerlink" title="Git常用命令-易百教程"></a><a href="https://www.yiibai.com/git/git_add.html" target="_blank" rel="noopener">Git常用命令-易百教程</a></h3>
     </div>
 
@@ -373,14 +386,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -421,6 +434,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

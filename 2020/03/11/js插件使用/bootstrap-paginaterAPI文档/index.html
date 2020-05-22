@@ -444,19 +444,25 @@
 </tbody></table>
 <p><strong>Demo 示例：</strong></p>
 <p>1-引包</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"./lib/jquery/jquery.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script src=<span class="string">"./lib/bootstrap-validator/js/bootstrapValidator.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script src=<span class="string">"./lib/bootstrap-paginator/bootstrap-paginator.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="js">    &lt;script src=&quot;./lib/jquery/jquery.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;./lib/bootstrap-validator/js/bootstrapValidator.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;./lib/bootstrap-paginator/bootstrap-paginator.min.js&quot;&gt;&lt;/script&gt;</code></pre>
 <p>2-准备一个分页父容器：</p>
 <blockquote>
 <p>搭配使用的Bootstrap版本，2.X 的 分页必须使用div元素，3.X分页的必须使用ul元素。请注意与所使用的bootstrap版本对应上。</p>
 </blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"paginator"</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="html">    &lt;ul id=&quot;paginator&quot;&gt;&lt;/ul&gt;</code></pre>
 <p>3-初始化分页插件</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#paginator"</span>).bootstrapPaginator(&#123;</span><br><span class="line">      bootstrapMajorVersion:<span class="number">3</span>,<span class="comment">//默认是2，如果是bootstrap3版本，这个参数必填</span></span><br><span class="line">      currentPage:<span class="number">1</span>,<span class="comment">//当前页</span></span><br><span class="line">      totalPages:<span class="number">10</span>,<span class="comment">//总页数</span></span><br><span class="line">      size:<span class="string">"small"</span>,<span class="comment">//设置控件的大小，mini, small, normal,large</span></span><br><span class="line">      onPageClicked:<span class="function"><span class="keyword">function</span>(<span class="params">event, originalEvent, type,page</span>)</span>&#123;</span><br><span class="line">        <span class="comment">//为按钮绑定点击事件 page:当前点击的按钮值</span></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<pre><code class="js">$(&quot;#paginator&quot;).bootstrapPaginator({
+      bootstrapMajorVersion:3,//默认是2，如果是bootstrap3版本，这个参数必填
+      currentPage:1,//当前页
+      totalPages:10,//总页数
+      size:&quot;small&quot;,//设置控件的大小，mini, small, normal,large
+      onPageClicked:function(event, originalEvent, type,page){
+        //为按钮绑定点击事件 page:当前点击的按钮值
+      }
 
-
-
+});</code></pre>
 <p>注意：分页样式用BootStrap 的，如果单独使用，请去BootStrap中把分页样式拷出来。jQuery版本需要1.8及以上。</p>
 
     </div>
@@ -535,14 +541,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -583,6 +589,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

@@ -281,8 +281,15 @@
 <li>该方法在 <a href="https://developer.mozilla.org/en-US/docs/Glossary/OOP" target="_blank" rel="noopener">面向对象</a>程序中的可用性方面的信息（如<code>public</code>、<code>static</code>或<code>prototype</code>）。</li>
 </ul>
 <h4 id="传递参数"><a href="#传递参数" class="headerlink" title="传递参数"></a>传递参数</h4><p>需要注意:没有传递值的命名参数将自动被赋予undefined值</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doAdd</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">arguments</span>[<span class="number">1</span>] = <span class="number">10</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>], num2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">doAdd(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">输出结果:</span><br><span class="line"><span class="number">1</span> <span class="literal">undefined</span></span><br></pre></td></tr></table></figure>
+<pre><code class="js">function doAdd(num1, num2) {
+    arguments[1] = 10;
+    console.log(arguments[0], num2);
+}
 
+doAdd(1);
+
+输出结果:
+1 undefined</code></pre>
 
     </div>
 
@@ -359,14 +366,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -407,6 +414,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

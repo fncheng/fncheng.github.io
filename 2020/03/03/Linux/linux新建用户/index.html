@@ -47,13 +47,13 @@
   };
 </script>
 
-  <meta name="description" content="起因: 想远程通过remote ssh远程连接服务器,写代码,保存在服务器上运行,而不用本地运行.而通过root用户登陆不太好,所以需要创建一个用户,并设置好权限.  创建用户前,我们需要了解一下linux的用户和用户组以及权限的概念. 新建用户adduser命令会自动为创建的用户指定主目录、系统shell版本，会在创建时输入用户密码。 1adduser apple  这样在创建用户名时，就创建">
+  <meta name="description" content="起因: 想远程通过remote ssh远程连接服务器,写代码,保存在服务器上运行,而不用本地运行.而通过root用户登陆不太好,所以需要创建一个用户,并设置好权限.  创建用户前,我们需要了解一下linux的用户和用户组以及权限的概念. 新建用户adduser命令会自动为创建的用户指定主目录、系统shell版本，会在创建时输入用户密码。 adduser apple 这样在创建用户名时，就创建了用">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux新建用户">
 <meta property="og:url" content="https:&#x2F;&#x2F;siwadiya.github.io&#x2F;2020&#x2F;03&#x2F;03&#x2F;Linux&#x2F;linux%E6%96%B0%E5%BB%BA%E7%94%A8%E6%88%B7&#x2F;index.html">
 <meta property="og:site_name" content="風之萬里">
-<meta property="og:description" content="起因: 想远程通过remote ssh远程连接服务器,写代码,保存在服务器上运行,而不用本地运行.而通过root用户登陆不太好,所以需要创建一个用户,并设置好权限.  创建用户前,我们需要了解一下linux的用户和用户组以及权限的概念. 新建用户adduser命令会自动为创建的用户指定主目录、系统shell版本，会在创建时输入用户密码。 1adduser apple  这样在创建用户名时，就创建">
+<meta property="og:description" content="起因: 想远程通过remote ssh远程连接服务器,写代码,保存在服务器上运行,而不用本地运行.而通过root用户登陆不太好,所以需要创建一个用户,并设置好权限.  创建用户前,我们需要了解一下linux的用户和用户组以及权限的概念. 新建用户adduser命令会自动为创建的用户指定主目录、系统shell版本，会在创建时输入用户密码。 adduser apple 这样在创建用户名时，就创建了用">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;pic1.zhimg.com&#x2F;80&#x2F;v2-83338ceda500e5ffc3bc56b9477da368_720w.jpg">
 <meta property="og:updated_time" content="2020-04-18T10:25:49.872Z">
@@ -278,29 +278,88 @@
 </blockquote>
 <p>创建用户前,我们需要了解一下<a href="https://blog.csdn.net/yue7603835/article/details/73699258" target="_blank" rel="noopener">linux的用户和用户组以及权限的概念</a>.</p>
 <h2 id="新建用户"><a href="#新建用户" class="headerlink" title="新建用户"></a><a href="https://blog.csdn.net/beitiandijun/article/details/41678251" target="_blank" rel="noopener">新建用户</a></h2><h3 id="adduser命令"><a href="#adduser命令" class="headerlink" title="adduser命令"></a>adduser命令</h3><p>会自动为创建的用户指定主目录、系统shell版本，会在创建时输入用户密码。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adduser apple</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">adduser apple</code></pre>
 <p>这样在创建用户名时，就创建了用户的主目录(/home/apple)以及密码。</p>
 <p>默认情况下：</p>
 <p>adduser在创建用户时会主动调用  /etc/adduser.conf；</p>
 <p>在创建用户主目录时默认在/home下，而且创建为 /home/用户名</p>
 <h3 id="useradd命令"><a href="#useradd命令" class="headerlink" title="useradd命令"></a>useradd命令</h3><p>需要使用参数选项指定上述基本设置，如果不使用任何参数，则创建的用户无密码、无主目录、没有指定shell版本。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd tt</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">useradd tt</code></pre>
+<pre><code class="bash">useradd
+Usage: useradd [options] LOGIN
+       useradd -D
+       useradd -D [options]
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">useradd</span><br><span class="line">Usage: useradd [options] LOGIN</span><br><span class="line">       useradd -D</span><br><span class="line">       useradd -D [options]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  -b, --base-dir BASE_DIR       base directory <span class="keyword">for</span> the home directory of the</span><br><span class="line">                                new account</span><br><span class="line">                                <span class="comment">#为新用户指定home目录</span></span><br><span class="line">  -c, --comment COMMENT         GECOS field of the new account</span><br><span class="line">  <span class="comment">#加上备注文字。备注文字会保存在passwd的备注栏位中；</span></span><br><span class="line">  -d, --home-dir HOME_DIR       home directory of the new account</span><br><span class="line">  <span class="comment">#指定用户登入时的启始目录；</span></span><br><span class="line">  -D, --defaults                <span class="built_in">print</span> or change default useradd configuration</span><br><span class="line">  -e, --expiredate EXPIRE_DATE  expiration date of the new account</span><br><span class="line">  -f, --inactive INACTIVE       password inactivity period of the new account</span><br><span class="line">  -g, --gid GROUP               name or ID of the primary group of the new</span><br><span class="line">                                account</span><br><span class="line">  -G, --groups GROUPS           list of supplementary groups of the new</span><br><span class="line">                                account</span><br><span class="line">  -h, --<span class="built_in">help</span>                    display this <span class="built_in">help</span> message and <span class="built_in">exit</span></span><br><span class="line">  -k, --skel SKEL_DIR           use this alternative skeleton directory</span><br><span class="line">  -K, --key KEY=VALUE           override /etc/login.defs defaults</span><br><span class="line">  -l, --no-log-init             <span class="keyword">do</span> not add the user to the lastlog and</span><br><span class="line">                                faillog databases</span><br><span class="line">                                <span class="comment">#不要将用户添加到lastlog和faillog数据库</span></span><br><span class="line">  -m, --create-home             create the user<span class="string">'s home directory</span></span><br><span class="line"><span class="string">  								#自动建立用户的登入目录</span></span><br><span class="line"><span class="string">  -M, --no-create-home          do not create the user'</span>s home directory</span><br><span class="line">  -N, --no-user-group           <span class="keyword">do</span> not create a group with the same name as</span><br><span class="line">                                the user</span><br><span class="line">  -o, --non-unique              allow to create users with duplicate</span><br><span class="line">                                (non-unique) UID</span><br><span class="line">  -p, --password PASSWORD       encrypted password of the new </span><br><span class="line">  								<span class="comment">#新帐号的密码</span></span><br><span class="line">  -r, --system                  create a system account</span><br><span class="line">  								<span class="comment">#建立系统帐号</span></span><br><span class="line">  -R, --root CHROOT_DIR         directory to chroot into</span><br><span class="line">  								</span><br><span class="line">  -s, --shell SHELL             login shell of the new account</span><br><span class="line">  								<span class="comment">#指定用户登入后所使用的shell</span></span><br><span class="line">  -u, --uid UID                 user ID of the new account</span><br><span class="line">  								<span class="comment">#指定用户id</span></span><br><span class="line">  -U, --user-group              create a group with the same name as the user</span><br><span class="line">  -Z, --selinux-user SEUSER     use a specific SEUSER <span class="keyword">for</span> the SELinux user mapping</span><br></pre></td></tr></table></figure>
+Options:
+  -b, --base-dir BASE_DIR       base directory for the home directory of the
+                                new account
+                                #为新用户指定home目录
+  -c, --comment COMMENT         GECOS field of the new account
+  #加上备注文字。备注文字会保存在passwd的备注栏位中；
+  -d, --home-dir HOME_DIR       home directory of the new account
+  #指定用户登入时的启始目录；
+  -D, --defaults                print or change default useradd configuration
+  -e, --expiredate EXPIRE_DATE  expiration date of the new account
+  -f, --inactive INACTIVE       password inactivity period of the new account
+  -g, --gid GROUP               name or ID of the primary group of the new
+                                account
+  -G, --groups GROUPS           list of supplementary groups of the new
+                                account
+  -h, --help                    display this help message and exit
+  -k, --skel SKEL_DIR           use this alternative skeleton directory
+  -K, --key KEY=VALUE           override /etc/login.defs defaults
+  -l, --no-log-init             do not add the user to the lastlog and
+                                faillog databases
+                                #不要将用户添加到lastlog和faillog数据库
+  -m, --create-home             create the user&#39;s home directory
+                                  #自动建立用户的登入目录
+  -M, --no-create-home          do not create the user&#39;s home directory
+  -N, --no-user-group           do not create a group with the same name as
+                                the user
+  -o, --non-unique              allow to create users with duplicate
+                                (non-unique) UID
+  -p, --password PASSWORD       encrypted password of the new 
+                                  #新帐号的密码
+  -r, --system                  create a system account
+                                  #建立系统帐号
+  -R, --root CHROOT_DIR         directory to chroot into
 
-
-
+  -s, --shell SHELL             login shell of the new account
+                                  #指定用户登入后所使用的shell
+  -u, --uid UID                 user ID of the new account
+                                  #指定用户id
+  -U, --user-group              create a group with the same name as the user
+  -Z, --selinux-user SEUSER     use a specific SEUSER for the SELinux user mapping</code></pre>
 <p><a href="https://www.cnblogs.com/52php/p/5677628.html" target="_blank" rel="noopener">参考链接</a></p>
 <h2 id="深入理解-sudo-与-su-之间的区别"><a href="#深入理解-sudo-与-su-之间的区别" class="headerlink" title="深入理解 sudo 与 su 之间的区别"></a>深入理解 sudo 与 su 之间的区别</h2><p>两个命令的最大区别是：</p>
 <p><code>sudo</code>命令需要输入当前用户的密码,而<code>su</code>命令则需要输入root用户的密码.另外一个区别是其默认行为。sudo 命令只允许使用提升的权限运行单个命令，而 su 命令会启动一个新的 shell，同时允许使用 root 权限运行尽可能多的命令，直到明确退出登录。</p>
-<h3 id="su命令"><a href="#su命令" class="headerlink" title="su命令"></a><a href="https://wangchujiang.com/linux-command/c/su.html" target="_blank" rel="noopener">su命令</a></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">su [options] [-] [USER [arg]...]</span><br><span class="line"></span><br><span class="line">Change the effective user id and group id to that of USER.</span><br><span class="line">A mere - implies -l.   If USER not given, assume root.</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line"> -m, -p, --preserve-environment  <span class="keyword">do</span> not reset environment variables </span><br><span class="line"> 								 <span class="comment">#变更身份时，不要变更环境变量；</span></span><br><span class="line"> -g, --group &lt;group&gt;             specify the primary group</span><br><span class="line"> -G, --supp-group &lt;group&gt;        specify a supplemental group</span><br><span class="line"></span><br><span class="line"> -, -l, --login                  make the shell a login shell</span><br><span class="line"> <span class="comment">#改变身份时，也同时变更工作目录，以及HOME,SHELL,USER,logname。此外，也会变更PATH变量；</span></span><br><span class="line"> -c, --<span class="built_in">command</span> &lt;<span class="built_in">command</span>&gt;         pass a single <span class="built_in">command</span> to the shell with -c</span><br><span class="line"><span class="comment">#执行完指定的指令后，即恢复原来的身份；</span></span><br><span class="line"> --session-command &lt;<span class="built_in">command</span>&gt;     pass a single <span class="built_in">command</span> to the shell with -c</span><br><span class="line">                                 and <span class="keyword">do</span> not create a new session</span><br><span class="line"><span class="comment">#执行完指定的指令后，即恢复原来的身份；并且不会创建一个新的会话</span></span><br><span class="line"> -f, --fast                      pass -f to the shell (<span class="keyword">for</span> csh or tcsh)</span><br><span class="line"> -s, --shell &lt;shell&gt;             run shell <span class="keyword">if</span> /etc/shells allows it</span><br><span class="line"></span><br><span class="line"> -h, --<span class="built_in">help</span>     display this <span class="built_in">help</span> and <span class="built_in">exit</span></span><br><span class="line"> -V, --version  output version information and <span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+<h3 id="su命令"><a href="#su命令" class="headerlink" title="su命令"></a><a href="https://wangchujiang.com/linux-command/c/su.html" target="_blank" rel="noopener">su命令</a></h3><pre><code class="bash">su [options] [-] [USER [arg]...]
 
+Change the effective user id and group id to that of USER.
+A mere - implies -l.   If USER not given, assume root.
 
+Options:
+ -m, -p, --preserve-environment  do not reset environment variables 
+                                  #变更身份时，不要变更环境变量；
+ -g, --group &lt;group&gt;             specify the primary group
+ -G, --supp-group &lt;group&gt;        specify a supplemental group
 
+ -, -l, --login                  make the shell a login shell
+ #改变身份时，也同时变更工作目录，以及HOME,SHELL,USER,logname。此外，也会变更PATH变量；
+ -c, --command &lt;command&gt;         pass a single command to the shell with -c
+#执行完指定的指令后，即恢复原来的身份；
+ --session-command &lt;command&gt;     pass a single command to the shell with -c
+                                 and do not create a new session
+#执行完指定的指令后，即恢复原来的身份；并且不会创建一个新的会话
+ -f, --fast                      pass -f to the shell (for csh or tcsh)
+ -s, --shell &lt;shell&gt;             run shell if /etc/shells allows it
+
+ -h, --help     display this help and exit
+ -V, --version  output version information and exit</code></pre>
 <h2 id="linux—user-and-group-用户和组的概念"><a href="#linux—user-and-group-用户和组的概念" class="headerlink" title="linux—user and group 用户和组的概念"></a><a href="https://blog.51cto.com/13438667/2061590" target="_blank" rel="noopener">linux—user and group 用户和组的概念</a></h2><p>Linux用户分为管理员和普通用户，普通用户又分为系统用户和自定义用户。可以查看/etc/passwd来查看。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root:x:0:0:root:/root:/bin/bash</span><br><span class="line">sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin</span><br><span class="line">www:x:1000:1000::/home/www:/bin/bash</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">root:x:0:0:root:/root:/bin/bash
+sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+www:x:1000:1000::/home/www:/bin/bash</code></pre>
 <p>以<code>root:x:0:0:root:/root:/bin/bash</code> 为例</p>
 <p><img src="https://pic1.zhimg.com/80/v2-83338ceda500e5ffc3bc56b9477da368_720w.jpg" alt=""></p>
 <ul>
@@ -312,8 +371,39 @@
 <li>home_directory 用户主目录     /home/www</li>
 <li>shell 登陆shell  —&gt; /bin/bash</li>
 </ul>
-<h2 id="在linux中为用户设置root权限"><a href="#在linux中为用户设置root权限" class="headerlink" title="在linux中为用户设置root权限"></a><a href="https://linoxide.com/usr-mgmt/give-normal-user-root-privileges/" target="_blank" rel="noopener">在linux中为用户设置root权限</a></h2><h4 id="usermod命令"><a href="#usermod命令" class="headerlink" title="usermod命令"></a>usermod命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">Usage: usermod [options] LOGIN</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  -c, --comment COMMENT         new value of the GECOS field</span><br><span class="line">  -d, --home HOME_DIR           new home directory <span class="keyword">for</span> the user account</span><br><span class="line">  -e, --expiredate EXPIRE_DATE  <span class="built_in">set</span> account expiration date to EXPIRE_DATE</span><br><span class="line">  -f, --inactive INACTIVE       <span class="built_in">set</span> password inactive after expiration</span><br><span class="line">                                to INACTIVE</span><br><span class="line">  -g, --gid GROUP               force use GROUP as new primary group</span><br><span class="line">  <span class="comment">#强制使用GROUP作为新的主要组</span></span><br><span class="line">  -G, --groups GROUPS           new list of supplementary GROUPS</span><br><span class="line">  -a, --append                  append the user to the supplemental GROUPS</span><br><span class="line">                                mentioned by the -G option without removing</span><br><span class="line">                                the user from other groups</span><br><span class="line">  <span class="comment">#将用户添加到-G选项提到的附加GROUPS上，而不将用户从其他组中删除</span></span><br><span class="line">  -h, --<span class="built_in">help</span>                    display this <span class="built_in">help</span> message and <span class="built_in">exit</span></span><br><span class="line">  -l, --login NEW_LOGIN         new value of the login name</span><br><span class="line">  -L, --lock                    lock the user account</span><br><span class="line">  -m, --move-home               move contents of the home directory to the</span><br><span class="line">                                new location (use only with -d)</span><br><span class="line">  -o, --non-unique              allow using duplicate (non-unique) UID</span><br><span class="line">  -p, --password PASSWORD       use encrypted password <span class="keyword">for</span> the new password</span><br><span class="line">  -R, --root CHROOT_DIR         directory to chroot into</span><br><span class="line">  -P, --prefix PREFIX_DIR       prefix directory <span class="built_in">where</span> are located the /etc/* files</span><br><span class="line">  -s, --shell SHELL             new login shell <span class="keyword">for</span> the user account</span><br><span class="line">  -u, --uid UID                 new UID <span class="keyword">for</span> the user account</span><br><span class="line">  -U, --unlock                  unlock the user account</span><br><span class="line">  -v, --add-subuids FIRST-LAST  add range of subordinate uids</span><br><span class="line">  -V, --del-subuids FIRST-LAST  remove range of subordinate uids</span><br><span class="line">  -w, --add-subgids FIRST-LAST  add range of subordinate gids</span><br><span class="line">  -W, --del-subgids FIRST-LAST  remove range of subordinate gids</span><br><span class="line">  -Z, --selinux-user SEUSER     new SELinux user mapping <span class="keyword">for</span> the user account</span><br></pre></td></tr></table></figure>
+<h2 id="在linux中为用户设置root权限"><a href="#在linux中为用户设置root权限" class="headerlink" title="在linux中为用户设置root权限"></a><a href="https://linoxide.com/usr-mgmt/give-normal-user-root-privileges/" target="_blank" rel="noopener">在linux中为用户设置root权限</a></h2><h4 id="usermod命令"><a href="#usermod命令" class="headerlink" title="usermod命令"></a>usermod命令</h4><pre><code class="bash">Usage: usermod [options] LOGIN
 
+Options:
+  -c, --comment COMMENT         new value of the GECOS field
+  -d, --home HOME_DIR           new home directory for the user account
+  -e, --expiredate EXPIRE_DATE  set account expiration date to EXPIRE_DATE
+  -f, --inactive INACTIVE       set password inactive after expiration
+                                to INACTIVE
+  -g, --gid GROUP               force use GROUP as new primary group
+  #强制使用GROUP作为新的主要组
+  -G, --groups GROUPS           new list of supplementary GROUPS
+  -a, --append                  append the user to the supplemental GROUPS
+                                mentioned by the -G option without removing
+                                the user from other groups
+  #将用户添加到-G选项提到的附加GROUPS上，而不将用户从其他组中删除
+  -h, --help                    display this help message and exit
+  -l, --login NEW_LOGIN         new value of the login name
+  -L, --lock                    lock the user account
+  -m, --move-home               move contents of the home directory to the
+                                new location (use only with -d)
+  -o, --non-unique              allow using duplicate (non-unique) UID
+  -p, --password PASSWORD       use encrypted password for the new password
+  -R, --root CHROOT_DIR         directory to chroot into
+  -P, --prefix PREFIX_DIR       prefix directory where are located the /etc/* files
+  -s, --shell SHELL             new login shell for the user account
+  -u, --uid UID                 new UID for the user account
+  -U, --unlock                  unlock the user account
+  -v, --add-subuids FIRST-LAST  add range of subordinate uids
+  -V, --del-subuids FIRST-LAST  remove range of subordinate uids
+  -w, --add-subgids FIRST-LAST  add range of subordinate gids
+  -W, --del-subgids FIRST-LAST  remove range of subordinate gids
+  -Z, --selinux-user SEUSER     new SELinux user mapping for the user account
+</code></pre>
 
     </div>
 
@@ -390,14 +480,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -438,6 +528,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

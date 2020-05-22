@@ -222,6 +222,171 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/04/08/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E7%BD%AE/zsh%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="siwadiya">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="風之萬里">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/08/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E7%BD%AE/zsh%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">zsh终端配置</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-08 19:50:55" itemprop="dateCreated datePublished" datetime="2020-04-08T19:50:55+08:00">2020-04-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-14 15:02:31" itemprop="dateModified" datetime="2020-04-14T15:02:31+08:00">2020-04-14</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="https://github.com/ohmyzsh/ohmyzsh" target="_blank" rel="noopener">oh-my-zsh官网</a></p>
+<h3 id="安装zsh"><a href="#安装zsh" class="headerlink" title="安装zsh"></a><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH" target="_blank" rel="noopener">安装zsh</a></h3><p>centos</p>
+<pre><code class="bash">yum install zsh    #安装zsh
+
+chsh -s $(which zsh)    #使其成为默认shell</code></pre>
+<h3 id="安装oh-my-zsh"><a href="#安装oh-my-zsh" class="headerlink" title="安装oh-my-zsh"></a>安装oh-my-zsh</h3><pre><code class="bash">$ sh -c &quot;$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)&quot;</code></pre>
+<h3 id="插件配置"><a href="#插件配置" class="headerlink" title="插件配置"></a>插件配置</h3><h4 id="autojump自动跳转插件"><a href="#autojump自动跳转插件" class="headerlink" title="autojump自动跳转插件"></a><a href="https://github.com/wting/autojump" target="_blank" rel="noopener">autojump</a>自动跳转插件</h4><pre><code class="bash"># clone 到本地
+git clone git://github.com/wting/autojump.git
+# 进入clone目录，接着执行安装文件
+cd autojump
+./install.py
+# 接着根据安装完成后的提示，在~/.zshrc最后添加下面语句：
+vim ~/.zshrc    
+[[ -s /home/cheng/.autojump/etc/profile.d/autojump.sh ]] &amp;&amp; source /home/cheng/
+.autojump/etc/profile.d/autojump.sh</code></pre>
+<p>安装后启用插件</p>
+<pre><code class="bash"># 编辑~/.zshrc   
+vim ~/.zshrc    
+# 在plugins后括号里添加安装的插件名字
+plugins=(
+  git 
+  autojump 
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
+# 最后刷新
+source ~/.zshrc    </code></pre>
+<h4 id="zsh-autosuggestions"><a href="#zsh-autosuggestions" class="headerlink" title="zsh-autosuggestions"></a><a href="">zsh-autosuggestions</a></h4><ol>
+<li>安装到<code>$ZSH_CUSTOM/plugins</code>（默认情况下<code>~/.oh-my-zsh/custom/plugins</code>）</li>
+</ol>
+<pre><code class="bash">git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions</code></pre>
+<p>2.将插件添加到插件列表中，以供Oh My Zsh加载（在内部<code>~/.zshrc</code>）：</p>
+<pre><code class="bash">plugins=(zsh-autosuggestions)</code></pre>
+<h4 id="语法高亮插件-zsh-syntax-highlighting"><a href="#语法高亮插件-zsh-syntax-highlighting" class="headerlink" title="语法高亮插件 zsh-syntax-highlighting"></a><a href="https://github.com/zsh-users/zsh-syntax-highlighting" target="_blank" rel="noopener">语法高亮插件 zsh-syntax-highlighting</a></h4><p>请注意，<code>zsh-syntax-highlighting</code>该插件必须是最后一个来源。</p>
+<ol>
+<li><p>将此存储库克隆到oh-my-zsh的plugins目录中：</p>
+<pre><code class="bash">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting</code></pre>
+</li>
+<li><p>在中激活插件<code>~/.zshrc</code>：</p>
+<pre><code class="bash">plugins=( [plugins...] zsh-syntax-highlighting)</code></pre>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/04/08/jQuery/jQuery.ajax/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="siwadiya">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="風之萬里">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/08/jQuery/jQuery.ajax/" class="post-title-link" itemprop="url">jQuery ajax</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-04-08 12:10:33 / 修改时间：16:17:50" itemprop="dateCreated datePublished" datetime="2020-04-08T12:10:33+08:00">2020-04-08</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="ajax-方法"><a href="#ajax-方法" class="headerlink" title="$.ajax()方法"></a>$.ajax()方法</h3><p><img src="https://minimax-1256590847.cos.ap-shanghai.myqcloud.com/img/image-20200408121337537.png" alt="image-20200408121337537"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/04/07/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E7%BD%AE/js-beautify%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -262,7 +427,48 @@
 
       
           <h2 id="js-beautify插件配置"><a href="#js-beautify插件配置" class="headerlink" title="js-beautify插件配置"></a>js-beautify插件配置</h2><p><a href="https://github.com/beautify-web/js-beautify" target="_blank" rel="noopener">官方文档</a></p>
-<h3 id="配置项"><a href="#配置项" class="headerlink" title="配置项"></a>配置项</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">CLI Options:</span><br><span class="line">  -f, --file       Input file(s) (Pass <span class="string">'-'</span> <span class="keyword">for</span> stdin)</span><br><span class="line">  -r, --replace    Write output <span class="keyword">in</span>-place, replacing input</span><br><span class="line">  -o, --outfile    Write output to file (default stdout)</span><br><span class="line">  --config         Path to config file</span><br><span class="line">  --<span class="built_in">type</span>           [js|css|html] [<span class="string">"js"</span>] Select beautifier <span class="built_in">type</span> (NOTE: Does *not* filter files, only defines <span class="built_in">which</span> beautifier <span class="built_in">type</span> to run)</span><br><span class="line">  -q, --quiet      Suppress logging to stdout</span><br><span class="line">  -h, --<span class="built_in">help</span>       Show this <span class="built_in">help</span></span><br><span class="line">  -v, --version    Show the version</span><br><span class="line"></span><br><span class="line">Beautifier Options:</span><br><span class="line">  -s, --indent-size                 Indentation size [4]</span><br><span class="line">  -c, --indent-char                 Indentation character [<span class="string">" "</span>]</span><br><span class="line">  -t, --indent-with-tabs            Indent with tabs, overrides -s and -c</span><br><span class="line">  -e, --eol                         Character(s) to use as line terminators.</span><br><span class="line">                                    [first newline <span class="keyword">in</span> file, otherwise <span class="string">"\n]</span></span><br><span class="line"><span class="string">  -n, --end-with-newline            End output with newline</span></span><br><span class="line"><span class="string">  --editorconfig                    Use EditorConfig to set up the options</span></span><br><span class="line"><span class="string">  -l, --indent-level                Initial indentation level [0]</span></span><br><span class="line"><span class="string">  -p, --preserve-newlines           Preserve line-breaks (--no-preserve-newlines disables)</span></span><br><span class="line"><span class="string">  -m, --max-preserve-newlines       Number of line-breaks to be preserved in one chunk [10]</span></span><br><span class="line"><span class="string">  -P, --space-in-paren              Add padding spaces within paren, ie. f( a, b )</span></span><br><span class="line"><span class="string">  									#在括号内添加空格，即f（a，b）</span></span><br><span class="line"><span class="string">  -E, --space-in-empty-paren        Add a single space inside empty paren, ie. f( )</span></span><br><span class="line"><span class="string">  									#在空括号内添加一个空格，即F（ ）</span></span><br><span class="line"><span class="string">  -j, --jslint-happy                Enable jslint-stricter mode</span></span><br><span class="line"><span class="string">  -a, --space-after-anon-function   Add a space before an anonymous function's parens, ie. function ()</span></span><br><span class="line"><span class="string">  									# 在匿名函数的括号之前添加一个空格，即。功能（）</span></span><br><span class="line"><span class="string">  --space-after-named-function      Add a space before a named function's parens, i.e. function example ()</span></span><br><span class="line"><span class="string">  									#在命名函数的括号之前添加一个空格，即函数示例（）</span></span><br><span class="line"><span class="string">  -b, --brace-style                 [collapse|expand|end-expand|none][,preserve-inline] [collapse,preserve-inline]</span></span><br><span class="line"><span class="string">  -u, --unindent-chained-methods    Don't indent chained method calls</span></span><br><span class="line"><span class="string">  -B, --break-chained-methods       Break chained method calls across subsequent lines</span></span><br><span class="line"><span class="string">  -k, --keep-array-indentation      Preserve array indentation</span></span><br><span class="line"><span class="string">  -x, --unescape-strings            Decode printable characters encoded in xNN notation</span></span><br><span class="line"><span class="string">  -w, --wrap-line-length            Wrap lines that exceed N characters [0]</span></span><br><span class="line"><span class="string">  -X, --e4x                         Pass E4X xml literals through untouched</span></span><br><span class="line"><span class="string">  --good-stuff                      Warm the cockles of Crockford's heart</span></span><br><span class="line"><span class="string">  -C, --comma-first                 Put commas at the beginning of new line instead of end</span></span><br><span class="line"><span class="string">  -O, --operator-position           Set operator position (before-newline|after-newline|preserve-newline) [before-newline]</span></span><br><span class="line"><span class="string">  --indent-empty-lines              Keep indentation on empty lines</span></span><br><span class="line"><span class="string">  --templating                      List of templating languages (auto,django,erb,handlebars,php) ["</span>auto<span class="string">"] auto = none in JavaScript, all in html</span></span><br></pre></td></tr></table></figure>
+<h3 id="配置项"><a href="#配置项" class="headerlink" title="配置项"></a>配置项</h3><pre><code class="bash">CLI Options:
+  -f, --file       Input file(s) (Pass &#39;-&#39; for stdin)
+  -r, --replace    Write output in-place, replacing input
+  -o, --outfile    Write output to file (default stdout)
+  --config         Path to config file
+  --type           [js|css|html] [&quot;js&quot;] Select beautifier type (NOTE: Does *not* filter files, only defines which beautifier type to run)
+  -q, --quiet      Suppress logging to stdout
+  -h, --help       Show this help
+  -v, --version    Show the version
+
+Beautifier Options:
+  -s, --indent-size                 Indentation size [4]
+  -c, --indent-char                 Indentation character [&quot; &quot;]
+  -t, --indent-with-tabs            Indent with tabs, overrides -s and -c
+  -e, --eol                         Character(s) to use as line terminators.
+                                    [first newline in file, otherwise &quot;\n]
+  -n, --end-with-newline            End output with newline
+  --editorconfig                    Use EditorConfig to set up the options
+  -l, --indent-level                Initial indentation level [0]
+  -p, --preserve-newlines           Preserve line-breaks (--no-preserve-newlines disables)
+  -m, --max-preserve-newlines       Number of line-breaks to be preserved in one chunk [10]
+  -P, --space-in-paren              Add padding spaces within paren, ie. f( a, b )
+                                      #在括号内添加空格，即f（a，b）
+  -E, --space-in-empty-paren        Add a single space inside empty paren, ie. f( )
+                                      #在空括号内添加一个空格，即F（ ）
+  -j, --jslint-happy                Enable jslint-stricter mode
+  -a, --space-after-anon-function   Add a space before an anonymous function&#39;s parens, ie. function ()
+                                      # 在匿名函数的括号之前添加一个空格，即。功能（）
+  --space-after-named-function      Add a space before a named function&#39;s parens, i.e. function example ()
+                                      #在命名函数的括号之前添加一个空格，即函数示例（）
+  -b, --brace-style                 [collapse|expand|end-expand|none][,preserve-inline] [collapse,preserve-inline]
+  -u, --unindent-chained-methods    Don&#39;t indent chained method calls
+  -B, --break-chained-methods       Break chained method calls across subsequent lines
+  -k, --keep-array-indentation      Preserve array indentation
+  -x, --unescape-strings            Decode printable characters encoded in xNN notation
+  -w, --wrap-line-length            Wrap lines that exceed N characters [0]
+  -X, --e4x                         Pass E4X xml literals through untouched
+  --good-stuff                      Warm the cockles of Crockford&#39;s heart
+  -C, --comma-first                 Put commas at the beginning of new line instead of end
+  -O, --operator-position           Set operator position (before-newline|after-newline|preserve-newline) [before-newline]
+  --indent-empty-lines              Keep indentation on empty lines
+  --templating                      List of templating languages (auto,django,erb,handlebars,php) [&quot;auto&quot;] auto = none in JavaScript, all in html</code></pre>
 
       
     </div>
@@ -327,11 +533,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="script引入"><a href="#script引入" class="headerlink" title="script引入"></a>script引入</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/vue/dist/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+          <h3 id="script引入"><a href="#script引入" class="headerlink" title="script引入"></a>script引入</h3><pre><code class="html">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&gt;&lt;/script&gt;</code></pre>
 <p><strong>BootCdn</strong></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/vue/2.6.11/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="html">&lt;script src=&quot;https://cdn.bootcss.com/vue/2.6.11/vue.js&quot;&gt;&lt;/script&gt;</code></pre>
 <h3 id="vue-js有什么用，是用来做什么的（整理）"><a href="#vue-js有什么用，是用来做什么的（整理）" class="headerlink" title="vue.js有什么用，是用来做什么的（整理）"></a><a href="https://www.cnblogs.com/Renyi-Fan/p/9419742.html#_label6" target="_blank" rel="noopener">vue.js有什么用，是用来做什么的（整理）</a></h3><h4 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h4><p>默认监视的是对象的地址的变化</p>
 <h4 id="v-bind-缩写"><a href="#v-bind-缩写" class="headerlink" title="v-bind(缩写 :)"></a>v-bind(缩写 :)</h4><p><code>v-bind:title=&quot;message&quot;</code></p>
 <p>作用: 控制dom节点的(title)属性和Vue实例的(message)属性保持一致</p>
@@ -341,15 +545,15 @@
 <h4 id="v-on-缩写"><a href="#v-on-缩写" class="headerlink" title="v-on(缩写 @)"></a>v-on(缩写 @)</h4><p><code>v-on:click=&quot;reverseMessage&quot;</code></p>
 <p>监听DOM事件</p>
 <p><strong>reverseMessage</strong>是一个method方法</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">reverseMessage: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.message = <span class="keyword">this</span>.message.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="js">reverseMessage: function () {
+    this.message = this.message.split(&#39;&#39;).reverse().join(&#39;&#39;)
+}</code></pre>
 <h4 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a>v-model</h4><p><code>v-model=&quot;message&quot;</code></p>
 <p>数据和视图的双向绑定。</p>
 <h3 id="实例生命周期钩子"><a href="#实例生命周期钩子" class="headerlink" title="实例生命周期钩子"></a>实例生命周期钩子</h3><p>钩子,在实例生命周期的不同阶段被调用，如 <a href="https://cn.vuejs.org/v2/api/#mounted" target="_blank" rel="noopener"><code>mounted</code></a>、<a href="https://cn.vuejs.org/v2/api/#updated" target="_blank" rel="noopener"><code>updated</code></a> 和 <a href="https://cn.vuejs.org/v2/api/#destroyed" target="_blank" rel="noopener"><code>destroyed</code></a>。生命周期钩子的 <code>this</code> 上下文指向调用它的 Vue 实例。</p>
 <p><img src="https://minimax-1256590847.cos.ap-shanghai.myqcloud.com/img/image-20200420165643433.png" alt="image-20200420165643433"></p>
 <h4 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h4><p>修饰符 (modifier) 是以半角句号 <code>.</code> 指明的特殊后缀，用于指出一个指令应该以特殊方式绑定。例如，<code>.prevent</code> 修饰符告诉 <code>v-on</code> 指令对于触发的事件调用 <code>event.preventDefault()</code>：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">v-on:submit.prevent</span>=<span class="string">"onSubmit"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="html">&lt;form v-on:submit.prevent=&quot;onSubmit&quot;&gt;...&lt;/form&gt;</code></pre>
 <ul>
 <li><code>.stop</code>    =&gt;    <code>e.stopPropagation()</code>    阻止冒泡</li>
 <li><code>.prevent</code>   =&gt;   <code>e.preventDefault()</code>    阻止默认行为</li>
@@ -364,8 +568,7 @@
 <h3 id="过渡-amp-动画"><a href="#过渡-amp-动画" class="headerlink" title="过渡&amp;动画"></a>过渡&amp;动画</h3><p><img src="https://cn.vuejs.org/images/transition.png" alt="Transition Diagram"></p>
 <p>如果你使用一个没有名字的 <code>transition</code>，则 <code>v-</code> 是这些类名的默认前缀。如果你使用了 <code>&lt;transition name=&quot;my-transition&quot;&gt;</code>,那么 <code>v-enter</code> 会替换为 <code>my-transition-enter</code>。</p>
 <p>父传子通信</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;hm-input placeholder=&quot;默认&quot;&gt;&lt;/hm-input&gt;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="vue">&lt;hm-input placeholder=&quot;默认&quot;&gt;&lt;/hm-input&gt;</code></pre>
 <p>placeholder属性传递到hm-input.vue子组件中的props中</p>
 
       
@@ -433,19 +636,24 @@
       
           <h2 id="NPM-CLI-vs-Yarn-CLI"><a href="#NPM-CLI-vs-Yarn-CLI" class="headerlink" title="NPM CLI vs Yarn CLI"></a>NPM CLI vs Yarn CLI</h2><p><a href="https://github.com/zuojj/fedlab/issues/3" target="_blank" rel="noopener">https://github.com/zuojj/fedlab/issues/3</a></p>
 <h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><p>安装模块</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install [package]</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">npm install [package]</code></pre>
 <p><strong>-S, –save 安装包信息将加入到dependencies（生产阶段的依赖）</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp --save 或 npm install gulp -S</span><br><span class="line"></span><br><span class="line">yarn add [package]</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">npm install gulp --save 或 npm install gulp -S
 
+yarn add [package]</code></pre>
 <p>package.json 文件的 dependencies 字段：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"dependencies": &#123;</span><br><span class="line">    "gulp": "^3.9.1"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="json">&quot;dependencies&quot;: {
+    &quot;gulp&quot;: &quot;^3.9.1&quot;
+}</code></pre>
 <p><strong>-D, –save-dev 安装包信息将加入到devDependencies（开发阶段的依赖），所以开发阶段一般使用它</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp --save-dev 或 npm install gulp -D</span><br><span class="line"></span><br><span class="line">yarn add [package] [--dev/-D]</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">npm install gulp --save-dev 或 npm install gulp -D
 
+yarn add [package] [--dev/-D]</code></pre>
 <p>package.json 文件的 devDependencies字段：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"gulp"</span>: <span class="string">"^3.9.1"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">&quot;devDependencies&quot;: {
+    &quot;gulp&quot;: &quot;^3.9.1&quot;
+}</code></pre>
+
       
     </div>
 
@@ -573,8 +781,13 @@
 <li>输入<code>vim .gitignore</code>命令，打开文件（没有文件会自动创建）；</li>
 <li>按i键切换到编辑状态，输入规则，例如node_modules/，然后按Esc键退出编辑，输入:wq保存退出。</li>
 </ul>
-<h3 id="常用规则"><a href="#常用规则" class="headerlink" title="常用规则"></a>常用规则</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/mtk/ 过滤整个文件夹</span><br><span class="line">*.zip 过滤所有.zip文件</span><br><span class="line">/mtk/do.c 过滤某个具体文件</span><br><span class="line"></span><br><span class="line">!src/   不过滤该文件夹</span><br><span class="line">!*.zip   不过滤所有.zip文件</span><br><span class="line">!/mtk/do.c 不过滤该文件</span><br></pre></td></tr></table></figure>
+<h3 id="常用规则"><a href="#常用规则" class="headerlink" title="常用规则"></a>常用规则</h3><pre><code class="bash">/mtk/ 过滤整个文件夹
+*.zip 过滤所有.zip文件
+/mtk/do.c 过滤某个具体文件
 
+!src/   不过滤该文件夹
+!*.zip   不过滤所有.zip文件
+!/mtk/do.c 不过滤该文件</code></pre>
 <p>以上规则意思是：被过滤掉的文件就不会出现在你的GitHub库中了，当然本地库中还有，只是push的时候不会上传。</p>
 
       
@@ -709,13 +922,46 @@
           <h3 id="echarts数据可视化-图表-插件"><a href="#echarts数据可视化-图表-插件" class="headerlink" title="echarts数据可视化(图表)插件"></a>echarts数据可视化(图表)插件</h3><p><a href="https://www.echartsjs.com/zh/tutorial.html#5%20%E5%88%86%E9%92%9F%E4%B8%8A%E6%89%8B%20ECharts" target="_blank" rel="noopener">中文官网教程</a></p>
 <h4 id="引入echarts"><a href="#引入echarts" class="headerlink" title="引入echarts"></a>引入echarts</h4><hr>
 <p>通过标签方式直接引入构建好的 echarts 文件</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 引入 ECharts 文件 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"echarts.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;!-- 引入 ECharts 文件 --&gt;
+    &lt;script src=&quot;echarts.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;/html&gt;</code></pre>
 <h4 id="绘制一个简单的图表"><a href="#绘制一个简单的图表" class="headerlink" title="绘制一个简单的图表"></a>绘制一个简单的图表</h4><p>在绘图前我们需要为 ECharts 准备一个具备高宽的 DOM 容器。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 为 ECharts 准备一个具备大小（宽高）的 DOM --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main"</span> <span class="attr">style</span>=<span class="string">"width: 600px;height:400px;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="html">&lt;body&gt;
+    &lt;!-- 为 ECharts 准备一个具备大小（宽高）的 DOM --&gt;
+    &lt;div id=&quot;main&quot; style=&quot;width: 600px;height:400px;&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;</code></pre>
+<pre><code class="js">&lt;script type=&quot;text/javascript&quot;&gt;
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById(&#39;main&#39;));
 
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">	<span class="comment">// 基于准备好的dom，初始化echarts实例</span></span><br><span class="line">	<span class="keyword">var</span> myChart = echarts.init(<span class="built_in">document</span>.getElementById(<span class="string">'main'</span>));</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 指定图表的配置项和数据</span></span><br><span class="line">    <span class="keyword">var</span> option = &#123;</span><br><span class="line">        title: &#123;</span><br><span class="line">		text: <span class="string">'ECharts 入门示例'</span></span><br><span class="line">		&#125;,</span><br><span class="line">	tooltip: &#123;&#125;,</span><br><span class="line">	legend: &#123;			<span class="comment">//表格说明</span></span><br><span class="line">		data:[<span class="string">'销量'</span>]</span><br><span class="line">	&#125;,</span><br><span class="line">	xAxis: &#123;			<span class="comment">//x轴</span></span><br><span class="line">		data: [<span class="string">"衬衫"</span>,<span class="string">"羊毛衫"</span>,<span class="string">"雪纺衫"</span>,<span class="string">"裤子"</span>,<span class="string">"高跟鞋"</span>,<span class="string">"袜子"</span>]</span><br><span class="line">	&#125;,</span><br><span class="line">	yAxis: &#123;&#125;,			<span class="comment">//y轴</span></span><br><span class="line">	series: [&#123;</span><br><span class="line">		name: <span class="string">'销量'</span>,</span><br><span class="line">		type: <span class="string">'bar'</span>, <span class="comment">// bar 柱状图,line 折线图,pie 饼图</span></span><br><span class="line">		data: [<span class="number">5</span>, <span class="number">20</span>, <span class="number">36</span>, <span class="number">10</span>, <span class="number">10</span>, <span class="number">20</span>]</span><br><span class="line">		&#125;]</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 使用刚指定的配置项和数据显示图表。</span></span><br><span class="line">	myChart.setOption(option);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+        text: &#39;ECharts 入门示例&#39;
+        },
+    tooltip: {},
+    legend: {            //表格说明
+        data:[&#39;销量&#39;]
+    },
+    xAxis: {            //x轴
+        data: [&quot;衬衫&quot;,&quot;羊毛衫&quot;,&quot;雪纺衫&quot;,&quot;裤子&quot;,&quot;高跟鞋&quot;,&quot;袜子&quot;]
+    },
+    yAxis: {},            //y轴
+    series: [{
+        name: &#39;销量&#39;,
+        type: &#39;bar&#39;, // bar 柱状图,line 折线图,pie 饼图
+        data: [5, 20, 36, 10, 10, 20]
+        }]
+    };
 
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+&lt;/script&gt;</code></pre>
 
       
     </div>
@@ -774,319 +1020,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="表单和按钮的绑定"><a href="#表单和按钮的绑定" class="headerlink" title="表单和按钮的绑定"></a>表单和按钮的绑定</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">form</span>=<span class="string">"myForm"</span>&gt;</span></span><br><span class="line">    这是一个表单</span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">// 完成绑定</span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">form</span>=<span class="string">"myForm"</span>&gt;</span>提交按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/03/11/js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/bootstrap-paginaterAPI%E6%96%87%E6%A1%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="siwadiya">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="風之萬里">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/11/js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/bootstrap-paginaterAPI%E6%96%87%E6%A1%A3/" class="post-title-link" itemprop="url">Bootstrap_Paginator分页插件</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-11 09:24:54" itemprop="dateCreated datePublished" datetime="2020-03-11T09:24:54+08:00">2020-03-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-24 13:35:58" itemprop="dateModified" datetime="2020-03-24T13:35:58+08:00">2020-03-24</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Bootstrap-PaginatorAPI文档"><a href="#Bootstrap-PaginatorAPI文档" class="headerlink" title="Bootstrap PaginatorAPI文档"></a>Bootstrap PaginatorAPI文档</h2><p>Bootstrap Paginator是一款基于Bootstrap的js分页插件，功能很丰富，个人觉得这款插件已经无可挑剔了。它提供了一系列的参数用来支持用户的定制，提供了公共的方法可随时获得插件状态的改变，以及事件来监听用户的动作。目前经过测试的浏览器包括： Firefox 5+, Chrome 14+, Safari 5+, Opera 11.6+ and IE 7+。</p>
-<p>GitHub 官网地址：<a href="https://github.com/lyonlai/bootstrap-paginator" target="_blank" rel="noopener">https://github.com/lyonlai/bootstrap-paginator</a></p>
-<p><strong>参数介绍：</strong></p>
-<table>
-<thead>
-<tr>
-<th><strong>参数名</strong></th>
-<th><strong>数据类型</strong></th>
-<th><strong>默认值</strong></th>
-<th><strong>描述</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>bootstrapMajorVersion</td>
-<td>number</td>
-<td>2</td>
-<td>搭配使用的Bootstrap版本，2.X 的 分页必须使用div元素，3.X分页的必须使用ul元素。请注意与所使用的bootstrap版本对应上。</td>
-</tr>
-<tr>
-<td>size</td>
-<td>string</td>
-<td>“normal”</td>
-<td>设置控件的显示大小，是个字符串. 允许的值: <em>mini</em>, <em>small</em>, <em>normal</em>,<em>large。</em>值：mini版的、小号的、正常的、大号的。</td>
-</tr>
-<tr>
-<td>itemContainerClass</td>
-<td>function</td>
-<td></td>
-<td>该参数接收一个函数，返回一个字符串，该字符串是一个我们自定义的class类样式。当控件内的每个操纵按钮被渲染(render)时，都会调用该函数，同时把有关该按钮的信息作为参数传入。参数：<strong>type</strong>,<strong>page</strong>, <strong>current</strong> 。<strong>type</strong>为该控件的操作按钮的类型，如上图所示的五种类型：first、prev、page、next、last。<strong>page</strong>为该按钮所属第几页。<strong>current</strong> 指示整个控件的当前页是第几页。</td>
-</tr>
-<tr>
-<td>currentPage</td>
-<td>number</td>
-<td>1</td>
-<td>设置当前页.</td>
-</tr>
-<tr>
-<td>numberOfPages</td>
-<td>number</td>
-<td>5</td>
-<td>设置控件显示的页码数.即：类型为”page”的操作按钮的数量。</td>
-</tr>
-<tr>
-<td>totalPages</td>
-<td>number</td>
-<td>1</td>
-<td>设置总页数.</td>
-</tr>
-<tr>
-<td>pageUrl</td>
-<td>function</td>
-<td></td>
-<td>实际上，控件内的每个操作按钮最终会被渲染成超链接，该参数的作用就是设置超链接的链接地址。该参数是个函数，参数为：<strong>type</strong>,<strong>page</strong>, <strong>current。</strong>这样我们就可以通过这个函数为每个操作按钮动态设置链接地址。如：”<a href="http://example.com/list/page/&quot;+page" target="_blank" rel="noopener">http://example.com/list/page/&quot;+page</a></td>
-</tr>
-<tr>
-<td>shouldShowPage</td>
-<td>boolean/function</td>
-<td>true</td>
-<td>该参数用于设置某个操作按钮是否显示，可是个布尔值也可是个函数。当为true时，显示。当为false时，不显示。如果该参数是个函数，需要返回个布尔值，通过这个返回值判断是否显示。函数有3个参数: <strong>type</strong>, <strong>page</strong>, <strong>current。</strong>使用函数的好处是，可以对每个操作按钮进行显示控制。</td>
-</tr>
-<tr>
-<td>itemTexts</td>
-<td>function</td>
-<td></td>
-<td>控制每个操作按钮的显示文字。是个函数，有3个参数: <strong>type</strong>, <strong>page</strong>, <strong>current。</strong>通过这个参数我们就可以将操作按钮上的英文改为中文，如first–&gt;首页，last–&gt;尾页。</td>
-</tr>
-<tr>
-<td>tooltipTitles</td>
-<td>function</td>
-<td></td>
-<td>设置操作按钮的title属性。是个函数，有3个参数: <strong>type</strong>, <strong>page</strong>, <strong>current。</strong></td>
-</tr>
-<tr>
-<td>useBootstrapTooltip</td>
-<td>boolean</td>
-<td>false</td>
-<td>设置是否使用Bootstrap内置的tooltip。 true是使用，false是不使用,默认是不使用。注意：如果使用，则需要引入bootstrap-tooltip.js插件。</td>
-</tr>
-<tr>
-<td>bootstrapTooltipOptions</td>
-<td>object</td>
-<td></td>
-<td>Default:    {        animation: true,        html: true,        placement: ‘top’,        selector: false,        title: “”,        container: false }该参数是个js对象。当参数useBootstrapTooltip为true时，会将该对象传给Bootstrap的bootstrap-tooltip.js插件。</td>
-</tr>
-<tr>
-<td>onPageClicked</td>
-<td>function</td>
-<td></td>
-<td>为操作按钮绑定click事件。回调函数的参数：<strong>event</strong>, <strong>originalEvent</strong>, <strong>type</strong>,<strong>page。</strong></td>
-</tr>
-<tr>
-<td>onPageChanged</td>
-<td>function</td>
-<td></td>
-<td>为操作按钮绑定页码改变事件，回调函数的参数：<strong>event</strong>, <strong>oldPage</strong>, <strong>newPage。</strong></td>
-</tr>
-</tbody></table>
-<p><strong>公共命令：</strong></p>
-<p>另外该插件还提供了几个公共的命令，可以通过如下方法调用，如：$(‘.example’).bootstrapPaginator(“show”,3) 调用show命令$(‘.example’).bootstrapPaginator(“getPages”) 调用getPages命令。</p>
-<table>
-<thead>
-<tr>
-<th><strong>命令名</strong></th>
-<th><strong>参数</strong></th>
-<th><strong>返回值</strong></th>
-<th><strong>描述</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>show</td>
-<td>page</td>
-<td></td>
-<td><strong>show</strong>命令用于直接跳转到特定的page，与直接点击操作按钮的效果是一样的。使用方法，如：$(‘#example’).bootstrapPaginator(“show”,3) 直接跳转到第3页，$(‘#example’).bootstrapPaginator(“show”,100)直接跳转到100页。</td>
-</tr>
-<tr>
-<td>showFirst</td>
-<td></td>
-<td></td>
-<td><strong>showFirst</strong> 命令用于直接跳转到首页，与点击first按钮相同。使用方法：$(‘#example’).bootstrapPaginator(“showFirst”)</td>
-</tr>
-<tr>
-<td>showPrevious</td>
-<td></td>
-<td></td>
-<td><strong>showPrevious</strong> 命令用于直接跳转到上一页。使用方法：$(‘#example’).bootstrapPaginator(“showPrevious”)</td>
-</tr>
-<tr>
-<td>showNext</td>
-<td></td>
-<td></td>
-<td><strong>showNext</strong>命令用于直接跳转到下一页。</td>
-</tr>
-<tr>
-<td>showLast</td>
-<td></td>
-<td></td>
-<td><strong>showLast</strong> 命令用于直接跳转到上一页。</td>
-</tr>
-<tr>
-<td>getPages</td>
-<td></td>
-<td><em>object</em></td>
-<td><strong>getPages</strong>命令用于返回当前控件中显示的页码，以数组形式返回。使用方法：var arra = $(‘#example’).bootstrapPaginator(“getPages”)</td>
-</tr>
-<tr>
-<td>setOptions</td>
-<td><em>object</em></td>
-<td></td>
-<td><strong>setOptions</strong> 命令用于重新设置参数，使用方法：$(‘#example’).bootstrapPaginator(“setOptions”,newoptions)</td>
-</tr>
-</tbody></table>
-<p><strong>事件Events：</strong></p>
-<p>Bootstrap Paginator 提供了俩个事件：<em>page-clicked</em>和<em>page-changed</em>。这俩个事件作为参数使用，分别对应<em>onPageClicked</em>和<em>onPageChanged</em>。</p>
-<table>
-<thead>
-<tr>
-<th><strong>事件名</strong></th>
-<th><strong>回调函数</strong></th>
-<th><strong>描述</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>page-clicked</td>
-<td>function(<em>event</em>, <em>originalEvent</em>, <em>type</em>, <em>page</em>)</td>
-<td>同上文。另外，参数<em>event</em>, <em>originalEvent是俩个jquery事件对象，可参考jquery相关文档</em></td>
-</tr>
-<tr>
-<td>page-changed</td>
-<td>function(<em>event</em>, <em>oldPage</em>, <em>newPage</em>)</td>
-<td>同上文</td>
-</tr>
-</tbody></table>
-<p><strong>Demo 示例：</strong></p>
-<p>1-引包</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"./lib/jquery/jquery.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script src=<span class="string">"./lib/bootstrap-validator/js/bootstrapValidator.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script src=<span class="string">"./lib/bootstrap-paginator/bootstrap-paginator.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<p>2-准备一个分页父容器：</p>
-<blockquote>
-<p>搭配使用的Bootstrap版本，2.X 的 分页必须使用div元素，3.X分页的必须使用ul元素。请注意与所使用的bootstrap版本对应上。</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"paginator"</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>3-初始化分页插件</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#paginator"</span>).bootstrapPaginator(&#123;</span><br><span class="line">      bootstrapMajorVersion:<span class="number">3</span>,<span class="comment">//默认是2，如果是bootstrap3版本，这个参数必填</span></span><br><span class="line">      currentPage:<span class="number">1</span>,<span class="comment">//当前页</span></span><br><span class="line">      totalPages:<span class="number">10</span>,<span class="comment">//总页数</span></span><br><span class="line">      size:<span class="string">"small"</span>,<span class="comment">//设置控件的大小，mini, small, normal,large</span></span><br><span class="line">      onPageClicked:<span class="function"><span class="keyword">function</span>(<span class="params">event, originalEvent, type,page</span>)</span>&#123;</span><br><span class="line">        <span class="comment">//为按钮绑定点击事件 page:当前点击的按钮值</span></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-
-
-<p>注意：分页样式用BootStrap 的，如果单独使用，请去BootStrap中把分页样式拷出来。jQuery版本需要1.8及以上。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/03/03/Linux/centos%E5%8D%87%E7%BA%A7git/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="siwadiya">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="風之萬里">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/03/Linux/centos%E5%8D%87%E7%BA%A7git/" class="post-title-link" itemprop="url">centos升级git</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-03-03 22:49:04 / 修改时间：23:25:08" itemprop="dateCreated datePublished" datetime="2020-03-03T22:49:04+08:00">2020-03-03</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="centos7编译安装最新版git"><a href="#centos7编译安装最新版git" class="headerlink" title="centos7编译安装最新版git"></a>centos7编译安装最新版git</h2><p><a href="https://learnku.com/articles/30501" target="_blank" rel="noopener">参考链接</a></p>
+          <h3 id="表单和按钮的绑定"><a href="#表单和按钮的绑定" class="headerlink" title="表单和按钮的绑定"></a>表单和按钮的绑定</h3><pre><code class="html">&lt;form form=&quot;myForm&quot;&gt;
+    这是一个表单
+&lt;/form&gt;
+// 完成绑定
+&lt;button form=&quot;myForm&quot;&gt;提交按钮&lt;/button&gt;</code></pre>
 
       
     </div>
@@ -1150,14 +1088,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1198,6 +1136,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

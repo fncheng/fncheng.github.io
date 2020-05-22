@@ -47,13 +47,13 @@
   };
 </script>
 
-  <meta name="description" content="Linux下的解压命令小结https:&#x2F;&#x2F;www.cnblogs.com&#x2F;cursorhu&#x2F;p&#x2F;5891699.html 解压缩命令打包程序：tar c:  创建文档 t： 列出存档内容 x：提取存档 f： filename 要操作的文档名 v：详细信息  解压：  解压缩文件加一个参数x：tar xf a.tar.gz  1[root@104 www]# tar xf wordpress-4.6">
+  <meta name="description" content="Linux下的解压命令小结https:&#x2F;&#x2F;www.cnblogs.com&#x2F;cursorhu&#x2F;p&#x2F;5891699.html 解压缩命令打包程序：tar c:  创建文档 t： 列出存档内容 x：提取存档 f： filename 要操作的文档名 v：详细信息  解压：  解压缩文件加一个参数x：tar xf a.tar.gz  [root@104 www]# tar xf wordpress-4.6.">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux解压缩命令">
 <meta property="og:url" content="https:&#x2F;&#x2F;siwadiya.github.io&#x2F;2020&#x2F;05&#x2F;12&#x2F;Linux&#x2F;tar%E8%A7%A3%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4&#x2F;index.html">
 <meta property="og:site_name" content="風之萬里">
-<meta property="og:description" content="Linux下的解压命令小结https:&#x2F;&#x2F;www.cnblogs.com&#x2F;cursorhu&#x2F;p&#x2F;5891699.html 解压缩命令打包程序：tar c:  创建文档 t： 列出存档内容 x：提取存档 f： filename 要操作的文档名 v：详细信息  解压：  解压缩文件加一个参数x：tar xf a.tar.gz  1[root@104 www]# tar xf wordpress-4.6">
+<meta property="og:description" content="Linux下的解压命令小结https:&#x2F;&#x2F;www.cnblogs.com&#x2F;cursorhu&#x2F;p&#x2F;5891699.html 解压缩命令打包程序：tar c:  创建文档 t： 列出存档内容 x：提取存档 f： filename 要操作的文档名 v：详细信息  解压：  解压缩文件加一个参数x：tar xf a.tar.gz  [root@104 www]# tar xf wordpress-4.6.">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2020-05-12T09:19:00.217Z">
 <meta name="twitter:card" content="summary">
@@ -276,10 +276,8 @@
 <blockquote>
 <p>解压缩文件加一个参数x：tar xf a.tar.gz</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@104 www]<span class="comment"># tar xf wordpress-4.6.15.tar.gz</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="解压命令"><a href="#解压命令" class="headerlink" title="解压命令"></a>解压命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf filename.tar.gz</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">[root@104 www]# tar xf wordpress-4.6.15.tar.gz</code></pre>
+<h4 id="解压命令"><a href="#解压命令" class="headerlink" title="解压命令"></a>解压命令</h4><pre><code class="bash">tar -zxvf filename.tar.gz</code></pre>
 <p>其中zxvf含义分别如下</p>
 <p>z: 　　g<strong>z</strong>ip  　　　　　　　   压缩格式</p>
 <p>x: 　　e<strong>x</strong>tract　　　　　　　　  解压</p>
@@ -306,7 +304,10 @@
     <a href="/2020/04/23/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E8%85%BE%E8%AE%AF%E4%BA%91/" rel="prev" title="腾讯云">
       <i class="fa fa-chevron-left"></i> 腾讯云
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/05/17/React/React%E5%AD%A6%E4%B9%A0/" rel="next" title="React学习">
+      React学习 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -358,14 +359,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -406,6 +407,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 

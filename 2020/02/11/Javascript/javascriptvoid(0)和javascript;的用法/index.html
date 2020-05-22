@@ -275,10 +275,8 @@
 <h2 id="javascript-void-0"><a href="#javascript-void-0" class="headerlink" title="javascript:void(0)"></a>javascript:void(0)</h2><p>我们经常会使用到 javascript:void(0) 这样的代码，那么在 JavaScript 中 javascript:void(0) 代表的是什么意思呢？</p>
 <p>void 是 JavaScript 中非常重要的关键字，该操作符指定要计算一个表达式但是不返回值。</p>
 <p>下面的代码创建了一个超级链接，当用户点击以后不会发生任何事。当用户点击链接时，void(0) 计算为 0，但在 JavaScript 上没有任何效果。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"javascript:void(0)"</span>&gt;单击此处什么也不会发生&lt;<span class="regexp">/a&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"javascript:void(document.form.submit())"</span>&gt;单此处提交表单&lt;<span class="regexp">/a&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="js">&lt;a href=&quot;javascript:void(0)&quot;&gt;单击此处什么也不会发生&lt;/a&gt;</code></pre>
+<pre><code class="js">&lt;a href=&quot;javascript:void(document.form.submit())&quot;&gt;单此处提交表单&lt;/a&gt;</code></pre>
 <p>其实我们可以这样用<code>&lt;a href=&quot;javascript:void(document.form.submit())&quot;&gt;</code>，这句话会进行一次submit操作。那什么情况下用void(0)比较多呢，无刷新，当然是Ajax了，看一下Ajax的web页面的话，一般都会看到有很多的void(0)，所以在使用void(0)之前,最好先想一想,这个页面是否需要整体刷新。</p>
 <h2 id="标签中href-”javascript-”"><a href="#标签中href-”javascript-”" class="headerlink" title="标签中href=”javascript:;”"></a>标签中href=”javascript:;”</h2><p>这里的href=”javascript:;”，其中javascript:是伪协议，它可以让我们通过一个链接来调用javascript函数.而采用这个方式 javascript:;可以实现A标签的点击事件运行时，如果页面内容很多，有滚动条时，页面不会乱跳，用户体验更好。</p>
 <p>javascript:是表示在触发&lt;a&gt;默认动作时，执行一段JavaScript代码，而 javascript:; 表示什么都不执行，这样点击&lt;a&gt;时就没有任何反应。</p>
@@ -288,13 +286,15 @@
 <ol>
 <li>点击链接后不做任何事情 </li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>&lt;a href=<span class="string">"javascript:void(0);"</span> &gt;test&lt;<span class="regexp">/a&gt;   </span></span><br><span class="line"><span class="regexp">2.&lt;a href="javascript:;" &gt;test&lt;/</span>a&gt;   </span><br><span class="line"><span class="number">3.</span>&lt;a href=<span class="string">"####"</span> &gt;test&lt;<span class="regexp">/a&gt; /</span><span class="regexp">/使用2个到4个#，见的大多是"####"，也有使用"#all"等其他的</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="js">1.&lt;a href=&quot;javascript:void(0);&quot; &gt;test&lt;/a&gt;   
+2.&lt;a href=&quot;javascript:;&quot; &gt;test&lt;/a&gt;   
+3.&lt;a href=&quot;####&quot; &gt;test&lt;/a&gt; //使用2个到4个#，见的大多是&quot;####&quot;，也有使用&quot;#all&quot;等其他的  </code></pre>
 <ol start="2">
 <li>点击链接后，响应用户自定义的点击事件 </li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>&lt;a href=<span class="string">"javascript:void(0)"</span> onclick=<span class="string">"doSomething()"</span>&gt;test&lt;<span class="regexp">/a&gt;   </span></span><br><span class="line"><span class="regexp">2.&lt;a href="#" onclick="doSomething();return false;"&gt;什么问题都解决了,包括浏览器不兼容问题&lt;/</span>a&gt; <span class="comment">//或者直接使用href=""   </span></span><br><span class="line"><span class="number">3.</span>&lt;a href=<span class="string">"#"</span> onclick=<span class="string">"alert();event.returnValue=false;"</span>&gt;test&lt;<span class="regexp">/a&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="js">1.&lt;a href=&quot;javascript:void(0)&quot; onclick=&quot;doSomething()&quot;&gt;test&lt;/a&gt;   
+2.&lt;a href=&quot;#&quot; onclick=&quot;doSomething();return false;&quot;&gt;什么问题都解决了,包括浏览器不兼容问题&lt;/a&gt; //或者直接使用href=&quot;&quot;   
+3.&lt;a href=&quot;#&quot; onclick=&quot;alert();event.returnValue=false;&quot;&gt;test&lt;/a&gt;  </code></pre>
 
     </div>
 
@@ -371,14 +371,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -419,6 +419,16 @@
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
+
+<% if (config.highlightjs) { %>
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<% } %>
 
         
 
