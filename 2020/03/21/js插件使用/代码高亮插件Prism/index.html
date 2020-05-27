@@ -17,6 +17,11 @@
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
 
+
+
+<link rel="stylesheet" href="/css/highlight/styles/vs2015.css">
+
+
 <script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
@@ -47,15 +52,15 @@
   };
 </script>
 
-  <meta name="description" content="待写">
+  <meta name="description" content="highlight.js官网 prism官网">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="代码高亮插件prism">
+<meta property="og:title" content="代码高亮插件">
 <meta property="og:url" content="https:&#x2F;&#x2F;siwadiya.github.io&#x2F;2020&#x2F;03&#x2F;21&#x2F;js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8&#x2F;%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE%E6%8F%92%E4%BB%B6Prism&#x2F;index.html">
 <meta property="og:site_name" content="風之萬里">
-<meta property="og:description" content="待写">
+<meta property="og:description" content="highlight.js官网 prism官网">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-01T05:18:00.503Z">
+<meta property="og:updated_time" content="2020-05-20T12:50:00.723Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://siwadiya.github.io/2020/03/21/js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE%E6%8F%92%E4%BB%B6Prism/">
@@ -72,7 +77,17 @@
   };
 </script>
 
-  <title>代码高亮插件prism | 風之萬里</title>
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_1576657_8m5hmledwfk.css">
+<style type="text/css">
+    .icon {
+       width: 1.28em; height: 1.28em;
+       vertical-align: -0.25em;
+       fill: currentColor;
+       overflow: hidden;
+    }
+</style>
+<script src="/lib/font-iconfont/iconfont.js"></script>
+  <title>代码高亮插件 | 風之萬里</title>
   
 
 
@@ -136,43 +151,102 @@
   
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
+    
+      
+      
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-shouye"></use>
+      </svg>首页</a>
 
   </li>
         <li class="menu-item menu-item-about">
+    
+      
+      
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+    <a href="/about/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-guanyu1"></use>
+      </svg>关于</a>
 
   </li>
         <li class="menu-item menu-item-tags">
+    
+      
+      
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+    <a href="/tags/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-tubiao-"></use>
+      </svg>标签</a>
 
   </li>
         <li class="menu-item menu-item-categories">
+    
+      
+      
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+    <a href="/categories/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-fenlei-"></use>
+      </svg>分类</a>
 
   </li>
         <li class="menu-item menu-item-linux">
+    
+      
+      
 
-    <a href="/tags/linux/" rel="section"><i class="fa fa-fw fa-tags"></i>每天一个linux命令</a>
+    <a href="/tags/linux/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-linux"></use>
+      </svg>每天一个linux命令</a>
+
+  </li>
+        <li class="menu-item menu-item-csdn">
+    
+      
+      
+
+    <a href="https://i.csdn.net/#/uc/collection-list" rel="noopener" target="_blank">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-csdn"></use>
+      </svg>csdn</a>
 
   </li>
         <li class="menu-item menu-item-archives">
+    
+      
+      
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+    <a href="/archives/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-guidang"></use>
+      </svg>归档</a>
 
   </li>
         <li class="menu-item menu-item-schedule">
+    
+      
+      
 
-    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+    <a href="/schedule/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-calendar"></use>
+      </svg>日程表</a>
 
   </li>
         <li class="menu-item menu-item-commonweal">
+    
+      
+      
 
-    <a href="/404/" rel="section"><i class="fa fa-fw fa-heartbeat"></i>公益 404</a>
+    <a href="/404/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-icon-test"></use>
+      </svg>公益 404</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -239,7 +313,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          代码高亮插件prism
+          代码高亮插件
         </h1>
 
         <div class="post-meta">
@@ -256,7 +330,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-01 13:18:00" itemprop="dateModified" datetime="2020-04-01T13:18:00+08:00">2020-04-01</time>
+                <time title="修改时间：2020-05-20 20:50:00" itemprop="dateModified" datetime="2020-05-20T20:50:00+08:00">2020-05-20</time>
               </span>
 
           
@@ -270,7 +344,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>待写</p>
+        <h3 id="highlight-js"><a href="#highlight-js" class="headerlink" title="highlight.js"></a>highlight.js</h3><p><a href="https://highlightjs.org/" target="_blank" rel="noopener">官网</a></p>
+<h3 id="prism"><a href="#prism" class="headerlink" title="prism"></a>prism</h3><p><a href="https://prismjs.com/index.html" target="_blank" rel="noopener">官网</a></p>
 
     </div>
 
@@ -333,6 +408,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#highlight-js"><span class="nav-number">1.</span> <span class="nav-text">highlight.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#prism"><span class="nav-number">2.</span> <span class="nav-text">prism</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -346,14 +422,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">94</span>
+          <span class="site-state-item-count">96</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-count">33</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -395,15 +471,9 @@
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
 
-<% if (config.highlightjs) { %>
-<!-- Highlight.js -->
-<link rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
-<script>
-    hljs.initHighlightingOnLoad();
-</script>
-<% } %>
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
         
 

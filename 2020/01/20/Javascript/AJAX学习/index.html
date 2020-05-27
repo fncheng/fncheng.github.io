@@ -17,6 +17,11 @@
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
 
+
+
+<link rel="stylesheet" href="/css/highlight/styles/vs2015.css">
+
+
 <script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
@@ -74,6 +79,16 @@
   };
 </script>
 
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_1576657_8m5hmledwfk.css">
+<style type="text/css">
+    .icon {
+       width: 1.28em; height: 1.28em;
+       vertical-align: -0.25em;
+       fill: currentColor;
+       overflow: hidden;
+    }
+</style>
+<script src="/lib/font-iconfont/iconfont.js"></script>
   <title>AJAX学习 | 風之萬里</title>
   
 
@@ -138,43 +153,102 @@
   
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
+    
+      
+      
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-shouye"></use>
+      </svg>首页</a>
 
   </li>
         <li class="menu-item menu-item-about">
+    
+      
+      
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+    <a href="/about/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-guanyu1"></use>
+      </svg>关于</a>
 
   </li>
         <li class="menu-item menu-item-tags">
+    
+      
+      
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+    <a href="/tags/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-tubiao-"></use>
+      </svg>标签</a>
 
   </li>
         <li class="menu-item menu-item-categories">
+    
+      
+      
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+    <a href="/categories/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-fenlei-"></use>
+      </svg>分类</a>
 
   </li>
         <li class="menu-item menu-item-linux">
+    
+      
+      
 
-    <a href="/tags/linux/" rel="section"><i class="fa fa-fw fa-tags"></i>每天一个linux命令</a>
+    <a href="/tags/linux/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-linux"></use>
+      </svg>每天一个linux命令</a>
+
+  </li>
+        <li class="menu-item menu-item-csdn">
+    
+      
+      
+
+    <a href="https://i.csdn.net/#/uc/collection-list" rel="noopener" target="_blank">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-csdn"></use>
+      </svg>csdn</a>
 
   </li>
         <li class="menu-item menu-item-archives">
+    
+      
+      
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+    <a href="/archives/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-guidang"></use>
+      </svg>归档</a>
 
   </li>
         <li class="menu-item menu-item-schedule">
+    
+      
+      
 
-    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+    <a href="/schedule/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-calendar"></use>
+      </svg>日程表</a>
 
   </li>
         <li class="menu-item menu-item-commonweal">
+    
+      
+      
 
-    <a href="/404/" rel="section"><i class="fa fa-fw fa-heartbeat"></i>公益 404</a>
+    <a href="/404/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-icon-test"></use>
+      </svg>公益 404</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -487,14 +561,14 @@ xhr.onreadystatechange = function() {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">94</span>
+          <span class="site-state-item-count">96</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-count">33</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -536,15 +610,9 @@ xhr.onreadystatechange = function() {
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
 
-<% if (config.highlightjs) { %>
-<!-- Highlight.js -->
-<link rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
-<script>
-    hljs.initHighlightingOnLoad();
-</script>
-<% } %>
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
         
 

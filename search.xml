@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>hexo添加字体图标</title>
+    <url>/2020/05/27/%E5%8D%9A%E5%AE%A2/hexo%E6%B7%BB%E5%8A%A0%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87/</url>
+    <content><![CDATA[<h2 id="Hexo添加字体图标"><a href="#Hexo添加字体图标" class="headerlink" title="Hexo添加字体图标"></a>Hexo添加字体图标</h2>]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>adb开启无障碍</title>
+    <url>/2020/05/22/Android/adb%E5%BC%80%E5%90%AF%E6%97%A0%E9%9A%9C%E7%A2%8D/</url>
+    <content><![CDATA[<h3 id="获取已开启无障碍列表"><a href="#获取已开启无障碍列表" class="headerlink" title="获取已开启无障碍列表"></a>获取已开启无障碍列表</h3><pre><code class="bash">adb shell settings get secure enabled_accessibility_services</code></pre>
+<h3 id="通过adb开启无障碍"><a href="#通过adb开启无障碍" class="headerlink" title="通过adb开启无障碍"></a>通过adb开启无障碍</h3><blockquote>
+<p>起因是因为在我的S9+上开启autojs的无障碍时会卡死</p>
+<p>于是想到了通过adb shell  来开启无障碍</p>
+</blockquote>
+<p>命令</p>
+<pre><code class="bash">adb shell settings put secure enabled_accessibility_services org.autojs.autojs/org.autojs.autojs.accessibility.AccessibilityService</code></pre>
+<p>其中enabled_accessibility_services 是开启无障碍功能的程序列表。org.autojs.autojs是包名,org.autojs.autojs.accessibility.AccessibilityService是对应的服务名</p>
+<p>enabled_accessibility_services列表</p>
+<pre><code class="bash"># autojs
+org.autojs.autojs/org.autojs.autojs.accessibility.AccessibilityService
+# 开发者助手
+com.toshiba_dealin.developerhelper/com.toshiba_dealin.developerhelper.service.DHAccessibilityService</code></pre>
+]]></content>
+      <tags>
+        <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Fiddler抓包</title>
     <url>/2020/05/20/Http/Fiddler%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h3 id="远程抓包手机时出现的安全证书问题"><a href="#远程抓包手机时出现的安全证书问题" class="headerlink" title="远程抓包手机时出现的安全证书问题"></a>远程抓包手机时出现的安全证书问题</h3><p><a href="https://blog.csdn.net/yu1014745867/article/details/79108495" target="_blank" rel="noopener">在手机上安装证书</a></p>
@@ -34,6 +63,34 @@ const title = React.createElement(&#39;h1&#39;, null, &#39;Hello React&#39;)</co
 <pre><code class="js">// 参数1：要渲染的react元素
 // 参数2：挂载点，需要将react元素渲染到哪儿
 ReactDOM.render(title, document.getElementById(&#39;root&#39;))</code></pre>
+<a id="more"></a>
+
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意:"></a>注意:</h3><p>this.setState()可能是异步的.</p>
+<p><a href="https://zh-hans.reactjs.org/docs/state-and-lifecycle.html" target="_blank" rel="noopener">官方原文:</a></p>
+<blockquote>
+<h3 id="State-的更新可能是异步的"><a href="#State-的更新可能是异步的" class="headerlink" title="State 的更新可能是异步的"></a>State 的更新可能是异步的</h3><p>出于性能考虑，React 可能会把多个 <code>setState()</code> 调用合并成一个调用。</p>
+<p>因为 <code>this.props</code> 和 <code>this.state</code> 可能会异步更新，所以你不要依赖他们的值来更新下一个状态。</p>
+</blockquote>
+<blockquote>
+<h4 id="回调函数this丢失问题"><a href="#回调函数this丢失问题" class="headerlink" title="回调函数this丢失问题"></a>回调函数this丢失问题</h4><pre><code class="js">const module = {
+  x: 42,
+  getX: function() {
+    return this.x;
+  }
+};
+console.log(module.getX());
+const unboundGetX = module.getX; //this会丢失
+console.log(unboundGetX()); // The function gets invoked at the global scope
+// expected output: undefined
+
+const boundGetX = unboundGetX.bind(module);
+console.log(boundGetX());
+// expected output: 42</code></pre>
+<p>解决方法:使用bind()</p>
+</blockquote>
+<h3 id="React组件中共享state"><a href="#React组件中共享state" class="headerlink" title="React组件中共享state"></a>React组件中共享state</h3><blockquote>
+<p>在 React 中，将多个组件中需要共享的 state 向上移动到它们的最近共同父组件中，便可实现共享 state。这就是所谓的“==状态提升==”。接下来，我们将 <code>TemperatureInput</code> 组件中的 state 移动至 <code>Calculator</code> 组件中去。</p>
+</blockquote>
 ]]></content>
       <tags>
         <tag>React</tag>
@@ -43,6 +100,8 @@ ReactDOM.render(title, document.getElementById(&#39;root&#39;))</code></pre>
     <title>linux解压缩命令</title>
     <url>/2020/05/12/Linux/tar%E8%A7%A3%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h2 id="Linux下的解压命令小结"><a href="#Linux下的解压命令小结" class="headerlink" title="Linux下的解压命令小结"></a><a href="https://www.cnblogs.com/cursorhu/p/5891699.html" target="_blank" rel="noopener">Linux下的解压命令小结</a></h2><p><a href="https://www.cnblogs.com/cursorhu/p/5891699.html" target="_blank" rel="noopener">https://www.cnblogs.com/cursorhu/p/5891699.html</a></p>
+<a id="more"></a>
+
 <h4 id="解压缩命令"><a href="#解压缩命令" class="headerlink" title="解压缩命令"></a>解压缩命令</h4><h5 id="打包程序：tar"><a href="#打包程序：tar" class="headerlink" title="打包程序：tar"></a>打包程序：tar</h5><ul>
 <li>c:  创建文档</li>
 <li>t： 列出存档内容</li>
@@ -345,7 +404,9 @@ Beautifier Options:
     <content><![CDATA[<h3 id="script引入"><a href="#script引入" class="headerlink" title="script引入"></a>script引入</h3><pre><code class="html">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&gt;&lt;/script&gt;</code></pre>
 <p><strong>BootCdn</strong></p>
 <pre><code class="html">&lt;script src=&quot;https://cdn.bootcss.com/vue/2.6.11/vue.js&quot;&gt;&lt;/script&gt;</code></pre>
-<h3 id="vue-js有什么用，是用来做什么的（整理）"><a href="#vue-js有什么用，是用来做什么的（整理）" class="headerlink" title="vue.js有什么用，是用来做什么的（整理）"></a><a href="https://www.cnblogs.com/Renyi-Fan/p/9419742.html#_label6" target="_blank" rel="noopener">vue.js有什么用，是用来做什么的（整理）</a></h3><h4 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h4><p>默认监视的是对象的地址的变化</p>
+<h3 id="vue-js有什么用，是用来做什么的（整理）"><a href="#vue-js有什么用，是用来做什么的（整理）" class="headerlink" title="vue.js有什么用，是用来做什么的（整理）"></a><a href="https://www.cnblogs.com/Renyi-Fan/p/9419742.html#_label6" target="_blank" rel="noopener">vue.js有什么用，是用来做什么的（整理）</a></h3><a id="more"></a>
+
+<h4 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h4><p>默认监视的是对象的地址的变化</p>
 <h4 id="v-bind-缩写"><a href="#v-bind-缩写" class="headerlink" title="v-bind(缩写 :)"></a>v-bind(缩写 :)</h4><p><code>v-bind:title=&quot;message&quot;</code></p>
 <p>作用: 控制dom节点的(title)属性和Vue实例的(message)属性保持一致</p>
 <h4 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a>v-if</h4><p><code>v-if=&quot;seen&quot;</code></p>
@@ -413,9 +474,10 @@ yarn add [package] [--dev/-D]</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>代码高亮插件prism</title>
+    <title>代码高亮插件</title>
     <url>/2020/03/21/js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE%E6%8F%92%E4%BB%B6Prism/</url>
-    <content><![CDATA[<p>待写</p>
+    <content><![CDATA[<h3 id="highlight-js"><a href="#highlight-js" class="headerlink" title="highlight.js"></a>highlight.js</h3><p><a href="https://highlightjs.org/" target="_blank" rel="noopener">官网</a></p>
+<h3 id="prism"><a href="#prism" class="headerlink" title="prism"></a>prism</h3><p><a href="https://prismjs.com/index.html" target="_blank" rel="noopener">官网</a></p>
 ]]></content>
       <tags>
         <tag>JavaScript</tag>
@@ -447,7 +509,7 @@ yarn add [package] [--dev/-D]</code></pre>
     <url>/2020/03/18/js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/bootstrap%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h3 id="模态框"><a href="#模态框" class="headerlink" title="模态框"></a>模态框</h3><p><code>data-toggle=&quot;modal&quot;</code>  指定当前盒子具备的功能</p>
 <p><code>data-target=&quot;#box1&quot;</code>指向模态框的名字</p>
-]]></content>
+<a id="more"></a>]]></content>
       <tags>
         <tag>JavaScript</tag>
         <tag>bootstrap</tag>
@@ -457,6 +519,8 @@ yarn add [package] [--dev/-D]</code></pre>
     <title>echarts数据可视化</title>
     <url>/2020/03/14/js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/echarts%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
     <content><![CDATA[<h3 id="echarts数据可视化-图表-插件"><a href="#echarts数据可视化-图表-插件" class="headerlink" title="echarts数据可视化(图表)插件"></a>echarts数据可视化(图表)插件</h3><p><a href="https://www.echartsjs.com/zh/tutorial.html#5%20%E5%88%86%E9%92%9F%E4%B8%8A%E6%89%8B%20ECharts" target="_blank" rel="noopener">中文官网教程</a></p>
+<a id="more"></a>
+
 <h4 id="引入echarts"><a href="#引入echarts" class="headerlink" title="引入echarts"></a>引入echarts</h4><hr>
 <p>通过标签方式直接引入构建好的 echarts 文件</p>
 <pre><code class="html">&lt;!DOCTYPE html&gt;
@@ -523,6 +587,8 @@ yarn add [package] [--dev/-D]</code></pre>
     <url>/2020/03/11/js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/bootstrap-paginaterAPI%E6%96%87%E6%A1%A3/</url>
     <content><![CDATA[<h2 id="Bootstrap-PaginatorAPI文档"><a href="#Bootstrap-PaginatorAPI文档" class="headerlink" title="Bootstrap PaginatorAPI文档"></a>Bootstrap PaginatorAPI文档</h2><p>Bootstrap Paginator是一款基于Bootstrap的js分页插件，功能很丰富，个人觉得这款插件已经无可挑剔了。它提供了一系列的参数用来支持用户的定制，提供了公共的方法可随时获得插件状态的改变，以及事件来监听用户的动作。目前经过测试的浏览器包括： Firefox 5+, Chrome 14+, Safari 5+, Opera 11.6+ and IE 7+。</p>
 <p>GitHub 官网地址：<a href="https://github.com/lyonlai/bootstrap-paginator" target="_blank" rel="noopener">https://github.com/lyonlai/bootstrap-paginator</a></p>
+<a id="more"></a>
+
 <p><strong>参数介绍：</strong></p>
 <table>
 <thead>
@@ -749,6 +815,8 @@ yarn add [package] [--dev/-D]</code></pre>
     <url>/2020/03/03/Vscode/remote-ssh%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h2 id="remote-ssh"><a href="#remote-ssh" class="headerlink" title="remote-ssh"></a>remote-ssh</h2><p>首先在vscode下载remote-ssh相关插件</p>
 <h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接:"></a>参考链接:</h3><p><a href="https://xirikm.net/2019/619-1" target="_blank" rel="noopener">VSCode 配置 Remote-SSH 远程开发</a></p>
+<a id="more"></a>
+
 <h3 id="在服务器上安装公钥"><a href="#在服务器上安装公钥" class="headerlink" title="在服务器上安装公钥"></a>在服务器上安装公钥</h3><p>键入以下命令，在服务器上安装公钥：</p>
 <pre><code class="bash">cd .ssh
 cat id_rsa.pub &gt;&gt; authorized_keys</code></pre>
@@ -925,6 +993,8 @@ Options:
 }</code></pre>
 <p>其中<strong><a href="https://www.jquery123.com/html/" target="_blank" rel="noopener">html()</a></strong>方法是jQuery中提供的,作用是获取集合中第一个匹配元素的HTML内容。</p>
 <p>response是服务器返回的响应数据</p>
+<a id="more"></a>
+
 <h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>art-template 支持标准语法与原始语法。标准语法可以让模板易读写，而原始语法拥有强大的逻辑表达能力。</p>
 <p>标准语法支持基本模板语法以及基本 JavaScript 表达式；原始语法支持任意 JavaScript 语句，这和 EJS 一样。</p>
 <h3 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h3><pre><code class="html">{{if value}}
@@ -1148,7 +1218,9 @@ rpm --rebuilddb</code></pre>
   <entry>
     <title>linux端开放失败的问题</title>
     <url>/2020/02/16/Linux/linux%E7%AB%AF%E5%8F%A3%E5%BC%80%E6%94%BE%E5%A4%B1%E8%B4%A5/</url>
-    <content><![CDATA[<h3 id="linux端口常用命令"><a href="#linux端口常用命令" class="headerlink" title="linux端口常用命令"></a>linux端口常用命令</h3><blockquote>
+    <content><![CDATA[<a id="more"></a>
+
+<h3 id="linux端口常用命令"><a href="#linux端口常用命令" class="headerlink" title="linux端口常用命令"></a>linux端口常用命令</h3><blockquote>
 <pre><code class="bash">firewall-cmd --zone=public --add-port=8888/tcp --permanent    #开启端口
 firewall-cmd --list-ports    #查看开放的端口
 firewall-cmd --query-port=8888/tcp    #查看端口是否开启
@@ -2856,7 +2928,7 @@ $black        = rgba(0,0,0,0.84);</code></pre>
 <p>按照网上的教程设置tags后点开标签页却是空白</p>
 ]]></content>
       <tags>
-        <tag>博客</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -2866,7 +2938,7 @@ $black        = rgba(0,0,0,0.84);</code></pre>
 <p>如果是全局配置需要在<code>/.code/User</code>目录下修改<strong>setting.json</strong>文件</p>
 <p>修改完配置文件需要重启vscode</p>
 <p>命令 reload window</p>
-]]></content>
+<a id="more"></a>]]></content>
   </entry>
   <entry>
     <title>常用技巧/everything无法使用修饰符搜索</title>

@@ -17,6 +17,11 @@
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
 
+
+
+<link rel="stylesheet" href="/css/highlight/styles/vs2015.css">
+
+
 <script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
@@ -55,7 +60,7 @@
 <meta property="og:site_name" content="風之萬里">
 <meta property="og:description" content="本想上宝塔面板管理下网页的,发现打不开,扫描发现8888端口关闭,于是连上服务器,防火墙开放端口,并检测显示端口是开放的.但是端口扫描显示就是关闭的,且无法访问.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-16T10:17:36.916Z">
+<meta property="og:updated_time" content="2020-05-27T07:08:36.296Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://siwadiya.github.io/2020/02/16/Linux/linux%E7%AB%AF%E5%8F%A3%E5%BC%80%E6%94%BE%E5%A4%B1%E8%B4%A5/">
@@ -72,6 +77,16 @@
   };
 </script>
 
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_1576657_8m5hmledwfk.css">
+<style type="text/css">
+    .icon {
+       width: 1.28em; height: 1.28em;
+       vertical-align: -0.25em;
+       fill: currentColor;
+       overflow: hidden;
+    }
+</style>
+<script src="/lib/font-iconfont/iconfont.js"></script>
   <title>linux端开放失败的问题 | 風之萬里</title>
   
 
@@ -136,43 +151,102 @@
   
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
+    
+      
+      
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-shouye"></use>
+      </svg>首页</a>
 
   </li>
         <li class="menu-item menu-item-about">
+    
+      
+      
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+    <a href="/about/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-guanyu1"></use>
+      </svg>关于</a>
 
   </li>
         <li class="menu-item menu-item-tags">
+    
+      
+      
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+    <a href="/tags/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-tubiao-"></use>
+      </svg>标签</a>
 
   </li>
         <li class="menu-item menu-item-categories">
+    
+      
+      
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+    <a href="/categories/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-fenlei-"></use>
+      </svg>分类</a>
 
   </li>
         <li class="menu-item menu-item-linux">
+    
+      
+      
 
-    <a href="/tags/linux/" rel="section"><i class="fa fa-fw fa-tags"></i>每天一个linux命令</a>
+    <a href="/tags/linux/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-linux"></use>
+      </svg>每天一个linux命令</a>
+
+  </li>
+        <li class="menu-item menu-item-csdn">
+    
+      
+      
+
+    <a href="https://i.csdn.net/#/uc/collection-list" rel="noopener" target="_blank">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-csdn"></use>
+      </svg>csdn</a>
 
   </li>
         <li class="menu-item menu-item-archives">
+    
+      
+      
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+    <a href="/archives/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-guidang"></use>
+      </svg>归档</a>
 
   </li>
         <li class="menu-item menu-item-schedule">
+    
+      
+      
 
-    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+    <a href="/schedule/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-calendar"></use>
+      </svg>日程表</a>
 
   </li>
         <li class="menu-item menu-item-commonweal">
+    
+      
+      
 
-    <a href="/404/" rel="section"><i class="fa fa-fw fa-heartbeat"></i>公益 404</a>
+    <a href="/404/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-icon-test"></use>
+      </svg>公益 404</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -248,10 +322,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-02-16 17:45:00 / 修改时间：18:17:36" itemprop="dateCreated datePublished" datetime="2020-02-16T17:45:00+08:00">2020-02-16</time>
+              <time title="创建时间：2020-02-16 17:45:00" itemprop="dateCreated datePublished" datetime="2020-02-16T17:45:00+08:00">2020-02-16</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-27 15:08:36" itemprop="dateModified" datetime="2020-05-27T15:08:36+08:00">2020-05-27</time>
+              </span>
 
           
             <div class="post-description">本想上宝塔面板管理下网页的,发现打不开,扫描发现8888端口关闭,于是连上服务器,防火墙开放端口,并检测显示端口是开放的.但是端口扫描显示就是关闭的,且无法访问.</div>
@@ -265,7 +345,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="linux端口常用命令"><a href="#linux端口常用命令" class="headerlink" title="linux端口常用命令"></a>linux端口常用命令</h3><blockquote>
+        <a id="more"></a>
+
+<h3 id="linux端口常用命令"><a href="#linux端口常用命令" class="headerlink" title="linux端口常用命令"></a>linux端口常用命令</h3><blockquote>
 <pre><code class="bash">firewall-cmd --zone=public --add-port=8888/tcp --permanent    #开启端口
 firewall-cmd --list-ports    #查看开放的端口
 firewall-cmd --query-port=8888/tcp    #查看端口是否开启
@@ -352,14 +434,14 @@ netstat -tunlp |grep 8888    #查看指定端口的进程情况</code></pre>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">94</span>
+          <span class="site-state-item-count">96</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-count">33</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -401,15 +483,9 @@ netstat -tunlp |grep 8888    #查看指定端口的进程情况</code></pre>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
   </div>
 
-<% if (config.highlightjs) { %>
-<!-- Highlight.js -->
-<link rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
-<script>
-    hljs.initHighlightingOnLoad();
-</script>
-<% } %>
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
         
 
