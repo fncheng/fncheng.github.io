@@ -60,7 +60,7 @@
 <meta property="og:site_name" content="風之萬里">
 <meta property="og:description" content="React 创建React元素  &#x2F;&#x2F; 1. 创建React元素 &#x2F;&#x2F; 参数1：创建的元素名 &#x2F;&#x2F; 参数2：元素的属性，如果没有，可以为null &#x2F;&#x2F; 参数3：元素的子节点或内容 &#x2F;&#x2F; ... &#x2F;&#x2F; 返回值：React元素 const title = React.createElement(&amp;#39;h1&amp;#39;, null, &amp;#39;Hello React&amp;#39;)  渲染React元素">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-27T07:06:16.756Z">
+<meta property="og:updated_time" content="2020-06-05T13:41:23.385Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://siwadiya.github.io/2020/05/17/React/React%E5%AD%A6%E4%B9%A0/">
@@ -216,6 +216,17 @@
       </svg>csdn</a>
 
   </li>
+        <li class="menu-item menu-item-segmentfault">
+    
+      
+      
+
+    <a href="https://segmentfault.com/user/bookmarks" rel="noopener" target="_blank">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-iconsf-copy"></use>
+      </svg>segmentfault</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
     
       
@@ -330,7 +341,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-27 15:06:16" itemprop="dateModified" datetime="2020-05-27T15:06:16+08:00">2020-05-27</time>
+                <time title="修改时间：2020-06-05 21:41:23" itemprop="dateModified" datetime="2020-06-05T21:41:23+08:00">2020-06-05</time>
               </span>
 
           
@@ -388,6 +399,58 @@ console.log(boundGetX());
 <h3 id="React组件中共享state"><a href="#React组件中共享state" class="headerlink" title="React组件中共享state"></a>React组件中共享state</h3><blockquote>
 <p>在 React 中，将多个组件中需要共享的 state 向上移动到它们的最近共同父组件中，便可实现共享 state。这就是所谓的“==状态提升==”。接下来，我们将 <code>TemperatureInput</code> 组件中的 state 移动至 <code>Calculator</code> 组件中去。</p>
 </blockquote>
+<h3 id="React生命周期"><a href="#React生命周期" class="headerlink" title="React生命周期"></a>React生命周期</h3><pre><code class="jsx">import React from &#39;react&#39;
+import ReactDOM from &#39;react-dom&#39;
+
+// 组件的创建阶段(挂载阶段)
+// 1. constructor()
+//    (1) 提供初始化的数据, this.state={ ... }
+//    (2) 创建 ref  this.demoRef = React.createRef()   将来 ref={this.demoRef}
+//    (3) 处理this指向问题  this.handleClick = this.handleClick.bind(this)
+// 2. render()
+//    渲染UI, 但是在render中, 请不要调用 setState (死循环)
+// 3. componentDidMount()  dom更新了
+//    (1) 发送ajax请求
+//    (2) dom操作
+
+// 组件的更新阶段(组件重新渲染)
+// 1. render() 渲染更新UI视图
+// 2. componentDidUpdate() 更新完触发
+// 在这两个钩子中, 不要调用 setState (死循环)
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      msg: &#39;嘎嘎&#39;,
+    }
+    console.log(&#39;constructor&#39;)
+  }
+  render() {
+    console.log(&#39;render&#39;)
+    return (
+      &lt;div&gt;
+        &lt;h1&gt;我是app组件&lt;/h1&gt;
+      &lt;/div&gt;
+    )
+  }
+  componentDidMount() {
+    console.log(&#39;componentDidMount&#39;)
+  }
+  componentDidUpdate() {
+    console.log(&#39;componentDidUpdate&#39;)
+  }
+}
+
+ReactDOM.render(&lt;App&gt;&lt;/App&gt;, document.getElementById(&#39;root&#39;))</code></pre>
+<h2 id="Router路由"><a href="#Router路由" class="headerlink" title="Router路由"></a>Router路由</h2><p>Router包裹</p>
+<p><code>&lt;Link&gt;</code>和<code>&lt;NavLink&gt;</code>是用来包裹显示的跳转链接的</p>
+<p><code>&lt;Route&gt;</code>是用来包裹点击跳转链接后要显示的内容</p>
+<pre><code class="jsx">&lt;Route exact path=&quot;/home&quot; component={Home} /&gt;
+
+// 等效于 
+&lt;Route exact path=&quot;/home&quot;&gt;
+     &lt;Detail&gt;
+&lt;/Route&gt;</code></pre>
 
     </div>
 
@@ -450,7 +513,7 @@ console.log(boundGetX());
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#React"><span class="nav-number">1.</span> <span class="nav-text">React</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注意"><span class="nav-number">1.1.</span> <span class="nav-text">注意:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#State-的更新可能是异步的"><span class="nav-number">1.2.</span> <span class="nav-text">State 的更新可能是异步的</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#回调函数this丢失问题"><span class="nav-number">1.2.1.</span> <span class="nav-text">回调函数this丢失问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#React组件中共享state"><span class="nav-number">1.3.</span> <span class="nav-text">React组件中共享state</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#React"><span class="nav-number">1.</span> <span class="nav-text">React</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注意"><span class="nav-number">1.1.</span> <span class="nav-text">注意:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#State-的更新可能是异步的"><span class="nav-number">1.2.</span> <span class="nav-text">State 的更新可能是异步的</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#回调函数this丢失问题"><span class="nav-number">1.2.1.</span> <span class="nav-text">回调函数this丢失问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#React组件中共享state"><span class="nav-number">1.3.</span> <span class="nav-text">React组件中共享state</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#React生命周期"><span class="nav-number">1.4.</span> <span class="nav-text">React生命周期</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Router路由"><span class="nav-number">2.</span> <span class="nav-text">Router路由</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -464,7 +527,7 @@ console.log(boundGetX());
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">96</span>
+          <span class="site-state-item-count">105</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

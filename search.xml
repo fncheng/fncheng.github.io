@@ -1,6 +1,293 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Debugger for Chrome</title>
+    <url>/2020/06/05/Vscode/vscode%20debugger%20fo%20Chrome%E6%8F%92%E4%BB%B6/</url>
+    <content><![CDATA[<p><a href="http://shooterblog.site/2018/05/19/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%94%A8Vscode%20Debugger%E8%B0%83%E8%AF%95%E4%BB%A3%E7%A0%81/#Debugger-For-Chrome" target="_blank" rel="noopener">参考链接</a></p>
+<p><a href="https://www.barretlee.com/blog/2019/03/18/debugging-in-vscode-tutorial/" target="_blank" rel="noopener">https://www.barretlee.com/blog/2019/03/18/debugging-in-vscode-tutorial/</a></p>
+]]></content>
+      <tags>
+        <tag>vscode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>学习资源/学习资源</title>
+    <url>/2020/06/03/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>ajax</title>
+    <url>/2020/06/03/ajax/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Axios学习</title>
+    <url>/2020/06/03/Ajax/Axios%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="什么是-axios？"><a href="#什么是-axios？" class="headerlink" title="什么是 axios？"></a>什么是 axios？</h2><p>Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。</p>
+<h2 id="Axios请求返回一个Promise对象"><a href="#Axios请求返回一个Promise对象" class="headerlink" title="Axios请求返回一个Promise对象"></a>Axios请求返回一个Promise对象</h2><p>打印Axios请求返回的数据res.data,结果是undefined.</p>
+<pre><code class="js">const res = axios.get(&#39;https://gonelist.cugxuan.cn/onedrive/getallfiles&#39;)
+console.log(res.data) //undefined</code></pre>
+<p>问题在于axios返回的是一个Promise对象,需要用then catch捕获</p>
+<p><strong>正确的写法:</strong></p>
+<pre><code class="js">const res = axios
+    .get(&#39;https://gonelist.cugxuan.cn/onedrive/getallfiles&#39;)
+    .then(result =&gt; {
+        console.log(result)
+    })
+    .catch(err =&gt; {
+        console.log(err)
+    })</code></pre>
+<h3 id="通过Axios实例来发送请求"><a href="#通过Axios实例来发送请求" class="headerlink" title="通过Axios实例来发送请求"></a>通过Axios实例来发送请求</h3><h4 id="创建实例"><a href="#创建实例" class="headerlink" title="创建实例"></a>创建实例</h4><h5 id="axios-create-config"><a href="#axios-create-config" class="headerlink" title="axios.create([config])"></a>axios.create([config])</h5><pre><code class="js">const instance = axios.create({
+  baseURL: &#39;https://some-domain.com/api/&#39;,
+  timeout: 1000,
+  headers: {&#39;X-Custom-Header&#39;: &#39;foobar&#39;}
+});</code></pre>
+]]></content>
+      <tags>
+        <tag>ajax</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Number对应方法</title>
+    <url>/2020/06/02/JavaScript/Number%E5%BA%93/</url>
+    <content><![CDATA[<h1 id="Number-prototype-toFixed"><a href="#Number-prototype-toFixed" class="headerlink" title="Number.prototype.toFixed()"></a>Number.prototype.toFixed()</h1><p><code>**toFixed()**</code> 方法使用定点表示法来格式化一个数值。四舍五入</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>小数点后数字的个数；介于 0 到 20 （包括）之间，实现环境可能支持更大范围。如果忽略该参数，则默认为 0。</td>
+<td>使用定点表示法表示给定数字的字符串。</td>
+</tr>
+</tbody></table>
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js图片转base64格式</title>
+    <url>/2020/06/01/JavaScript/js%E5%9B%BE%E7%89%87%E8%BD%ACbase64/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git子仓库管理</title>
+    <url>/2020/06/01/Git/Git%E5%AD%90%E4%BB%93%E5%BA%93%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[<p><a href="https://upupming.site/2018/05/31/git-submodules/#%E4%BB%93%E5%BA%93%E5%86%85%E5%85%8B%E9%9A%86%E5%85%B6%E4%BB%96%E4%BB%93%E5%BA%93%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98" target="_blank" rel="noopener">参考链接</a></p>
+<blockquote>
+<p>问题: 在git仓库内还有别的仓库</p>
+</blockquote>
+<p>在内部仓库git add 后会提示:</p>
+<pre><code class="bash">warning: adding embedded git repository: plugins/zsh-autosuggestions
+hint: You&#39;ve added another git repository inside your current repository.
+hint: Clones of the outer repository will not contain the contents of
+hint: the embedded repository and will not know how to obtain it.
+hint: If you meant to add a submodule, use:
+hint: 
+hint:     git submodule add &lt;url&gt; plugins/zsh-autosuggestions
+hint: 
+hint: If you added this path by mistake, you can remove it from the
+hint: index with:
+hint: 
+hint:     git rm --cached plugins/zsh-autosuggestions
+hint: 
+hint: See &quot;git help submodule&quot; for more information.
+warning: adding embedded git repository: plugins/zsh-syntax-highlighting</code></pre>
+<h3 id="git-submodule的用法"><a href="#git-submodule的用法" class="headerlink" title="git submodule的用法"></a><a href="https://juejin.im/post/5ca47a84e51d4565372e46e0" target="_blank" rel="noopener">git submodule的用法</a></h3><p><a href="https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97" target="_blank" rel="noopener">git文档</a></p>
+]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iview-ui</title>
+    <url>/2020/06/01/UI/ivew-ui/</url>
+    <content><![CDATA[<h3 id="Table-props"><a href="#Table-props" class="headerlink" title="Table props"></a>Table props</h3><p> <a href="https://www.iviewui.com/components/table#Table_props" target="_blank" rel="noopener">#</a></p>
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">说明</th>
+<th align="left">类型</th>
+<th align="left">默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">data</td>
+<td align="left">显示的结构化数据，其中，字段 cellClassName 用于设置任意单元格的样式名称，因此数据不能使用该字段，详见示例<strong>特定样式</strong>。</td>
+<td align="left">Array</td>
+<td align="left">[]</td>
+</tr>
+<tr>
+<td align="left">columns</td>
+<td align="left">表格列的配置描述，具体项见后文</td>
+<td align="left">Array</td>
+<td align="left">[]</td>
+</tr>
+<tr>
+<td align="left">stripe</td>
+<td align="left">是否显示间隔斑马纹</td>
+<td align="left">Boolean</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">border</td>
+<td align="left">是否显示纵向边框</td>
+<td align="left">Boolean</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">show-header</td>
+<td align="left">是否显示表头</td>
+<td align="left">Boolean</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">width</td>
+<td align="left">表格宽度，单位 px</td>
+<td align="left">Number | String</td>
+<td align="left">自动</td>
+</tr>
+<tr>
+<td align="left">height</td>
+<td align="left">表格高度，单位 px，设置后，如果表格内容大于此值，会固定表头</td>
+<td align="left">Number | String</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left">max-height 3.4.0</td>
+<td align="left">表格最大高度，单位 px，设置后，如果表格内容大于此值，会固定表头</td>
+<td align="left">Number | String</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left">loading</td>
+<td align="left">表格是否加载中</td>
+<td align="left">Boolean</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">disabled-hover</td>
+<td align="left">禁用鼠标悬停时的高亮</td>
+<td align="left">Boolean</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">highlight-row</td>
+<td align="left">是否支持高亮选中的行，即单选</td>
+<td align="left">Boolean</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">row-class-name</td>
+<td align="left">行的 className 的回调方法，传入参数：<code>row</code>：当前行数据<code>index</code>：当前行的索引</td>
+<td align="left">Function</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left">size</td>
+<td align="left">表格尺寸，可选值为 <code>large</code>、<code>small</code>、<code>default</code> 或者不填</td>
+<td align="left">String</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left">no-data-text</td>
+<td align="left">数据为空时显示的提示内容</td>
+<td align="left">String</td>
+<td align="left">暂无数据</td>
+</tr>
+<tr>
+<td align="left">no-filtered-data-text</td>
+<td align="left">筛选数据为空时显示的提示内容</td>
+<td align="left">String</td>
+<td align="left">暂无筛选结果</td>
+</tr>
+<tr>
+<td align="left">draggable 3.3.0</td>
+<td align="left">是否开启拖拽调整行顺序，需配合 @on-drag-drop 事件使用</td>
+<td align="left">Boolean</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">tooltip-theme 3.3.0</td>
+<td align="left">列使用 tooltip 时，配置它的主题，可选值为 dark 或 light</td>
+<td align="left">String</td>
+<td align="left">dark</td>
+</tr>
+<tr>
+<td align="left">row-key 3.4.0</td>
+<td align="left">是否强制使用内置的 row-key，开启后可能会影响性能，4.1.0 支持 String</td>
+<td align="left">Boolean | String</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">span-method 4.0.0</td>
+<td align="left">合并行或列的计算方法</td>
+<td align="left">Function</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left">show-summary 4.0.0</td>
+<td align="left">是否在表尾显示合计行</td>
+<td align="left">Boolean</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">sum-text 4.0.0</td>
+<td align="left">合计行第一列的文本</td>
+<td align="left">String</td>
+<td align="left">合计</td>
+</tr>
+<tr>
+<td align="left">summary-method 4.0.0</td>
+<td align="left">自定义的合计计算方法</td>
+<td align="left">Function</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left">indent-size 4.1.0</td>
+<td align="left">树形数据缩进宽度，单位 px</td>
+<td align="left">Number</td>
+<td align="left">16</td>
+</tr>
+<tr>
+<td align="left">load-data 4.1.0</td>
+<td align="left">异步加载树形数据的方法，详见示例</td>
+<td align="left">Function</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left">context-menu 4.1.0</td>
+<td align="left">当前行点击右键是否会阻止默认行为</td>
+<td align="left">Boolean</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">show-context-menu 4.2.0</td>
+<td align="left">点击右键弹出菜单，需配合 slot <code>contextMenu</code> 一起使用，详见示例</td>
+<td align="left">Boolean</td>
+<td align="left">false</td>
+</tr>
+</tbody></table>
+]]></content>
+  </entry>
+  <entry>
+    <title>vue-cli的使用</title>
+    <url>/2020/06/01/Vue/vue-cli%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p><a href="https://juejin.im/post/5c73d879e51d454b4755603f" target="_blank" rel="noopener">参考链接</a></p>
+<h3 id="vue-cli基本命令"><a href="#vue-cli基本命令" class="headerlink" title="vue-cli基本命令"></a>vue-cli基本命令</h3><p><img src="https://user-gold-cdn.xitu.io/2019/2/25/169248590b2fbadc?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<h3 id="vue-config-js的配置"><a href="#vue-config-js的配置" class="headerlink" title="vue.config.js的配置"></a><a href="https://juejin.im/post/5c77d0b9e51d455fb110c394#comment" target="_blank" rel="noopener">vue.config.js的配置</a></h3>]]></content>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo添加字体图标</title>
     <url>/2020/05/27/%E5%8D%9A%E5%AE%A2/hexo%E6%B7%BB%E5%8A%A0%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87/</url>
     <content><![CDATA[<h2 id="Hexo添加字体图标"><a href="#Hexo添加字体图标" class="headerlink" title="Hexo添加字体图标"></a>Hexo添加字体图标</h2>]]></content>
@@ -91,6 +378,58 @@ console.log(boundGetX());
 <h3 id="React组件中共享state"><a href="#React组件中共享state" class="headerlink" title="React组件中共享state"></a>React组件中共享state</h3><blockquote>
 <p>在 React 中，将多个组件中需要共享的 state 向上移动到它们的最近共同父组件中，便可实现共享 state。这就是所谓的“==状态提升==”。接下来，我们将 <code>TemperatureInput</code> 组件中的 state 移动至 <code>Calculator</code> 组件中去。</p>
 </blockquote>
+<h3 id="React生命周期"><a href="#React生命周期" class="headerlink" title="React生命周期"></a>React生命周期</h3><pre><code class="jsx">import React from &#39;react&#39;
+import ReactDOM from &#39;react-dom&#39;
+
+// 组件的创建阶段(挂载阶段)
+// 1. constructor()
+//    (1) 提供初始化的数据, this.state={ ... }
+//    (2) 创建 ref  this.demoRef = React.createRef()   将来 ref={this.demoRef}
+//    (3) 处理this指向问题  this.handleClick = this.handleClick.bind(this)
+// 2. render()
+//    渲染UI, 但是在render中, 请不要调用 setState (死循环)
+// 3. componentDidMount()  dom更新了
+//    (1) 发送ajax请求
+//    (2) dom操作
+
+// 组件的更新阶段(组件重新渲染)
+// 1. render() 渲染更新UI视图
+// 2. componentDidUpdate() 更新完触发
+// 在这两个钩子中, 不要调用 setState (死循环)
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      msg: &#39;嘎嘎&#39;,
+    }
+    console.log(&#39;constructor&#39;)
+  }
+  render() {
+    console.log(&#39;render&#39;)
+    return (
+      &lt;div&gt;
+        &lt;h1&gt;我是app组件&lt;/h1&gt;
+      &lt;/div&gt;
+    )
+  }
+  componentDidMount() {
+    console.log(&#39;componentDidMount&#39;)
+  }
+  componentDidUpdate() {
+    console.log(&#39;componentDidUpdate&#39;)
+  }
+}
+
+ReactDOM.render(&lt;App&gt;&lt;/App&gt;, document.getElementById(&#39;root&#39;))</code></pre>
+<h2 id="Router路由"><a href="#Router路由" class="headerlink" title="Router路由"></a>Router路由</h2><p>Router包裹</p>
+<p><code>&lt;Link&gt;</code>和<code>&lt;NavLink&gt;</code>是用来包裹显示的跳转链接的</p>
+<p><code>&lt;Route&gt;</code>是用来包裹点击跳转链接后要显示的内容</p>
+<pre><code class="jsx">&lt;Route exact path=&quot;/home&quot; component={Home} /&gt;
+
+// 等效于 
+&lt;Route exact path=&quot;/home&quot;&gt;
+     &lt;Detail&gt;
+&lt;/Route&gt;</code></pre>
 ]]></content>
       <tags>
         <tag>React</tag>
@@ -233,7 +572,7 @@ For complete documentation, run: info coreutils &#39;ln invocation&#39;
   </entry>
   <entry>
     <title>es6之Promise对象的学习</title>
-    <url>/2020/04/12/Javascript/es6%E4%B9%8BPromise%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0/</url>
+    <url>/2020/04/12/JavaScript/es6%E4%B9%8BPromise%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<p><strong>一般总是建议，Promise 对象后面要跟<code>catch()</code>方法，这样可以处理 Promise 内部发生的错误。`c</strong>atch()<code>方法返回的还是一个 Promise 对象，因此后面还可以接着调用</code>then()`方法。</p>
 <pre><code class="js">const someAsyncThing = function() {
   return new Promise(function(resolve, reject) {
@@ -401,7 +740,7 @@ Beautifier Options:
   <entry>
     <title>vuejs的学习</title>
     <url>/2020/04/03/Vue/vuejs%E5%88%9D%E6%8E%A5%E8%A7%A6/</url>
-    <content><![CDATA[<h3 id="script引入"><a href="#script引入" class="headerlink" title="script引入"></a>script引入</h3><pre><code class="html">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&gt;&lt;/script&gt;</code></pre>
+    <content><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="script引入"><a href="#script引入" class="headerlink" title="script引入"></a>script引入</h3><pre><code class="html">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&gt;&lt;/script&gt;</code></pre>
 <p><strong>BootCdn</strong></p>
 <pre><code class="html">&lt;script src=&quot;https://cdn.bootcss.com/vue/2.6.11/vue.js&quot;&gt;&lt;/script&gt;</code></pre>
 <h3 id="vue-js有什么用，是用来做什么的（整理）"><a href="#vue-js有什么用，是用来做什么的（整理）" class="headerlink" title="vue.js有什么用，是用来做什么的（整理）"></a><a href="https://www.cnblogs.com/Renyi-Fan/p/9419742.html#_label6" target="_blank" rel="noopener">vue.js有什么用，是用来做什么的（整理）</a></h3><a id="more"></a>
@@ -440,6 +779,21 @@ Beautifier Options:
 <p>父传子通信</p>
 <pre><code class="vue">&lt;hm-input placeholder=&quot;默认&quot;&gt;&lt;/hm-input&gt;</code></pre>
 <p>placeholder属性传递到hm-input.vue子组件中的props中</p>
+<h2 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a><a href="https://cn.vuejs.org/v2/guide/filters.html#ad" target="_blank" rel="noopener">过滤器</a></h2><pre><code class="html">&lt;!-- 在双花括号中 --&gt;
+{{ message | capitalize }}
+
+&lt;!-- 在 `v-bind` 中 --&gt;
+&lt;div v-bind:id=&quot;rawId | formatId&quot;&gt;&lt;/div&gt;</code></pre>
+<h2 id="Vue组件"><a href="#Vue组件" class="headerlink" title="Vue组件"></a>Vue组件</h2><p>一个组件的<code>data</code>必须是一个函数,因此每个实例可以维护一份被返回对象的独立的拷贝：</p>
+<pre><code class="js">data: function () {
+  return {
+    count: 0
+  }
+}</code></pre>
+<h2 id="Vue-Router"><a href="#Vue-Router" class="headerlink" title="Vue-Router"></a><a href="https://router.vuejs.org/zh/" target="_blank" rel="noopener">Vue-Router</a></h2><h3 id="路由模式"><a href="#路由模式" class="headerlink" title="路由模式"></a>路由模式</h3><p>hash模式和history模式</p>
+<p>vue-router默认hash模式,url会带有”#”标识符,如果想要去除#标识,启用history模式.</p>
+<p>注意:当启用history模式 时,地址栏不可带有/#/,否则会访问出错</p>
+<p><a href="https://juejin.im/post/5cde4404f265da1b971a42c8" target="_blank" rel="noopener"><strong>hash模式和history模式的不同</strong></a></p>
 ]]></content>
       <tags>
         <tag>JavaScript</tag>
@@ -1044,6 +1398,48 @@ Options:
 <li>空行</li>
 <li>请求数据</li>
 </ul>
+<h2 id="B-S架构和C-S架构"><a href="#B-S架构和C-S架构" class="headerlink" title="B/S架构和C/S架构"></a>B/S架构和C/S架构</h2><p><a href="https://blog.csdn.net/tennysonsky/article/details/45062079" target="_blank" rel="noopener">参考链接</a></p>
+<ul>
+<li>B/S    客户端/服务器模式</li>
+<li>C/S    浏览器/服务器模式</li>
+</ul>
+<h3 id="C-S架构"><a href="#C-S架构" class="headerlink" title="C/S架构"></a>C/S架构</h3><p><img src="https://img-blog.csdn.net/20150415173118535" alt="img"></p>
+<p><img src="https://img-blog.csdn.net/20150415191106683" alt="img"></p>
+<h3 id="B-S架构"><a href="#B-S架构" class="headerlink" title="B/S架构"></a>B/S架构</h3><p><img src="http%E4%BB%8B%E7%BB%8D.assets/image-20200604192512821.png" alt="image-20200604192512821"></p>
+<h2 id="HTTP请求"><a href="#HTTP请求" class="headerlink" title="HTTP请求"></a>HTTP请求</h2><p><strong><a href="https://zhuanlan.zhihu.com/p/38240894" target="_blank" rel="noopener">一次完整的HTTP请求过程</a></strong></p>
+<img src="https://pic1.zhimg.com/80/v2-4a9996d1f96058dc50a49caa8ddb5b90_720w.jpg" alt="Http请求全过程" style="zoom:125%;" />
+
+
+
+<p><strong><a href="">访问一个网页的全过程</a></strong></p>
+<img src="https://img-blog.csdn.net/20180929162504523?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaWJvMTIzMDEyMw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img" style="zoom:125%;" />
+
+<ul>
+<li><p>DNS解析</p>
+</li>
+<li><p>发送TCP请求(三次握手)</p>
+<ul>
+<li>浏览器会选择一个大于1024的本机端口向目标IP地址的80端口发起TCP连接请求。经过标准的TCP握手流程，建立TCP连接。</li>
+</ul>
+</li>
+<li><p>负载均衡</p>
+<ul>
+<li><p>什么叫负载均衡?</p>
+<ul>
+<li><p>当一台服务器无法支持大量的用户访问时，将用户分摊到两个或多个服务器上的方法叫负载均衡。</p>
+</li>
+<li><p>Nginx</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>浏览器渲染</p>
+</li>
+<li><p>网页静态资源加载(CDN)</p>
+<p>CDN加速- 内容分发网络.依靠部署在各地的服务器,使用户就近获取所需内容，降低网络拥塞，提高用户访问响应速度。</p>
+</li>
+</ul>
 ]]></content>
       <tags>
         <tag>http</tag>
@@ -1132,7 +1528,7 @@ layout: page</code></pre><h4 id="3-修改themes-next-config-yml"><a href="#3-修
   </entry>
   <entry>
     <title>JavaScript深入学习</title>
-    <url>/2020/02/24/Javascript/js%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0/</url>
+    <url>/2020/02/24/JavaScript/js%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<h2 id="变量对象"><a href="#变量对象" class="headerlink" title="变量对象"></a><a href="https://github.com/mqyqingfeng/Blog/issues/5" target="_blank" rel="noopener">变量对象</a></h2><p>当 JavaScript 代码执行一段可执行代码(executable code)时，会创建对应的执行上下文(execution context)。</p>
 <p>对于每个执行上下文，都有三个重要属性：</p>
 <ul>
@@ -1151,7 +1547,7 @@ layout: page</code></pre><h4 id="3-修改themes-next-config-yml"><a href="#3-修
   </entry>
   <entry>
     <title>JavaScript原型及原型链的学习</title>
-    <url>/2020/02/22/Javascript/js%E5%8E%9F%E5%9E%8B%E7%9A%84%E5%AD%A6%E4%B9%A0/</url>
+    <url>/2020/02/22/JavaScript/js%E5%8E%9F%E5%9E%8B%E7%9A%84%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<h2 id="JavaScript原型-prototype"><a href="#JavaScript原型-prototype" class="headerlink" title="JavaScript原型 prototype"></a>JavaScript原型 prototype</h2><p>阮一峰老师的<a href="http://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html" target="_blank" rel="noopener">《undefined与null的区别》</a>:</p>
 <blockquote>
 <p>null表示”没有对象”,即此处不应该有值.</p>
@@ -1427,7 +1823,7 @@ drwxrwxrw-  7 root root 4.0K Jan 31 17:13 wwwroot</code></pre>
   </entry>
   <entry>
     <title>javascript:void(0)和javascript:;的用法</title>
-    <url>/2020/02/11/Javascript/javascriptvoid(0)%E5%92%8Cjavascript;%E7%9A%84%E7%94%A8%E6%B3%95/</url>
+    <url>/2020/02/11/JavaScript/javascriptvoid(0)%E5%92%8Cjavascript;%E7%9A%84%E7%94%A8%E6%B3%95/</url>
     <content><![CDATA[<p><a href="https://www.cnblogs.com/Qian123/p/5345697.html" target="_blank" rel="noopener"><h3>参考链接</h3></a></p>
 <h2 id="javascript-void-0"><a href="#javascript-void-0" class="headerlink" title="javascript:void(0)"></a>javascript:void(0)</h2><p>我们经常会使用到 javascript:void(0) 这样的代码，那么在 JavaScript 中 javascript:void(0) 代表的是什么意思呢？</p>
 <p>void 是 JavaScript 中非常重要的关键字，该操作符指定要计算一个表达式但是不返回值。</p>
@@ -1459,7 +1855,7 @@ drwxrwxrw-  7 root root 4.0K Jan 31 17:13 wwwroot</code></pre>
   </entry>
   <entry>
     <title>js事件委托</title>
-    <url>/2020/02/08/Javascript/%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/</url>
+    <url>/2020/02/08/JavaScript/%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/</url>
     <content><![CDATA[<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>事件委托，通俗地来讲，就是把一个元素响应事件（click、keydown……）的函数委托到另一个元素；</p>
 <p>一般来讲，会把一个或者一组元素的事件委托到它的父层或者更外层元素上，真正绑定事件的是外层元素，当事件响应到需要绑定的元素上时，会通过<strong>事件冒泡机制</strong>从而触发它的外层元素的绑定事件上，然后在外层元素上去执行函数。</p>
 <p><img src="https://i.loli.net/2020/02/10/Pjci6mMzJOsFV7a.png" alt=""></p>
@@ -1589,13 +1985,14 @@ ps:一定要用cmd命令行，千万别用powershell !!!
 git clone https://github.com/siwadiya/Photo_Show.git 
 #ssh
 git clone git@github.com:siwadiya/Photo_Show.git</code></pre>
-<h2 id="HTTPS全局代理"><a href="#HTTPS全局代理" class="headerlink" title="HTTPS全局代理"></a>HTTPS全局代理</h2><p>目前来看，设置代理后加速最明显的是 <code>HTTPS</code>， 为其设置代理的方式如下</p>
+<h3 id="HTTPS全局代理"><a href="#HTTPS全局代理" class="headerlink" title="HTTPS全局代理"></a>HTTPS全局代理</h3><p>目前来看，设置代理后加速最明显的是 <code>HTTPS</code>， 为其设置代理的方式如下</p>
 <p>打开 <code>git bash</code>，然后输入</p>
 <pre><code class="bash">git config --global http.proxy &quot;http://127.0.0.1:7890&quot;
 git config --global https.proxy &quot;https://127.0.0.1:7890&quot;</code></pre>
 <p>这样设置之后，<code>git clone https://github.com/username/repo.git</code> 的速度基本能跑满带宽</p>
 <p>但是，这种方式并不适用于 <code>git clone git@github.com:username/repo.git</code> (ssh方式通信)</p>
-<h2 id="npm和yarn的源-代理设置"><a href="#npm和yarn的源-代理设置" class="headerlink" title="npm和yarn的源,代理设置"></a><a href="https://www.51noip.cn/2018/02/01/npm-yarn-proxy/" target="_blank" rel="noopener">npm和yarn的源,代理设置</a></h2>]]></content>
+<h3 id="SSH代理"><a href="#SSH代理" class="headerlink" title="SSH代理"></a><a href="https://upupming.site/2019/05/09/git-ssh-socks-proxy/" target="_blank" rel="noopener">SSH代理</a></h3><p>在<code>~/.ssh/config</code>文件中添加以下</p>
+<pre><code>  ProxyCommand connect -S 127.0.0.1:7891 %h %p</code></pre><h2 id="npm和yarn的源-代理设置"><a href="#npm和yarn的源-代理设置" class="headerlink" title="npm和yarn的源,代理设置"></a><a href="https://www.51noip.cn/2018/02/01/npm-yarn-proxy/" target="_blank" rel="noopener">npm和yarn的源,代理设置</a></h2>]]></content>
       <tags>
         <tag>git</tag>
         <tag>cmd</tag>
@@ -1819,13 +2216,13 @@ $ git remote -v
       </tags>
   </entry>
   <entry>
-    <title>Javascript/Http Status状态码</title>
-    <url>/2020/01/20/Javascript/Http%20Status%E7%8A%B6%E6%80%81%E7%A0%81/</url>
+    <title>JavaScript/Http Status状态码</title>
+    <url>/2020/01/20/JavaScript/Http%20Status%E7%8A%B6%E6%80%81%E7%A0%81/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>AJAX学习</title>
-    <url>/2020/01/20/Javascript/AJAX%E5%AD%A6%E4%B9%A0/</url>
+    <url>/2020/01/20/JavaScript/AJAX%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<p>AJAX即 “Asynchronous Javascript And XML “（异步JavaScript和XML）</p>
 <p>AJAX 是一种用于创建快速动态网页的技术。</p>
 <p>Ajax 的核心是 JavaScript 对象 XMLHttpRequest。</p>
@@ -1972,7 +2369,7 @@ xhr.onreadystatechange = function() {
   </entry>
   <entry>
     <title>Json的表示及序列化和反序列化</title>
-    <url>/2020/01/19/Javascript/Json/</url>
+    <url>/2020/01/19/JavaScript/Json/</url>
     <content><![CDATA[<h3 id="Json-JavaScript对象表示法"><a href="#Json-JavaScript对象表示法" class="headerlink" title="Json(JavaScript对象表示法)"></a>Json(JavaScript对象表示法)</h3><p>json的语法可以表示三种类型的值:</p>
 <ul>
 <li>简单值</li>
@@ -2023,7 +2420,7 @@ console.log(adress1.address);
   </entry>
   <entry>
     <title>js事件</title>
-    <url>/2020/01/19/Javascript/js%E4%BA%8B%E4%BB%B6/</url>
+    <url>/2020/01/19/JavaScript/js%E4%BA%8B%E4%BB%B6/</url>
     <content><![CDATA[<h3 id="HTML-DOM事件"><a href="#HTML-DOM事件" class="headerlink" title="HTML DOM事件"></a>HTML DOM事件</h3><p>json的语法可以表示三种类型的值:</p>
 <ul>
 <li>简单值</li>
@@ -2067,7 +2464,7 @@ console.log(adress1.address);
   </entry>
   <entry>
     <title>DOM</title>
-    <url>/2020/01/16/Javascript/DOM/</url>
+    <url>/2020/01/16/JavaScript/DOM/</url>
     <content><![CDATA[<table>
 <thead>
 <tr>
@@ -2288,7 +2685,7 @@ console.log(adress1.address);
   </entry>
   <entry>
     <title>javascript函数</title>
-    <url>/2020/01/08/Javascript/javascript%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95/</url>
+    <url>/2020/01/08/JavaScript/javascript%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<h2 id="js"><a href="#js" class="headerlink" title="js"></a>js</h2><h3 id="js不换行输出"><a href="#js不换行输出" class="headerlink" title="js不换行输出"></a><a href="https://blog.csdn.net/hsj1669666567/article/details/83240102" target="_blank" rel="noopener">js不换行输出</a></h3><pre><code class="js">process.stdout.write();</code></pre>
 <a id="more"></a>
 
@@ -2318,7 +2715,7 @@ console.log(adress1.address);
   </entry>
   <entry>
     <title>javascript笔记</title>
-    <url>/2020/01/06/Javascript/javascript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <url>/2020/01/06/JavaScript/javascript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h3 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h3><h4 id="相等操作符"><a href="#相等操作符" class="headerlink" title="相等操作符"></a>相等操作符</h4><h5 id="1-相等和不相等"><a href="#1-相等和不相等" class="headerlink" title="1. 相等和不相等(==)"></a>1. 相等和不相等(==)</h5><a id="more"></a>
 
 <h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><h4 id="函数签名"><a href="#函数签名" class="headerlink" title="函数签名"></a>函数签名</h4><p> <strong>函数签名</strong>（或者<em>类型</em>签名，抑或<em>方法</em>签名）定义了 <a href="https://developer.mozilla.org/en-US/docs/Glossary/Function" target="_blank" rel="noopener">函数</a>或<a href="https://developer.mozilla.org/en-US/docs/Glossary/Method" target="_blank" rel="noopener">方法</a>的输入与输出。 </p>
@@ -2346,7 +2743,7 @@ doAdd(1);
   </entry>
   <entry>
     <title>vscode之prettier插件配置</title>
-    <url>/2020/01/05/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E7%BD%AE/Prettierr%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE/</url>
+    <url>/2020/01/05/Vscode/Prettierr%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<h2 id="针对不同语言配置"><a href="#针对不同语言配置" class="headerlink" title="针对不同语言配置"></a>针对不同语言配置</h2><p><strong>vscode使用prettier进行格式化的小伙伴一定会有这样的需求:</strong></p>
 <p>对不同语言缩进不同的空格数</p>
 <p>比如说html缩进4格,而css只想缩进2格</p>
@@ -2408,7 +2805,7 @@ prettier.endOfLine
 prettier.htmlWhitespaceSensitivity
 prettier.insertPragma
 prettier.jsxBracketSameLine    //在jsx中把&#39;&gt;&#39; 是否单独放一行
-prettier.jsxSingleQuote
+prettier.jsxSingleQuote    //jsx中使用单引号
 prettier.printWidth
 prettier.proseWrap
 prettier.quoteProps
@@ -2818,7 +3215,7 @@ patch:
     <url>/2019/12/15/%E5%8D%9A%E5%AE%A2/next%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE/</url>
     <content><![CDATA[<a id="more"></a>
 
-<h2 id="Next主题个性化设置"><a href="#Next主题个性化设置" class="headerlink" title="Next主题个性化设置"></a>Next主题个性化设置</h2><pre><code class="sh">git clone https://github.com/theme-next/hexo-theme-next themes/next</code></pre>
+<h2 id="Next相关配置"><a href="#Next相关配置" class="headerlink" title="Next相关配置"></a><a href="https://io-oi.me/tech/hexo-next-optimization/" target="_blank" rel="noopener">Next相关配置</a></h2><h2 id="Next主题个性化设置"><a href="#Next主题个性化设置" class="headerlink" title="Next主题个性化设置"></a>Next主题个性化设置</h2><pre><code class="sh">git clone https://github.com/theme-next/hexo-theme-next themes/next</code></pre>
 <h3 id="Next安装后修改站点语言的问题"><a href="#Next安装后修改站点语言的问题" class="headerlink" title="Next安装后修改站点语言的问题"></a>Next安装后修改站点语言的问题</h3><blockquote>
 <p>在安装后站点根目录配置文件/_config.yml中language属性是 zh-Hans，但是站点语言并不是中文？</p>
 </blockquote>

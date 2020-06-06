@@ -212,6 +212,17 @@
       </svg>csdn</a>
 
   </li>
+        <li class="menu-item menu-item-segmentfault">
+    
+      
+      
+
+    <a href="https://segmentfault.com/user/bookmarks" rel="noopener" target="_blank">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-iconsf-copy"></use>
+      </svg>segmentfault</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
     
       
@@ -296,6 +307,660 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/05/22/Android/adb%E5%BC%80%E5%90%AF%E6%97%A0%E9%9A%9C%E7%A2%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="siwadiya">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="風之萬里">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/22/Android/adb%E5%BC%80%E5%90%AF%E6%97%A0%E9%9A%9C%E7%A2%8D/" class="post-title-link" itemprop="url">adb开启无障碍</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-22 13:34:00" itemprop="dateCreated datePublished" datetime="2020-05-22T13:34:00+08:00">2020-05-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-23 17:07:07" itemprop="dateModified" datetime="2020-05-23T17:07:07+08:00">2020-05-23</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="获取已开启无障碍列表"><a href="#获取已开启无障碍列表" class="headerlink" title="获取已开启无障碍列表"></a>获取已开启无障碍列表</h3><pre><code class="bash">adb shell settings get secure enabled_accessibility_services</code></pre>
+<h3 id="通过adb开启无障碍"><a href="#通过adb开启无障碍" class="headerlink" title="通过adb开启无障碍"></a>通过adb开启无障碍</h3><blockquote>
+<p>起因是因为在我的S9+上开启autojs的无障碍时会卡死</p>
+<p>于是想到了通过adb shell  来开启无障碍</p>
+</blockquote>
+<p>命令</p>
+<pre><code class="bash">adb shell settings put secure enabled_accessibility_services org.autojs.autojs/org.autojs.autojs.accessibility.AccessibilityService</code></pre>
+<p>其中enabled_accessibility_services 是开启无障碍功能的程序列表。org.autojs.autojs是包名,org.autojs.autojs.accessibility.AccessibilityService是对应的服务名</p>
+<p>enabled_accessibility_services列表</p>
+<pre><code class="bash"># autojs
+org.autojs.autojs/org.autojs.autojs.accessibility.AccessibilityService
+# 开发者助手
+com.toshiba_dealin.developerhelper/com.toshiba_dealin.developerhelper.service.DHAccessibilityService</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/05/20/Http/Fiddler%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="siwadiya">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="風之萬里">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/20/Http/Fiddler%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Fiddler抓包</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-05-20 15:46:29 / 修改时间：16:28:20" itemprop="dateCreated datePublished" datetime="2020-05-20T15:46:29+08:00">2020-05-20</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="远程抓包手机时出现的安全证书问题"><a href="#远程抓包手机时出现的安全证书问题" class="headerlink" title="远程抓包手机时出现的安全证书问题"></a>远程抓包手机时出现的安全证书问题</h3><p><a href="https://blog.csdn.net/yu1014745867/article/details/79108495" target="_blank" rel="noopener">在手机上安装证书</a></p>
+<ol>
+<li>fiddler设置手机代理</li>
+<li>手机输出电脑IP:8888,下载安装证书</li>
+</ol>
+<p><a href="http://www.51ste.com/ask/answer-183.html" target="_blank" rel="noopener"><strong>左下角的capturing有什么用</strong></a></p>
+<p>Fiddler 左下角的“Capturing”。其实是File &gt; Capture Traffic的快捷键，可以控制是否把 Fiddler 注册为PC系统代理。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/05/17/React/React%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="siwadiya">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="風之萬里">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/17/React/React%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">React学习</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-17 11:27:46" itemprop="dateCreated datePublished" datetime="2020-05-17T11:27:46+08:00">2020-05-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-05 21:41:23" itemprop="dateModified" datetime="2020-06-05T21:41:23+08:00">2020-06-05</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><ul>
+<li>创建React元素</li>
+</ul>
+<pre><code class="js">// 1. 创建React元素
+// 参数1：创建的元素名
+// 参数2：元素的属性，如果没有，可以为null
+// 参数3：元素的子节点或内容
+// ...
+// 返回值：React元素
+const title = React.createElement(&#39;h1&#39;, null, &#39;Hello React&#39;)</code></pre>
+<ul>
+<li>渲染React元素</li>
+</ul>
+<pre><code class="js">// 参数1：要渲染的react元素
+// 参数2：挂载点，需要将react元素渲染到哪儿
+ReactDOM.render(title, document.getElementById(&#39;root&#39;))</code></pre>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/17/React/React%E5%AD%A6%E4%B9%A0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/05/12/Linux/tar%E8%A7%A3%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="siwadiya">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="風之萬里">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/12/Linux/tar%E8%A7%A3%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">linux解压缩命令</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-12 15:45:25" itemprop="dateCreated datePublished" datetime="2020-05-12T15:45:25+08:00">2020-05-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-27 15:08:17" itemprop="dateModified" datetime="2020-05-27T15:08:17+08:00">2020-05-27</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Linux下的解压命令小结"><a href="#Linux下的解压命令小结" class="headerlink" title="Linux下的解压命令小结"></a><a href="https://www.cnblogs.com/cursorhu/p/5891699.html" target="_blank" rel="noopener">Linux下的解压命令小结</a></h2><p><a href="https://www.cnblogs.com/cursorhu/p/5891699.html" target="_blank" rel="noopener">https://www.cnblogs.com/cursorhu/p/5891699.html</a></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/12/Linux/tar%E8%A7%A3%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/04/23/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E8%85%BE%E8%AE%AF%E4%BA%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="siwadiya">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="風之萬里">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/23/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E8%85%BE%E8%AE%AF%E4%BA%91/" class="post-title-link" itemprop="url">腾讯云</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-04-23 12:26:13 / 修改时间：13:42:50" itemprop="dateCreated datePublished" datetime="2020-04-23T12:26:13+08:00">2020-04-23</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="腾讯云"><a href="#腾讯云" class="headerlink" title="腾讯云"></a>腾讯云</h2><p><a href="https://cloud.tencent.com/act/vouchers/list" target="_blank" rel="noopener">腾讯云代金券</a></p>
+<p><a href="https://cloud.tencent.com/act" target="_blank" rel="noopener">腾讯云最新活动</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/04/16/%E6%90%9E%E6%9C%BA%E6%8A%98%E8%85%BE/rclone%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="siwadiya">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="風之萬里">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/16/%E6%90%9E%E6%9C%BA%E6%8A%98%E8%85%BE/rclone%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">rclone使用</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-16 19:04:21" itemprop="dateCreated datePublished" datetime="2020-04-16T19:04:21+08:00">2020-04-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-17 22:51:22" itemprop="dateModified" datetime="2020-04-17T22:51:22+08:00">2020-04-17</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="官方配置文档"><a href="#官方配置文档" class="headerlink" title="官方配置文档"></a><a href="https://rclone.org/commands/rclone_config/" target="_blank" rel="noopener">官方配置文档</a></h3><p><a href="https://softlns.github.io/2016/11/28/rclone-guide/" target="_blank" rel="noopener">参考文档</a></p>
+<p><a href="https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html" target="_blank" rel="noopener">挂载onedrive参考文档</a></p>
+<h3 id="挂载onedrive"><a href="#挂载onedrive" class="headerlink" title="挂载onedrive"></a>挂载onedrive</h3><pre><code class="bash">rclone mount myonedrive:/ o: --cache-dir D:\OneDriveTemp --allow-other --vfs-cache-mode writes --allow-non-empty &amp;</code></pre>
+<p>这样会有个cmd框一直在后台运行.不是很方便</p>
+<p>新建一个Start.vbs文件</p>
+<pre><code class="vbscript">CreateObject(&quot;WScript.Shell&quot;).Run &quot;rclone mount myonedrive:/ o: --cache-dir D:\OneDriveTemp --allow-other --vfs-cache-mode writes --allow-non-empty&quot;,0</code></pre>
+<p>即可后台运行</p>
+<hr>
+<h3 id="VBscript"><a href="#VBscript" class="headerlink" title="VBscript"></a>VBscript</h3><p><strong>WScript.Shell对象的 run 和 exec 函数功能使用详解</strong></p>
+<pre><code class="vbscript">Set Ws = CreateObject(&quot;Wscript.Shell&quot;)
+Function Exec(ByVal Command As String) As WshExec
+Function Run(ByVal Command As String, [ByVal WindowStyle], [ByVal WaitOnReturn]) As Integer</code></pre>
+<p>2.执行参数<br>  Run 的后两个参数，一个是 cmd 窗口的风格，一个是是否等待执行完成。</p>
+<p>第二个参数是窗口的形式，0是在后台运行；1表示正常运行；2表示激活程序并且显示为最小化；3表示激活程序并且显示为最大化；一共有10个这样的参数如下表。</p>
+<p>第三个参数是表示这个脚本是等待还是继续执行，如果设为了 true，脚本就会等待调用的程序退出后再向后执行。</p>
+<pre><code class="vbscript">&#39;创建一个对象引用&#39;
+Set Ws = CreateObject(&quot;Wscript.Shell&quot;)
+Ws.Run(&quot;strCommand&quot;,0,true)</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/04/16/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E7%BD%AE/AutoHotKey%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="siwadiya">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="風之萬里">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/16/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E7%BD%AE/AutoHotKey%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">autohotky使用</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-04-16 15:20:46 / 修改时间：16:21:20" itemprop="dateCreated datePublished" datetime="2020-04-16T15:20:46+08:00">2020-04-16</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="https://wyagd001.github.io/zh-cn/docs/AutoHotkey.htm" target="_blank" rel="noopener">官方文档</a></p>
+<p><strong>常用热键</strong></p>
+<blockquote>
+<p><strong>#</strong> 号代表 <strong><em>Win\</em></strong> 键；<br><strong>!</strong> 号代表 <strong><em>Alt\</em></strong> 键；<br><strong>^</strong> 号代表 <strong><em>Ctrl\</em></strong> 键；<br><strong>+</strong> 号代表 <strong><em>shift\</em></strong> 键；<br><strong>::</strong> 号(两个英文冒号)起分隔作用；<br><strong>run</strong>，非常常用 的 AHK 命令之一;<br><strong>;</strong> 号代表 注释后面一行内容；</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/04/14/Linux/ln%E5%91%BD%E4%BB%A4-linux%E7%94%9F%E6%88%90%E8%BD%AF%E9%93%BE%E6%8E%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="siwadiya">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="風之萬里">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/14/Linux/ln%E5%91%BD%E4%BB%A4-linux%E7%94%9F%E6%88%90%E8%BD%AF%E9%93%BE%E6%8E%A5/" class="post-title-link" itemprop="url">ln命令</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-14 14:38:55" itemprop="dateCreated datePublished" datetime="2020-04-14T14:38:55+08:00">2020-04-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-27 15:09:04" itemprop="dateModified" datetime="2020-05-27T15:09:04+08:00">2020-05-27</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          ln命令
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/14/Linux/ln%E5%91%BD%E4%BB%A4-linux%E7%94%9F%E6%88%90%E8%BD%AF%E9%93%BE%E6%8E%A5/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/04/12/JavaScript/es6%E4%B9%8BPromise%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="siwadiya">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="風之萬里">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/12/JavaScript/es6%E4%B9%8BPromise%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">es6之Promise对象的学习</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-04-12 22:33:12 / 修改时间：22:35:05" itemprop="dateCreated datePublished" datetime="2020-04-12T22:33:12+08:00">2020-04-12</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>一般总是建议，Promise 对象后面要跟<code>catch()</code>方法，这样可以处理 Promise 内部发生的错误。`c</strong>atch()<code>方法返回的还是一个 Promise 对象，因此后面还可以接着调用</code>then()`方法。</p>
+<pre><code class="js">const someAsyncThing = function() {
+  return new Promise(function(resolve, reject) {
+    // 下面一行会报错，因为x没有声明
+    resolve(x + 2);
+  });
+};
+
+someAsyncThing()
+.catch(function(error) {
+  console.log(&#39;oh no&#39;, error);
+})
+.then(function() {
+  console.log(&#39;carry on&#39;);
+});
+// oh no [ReferenceError: x is not defined]
+// carry on</code></pre>
+<p>上面代码运行完<code>catch()</code>方法指定的回调函数，会接着运行后面那个<code>then()</code>方法指定的回调函数。如果没有报错，则会跳过<code>catch()</code>方法。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/04/10/Linux/centos%E5%AE%89%E8%A3%85nodejs%E7%9A%84%E5%9D%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -356,710 +1021,11 @@ npm --version</code></pre>
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/04/10/nodejs/json-server/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="siwadiya">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="風之萬里">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/10/nodejs/json-server/" class="post-title-link" itemprop="url">json-server</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-04-10 16:03:32 / 修改时间：16:05:06" itemprop="dateCreated datePublished" datetime="2020-04-10T16:03:32+08:00">2020-04-10</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="请求方式"><a href="#请求方式" class="headerlink" title="请求方式"></a>请求方式</h3><ul>
-<li>get    查询</li>
-<li>post   添加</li>
-<li>delete   删除</li>
-<li>put    全量修改</li>
-<li>patch    局部修改</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/04/08/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E7%BD%AE/zsh%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="siwadiya">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="風之萬里">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/08/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E7%BD%AE/zsh%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">zsh终端配置</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-04-08 19:50:55" itemprop="dateCreated datePublished" datetime="2020-04-08T19:50:55+08:00">2020-04-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-14 15:02:31" itemprop="dateModified" datetime="2020-04-14T15:02:31+08:00">2020-04-14</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="https://github.com/ohmyzsh/ohmyzsh" target="_blank" rel="noopener">oh-my-zsh官网</a></p>
-<h3 id="安装zsh"><a href="#安装zsh" class="headerlink" title="安装zsh"></a><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH" target="_blank" rel="noopener">安装zsh</a></h3><p>centos</p>
-<pre><code class="bash">yum install zsh    #安装zsh
-
-chsh -s $(which zsh)    #使其成为默认shell</code></pre>
-<h3 id="安装oh-my-zsh"><a href="#安装oh-my-zsh" class="headerlink" title="安装oh-my-zsh"></a>安装oh-my-zsh</h3><pre><code class="bash">$ sh -c &quot;$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)&quot;</code></pre>
-<h3 id="插件配置"><a href="#插件配置" class="headerlink" title="插件配置"></a>插件配置</h3><h4 id="autojump自动跳转插件"><a href="#autojump自动跳转插件" class="headerlink" title="autojump自动跳转插件"></a><a href="https://github.com/wting/autojump" target="_blank" rel="noopener">autojump</a>自动跳转插件</h4><pre><code class="bash"># clone 到本地
-git clone git://github.com/wting/autojump.git
-# 进入clone目录，接着执行安装文件
-cd autojump
-./install.py
-# 接着根据安装完成后的提示，在~/.zshrc最后添加下面语句：
-vim ~/.zshrc    
-[[ -s /home/cheng/.autojump/etc/profile.d/autojump.sh ]] &amp;&amp; source /home/cheng/
-.autojump/etc/profile.d/autojump.sh</code></pre>
-<p>安装后启用插件</p>
-<pre><code class="bash"># 编辑~/.zshrc   
-vim ~/.zshrc    
-# 在plugins后括号里添加安装的插件名字
-plugins=(
-  git 
-  autojump 
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-)
-# 最后刷新
-source ~/.zshrc    </code></pre>
-<h4 id="zsh-autosuggestions"><a href="#zsh-autosuggestions" class="headerlink" title="zsh-autosuggestions"></a><a href="">zsh-autosuggestions</a></h4><ol>
-<li>安装到<code>$ZSH_CUSTOM/plugins</code>（默认情况下<code>~/.oh-my-zsh/custom/plugins</code>）</li>
-</ol>
-<pre><code class="bash">git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions</code></pre>
-<p>2.将插件添加到插件列表中，以供Oh My Zsh加载（在内部<code>~/.zshrc</code>）：</p>
-<pre><code class="bash">plugins=(zsh-autosuggestions)</code></pre>
-<h4 id="语法高亮插件-zsh-syntax-highlighting"><a href="#语法高亮插件-zsh-syntax-highlighting" class="headerlink" title="语法高亮插件 zsh-syntax-highlighting"></a><a href="https://github.com/zsh-users/zsh-syntax-highlighting" target="_blank" rel="noopener">语法高亮插件 zsh-syntax-highlighting</a></h4><p>请注意，<code>zsh-syntax-highlighting</code>该插件必须是最后一个来源。</p>
-<ol>
-<li><p>将此存储库克隆到oh-my-zsh的plugins目录中：</p>
-<pre><code class="bash">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting</code></pre>
-</li>
-<li><p>在中激活插件<code>~/.zshrc</code>：</p>
-<pre><code class="bash">plugins=( [plugins...] zsh-syntax-highlighting)</code></pre>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/04/08/jQuery/jQuery.ajax/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="siwadiya">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="風之萬里">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/08/jQuery/jQuery.ajax/" class="post-title-link" itemprop="url">jQuery ajax</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-04-08 12:10:33 / 修改时间：16:17:50" itemprop="dateCreated datePublished" datetime="2020-04-08T12:10:33+08:00">2020-04-08</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="ajax-方法"><a href="#ajax-方法" class="headerlink" title="$.ajax()方法"></a>$.ajax()方法</h3><p><img src="https://minimax-1256590847.cos.ap-shanghai.myqcloud.com/img/image-20200408121337537.png" alt="image-20200408121337537"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/04/07/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E7%BD%AE/js-beautify%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="siwadiya">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="風之萬里">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/07/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E7%BD%AE/js-beautify%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">vscode之js-beautify插件配置</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-04-07 14:23:21 / 修改时间：15:21:45" itemprop="dateCreated datePublished" datetime="2020-04-07T14:23:21+08:00">2020-04-07</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="js-beautify插件配置"><a href="#js-beautify插件配置" class="headerlink" title="js-beautify插件配置"></a>js-beautify插件配置</h2><p><a href="https://github.com/beautify-web/js-beautify" target="_blank" rel="noopener">官方文档</a></p>
-<h3 id="配置项"><a href="#配置项" class="headerlink" title="配置项"></a>配置项</h3><pre><code class="bash">CLI Options:
-  -f, --file       Input file(s) (Pass &#39;-&#39; for stdin)
-  -r, --replace    Write output in-place, replacing input
-  -o, --outfile    Write output to file (default stdout)
-  --config         Path to config file
-  --type           [js|css|html] [&quot;js&quot;] Select beautifier type (NOTE: Does *not* filter files, only defines which beautifier type to run)
-  -q, --quiet      Suppress logging to stdout
-  -h, --help       Show this help
-  -v, --version    Show the version
-
-Beautifier Options:
-  -s, --indent-size                 Indentation size [4]
-  -c, --indent-char                 Indentation character [&quot; &quot;]
-  -t, --indent-with-tabs            Indent with tabs, overrides -s and -c
-  -e, --eol                         Character(s) to use as line terminators.
-                                    [first newline in file, otherwise &quot;\n]
-  -n, --end-with-newline            End output with newline
-  --editorconfig                    Use EditorConfig to set up the options
-  -l, --indent-level                Initial indentation level [0]
-  -p, --preserve-newlines           Preserve line-breaks (--no-preserve-newlines disables)
-  -m, --max-preserve-newlines       Number of line-breaks to be preserved in one chunk [10]
-  -P, --space-in-paren              Add padding spaces within paren, ie. f( a, b )
-                                      #在括号内添加空格，即f（a，b）
-  -E, --space-in-empty-paren        Add a single space inside empty paren, ie. f( )
-                                      #在空括号内添加一个空格，即F（ ）
-  -j, --jslint-happy                Enable jslint-stricter mode
-  -a, --space-after-anon-function   Add a space before an anonymous function&#39;s parens, ie. function ()
-                                      # 在匿名函数的括号之前添加一个空格，即。功能（）
-  --space-after-named-function      Add a space before a named function&#39;s parens, i.e. function example ()
-                                      #在命名函数的括号之前添加一个空格，即函数示例（）
-  -b, --brace-style                 [collapse|expand|end-expand|none][,preserve-inline] [collapse,preserve-inline]
-  -u, --unindent-chained-methods    Don&#39;t indent chained method calls
-  -B, --break-chained-methods       Break chained method calls across subsequent lines
-  -k, --keep-array-indentation      Preserve array indentation
-  -x, --unescape-strings            Decode printable characters encoded in xNN notation
-  -w, --wrap-line-length            Wrap lines that exceed N characters [0]
-  -X, --e4x                         Pass E4X xml literals through untouched
-  --good-stuff                      Warm the cockles of Crockford&#39;s heart
-  -C, --comma-first                 Put commas at the beginning of new line instead of end
-  -O, --operator-position           Set operator position (before-newline|after-newline|preserve-newline) [before-newline]
-  --indent-empty-lines              Keep indentation on empty lines
-  --templating                      List of templating languages (auto,django,erb,handlebars,php) [&quot;auto&quot;] auto = none in JavaScript, all in html</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/04/03/Vue/vuejs%E5%88%9D%E6%8E%A5%E8%A7%A6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="siwadiya">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="風之萬里">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/03/Vue/vuejs%E5%88%9D%E6%8E%A5%E8%A7%A6/" class="post-title-link" itemprop="url">vuejs的学习</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-04-03 13:53:08" itemprop="dateCreated datePublished" datetime="2020-04-03T13:53:08+08:00">2020-04-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-27 15:06:49" itemprop="dateModified" datetime="2020-05-27T15:06:49+08:00">2020-05-27</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="script引入"><a href="#script引入" class="headerlink" title="script引入"></a>script引入</h3><pre><code class="html">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&gt;&lt;/script&gt;</code></pre>
-<p><strong>BootCdn</strong></p>
-<pre><code class="html">&lt;script src=&quot;https://cdn.bootcss.com/vue/2.6.11/vue.js&quot;&gt;&lt;/script&gt;</code></pre>
-<h3 id="vue-js有什么用，是用来做什么的（整理）"><a href="#vue-js有什么用，是用来做什么的（整理）" class="headerlink" title="vue.js有什么用，是用来做什么的（整理）"></a><a href="https://www.cnblogs.com/Renyi-Fan/p/9419742.html#_label6" target="_blank" rel="noopener">vue.js有什么用，是用来做什么的（整理）</a></h3>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/03/Vue/vuejs%E5%88%9D%E6%8E%A5%E8%A7%A6/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/04/01/js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/npm%E4%BD%BF%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="siwadiya">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="風之萬里">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/01/js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/npm%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">npm使用</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-04-01 13:12:05" itemprop="dateCreated datePublished" datetime="2020-04-01T13:12:05+08:00">2020-04-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-09 23:04:55" itemprop="dateModified" datetime="2020-04-09T23:04:55+08:00">2020-04-09</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="NPM-CLI-vs-Yarn-CLI"><a href="#NPM-CLI-vs-Yarn-CLI" class="headerlink" title="NPM CLI vs Yarn CLI"></a>NPM CLI vs Yarn CLI</h2><p><a href="https://github.com/zuojj/fedlab/issues/3" target="_blank" rel="noopener">https://github.com/zuojj/fedlab/issues/3</a></p>
-<h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><p>安装模块</p>
-<pre><code class="bash">npm install [package]</code></pre>
-<p><strong>-S, –save 安装包信息将加入到dependencies（生产阶段的依赖）</strong></p>
-<pre><code class="bash">npm install gulp --save 或 npm install gulp -S
-
-yarn add [package]</code></pre>
-<p>package.json 文件的 dependencies 字段：</p>
-<pre><code class="json">&quot;dependencies&quot;: {
-    &quot;gulp&quot;: &quot;^3.9.1&quot;
-}</code></pre>
-<p><strong>-D, –save-dev 安装包信息将加入到devDependencies（开发阶段的依赖），所以开发阶段一般使用它</strong></p>
-<pre><code class="bash">npm install gulp --save-dev 或 npm install gulp -D
-
-yarn add [package] [--dev/-D]</code></pre>
-<p>package.json 文件的 devDependencies字段：</p>
-<pre><code class="bash">&quot;devDependencies&quot;: {
-    &quot;gulp&quot;: &quot;^3.9.1&quot;
-}</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/03/21/js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE%E6%8F%92%E4%BB%B6Prism/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="siwadiya">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="風之萬里">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/21/js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE%E6%8F%92%E4%BB%B6Prism/" class="post-title-link" itemprop="url">代码高亮插件</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-21 13:01:47" itemprop="dateCreated datePublished" datetime="2020-03-21T13:01:47+08:00">2020-03-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-20 20:50:00" itemprop="dateModified" datetime="2020-05-20T20:50:00+08:00">2020-05-20</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="highlight-js"><a href="#highlight-js" class="headerlink" title="highlight.js"></a>highlight.js</h3><p><a href="https://highlightjs.org/" target="_blank" rel="noopener">官网</a></p>
-<h3 id="prism"><a href="#prism" class="headerlink" title="prism"></a>prism</h3><p><a href="https://prismjs.com/index.html" target="_blank" rel="noopener">官网</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/03/21/Git/Git%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6%E5%8F%8A%E7%9B%AE%E5%BD%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="siwadiya">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="風之萬里">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/21/Git/Git%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6%E5%8F%8A%E7%9B%AE%E5%BD%95/" class="post-title-link" itemprop="url">git忽略文件及目录之.gitignore的使用</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-03-21 09:26:41 / 修改时间：09:31:32" itemprop="dateCreated datePublished" datetime="2020-03-21T09:26:41+08:00">2020-03-21</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="创建-gitignore文件"><a href="#创建-gitignore文件" class="headerlink" title="创建.gitignore文件"></a>创建.gitignore文件</h3><h4 id="使用git-bash"><a href="#使用git-bash" class="headerlink" title="使用git bash"></a>使用git bash</h4><ul>
-<li>根目录下右键选择“Git Bash Here”进入bash命令窗口；</li>
-<li>输入<code>vim .gitignore</code>命令，打开文件（没有文件会自动创建）；</li>
-<li>按i键切换到编辑状态，输入规则，例如node_modules/，然后按Esc键退出编辑，输入:wq保存退出。</li>
-</ul>
-<h3 id="常用规则"><a href="#常用规则" class="headerlink" title="常用规则"></a>常用规则</h3><pre><code class="bash">/mtk/ 过滤整个文件夹
-*.zip 过滤所有.zip文件
-/mtk/do.c 过滤某个具体文件
-
-!src/   不过滤该文件夹
-!*.zip   不过滤所有.zip文件
-!/mtk/do.c 不过滤该文件</code></pre>
-<p>以上规则意思是：被过滤掉的文件就不会出现在你的GitHub库中了，当然本地库中还有，只是push的时候不会上传。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/03/18/js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/bootstrap%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="siwadiya">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="風之萬里">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/18/js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/bootstrap%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">bootstrap使用总结</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-18 10:40:12" itemprop="dateCreated datePublished" datetime="2020-03-18T10:40:12+08:00">2020-03-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-27 15:07:26" itemprop="dateModified" datetime="2020-05-27T15:07:26+08:00">2020-05-27</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="模态框"><a href="#模态框" class="headerlink" title="模态框"></a>模态框</h3><p><code>data-toggle=&quot;modal&quot;</code>  指定当前盒子具备的功能</p>
-<p><code>data-target=&quot;#box1&quot;</code>指向模态框的名字</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/18/js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/bootstrap%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1103,7 +1069,7 @@ yarn add [package] [--dev/-D]</code></pre>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">96</span>
+          <span class="site-state-item-count">105</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

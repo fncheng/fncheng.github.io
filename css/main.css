@@ -399,7 +399,7 @@ td {
 }
 .highlight,
 pre {
-  background: #262626;
+  background: #1e1e1e;
   color: #9e9e9e;
   line-height: 1.6;
   margin: 0 auto 20px;
@@ -462,7 +462,7 @@ code {
   border-bottom-color: #9e9e9e;
 }
 .highlight .gutter pre {
-  background: #262626;
+  background: #1e1e1e;
   color: #6a6a6a;
   padding-left: 10px;
   padding-right: 10px;
@@ -473,7 +473,7 @@ code {
   user-select: none;
 }
 .highlight .code pre {
-  background: #262626;
+  background: #1e1e1e;
   padding-left: 10px;
   width: 100%;
 }
@@ -1182,7 +1182,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffffc7;
+  background: #5408cf;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
