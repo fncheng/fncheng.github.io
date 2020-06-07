@@ -805,6 +805,7 @@ Beautifier Options:
 <h3 id="动态路由匹配"><a href="#动态路由匹配" class="headerlink" title="动态路由匹配"></a>动态路由匹配</h3><p>在<code>vue-router</code>中使用“动态路由参数”来匹配，使用<code>：</code>标记。</p>
 <h4 id="router和-route的区别"><a href="#router和-route的区别" class="headerlink" title="$router和$route的区别"></a>$router和$route的区别</h4><p>$router是VueRouter的实例,是路由操作对象,只写对象,想要导航到不同的url,则使用router.push()方法</p>
 <p>$route为当前router跳转对象,路由信息对象,只读对象,里面可以获取name、path、query、params等</p>
+<p>vue路由</p>
 ]]></content>
       <tags>
         <tag>JavaScript</tag>
