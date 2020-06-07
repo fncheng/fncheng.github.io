@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>宏任务与微任务</title>
+    <url>/2020/06/06/JavaScript/%E5%AE%8F%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%BE%AE%E4%BB%BB%E5%8A%A1/</url>
+    <content><![CDATA[<h2 id="宏任务微任务"><a href="#宏任务微任务" class="headerlink" title="宏任务微任务"></a>宏任务微任务</h2>]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Debugger for Chrome</title>
     <url>/2020/06/05/Vscode/vscode%20debugger%20fo%20Chrome%E6%8F%92%E4%BB%B6/</url>
     <content><![CDATA[<p><a href="http://shooterblog.site/2018/05/19/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%94%A8Vscode%20Debugger%E8%B0%83%E8%AF%95%E4%BB%A3%E7%A0%81/#Debugger-For-Chrome" target="_blank" rel="noopener">参考链接</a></p>
@@ -682,8 +690,8 @@ source ~/.zshrc    </code></pre>
     <content><![CDATA[<h3 id="ajax-方法"><a href="#ajax-方法" class="headerlink" title="$.ajax()方法"></a>$.ajax()方法</h3><p><img src="https://minimax-1256590847.cos.ap-shanghai.myqcloud.com/img/image-20200408121337537.png" alt="image-20200408121337537"></p>
 ]]></content>
       <tags>
-        <tag>jQuery</tag>
         <tag>ajax</tag>
+        <tag>jQuery</tag>
       </tags>
   </entry>
   <entry>
@@ -794,6 +802,9 @@ Beautifier Options:
 <p>vue-router默认hash模式,url会带有”#”标识符,如果想要去除#标识,启用history模式.</p>
 <p>注意:当启用history模式 时,地址栏不可带有/#/,否则会访问出错</p>
 <p><a href="https://juejin.im/post/5cde4404f265da1b971a42c8" target="_blank" rel="noopener"><strong>hash模式和history模式的不同</strong></a></p>
+<h3 id="动态路由匹配"><a href="#动态路由匹配" class="headerlink" title="动态路由匹配"></a>动态路由匹配</h3><p>在<code>vue-router</code>中使用“动态路由参数”来匹配，使用<code>：</code>标记。</p>
+<h4 id="router和-route的区别"><a href="#router和-route的区别" class="headerlink" title="$router和$route的区别"></a>$router和$route的区别</h4><p>$router是VueRouter的实例,是路由操作对象,只写对象,想要导航到不同的url,则使用router.push()方法</p>
+<p>$route为当前router跳转对象,路由信息对象,只读对象,里面可以获取name、path、query、params等</p>
 ]]></content>
       <tags>
         <tag>JavaScript</tag>
@@ -1439,6 +1450,27 @@ Options:
 <li><p>网页静态资源加载(CDN)</p>
 <p>CDN加速- 内容分发网络.依靠部署在各地的服务器,使用户就近获取所需内容，降低网络拥塞，提高用户访问响应速度。</p>
 </li>
+</ul>
+<h2 id="在浏览器输入url访问网址的过程中发生了什么"><a href="#在浏览器输入url访问网址的过程中发生了什么" class="headerlink" title="在浏览器输入url访问网址的过程中发生了什么?-"></a>在浏览器输入url访问网址的过程中发生了什么?-</h2><ul>
+<li>用户在浏览器中输入url后,浏览器会先对输入的地址进行解析,比如用的协议是<code>http</code>还是<code>https</code></li>
+<li>之后根据域名进行ip的寻址<ul>
+<li>寻址先从DNS缓存开始,比如host</li>
+<li>host没有就访问dns服务器,一层一层向上,直至访问到根服务器(IPv4协议跟服务器全球13台)</li>
+<li>寻找到对应的ip后服务器再把ip地址发送给客户端</li>
+</ul>
+</li>
+<li>客户端拿到ip地址后向对应ip地址的服务器发起请求<ul>
+<li>与服务器建立http连接(3次握手)<ul>
+<li>SSL/TLS 4次握手交换信息(数字证书,3个随机数,加密通信协议)<ul>
+<li>Client Hello    Server Hello</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>成功建立连接后服务器返回数据,浏览器进行渲染</li>
+<li>渲染出页面</li>
 </ul>
 ]]></content>
       <tags>
@@ -2818,8 +2850,8 @@ prettier.useTabs   //使用制表符代替空格缩进
 prettier.vueIndentScriptAndStyle</code></pre>
 ]]></content>
       <tags>
-        <tag>vscode</tag>
         <tag>电脑好软</tag>
+        <tag>vscode</tag>
       </tags>
   </entry>
   <entry>

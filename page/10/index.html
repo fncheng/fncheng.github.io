@@ -307,6 +307,114 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2019/12/15/CSS/css%E5%B8%83%E5%B1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="siwadiya">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="風之萬里">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/15/CSS/css%E5%B8%83%E5%B1%80/" class="post-title-link" itemprop="url">css布局</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-15 19:57:27" itemprop="dateCreated datePublished" datetime="2019-12-15T19:57:27+08:00">2019-12-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-24 19:49:12" itemprop="dateModified" datetime="2019-12-24T19:49:12+08:00">2019-12-24</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="使用float定位元素"><a href="#使用float定位元素" class="headerlink" title="使用float定位元素"></a>使用float定位元素</h2><p>关于float的理解可以看<a href="https://segmentfault.com/a/1190000009739176" target="_blank" rel="noopener">这篇文章</a></p>
+ <img src="https://i.loli.net/2019/12/15/K9iwX5h8R7qupaF.png" alt="" width=60%>
+
+<p><strong>注意：</strong><b style="color:red">如果不是浮动有固定宽度的图像，必须要为浮动元素设置宽度，这样浏览器才会流出空间显示围绕它的内容。</b></p>
+<p><b style="color:blue">margin的auto值对浮动的元素不起作用，没有属性可以让一个浮动元素居中</b></p>
+<p>所以一般使用一个正常的块级元素居中，带着里面浮动的元素居中。</p>
+<p><i><strong>浮动可以让块级元素拍成一排</strong></i></p>
+<h4 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h4><p><strong>float具有破坏性，会导致父元素坍塌，所以需要清除浮动，方法有很多种。</strong></p>
+<ol>
+<li><p>为父元素添加<code>overflow:hidden</code></p>
+</li>
+<li><p>浮动父元素</p>
+</li>
+<li><p><code>clear:both</code></p>
+</li>
+<li><p>Clearfix方法</p>
+<pre><code class="css">.clearfix:after{
+    content:&#39;&#39;;
+    display:table;
+    clear:both;
+}
+.clearfix{
+    *zoom:1; /* 兼容IE低版本 */
+}</code></pre>
+</li>
+</ol>
+<h2 id="position属性定位元素"><a href="#position属性定位元素" class="headerlink" title="position属性定位元素"></a>position属性定位元素</h2><p><a href="https://segmentfault.com/a/1190000009754431" target="_blank" rel="noopener">position详解</a></p>
+<h3 id="固定导航栏"><a href="#固定导航栏" class="headerlink" title="固定导航栏"></a>固定导航栏</h3><pre><code class="css">.banner{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+}</code></pre>
+<p>固定定位的的元素从HTML流中移除了，而页面中的其他元素并不知道这些元素的存在。这些元素会出现在固定元素的后面。使用外边距把这些内容从那些区域后面移出来。</p>
+<p>鼠标观滚动对固定定位元素没有用</p>
+<h2 id="Transform属性"><a href="#Transform属性" class="headerlink" title="Transform属性"></a>Transform属性</h2><blockquote>
+<p>css3中transform属性定义元素空间位置的变换。</p>
+</blockquote>
+<h3 id="translate"><a href="#translate" class="headerlink" title="translate"></a>translate</h3><ul>
+<li>设置元素在 X轴或者 Y轴上的平移变换</li>
+</ul>
+<h2 id="z-index"><a href="#z-index" class="headerlink" title="z-index"></a>z-index</h2><p>默认情况下的层级性：标准流    &lt;    浮动流    &lt;    定位流</p>
+<p>z-index：控制的是定位元素之间的层级性</p>
+<p>如果父元素已经比较过层级了(都有z-index值且不为auto)，那么子元素不会再比较层级</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2019/12/13/%E5%8D%9A%E5%AE%A2/hexo%E5%AF%BC%E8%88%AA%E6%A0%8F%E7%9A%84%E8%AE%BE%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -934,91 +1042,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2019/12/09/Html/%E8%A1%A8%E6%A0%BC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="siwadiya">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="風之萬里">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/09/Html/%E8%A1%A8%E6%A0%BC/" class="post-title-link" itemprop="url">Html/表格</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-09 21:16:06" itemprop="dateCreated datePublished" datetime="2019-12-09T21:16:06+08:00">2019-12-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-10 20:20:26" itemprop="dateModified" datetime="2019-12-10T20:20:26+08:00">2019-12-10</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><pre><code class="html">&lt;caption&gt;标签——表格标题，以居中的形式表现出来
-
-&lt;thead&gt;标签——表格头
-
-&lt;tr&gt;    table row    表格行
-
-&lt;!-- 
-    表格组成；
-    table：完整的表格
-    tr：表格行
-    td：单元格
-    table包含tr，tr包含td
-
-    ##合并单元格
-    rowspan：跨行合并
-    colspan：跨列合并
-    1.将rowspan或columnspan添加给对应的单元格（添加的位置遵守左上原则）
-    2.合并的值为合并的单元格个数
-    3.删除多余的单元格
- --&gt;
-</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1067,7 +1090,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">105</span>
+          <span class="site-state-item-count">106</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
