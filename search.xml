@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>作用域与闭包</title>
+    <url>/2020/06/08/JavaScript/%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E9%97%AD%E5%8C%85/</url>
+    <content><![CDATA[<h2 id="词法作用域"><a href="#词法作用域" class="headerlink" title="词法作用域"></a>词法作用域</h2><p>全局变量会自动成为全局对象(比如浏览器中的window对象)的属性,因此可以间接地通过全局对象属性的引用来对其进行访问</p>
+<pre><code class="js">var a = 10;
+a  // 10
+window.a //10</code></pre>
+<p>无论函数在哪里被调用,也无论它如何呗调用,它的词法作用域都只由函数被声明时所处的位置决定.</p>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p><a href="https://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html" target="_blank" rel="noopener">阮一峰-学习JavaScript闭包</a></p>
+<p>什么是闭包?</p>
+<blockquote>
+<p>函数和对其周围状态（<strong>lexical environment，词法环境</strong>）的引用捆绑在一起构成<strong>闭包</strong>（<strong>closure</strong>）。也就是说，闭包可以让你从内部函数访问外部函数作用域。在 JavaScript 中，每当函数被创建，就会在函数生成时生成闭包。</p>
+</blockquote>
+<p>简单来说,闭包就是指<strong>能够访问自由变量的函数</strong></p>
+<pre><code class="js">闭包是个函数，而它「记住了周围发生了什么」。表现为由「一个函数」体中定义了「另个函数」</code></pre>
+<p>使用闭包的注意点</p>
+<p><img src="https://minimax-1256590847.cos.ap-shanghai.myqcloud.com/img/image-20200609092422638.png" alt="image-20200609092422638"></p>
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>宏任务与微任务</title>
     <url>/2020/06/06/JavaScript/%E5%AE%8F%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%BE%AE%E4%BB%BB%E5%8A%A1/</url>
     <content><![CDATA[<h2 id="宏任务微任务"><a href="#宏任务微任务" class="headerlink" title="宏任务微任务"></a>宏任务微任务</h2>]]></content>
@@ -805,7 +827,6 @@ Beautifier Options:
 <h3 id="动态路由匹配"><a href="#动态路由匹配" class="headerlink" title="动态路由匹配"></a>动态路由匹配</h3><p>在<code>vue-router</code>中使用“动态路由参数”来匹配，使用<code>：</code>标记。</p>
 <h4 id="router和-route的区别"><a href="#router和-route的区别" class="headerlink" title="$router和$route的区别"></a>$router和$route的区别</h4><p>$router是VueRouter的实例,是路由操作对象,只写对象,想要导航到不同的url,则使用router.push()方法</p>
 <p>$route为当前router跳转对象,路由信息对象,只读对象,里面可以获取name、path、query、params等</p>
-<p>vue路由</p>
 ]]></content>
       <tags>
         <tag>JavaScript</tag>
@@ -1586,6 +1607,9 @@ layout: page</code></pre><h4 id="3-修改themes-next-config-yml"><a href="#3-修
 <p>null表示”没有对象”,即此处不应该有值.</p>
 <p>undefined表示”缺少值”,即此处应该有一个值,但是还没有定义.</p>
 </blockquote>
+<h3 id="js原型链"><a href="#js原型链" class="headerlink" title="js原型链"></a>js原型链</h3><p><img src="https://minimax-1256590847.cos.ap-shanghai.myqcloud.com/img/image-20200608133124144.png" alt="image-20200608133124144"></p>
+<p>ES5和ES6的继承</p>
+<p><a href="http://keenwon.com/1524.html" target="_blank" rel="noopener">图解</a></p>
 ]]></content>
       <tags>
         <tag>JavaScript</tag>

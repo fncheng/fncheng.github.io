@@ -307,6 +307,82 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/04/12/JavaScript/es6%E4%B9%8BPromise%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="siwadiya">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="風之萬里">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/12/JavaScript/es6%E4%B9%8BPromise%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">es6之Promise对象的学习</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-04-12 22:33:12 / 修改时间：22:35:05" itemprop="dateCreated datePublished" datetime="2020-04-12T22:33:12+08:00">2020-04-12</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>一般总是建议，Promise 对象后面要跟<code>catch()</code>方法，这样可以处理 Promise 内部发生的错误。`c</strong>atch()<code>方法返回的还是一个 Promise 对象，因此后面还可以接着调用</code>then()`方法。</p>
+<pre><code class="js">const someAsyncThing = function() {
+  return new Promise(function(resolve, reject) {
+    // 下面一行会报错，因为x没有声明
+    resolve(x + 2);
+  });
+};
+
+someAsyncThing()
+.catch(function(error) {
+  console.log(&#39;oh no&#39;, error);
+})
+.then(function() {
+  console.log(&#39;carry on&#39;);
+});
+// oh no [ReferenceError: x is not defined]
+// carry on</code></pre>
+<p>上面代码运行完<code>catch()</code>方法指定的回调函数，会接着运行后面那个<code>then()</code>方法指定的回调函数。如果没有报错，则会跳过<code>catch()</code>方法。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/04/10/Linux/centos%E5%AE%89%E8%A3%85nodejs%E7%9A%84%E5%9D%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -733,7 +809,7 @@ Beautifier Options:
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-07 20:35:21" itemprop="dateModified" datetime="2020-06-07T20:35:21+08:00">2020-06-07</time>
+                <time title="修改时间：2020-06-08 09:33:39" itemprop="dateModified" datetime="2020-06-08T09:33:39+08:00">2020-06-08</time>
               </span>
 
           
@@ -993,79 +1069,6 @@ yarn add [package] [--dev/-D]</code></pre>
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/03/18/js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/bootstrap%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="siwadiya">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="風之萬里">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/18/js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/bootstrap%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">bootstrap使用总结</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-18 10:40:12" itemprop="dateCreated datePublished" datetime="2020-03-18T10:40:12+08:00">2020-03-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-27 15:07:26" itemprop="dateModified" datetime="2020-05-27T15:07:26+08:00">2020-05-27</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="模态框"><a href="#模态框" class="headerlink" title="模态框"></a>模态框</h3><p><code>data-toggle=&quot;modal&quot;</code>  指定当前盒子具备的功能</p>
-<p><code>data-target=&quot;#box1&quot;</code>指向模态框的名字</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/18/js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/bootstrap%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1114,7 +1117,7 @@ yarn add [package] [--dev/-D]</code></pre>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">106</span>
+          <span class="site-state-item-count">107</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

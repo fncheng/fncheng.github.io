@@ -307,6 +307,84 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/06/08/JavaScript/%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E9%97%AD%E5%8C%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="siwadiya">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="風之萬里">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/08/JavaScript/%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E9%97%AD%E5%8C%85/" class="post-title-link" itemprop="url">作用域与闭包</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-06-08 20:39:46" itemprop="dateCreated datePublished" datetime="2020-06-08T20:39:46+08:00">2020-06-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-09 10:34:50" itemprop="dateModified" datetime="2020-06-09T10:34:50+08:00">2020-06-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="词法作用域"><a href="#词法作用域" class="headerlink" title="词法作用域"></a>词法作用域</h2><p>全局变量会自动成为全局对象(比如浏览器中的window对象)的属性,因此可以间接地通过全局对象属性的引用来对其进行访问</p>
+<pre><code class="js">var a = 10;
+a  // 10
+window.a //10</code></pre>
+<p>无论函数在哪里被调用,也无论它如何呗调用,它的词法作用域都只由函数被声明时所处的位置决定.</p>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p><a href="https://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html" target="_blank" rel="noopener">阮一峰-学习JavaScript闭包</a></p>
+<p>什么是闭包?</p>
+<blockquote>
+<p>函数和对其周围状态（<strong>lexical environment，词法环境</strong>）的引用捆绑在一起构成<strong>闭包</strong>（<strong>closure</strong>）。也就是说，闭包可以让你从内部函数访问外部函数作用域。在 JavaScript 中，每当函数被创建，就会在函数生成时生成闭包。</p>
+</blockquote>
+<p>简单来说,闭包就是指<strong>能够访问自由变量的函数</strong></p>
+<pre><code class="js">闭包是个函数，而它「记住了周围发生了什么」。表现为由「一个函数」体中定义了「另个函数」</code></pre>
+<p>使用闭包的注意点</p>
+<p><img src="https://minimax-1256590847.cos.ap-shanghai.myqcloud.com/img/image-20200609092422638.png" alt="image-20200609092422638"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/06/06/JavaScript/%E5%AE%8F%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%BE%AE%E4%BB%BB%E5%8A%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1048,66 +1126,6 @@ warning: adding embedded git repository: plugins/zsh-syntax-highlighting</code><
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/06/01/Vue/vue-cli%E7%9A%84%E4%BD%BF%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="siwadiya">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="風之萬里">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/01/Vue/vue-cli%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">vue-cli的使用</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-06-01 09:51:42 / 修改时间：10:07:10" itemprop="dateCreated datePublished" datetime="2020-06-01T09:51:42+08:00">2020-06-01</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="https://juejin.im/post/5c73d879e51d454b4755603f" target="_blank" rel="noopener">参考链接</a></p>
-<h3 id="vue-cli基本命令"><a href="#vue-cli基本命令" class="headerlink" title="vue-cli基本命令"></a>vue-cli基本命令</h3><p><img src="https://user-gold-cdn.xitu.io/2019/2/25/169248590b2fbadc?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
-<h3 id="vue-config-js的配置"><a href="#vue-config-js的配置" class="headerlink" title="vue.config.js的配置"></a><a href="https://juejin.im/post/5c77d0b9e51d455fb110c394#comment" target="_blank" rel="noopener">vue.config.js的配置</a></h3>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1156,7 +1174,7 @@ warning: adding embedded git repository: plugins/zsh-syntax-highlighting</code><
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">106</span>
+          <span class="site-state-item-count">107</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

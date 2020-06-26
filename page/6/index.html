@@ -307,6 +307,79 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/02/15/CSS/css%E9%80%89%E6%8B%A9%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="siwadiya">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="風之萬里">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/15/CSS/css%E9%80%89%E6%8B%A9%E5%99%A8/" class="post-title-link" itemprop="url">css选择器总结</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-02-15 16:49:28 / 修改时间：23:35:33" itemprop="dateCreated datePublished" datetime="2020-02-15T16:49:28+08:00">2020-02-15</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="css交集选择器-并集选择器-兄弟选择器"><a href="#css交集选择器-并集选择器-兄弟选择器" class="headerlink" title="css交集选择器,并集选择器,兄弟选择器"></a>css交集选择器,并集选择器,兄弟选择器</h2><p><a href="https://www.w3school.com.cn/cssref/css_selectors.asp" target="_blank" rel="noopener"><span style="font-size:1.25em">参考链接</span>&gt;</a></p>
+<h3 id="交集选择器"><a href="#交集选择器" class="headerlink" title="交集选择器"></a>交集选择器</h3><p>交集选择器,相交的部分就是要设置属性值的标签</p>
+<pre><code class="css">p.para1 {color: red};</code></pre>
+<p><strong>含义:类名为para的p标签文字颜色为红色</strong></p>
+<h3 id="并集选择器"><a href="#并集选择器" class="headerlink" title="并集选择器"></a>并集选择器</h3><p>并集选择器就是同时操控多个元素,选择器之间用<code>,</code>相隔</p>
+<pre><code class="css">h1,h2,h3 {color: red};
+/*等效于*/
+h1 {color:red};
+h2 {color:red};
+h3 {color:red};</code></pre>
+<h3 id="兄弟选择器"><a href="#兄弟选择器" class="headerlink" title="兄弟选择器"></a>兄弟选择器</h3><p>相邻兄弟选择器（Adjacent sibling selector）可选择紧接在另一元素后的元素，且二者有相同父元素。</p>
+<p>例如，如果要增加紧接在 <strong>h1 元素后出现的段落</strong>的上边距，可以这样写：</p>
+<pre><code class="css">h1 + p {margin-top:50px;}</code></pre>
+<p><strong>这个选择器读作：“选择紧接在 h1 元素后出现的段落，h1 和 p 元素拥有共同的父元素”。</strong></p>
+<p><strong>注意:必须是紧接着的元素!!!</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/02/12/Linux/linux%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -945,80 +1018,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/01/30/Http/surge%E8%A7%84%E5%88%99/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="siwadiya">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="風之萬里">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/30/Http/surge%E8%A7%84%E5%88%99/" class="post-title-link" itemprop="url">surge规则</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-30 18:37:53" itemprop="dateCreated datePublished" datetime="2020-01-30T18:37:53+08:00">2020-01-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-01-31 12:36:38" itemprop="dateModified" datetime="2020-01-31T12:36:38+08:00">2020-01-31</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p> <em>Surge提供三种域名检索方式检索域名（DOMAIN）、检索域名后缀（DOMAIN-SUFFIX）和检索域名关键字（DOMAIN-KEYWORD）。<br>三种网络连接方式直接连接（DIRECT）、使用代理（Proxy）和阻断连接（REJECT）。<br>规则运作就是if…then…的结构，如果检索域名满足什么，则选择什么网络连接方式</em> </p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/01/30/Http/surge%E8%A7%84%E5%88%99/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1067,7 +1066,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">106</span>
+          <span class="site-state-item-count">107</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
