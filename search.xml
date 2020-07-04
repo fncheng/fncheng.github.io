@@ -1,6 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Linux复制</title>
+    <url>/2020/06/28/Linux/Linux%E5%A4%8D%E5%88%B6%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h3 id="cp命令"><a href="#cp命令" class="headerlink" title="cp命令"></a><a href="https://wangchujiang.com/linux-command/c/cp.html" target="_blank" rel="noopener">cp命令</a></h3><p>cp复制多个文件,使用{filename1,filename2}包起来</p>
+<pre><code class="bash">cp -avf ./DoNotStarveTogether/MyDediServer/{Caves,Master}</code></pre>
+]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>crontab定时执行任务</title>
+    <url>/2020/06/27/Linux/crontab%E5%AE%9A%E6%97%B6%E6%89%A7%E8%A1%8C%E4%BB%BB%E5%8A%A1/</url>
+    <content><![CDATA[<h3 id="目录介绍"><a href="#目录介绍" class="headerlink" title="目录介绍"></a>目录介绍</h3><p><a href="https://www.runoob.com/w3cnote/linux-crontab-tasks.html" target="_blank" rel="noopener">菜鸟教程</a></p>
+<ul>
+<li>/var/spool/cron/ 目录下存放的是每个用户包括root的crontab任务，每个任务以创建者的名字命名</li>
+<li>/etc/crontab 这个文件负责调度各种管理和维护任务。</li>
+<li>/etc/cron.d/ 这个目录用来存放任何要执行的crontab文件或脚本。</li>
+<li>我们还可以把脚本放在/etc/cron.hourly、/etc/cron.daily、/etc/cron.weekly、/etc/cron.monthly目录中，让它每小时/天/星期、月执行一次。</li>
+</ul>
+<h3 id="Linux-Crontab命令定时任务基本语法"><a href="#Linux-Crontab命令定时任务基本语法" class="headerlink" title="Linux Crontab命令定时任务基本语法"></a><a href="https://wzfou.com/crontab/" target="_blank" rel="noopener">Linux Crontab命令定时任务基本语法</a></h3><ul>
+<li>编辑crontab定时执行任务</li>
+</ul>
+<pre><code class="bash">crontab -e</code></pre>
+<ul>
+<li><p>```bash</p>
+</li>
+</ul>
+<p>*/1 * * * *  /usr/bin/touch  /home/cheng/.klei/namee.txt</p>
+<p>```</p>
+<p>需要注意的是: crontab中使用的路径均为绝对路径</p>
+<p><strong>注意：</strong>当程序在你所指定的时间执行后，系统会发一封邮件给当前的用户，显示该程序执行的内容，若是你不希望收到这样的邮件，请在每一行空一格之后加上 &gt; /dev/null 2&gt;&amp;1 即可，如：</p>
+]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Shell编程</title>
+    <url>/2020/06/24/Linux/Shell%E7%BC%96%E7%A8%8B/</url>
+    <content><![CDATA[<h3 id="Shell脚本中循环语句for-while-until用法"><a href="#Shell脚本中循环语句for-while-until用法" class="headerlink" title="Shell脚本中循环语句for,while,until用法"></a><a href="https://blog.51cto.com/kling/1252952" target="_blank" rel="noopener">Shell脚本中循环语句for,while,until用法</a></h3><p><a href="http://c.biancheng.net/cpp/view/7008.html" target="_blank" rel="noopener">http://c.biancheng.net/cpp/view/7008.html</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Windows下git bash设置</title>
+    <url>/2020/06/24/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E7%BD%AE/Git%20bash%E8%AE%BE%E7%BD%AE/</url>
+    <content><![CDATA[<p><img src="https://minimax-1256590847.cos.ap-shanghai.myqcloud.com/img/image-20200624195453684.png" alt="image-20200624195453684"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Screen命令</title>
+    <url>/2020/06/21/Linux/Screen%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h3 id="参考连接"><a href="#参考连接" class="headerlink" title="参考连接"></a>参考连接</h3><p><a href="https://www.css3er.com/p/199.html" target="_blank" rel="noopener">https://www.css3er.com/p/199.html</a></p>
+<pre><code class="bash">$ screen --help
+Use: screen [-opts] [cmd [args]]
+ or: screen -r [host.tty]
+
+Options:
+-4            Resolve hostnames only to IPv4 addresses.
+              # 仅将主机名解析为IPv4地址。
+-6            Resolve hostnames only to IPv6 addresses.
+-a            Force all capabilities into each window&#39;s termcap.
+-A -[r|R]     Adapt all windows to the new display width &amp; height.
+-c file       Read configuration file instead of &#39;.screenrc&#39;.
+-d (-r)       Detach the elsewhere running screen (and reattach here).
+-dmS name     Start as daemon: Screen session in detached mode.
+-D (-r)       Detach and logout remote (and reattach here).
+-D -RR        Do whatever is needed to get a screen session.
+-e xy         Change command characters.
+-f            Flow control on, -fn = off, -fa = auto.
+-h lines      Set the size of the scrollback history buffer.
+-i            Interrupt output sooner when flow control is on.
+-l            Login mode on (update /var/run/utmp), -ln = off.
+-ls [match]   or
+-list         Do nothing, just list our SockDir [on possible matches].
+              # 不执行任何操作，仅在可能的匹配项中列出我们的SockDir。
+-L            Turn on output logging.
+-m            ignore $STY variable, do create a new screen session.
+-O            Choose optimal output rather than exact vt100 emulation.
+-p window     Preselect the named window if it exists.
+-q            Quiet startup. Exits with non-zero return code if unsuccessful.
+-Q            Commands will send the response to the stdout of the querying process.
+-r [session]  Reattach to a detached screen process.
+-R            Reattach if possible, otherwise start a new session.
+-s shell      Shell to execute rather than $SHELL.
+-S sockname   Name this session &lt;pid&gt;.sockname instead of &lt;pid&gt;.&lt;tty&gt;.&lt;host&gt;.
+-t title      Set title. (window&#39;s name).
+-T term       Use term as $TERM for windows, rather than &quot;screen&quot;.
+-U            Tell screen to use UTF-8 encoding.
+-v            Print &quot;Screen version 4.01.00devel (GNU) 2-May-06&quot;.
+-wipe [match] Do nothing, just clean up SockDir [on possible matches].
+-x            Attach to a not detached screen. (Multi display mode).
+-X            Execute &lt;cmd&gt; as a screen command in the specified session.</code></pre>
+<h2 id="screen的语法"><a href="#screen的语法" class="headerlink" title="screen的语法"></a>screen的语法</h2><pre><code class="bash">screen [-AmRvx -ls -wipe][-d &lt;作业名称&gt;][-h &lt;行数&gt;][-r &lt;作业名称&gt;][-s ][-S &lt;作业名称&gt;]
+
+-A   #将所有的视窗都调整为目前终端机的大小。
+
+-d   #&lt;作业名称&gt; 　将指定的screen作业离线。
+
+-h   #&lt;行数&gt; 　指定视窗的缓冲区行数。
+
+-m  #即使目前已在作业中的screen作业，仍强制建立新的screen作业。
+
+-r    #&lt;作业名称&gt; 　恢复离线的screen作业。
+
+-R   #先试图恢复离线的作业。若找不到离线的作业，即建立新的screen作业。
+
+-s    #指定建立新视窗时，所要执行的shell。
+
+-S    #&lt;作业名称&gt; 　指定screen作业的名称。
+
+-v 　#显示版本信息。
+
+-x     #恢复之前离线的screen作业。
+
+-ls或--list  #显示目前所有的screen作业。
+
+-wipe  #检查目前所有的screen作业，并删除已经无法使用的screen作业。
+
+-hlep  #查看screen命令的更多使用帮助</code></pre>
+]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux/Untitled</title>
+    <url>/2020/06/21/Linux/Untitled/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>nodejs中的__proto__</title>
+    <url>/2020/06/13/Bug%20Report/nodejs%E7%9A%84_proto_/</url>
+    <content><![CDATA[<p>在学习原型和原型链的时候</p>
+<p>我写了这么一段代码</p>
+<pre><code class="js">// 以下代码运行在nodejs环境中
+function Person(name) {
+  this.name = name
+  this.sayHi = function () {
+    console.log(`Hello ${this.name}`)
+  }
+}
+const p = new Person(&#39;ls&#39;)
+console.log(p)
+p.sayHi()
+console.log(Person.prototype === p._proto_) // false</code></pre>
+<p>在vscode中运行的结果是<code>false</code>,但是根据原型链照理应该是相等的</p>
+<p>于是我在浏览器中运行了一下</p>
+<p>得到的结果是<code>true</code></p>
+<p><code>Person.prototype</code>和<code>p._proto_</code>都是<code>{constructor: ƒ}</code></p>
+<p>我突然就想起来<code>_proto_</code>好像是浏览器特有的</p>
+<p>于是乎我得到了这样一个结论: <strong>nodejs没有<code>_proto_</code></strong></p>
+<p>暂时没有去验证(逃</p>
+<p>最后发现,卧槽居然是写错了, 把<code>__proto__</code>写成了<code>_proto_</code></p>
+]]></content>
+      <tags>
+        <tag>bug</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>yarn的全局安装</title>
+    <url>/2020/06/10/npm/yarn%20add%E5%85%A8%E5%B1%80%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<blockquote>
+<p>今天遇到了一个问题,我用yarn全局装doctoc时怎么都装不上,后来才发现用的<code>yarn add doctoc global</code></p>
+</blockquote>
+<p>查阅资料发现yarn的全局安装必须用yarn global add packageName,==global必须跟在yarn后面==</p>
+]]></content>
+      <tags>
+        <tag>npm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>G304初体验</title>
+    <url>/2020/06/09/%E7%94%9F%E6%B4%BB/%E7%BD%97%E6%8A%80G304%E5%88%9D%E4%BD%93%E9%AA%8C/</url>
+    <content><![CDATA[<h3 id="G系列鼠标"><a href="#G系列鼠标" class="headerlink" title="G系列鼠标"></a>G系列鼠标</h3><h4 id="板载内存模式"><a href="#板载内存模式" class="headerlink" title="板载内存模式"></a>板载内存模式</h4><blockquote>
+<p>最右侧的选项为板载内存模式，此功能默认关闭，在关闭情况G HUB提供全部功能，如果将板载内存模式开启，此前页面对应的所有功能均不可调节，跟随程序变化的配置文件系统也不可用，只可以将G HUB中已有的配置文件导入设备，此功能主要用于覆盖板载内存，确保外出免驱使用的配置文件正确，建议正常使用时关闭板载内存模式。</p>
+</blockquote>
+<p><strong>鼠标回报率</strong></p>
+<p><a href="https://www.zhihu.com/question/22540957" target="_blank" rel="noopener">相关链接</a></p>
+<blockquote>
+<p>常用户将回报率设置为500Hz是最为稳妥的，因为既能保证鼠标操控精度，又能满足主流配置的电脑。至于DPI，在回报率确定的情况下，看个人喜好即可，我觉得2000～2600DPI比较舒服。</p>
+</blockquote>
+<p><a href="https://www.wstx.com/p-27966-1" target="_blank" rel="noopener">G hub食用指南</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>深拷贝,浅拷贝</title>
+    <url>/2020/06/09/JavaScript/%E6%B7%B1%E6%8B%B7%E8%B4%9D,%E6%B5%85%E6%8B%B7%E8%B4%9D/</url>
+    <content><![CDATA[<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>首先数据分为基本类型数据(String,Number,Boolean,Null)和引用类型数据</p>
+<ul>
+<li>基本数据类型的特点: 直接存储在栈(stack)中的数据</li>
+<li>引用数据类型的特点: 存储的是该对象在栈中的引用,真实数据存放在堆内存中</li>
+</ul>
+<p>引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址。当解释器寻找引用值时，会首先检索其在栈中的地址，取得地址后从堆中获得实体。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/12/23/167da171f30b62ce?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<h2 id="栈内存和堆内存"><a href="#栈内存和堆内存" class="headerlink" title="栈内存和堆内存"></a>栈内存和堆内存</h2><p><a href="https://github.com/xaiofei/Blog/issues/8" target="_blank" rel="noopener">JS中的栈内存和堆内存</a></p>
+<h4 id="栈内存"><a href="#栈内存" class="headerlink" title="栈内存"></a>栈内存</h4><p>栈内存用来存放基本数据类型(Number、String、Boolean、Null和Undefined)，<strong>在执行完之后销毁。</strong></p>
+<p>==先进后出,后进先出==</p>
+<h4 id="堆内存"><a href="#堆内存" class="headerlink" title="堆内存"></a>堆内存</h4><p>堆内存用来存放引用数据类型(object、array、function、date)，<strong>在没有被引用之后销毁。</strong></p>
+<p>当我们声明和定义了一个引用数据类型之后，这个对象保存在堆内存中，而这个对象的地址则保存在栈内存中以用于引用。</p>
+<p>在全局作用域声明和定义的引用数据类型，销毁的方法是手动赋值null。</p>
+<h2 id="深拷贝和浅拷贝"><a href="#深拷贝和浅拷贝" class="headerlink" title="深拷贝和浅拷贝"></a>深拷贝和浅拷贝</h2><p><strong>深拷贝和浅拷贝是只针对Object和Array这样的引用数据类型的</strong>。</p>
+<p>浅拷贝（shallow copy）：只复制指向某个对象的指针，而不复制对象本身，新旧对象共享一块内存；深拷贝（deep copy）：复制并创建一个一摸一样的对象，不共享内存，修改新对象，旧对象保持不变。</p>
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js中的this</title>
+    <url>/2020/06/09/JavaScript/js%E4%B8%AD%E7%9A%84this/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>作用域与闭包</title>
     <url>/2020/06/08/JavaScript/%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E9%97%AD%E5%8C%85/</url>
     <content><![CDATA[<h2 id="词法作用域"><a href="#词法作用域" class="headerlink" title="词法作用域"></a>词法作用域</h2><p>全局变量会自动成为全局对象(比如浏览器中的window对象)的属性,因此可以间接地通过全局对象属性的引用来对其进行访问</p>
@@ -312,7 +528,19 @@ warning: adding embedded git repository: plugins/zsh-syntax-highlighting</code><
     <url>/2020/06/01/Vue/vue-cli%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<p><a href="https://juejin.im/post/5c73d879e51d454b4755603f" target="_blank" rel="noopener">参考链接</a></p>
 <h3 id="vue-cli基本命令"><a href="#vue-cli基本命令" class="headerlink" title="vue-cli基本命令"></a>vue-cli基本命令</h3><p><img src="https://user-gold-cdn.xitu.io/2019/2/25/169248590b2fbadc?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
-<h3 id="vue-config-js的配置"><a href="#vue-config-js的配置" class="headerlink" title="vue.config.js的配置"></a><a href="https://juejin.im/post/5c77d0b9e51d455fb110c394#comment" target="_blank" rel="noopener">vue.config.js的配置</a></h3>]]></content>
+<h3 id="vue-config-js的配置"><a href="#vue-config-js的配置" class="headerlink" title="vue.config.js的配置"></a><a href="https://juejin.im/post/5c77d0b9e51d455fb110c394#comment" target="_blank" rel="noopener">vue.config.js的配置</a></h3><h3 id="vue模块化开发流程"><a href="#vue模块化开发流程" class="headerlink" title="vue模块化开发流程"></a><a href="https://segmentfault.com/a/1190000017389046" target="_blank" rel="noopener">vue模块化开发流程</a></h3><ul>
+<li><p>初始化项目,cli构建项目结构</p>
+</li>
+<li><p>配置webpack</p>
+</li>
+<li><p>创建项目结构,安装依赖包</p>
+</li>
+<li><p>编写业务逻辑,使用Vue单页组件</p>
+</li>
+<li><p>webpack打包项目,查看打包后index.html</p>
+</li>
+</ul>
+]]></content>
       <tags>
         <tag>vue</tag>
       </tags>
@@ -349,7 +577,12 @@ com.toshiba_dealin.developerhelper/com.toshiba_dealin.developerhelper.service.DH
   <entry>
     <title>Fiddler抓包</title>
     <url>/2020/05/20/Http/Fiddler%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h3 id="远程抓包手机时出现的安全证书问题"><a href="#远程抓包手机时出现的安全证书问题" class="headerlink" title="远程抓包手机时出现的安全证书问题"></a>远程抓包手机时出现的安全证书问题</h3><p><a href="https://blog.csdn.net/yu1014745867/article/details/79108495" target="_blank" rel="noopener">在手机上安装证书</a></p>
+    <content><![CDATA[<h3 id="远程抓包手机时出现的安全证书问题"><a href="#远程抓包手机时出现的安全证书问题" class="headerlink" title="远程抓包手机时出现的安全证书问题"></a>远程抓包手机时出现的安全证书问题</h3><p><a href="https://blog.csdn.net/liujingqiu/article/details/79387909" target="_blank" rel="noopener">fiddler抓包手机</a></p>
+<ul>
+<li>手机和电脑连接同一局域网</li>
+<li>手机端访问ip:8888,ip为电脑的局域网ip</li>
+</ul>
+<p><a href="https://blog.csdn.net/yu1014745867/article/details/79108495" target="_blank" rel="noopener">在手机上安装证书</a></p>
 <ol>
 <li>fiddler设置手机代理</li>
 <li>手机输出电脑IP:8888,下载安装证书</li>
@@ -452,8 +685,8 @@ class App extends React.Component {
 
 ReactDOM.render(&lt;App&gt;&lt;/App&gt;, document.getElementById(&#39;root&#39;))</code></pre>
 <h2 id="Router路由"><a href="#Router路由" class="headerlink" title="Router路由"></a>Router路由</h2><p>Router包裹</p>
-<p><code>&lt;Link&gt;</code>和<code>&lt;NavLink&gt;</code>是用来包裹显示的跳转链接的</p>
-<p><code>&lt;Route&gt;</code>是用来包裹点击跳转链接后要显示的内容</p>
+<p><code>&lt;Link&gt;</code>和<code>&lt;NavLink&gt;</code>是用来包裹显示的跳转链接的 精确匹配<code>exact</code></p>
+<p><code>&lt;Route&gt;</code> 路由出口—&gt;用来包裹点击跳转链接后要显示的内容</p>
 <pre><code class="jsx">&lt;Route exact path=&quot;/home&quot; component={Home} /&gt;
 
 // 等效于 
@@ -604,6 +837,8 @@ For complete documentation, run: info coreutils &#39;ln invocation&#39;
     <title>es6之Promise对象的学习</title>
     <url>/2020/04/12/JavaScript/es6%E4%B9%8BPromise%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<p><strong>一般总是建议，Promise 对象后面要跟<code>catch()</code>方法，这样可以处理 Promise 内部发生的错误。`c</strong>atch()<code>方法返回的还是一个 Promise 对象，因此后面还可以接着调用</code>then()`方法。</p>
+<a id="more"></a>
+
 <pre><code class="js">const someAsyncThing = function() {
   return new Promise(function(resolve, reject) {
     // 下面一行会报错，因为x没有声明
@@ -769,7 +1004,7 @@ Beautifier Options:
   </entry>
   <entry>
     <title>vuejs的学习</title>
-    <url>/2020/04/03/Vue/vuejs%E5%88%9D%E6%8E%A5%E8%A7%A6/</url>
+    <url>/2020/04/03/Vue/vue%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="script引入"><a href="#script引入" class="headerlink" title="script引入"></a>script引入</h3><pre><code class="html">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&gt;&lt;/script&gt;</code></pre>
 <p><strong>BootCdn</strong></p>
 <pre><code class="html">&lt;script src=&quot;https://cdn.bootcss.com/vue/2.6.11/vue.js&quot;&gt;&lt;/script&gt;</code></pre>
@@ -1233,7 +1468,7 @@ PubkeyAuthentication yes</code></pre>
   </entry>
   <entry>
     <title>linux新建用户</title>
-    <url>/2020/03/03/Linux/linux%E6%96%B0%E5%BB%BA%E7%94%A8%E6%88%B7/</url>
+    <url>/2020/03/03/Linux/linux%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E5%8F%8A%E5%AF%86%E7%A0%81/</url>
     <content><![CDATA[<blockquote>
 <p>起因:</p>
 <p>想远程通过remote ssh远程连接服务器,写代码,保存在服务器上运行,而不用本地运行.而通过root用户登陆不太好,所以需要创建一个用户,并设置好权限.</p>
@@ -1407,7 +1642,7 @@ Options:
   </entry>
   <entry>
     <title>http协议的学习</title>
-    <url>/2020/03/01/Http/http%E4%BB%8B%E7%BB%8D/</url>
+    <url>/2020/03/01/Http/http%E5%8D%8F%E8%AE%AE/</url>
     <content><![CDATA[<h2 id="关于HTTP协议"><a href="#关于HTTP协议" class="headerlink" title="关于HTTP协议"></a><a href="https://www.cnblogs.com/ranyonsue/p/5984001.html" target="_blank" rel="noopener">关于HTTP协议</a></h2><h3 id="HTTP简介"><a href="#HTTP简介" class="headerlink" title="HTTP简介"></a>HTTP简介</h3><p>HTTP协议是Hyper Text Transfer Protocol（超文本传输协议）的缩写,是用于从万维网（WWW:World Wide Web ）服务器传输超文本到本地浏览器的传送协议。</p>
 <p>HTTP是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/2964446-5a35e17f298a48e1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2" alt=""></p>
@@ -1473,16 +1708,30 @@ Options:
 <p>CDN加速- 内容分发网络.依靠部署在各地的服务器,使用户就近获取所需内容，降低网络拥塞，提高用户访问响应速度。</p>
 </li>
 </ul>
-<h2 id="在浏览器输入url访问网址的过程中发生了什么"><a href="#在浏览器输入url访问网址的过程中发生了什么" class="headerlink" title="在浏览器输入url访问网址的过程中发生了什么?-"></a>在浏览器输入url访问网址的过程中发生了什么?-</h2><ul>
+<h2 id="在浏览器输入url访问网址的过程中发生了什么"><a href="#在浏览器输入url访问网址的过程中发生了什么" class="headerlink" title="在浏览器输入url访问网址的过程中发生了什么?-"></a>在浏览器输入url访问网址的过程中发生了什么?-</h2><blockquote>
+<p><strong>url组成</strong></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/301420-e308f1b76b1bfc97.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/902/format/webp" alt="url组成"></p>
+<p>图中中括号是可选项</p>
+<ul>
+<li>protocol 协议，常用的协议是http</li>
+<li>hostname 主机地址，可以是域名，也可以是IP地址</li>
+<li>port 端口 http协议默认端口是：80端口，如果不写默认就是:80端口</li>
+<li>path 路径 网络资源在服务器中的指定路径</li>
+<li>parameter 参数 如果要向服务器传入参数，在这部分输入</li>
+<li>query 查询字符串 如果需要从服务器那里查询内容，在这里编辑</li>
+<li>fragment 片段 网页中可能会分为不同的片段，如果想访问网页后直接到达指定位置，可以在这部分设置</li>
+</ul>
+</blockquote>
+<ul>
 <li>用户在浏览器中输入url后,浏览器会先对输入的地址进行解析,比如用的协议是<code>http</code>还是<code>https</code></li>
 <li>之后根据域名进行ip的寻址<ul>
 <li>寻址先从DNS缓存开始,比如host</li>
-<li>host没有就访问dns服务器,一层一层向上,直至访问到根服务器(IPv4协议跟服务器全球13台)</li>
+<li>host没有就访问dns服务器,一层一层向上,直至访问到根服务器(IPv4协议跟服务器全球13台)(DNS解析)</li>
 <li>寻找到对应的ip后服务器再把ip地址发送给客户端</li>
 </ul>
 </li>
 <li>客户端拿到ip地址后向对应ip地址的服务器发起请求<ul>
-<li>与服务器建立http连接(3次握手)<ul>
+<li>与服务器建立tcp连接(3次握手)<ul>
 <li>SSL/TLS 4次握手交换信息(数字证书,3个随机数,加密通信协议)<ul>
 <li>Client Hello    Server Hello</li>
 </ul>
@@ -1491,7 +1740,15 @@ Options:
 </li>
 </ul>
 </li>
-<li>成功建立连接后服务器返回数据,浏览器进行渲染</li>
+<li>成功建立连接后向服务器(代理服务器,CDN服务器)发送HTTP请求.</li>
+<li>服务器处理请求并返回数据(Http报文),</li>
+<li>浏览器解析并渲染出页面<ul>
+<li>根据HTML解析生成DOM树</li>
+<li>css解析生成css规则树</li>
+<li>JavaScript资源下载</li>
+<li>结合dom树和css规则树进行绘制</li>
+</ul>
+</li>
 <li>渲染出页面</li>
 </ul>
 ]]></content>
@@ -1682,7 +1939,10 @@ netstat -tunlp |grep 8888    #查看指定端口的进程情况</code></pre>
 </blockquote>
 <p>最后是怎么解决的呢…</p>
 <p><code>reboot</code>重启下服务器就好了</p>
-<p><a href="https://www.jianshu.com/p/cded5a53cb5f" target="_blank" rel="noopener">附宝塔面板端口修改教程</a></p>
+<h3 id="端口开放失败问题"><a href="#端口开放失败问题" class="headerlink" title="端口开放失败问题"></a>端口开放失败问题</h3><ul>
+<li>腾讯云安全组已开启端口,但是服务器内部<code>firewall-cmd --list-ports</code>查看不到</li>
+</ul>
+<h3 id="firewall-cmd查看端口及操作端口"><a href="#firewall-cmd查看端口及操作端口" class="headerlink" title="firewall-cmd查看端口及操作端口"></a><a href="https://blog.csdn.net/y534560449/article/details/65629697" target="_blank" rel="noopener">firewall-cmd查看端口及操作端口</a></h3><p><a href="https://www.jianshu.com/p/cded5a53cb5f" target="_blank" rel="noopener">附宝塔面板端口修改教程</a></p>
 ]]></content>
       <tags>
         <tag>linux</tag>
@@ -2273,9 +2533,15 @@ $ git remote -v
       </tags>
   </entry>
   <entry>
-    <title>JavaScript/Http Status状态码</title>
-    <url>/2020/01/20/JavaScript/Http%20Status%E7%8A%B6%E6%80%81%E7%A0%81/</url>
-    <content><![CDATA[]]></content>
+    <title>Http Status状态码</title>
+    <url>/2020/01/20/Http/Http%20Status%E7%8A%B6%E6%80%81%E7%A0%81/</url>
+    <content><![CDATA[<h2 id="Http状态码"><a href="#Http状态码" class="headerlink" title="Http状态码"></a>Http状态码</h2><p><a href="https://blog.csdn.net/unclebober/article/details/86626117?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522159168396419195264507374%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=159168396419195264507374&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_blog_default-1-86626117.pc_v2_rank_blog_default&utm_term=%E7%8A%B6%E6%80%81%E7%A0%81" target="_blank" rel="noopener">参考链接</a></p>
+<iframe width="828" src="https://blog.csdn.net/unclebober/article/details/86626117?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522159168396419195264507374%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=159168396419195264507374&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_blog_default-1-86626117.pc_v2_rank_blog_default&utm_term=%E7%8A%B6%E6%80%81%E7%A0%81"></iframe>
+
+]]></content>
+      <tags>
+        <tag>http</tag>
+      </tags>
   </entry>
   <entry>
     <title>AJAX学习</title>
@@ -2510,7 +2776,7 @@ console.log(adress1.address);
 </tbody></table>
 ]]></content>
       <tags>
-        <tag>javascript</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -2548,7 +2814,7 @@ console.log(adress1.address);
 </tbody></table>
 ]]></content>
       <tags>
-        <tag>javascript</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -2736,7 +3002,6 @@ console.log(adress1.address);
 <p>$1是光标的位置,按下Tab光标移动到$2,而$0则是终止Tab键的光标操作.</p>
 ]]></content>
       <tags>
-        <tag>javascript</tag>
         <tag>vscode</tag>
       </tags>
   </entry>
@@ -2767,7 +3032,7 @@ console.log(adress1.address);
 </ul>
 ]]></content>
       <tags>
-        <tag>javascript</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -2795,7 +3060,7 @@ doAdd(1);
 1 undefined</code></pre>
 ]]></content>
       <tags>
-        <tag>javascript</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -2906,7 +3171,8 @@ prettier.vueIndentScriptAndStyle</code></pre>
   <entry>
     <title>git</title>
     <url>/2020/01/04/Git/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<p><a href="https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener"><span style="font-size:1.75em">参考链接</span></a></p>
+    <content><![CDATA[<p><a href="https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener"><span style="font-size:1.75em">常用git命令清单</span></a></p>
+<p><a href="https://git-scm.com/docs/" target="_blank" rel="noopener"><span style="font-size:1.75em">git官方文档</span></a></p>
 <h2 id="一、新建代码库"><a href="#一、新建代码库" class="headerlink" title="一、新建代码库"></a>一、新建代码库</h2><p>使用当前目录作为Git仓库，初始化本地仓库</p>
 <pre><code class="bash"># 在当前目录新建一个Git代码库
 $ git init
@@ -2935,7 +3201,7 @@ $ git clone [url]</code></pre>
   </entry>
   <entry>
     <title>常见问题总结</title>
-    <url>/2020/01/04/%E6%80%BB%E7%BB%93/%E5%89%8D%E7%AB%AF%E6%80%BB%E7%BB%93/</url>
+    <url>/2020/01/04/%E6%80%BB%E7%BB%93/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h3 id="什么是标签语义化-标签语义化有什么优势-你知道的常见语义化标签有哪些"><a href="#什么是标签语义化-标签语义化有什么优势-你知道的常见语义化标签有哪些" class="headerlink" title="什么是标签语义化? 标签语义化有什么优势? 你知道的常见语义化标签有哪些?"></a>什么是标签语义化? 标签语义化有什么优势? 你知道的常见语义化标签有哪些?</h3>]]></content>
       <tags>
         <tag>css</tag>

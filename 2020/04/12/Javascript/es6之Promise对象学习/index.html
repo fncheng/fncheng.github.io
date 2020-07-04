@@ -9,7 +9,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
-  <link rel="alternate" href="/atom.xml" title="風之萬里" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="Cheng's Site" type="application/atom+xml">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -52,15 +52,15 @@
   };
 </script>
 
-  <meta name="description" content="一般总是建议，Promise 对象后面要跟catch()方法，这样可以处理 Promise 内部发生的错误。&#96;catch()方法返回的还是一个 Promise 对象，因此后面还可以接着调用then()&#96;方法。 const someAsyncThing = function() {   return new Promise(function(resolve, reject) {     &#x2F;&#x2F; 下面一">
+  <meta name="description" content="一般总是建议，Promise 对象后面要跟catch()方法，这样可以处理 Promise 内部发生的错误。&#96;catch()方法返回的还是一个 Promise 对象，因此后面还可以接着调用then()&#96;方法。">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="es6之Promise对象的学习">
 <meta property="og:url" content="https:&#x2F;&#x2F;siwadiya.github.io&#x2F;2020&#x2F;04&#x2F;12&#x2F;JavaScript&#x2F;es6%E4%B9%8BPromise%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0&#x2F;index.html">
-<meta property="og:site_name" content="風之萬里">
-<meta property="og:description" content="一般总是建议，Promise 对象后面要跟catch()方法，这样可以处理 Promise 内部发生的错误。&#96;catch()方法返回的还是一个 Promise 对象，因此后面还可以接着调用then()&#96;方法。 const someAsyncThing = function() {   return new Promise(function(resolve, reject) {     &#x2F;&#x2F; 下面一">
+<meta property="og:site_name" content="Cheng&#39;s Site">
+<meta property="og:description" content="一般总是建议，Promise 对象后面要跟catch()方法，这样可以处理 Promise 内部发生的错误。&#96;catch()方法返回的还是一个 Promise 对象，因此后面还可以接着调用then()&#96;方法。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-12T14:35:05.795Z">
+<meta property="og:updated_time" content="2020-06-26T01:50:32.066Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://siwadiya.github.io/2020/04/12/JavaScript/es6%E4%B9%8BPromise%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0/">
@@ -87,7 +87,7 @@
     }
 </style>
 <script src="/lib/font-iconfont/iconfont.js"></script>
-  <title>es6之Promise对象的学习 | 風之萬里</title>
+  <title>es6之Promise对象的学习 | Cheng's Site</title>
   
 
 
@@ -131,7 +131,7 @@
     <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">風之萬里</span>
+        <span class="site-title">Cheng's Site</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -320,7 +320,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="風之萬里">
+      <meta itemprop="name" content="Cheng's Site">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -333,10 +333,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-04-12 22:33:12 / 修改时间：22:35:05" itemprop="dateCreated datePublished" datetime="2020-04-12T22:33:12+08:00">2020-04-12</time>
+              <time title="创建时间：2020-04-12 22:33:12" itemprop="dateCreated datePublished" datetime="2020-04-12T22:33:12+08:00">2020-04-12</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-26 09:50:32" itemprop="dateModified" datetime="2020-06-26T09:50:32+08:00">2020-06-26</time>
+              </span>
 
           
 
@@ -350,6 +356,8 @@
 
       
         <p><strong>一般总是建议，Promise 对象后面要跟<code>catch()</code>方法，这样可以处理 Promise 内部发生的错误。`c</strong>atch()<code>方法返回的还是一个 Promise 对象，因此后面还可以接着调用</code>then()`方法。</p>
+<a id="more"></a>
+
 <pre><code class="js">const someAsyncThing = function() {
   return new Promise(function(resolve, reject) {
     // 下面一行会报错，因为x没有声明
@@ -442,14 +450,14 @@ someAsyncThing()
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">107</span>
+          <span class="site-state-item-count">118</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-count">35</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

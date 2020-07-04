@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Cheng's Site" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+
+
+<link rel="stylesheet" href="/css/highlight/styles/vs2015.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://siwadiya.github.io').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="起因: 想远程通过remote ssh远程连接服务器,写代码,保存在服务器上运行,而不用本地运行.而通过root用户登陆不太好,所以需要创建一个用户,并设置好权限.  创建用户前,我们需要了解一下linux的用户和用户组以及权限的概念. 新建用户adduser命令会自动为创建的用户指定主目录、系统shell版本，会在创建时输入用户密码。 adduser apple 这样在创建用户名时，就创建了用">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux新建用户">
+<meta property="og:url" content="https:&#x2F;&#x2F;siwadiya.github.io&#x2F;2020&#x2F;03&#x2F;03&#x2F;Linux&#x2F;linux%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E5%8F%8A%E5%AF%86%E7%A0%81&#x2F;index.html">
+<meta property="og:site_name" content="Cheng&#39;s Site">
+<meta property="og:description" content="起因: 想远程通过remote ssh远程连接服务器,写代码,保存在服务器上运行,而不用本地运行.而通过root用户登陆不太好,所以需要创建一个用户,并设置好权限.  创建用户前,我们需要了解一下linux的用户和用户组以及权限的概念. 新建用户adduser命令会自动为创建的用户指定主目录、系统shell版本，会在创建时输入用户密码。 adduser apple 这样在创建用户名时，就创建了用">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;pic1.zhimg.com&#x2F;80&#x2F;v2-83338ceda500e5ffc3bc56b9477da368_720w.jpg">
+<meta property="og:updated_time" content="2020-04-18T10:25:49.872Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;pic1.zhimg.com&#x2F;80&#x2F;v2-83338ceda500e5ffc3bc56b9477da368_720w.jpg">
+
+<link rel="canonical" href="https://siwadiya.github.io/2020/03/03/Linux/linux%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E5%8F%8A%E5%AF%86%E7%A0%81/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_1576657_8m5hmledwfk.css">
+<style type="text/css">
+    .icon {
+       width: 1.28em; height: 1.28em;
+       vertical-align: -0.25em;
+       fill: currentColor;
+       overflow: hidden;
+    }
+</style>
+<script src="/lib/font-iconfont/iconfont.js"></script>
+  <title>linux新建用户 | Cheng's Site</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Cheng's Site</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+    
+      
+      
+
+    <a href="/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-shouye"></use>
+      </svg>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+    
+      
+      
+
+    <a href="/about/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-guanyu1"></use>
+      </svg>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+    
+      
+      
+
+    <a href="/tags/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-tubiao-"></use>
+      </svg>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+    
+      
+      
+
+    <a href="/categories/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-fenlei-"></use>
+      </svg>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-linux">
+    
+      
+      
+
+    <a href="/tags/linux/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-linux"></use>
+      </svg>每天一个linux命令</a>
+
+  </li>
+        <li class="menu-item menu-item-csdn">
+    
+      
+      
+
+    <a href="https://i.csdn.net/#/uc/collection-list" rel="noopener" target="_blank">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-csdn"></use>
+      </svg>csdn</a>
+
+  </li>
+        <li class="menu-item menu-item-segmentfault">
+    
+      
+      
+
+    <a href="https://segmentfault.com/user/bookmarks" rel="noopener" target="_blank">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-iconsf-copy"></use>
+      </svg>segmentfault</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+    
+      
+      
+
+    <a href="/archives/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-guidang"></use>
+      </svg>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+    
+      
+      
+
+    <a href="/schedule/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-calendar"></use>
+      </svg>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+    
+      
+      
+
+    <a href="/404/" rel="section">
+      <svg class="icon fa fa-fw" aria-hidden="true">
+        <use xlink:href="#icon-icon-test"></use>
+      </svg>公益 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://siwadiya.github.io/2020/03/03/Linux/linux%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E5%8F%8A%E5%AF%86%E7%A0%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="siwadiya">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cheng's Site">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          linux新建用户
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-03 17:03:46" itemprop="dateCreated datePublished" datetime="2020-03-03T17:03:46+08:00">2020-03-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-18 18:25:49" itemprop="dateModified" datetime="2020-04-18T18:25:49+08:00">2020-04-18</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>起因:</p>
+<p>想远程通过remote ssh远程连接服务器,写代码,保存在服务器上运行,而不用本地运行.而通过root用户登陆不太好,所以需要创建一个用户,并设置好权限.</p>
+</blockquote>
+<p>创建用户前,我们需要了解一下<a href="https://blog.csdn.net/yue7603835/article/details/73699258" target="_blank" rel="noopener">linux的用户和用户组以及权限的概念</a>.</p>
+<h2 id="新建用户"><a href="#新建用户" class="headerlink" title="新建用户"></a><a href="https://blog.csdn.net/beitiandijun/article/details/41678251" target="_blank" rel="noopener">新建用户</a></h2><h3 id="adduser命令"><a href="#adduser命令" class="headerlink" title="adduser命令"></a>adduser命令</h3><p>会自动为创建的用户指定主目录、系统shell版本，会在创建时输入用户密码。</p>
+<pre><code class="bash">adduser apple</code></pre>
+<p>这样在创建用户名时，就创建了用户的主目录(/home/apple)以及密码。</p>
+<p>默认情况下：</p>
+<p>adduser在创建用户时会主动调用  /etc/adduser.conf；</p>
+<p>在创建用户主目录时默认在/home下，而且创建为 /home/用户名</p>
+<h3 id="useradd命令"><a href="#useradd命令" class="headerlink" title="useradd命令"></a>useradd命令</h3><p>需要使用参数选项指定上述基本设置，如果不使用任何参数，则创建的用户无密码、无主目录、没有指定shell版本。</p>
+<pre><code class="bash">useradd tt</code></pre>
+<pre><code class="bash">useradd
+Usage: useradd [options] LOGIN
+       useradd -D
+       useradd -D [options]
+
+Options:
+  -b, --base-dir BASE_DIR       base directory for the home directory of the
+                                new account
+                                #为新用户指定home目录
+  -c, --comment COMMENT         GECOS field of the new account
+  #加上备注文字。备注文字会保存在passwd的备注栏位中；
+  -d, --home-dir HOME_DIR       home directory of the new account
+  #指定用户登入时的启始目录；
+  -D, --defaults                print or change default useradd configuration
+  -e, --expiredate EXPIRE_DATE  expiration date of the new account
+  -f, --inactive INACTIVE       password inactivity period of the new account
+  -g, --gid GROUP               name or ID of the primary group of the new
+                                account
+  -G, --groups GROUPS           list of supplementary groups of the new
+                                account
+  -h, --help                    display this help message and exit
+  -k, --skel SKEL_DIR           use this alternative skeleton directory
+  -K, --key KEY=VALUE           override /etc/login.defs defaults
+  -l, --no-log-init             do not add the user to the lastlog and
+                                faillog databases
+                                #不要将用户添加到lastlog和faillog数据库
+  -m, --create-home             create the user&#39;s home directory
+                                  #自动建立用户的登入目录
+  -M, --no-create-home          do not create the user&#39;s home directory
+  -N, --no-user-group           do not create a group with the same name as
+                                the user
+  -o, --non-unique              allow to create users with duplicate
+                                (non-unique) UID
+  -p, --password PASSWORD       encrypted password of the new 
+                                  #新帐号的密码
+  -r, --system                  create a system account
+                                  #建立系统帐号
+  -R, --root CHROOT_DIR         directory to chroot into
+
+  -s, --shell SHELL             login shell of the new account
+                                  #指定用户登入后所使用的shell
+  -u, --uid UID                 user ID of the new account
+                                  #指定用户id
+  -U, --user-group              create a group with the same name as the user
+  -Z, --selinux-user SEUSER     use a specific SEUSER for the SELinux user mapping</code></pre>
+<p><a href="https://www.cnblogs.com/52php/p/5677628.html" target="_blank" rel="noopener">参考链接</a></p>
+<h2 id="深入理解-sudo-与-su-之间的区别"><a href="#深入理解-sudo-与-su-之间的区别" class="headerlink" title="深入理解 sudo 与 su 之间的区别"></a>深入理解 sudo 与 su 之间的区别</h2><p>两个命令的最大区别是：</p>
+<p><code>sudo</code>命令需要输入当前用户的密码,而<code>su</code>命令则需要输入root用户的密码.另外一个区别是其默认行为。sudo 命令只允许使用提升的权限运行单个命令，而 su 命令会启动一个新的 shell，同时允许使用 root 权限运行尽可能多的命令，直到明确退出登录。</p>
+<h3 id="su命令"><a href="#su命令" class="headerlink" title="su命令"></a><a href="https://wangchujiang.com/linux-command/c/su.html" target="_blank" rel="noopener">su命令</a></h3><pre><code class="bash">su [options] [-] [USER [arg]...]
+
+Change the effective user id and group id to that of USER.
+A mere - implies -l.   If USER not given, assume root.
+
+Options:
+ -m, -p, --preserve-environment  do not reset environment variables 
+                                  #变更身份时，不要变更环境变量；
+ -g, --group &lt;group&gt;             specify the primary group
+ -G, --supp-group &lt;group&gt;        specify a supplemental group
+
+ -, -l, --login                  make the shell a login shell
+ #改变身份时，也同时变更工作目录，以及HOME,SHELL,USER,logname。此外，也会变更PATH变量；
+ -c, --command &lt;command&gt;         pass a single command to the shell with -c
+#执行完指定的指令后，即恢复原来的身份；
+ --session-command &lt;command&gt;     pass a single command to the shell with -c
+                                 and do not create a new session
+#执行完指定的指令后，即恢复原来的身份；并且不会创建一个新的会话
+ -f, --fast                      pass -f to the shell (for csh or tcsh)
+ -s, --shell &lt;shell&gt;             run shell if /etc/shells allows it
+
+ -h, --help     display this help and exit
+ -V, --version  output version information and exit</code></pre>
+<h2 id="linux—user-and-group-用户和组的概念"><a href="#linux—user-and-group-用户和组的概念" class="headerlink" title="linux—user and group 用户和组的概念"></a><a href="https://blog.51cto.com/13438667/2061590" target="_blank" rel="noopener">linux—user and group 用户和组的概念</a></h2><p>Linux用户分为管理员和普通用户，普通用户又分为系统用户和自定义用户。可以查看/etc/passwd来查看。</p>
+<pre><code class="bash">root:x:0:0:root:/root:/bin/bash
+sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+www:x:1000:1000::/home/www:/bin/bash</code></pre>
+<p>以<code>root:x:0:0:root:/root:/bin/bash</code> 为例</p>
+<p><img src="https://pic1.zhimg.com/80/v2-83338ceda500e5ffc3bc56b9477da368_720w.jpg" alt=""></p>
+<ul>
+<li>login_name 注册名 root</li>
+<li>passwd 口令   由于 passwd 不再保存密码信息，所以用 x 占位代表。</li>
+<li>uid 用户标识号</li>
+<li>gid 组标识号</li>
+<li>users 注释性描述</li>
+<li>home_directory 用户主目录     /home/www</li>
+<li>shell 登陆shell  —&gt; /bin/bash</li>
+</ul>
+<h2 id="在linux中为用户设置root权限"><a href="#在linux中为用户设置root权限" class="headerlink" title="在linux中为用户设置root权限"></a><a href="https://linoxide.com/usr-mgmt/give-normal-user-root-privileges/" target="_blank" rel="noopener">在linux中为用户设置root权限</a></h2><h4 id="usermod命令"><a href="#usermod命令" class="headerlink" title="usermod命令"></a>usermod命令</h4><pre><code class="bash">Usage: usermod [options] LOGIN
+
+Options:
+  -c, --comment COMMENT         new value of the GECOS field
+  -d, --home HOME_DIR           new home directory for the user account
+  -e, --expiredate EXPIRE_DATE  set account expiration date to EXPIRE_DATE
+  -f, --inactive INACTIVE       set password inactive after expiration
+                                to INACTIVE
+  -g, --gid GROUP               force use GROUP as new primary group
+  #强制使用GROUP作为新的主要组
+  -G, --groups GROUPS           new list of supplementary GROUPS
+  -a, --append                  append the user to the supplemental GROUPS
+                                mentioned by the -G option without removing
+                                the user from other groups
+  #将用户添加到-G选项提到的附加GROUPS上，而不将用户从其他组中删除
+  -h, --help                    display this help message and exit
+  -l, --login NEW_LOGIN         new value of the login name
+  -L, --lock                    lock the user account
+  -m, --move-home               move contents of the home directory to the
+                                new location (use only with -d)
+  -o, --non-unique              allow using duplicate (non-unique) UID
+  -p, --password PASSWORD       use encrypted password for the new password
+  -R, --root CHROOT_DIR         directory to chroot into
+  -P, --prefix PREFIX_DIR       prefix directory where are located the /etc/* files
+  -s, --shell SHELL             new login shell for the user account
+  -u, --uid UID                 new UID for the user account
+  -U, --unlock                  unlock the user account
+  -v, --add-subuids FIRST-LAST  add range of subordinate uids
+  -V, --del-subuids FIRST-LAST  remove range of subordinate uids
+  -w, --add-subgids FIRST-LAST  add range of subordinate gids
+  -W, --del-subgids FIRST-LAST  remove range of subordinate gids
+  -Z, --selinux-user SEUSER     new SELinux user mapping for the user account
+</code></pre>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"># linux</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/03/js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E4%B9%8Barttemplate%E5%88%9D%E6%8E%A5%E8%A7%A6/" rel="prev" title="模板引擎初接触之arttemplate">
+      <i class="fa fa-chevron-left"></i> 模板引擎初接触之arttemplate
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/03/Vscode/remote-ssh%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="next" title="remote-ssh的使用过程">
+      remote-ssh的使用过程 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#新建用户"><span class="nav-number">1.</span> <span class="nav-text">新建用户</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#adduser命令"><span class="nav-number">1.1.</span> <span class="nav-text">adduser命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#useradd命令"><span class="nav-number">1.2.</span> <span class="nav-text">useradd命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深入理解-sudo-与-su-之间的区别"><span class="nav-number">2.</span> <span class="nav-text">深入理解 sudo 与 su 之间的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#su命令"><span class="nav-number">2.1.</span> <span class="nav-text">su命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux—user-and-group-用户和组的概念"><span class="nav-number">3.</span> <span class="nav-text">linux—user and group 用户和组的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在linux中为用户设置root权限"><span class="nav-number">4.</span> <span class="nav-text">在linux中为用户设置root权限</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#usermod命令"><span class="nav-number">4.0.1.</span> <span class="nav-text">usermod命令</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">siwadiya</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">118</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">siwadiya</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
+  </div>
+
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

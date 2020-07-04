@@ -9,7 +9,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
-  <link rel="alternate" href="/atom.xml" title="風之萬里" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="Cheng's Site" type="application/atom+xml">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -52,16 +52,16 @@
   };
 </script>
 
-  <meta name="description" content="参考链接 vue-cli基本命令 vue.config.js的配置">
+  <meta name="description" content="参考链接 vue-cli基本命令 vue.config.js的配置vue模块化开发流程 初始化项目,cli构建项目结构  配置webpack  创建项目结构,安装依赖包  编写业务逻辑,使用Vue单页组件  webpack打包项目,查看打包后index.html">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue-cli的使用">
 <meta property="og:url" content="https:&#x2F;&#x2F;siwadiya.github.io&#x2F;2020&#x2F;06&#x2F;01&#x2F;Vue&#x2F;vue-cli%E7%9A%84%E4%BD%BF%E7%94%A8&#x2F;index.html">
-<meta property="og:site_name" content="風之萬里">
-<meta property="og:description" content="参考链接 vue-cli基本命令 vue.config.js的配置">
+<meta property="og:site_name" content="Cheng&#39;s Site">
+<meta property="og:description" content="参考链接 vue-cli基本命令 vue.config.js的配置vue模块化开发流程 初始化项目,cli构建项目结构  配置webpack  创建项目结构,安装依赖包  编写业务逻辑,使用Vue单页组件  webpack打包项目,查看打包后index.html">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;user-gold-cdn.xitu.io&#x2F;2019&#x2F;2&#x2F;25&#x2F;169248590b2fbadc?imageView2&#x2F;0&#x2F;w&#x2F;1280&#x2F;h&#x2F;960&#x2F;format&#x2F;webp&#x2F;ignore-error&#x2F;1">
-<meta property="og:updated_time" content="2020-06-01T02:07:10.325Z">
+<meta property="og:updated_time" content="2020-06-22T07:58:04.509Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;user-gold-cdn.xitu.io&#x2F;2019&#x2F;2&#x2F;25&#x2F;169248590b2fbadc?imageView2&#x2F;0&#x2F;w&#x2F;1280&#x2F;h&#x2F;960&#x2F;format&#x2F;webp&#x2F;ignore-error&#x2F;1">
 
@@ -89,7 +89,7 @@
     }
 </style>
 <script src="/lib/font-iconfont/iconfont.js"></script>
-  <title>vue-cli的使用 | 風之萬里</title>
+  <title>vue-cli的使用 | Cheng's Site</title>
   
 
 
@@ -133,7 +133,7 @@
     <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">風之萬里</span>
+        <span class="site-title">Cheng's Site</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -322,7 +322,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="風之萬里">
+      <meta itemprop="name" content="Cheng's Site">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -335,10 +335,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-06-01 09:51:42 / 修改时间：10:07:10" itemprop="dateCreated datePublished" datetime="2020-06-01T09:51:42+08:00">2020-06-01</time>
+              <time title="创建时间：2020-06-01 09:51:42" itemprop="dateCreated datePublished" datetime="2020-06-01T09:51:42+08:00">2020-06-01</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-22 15:58:04" itemprop="dateModified" datetime="2020-06-22T15:58:04+08:00">2020-06-22</time>
+              </span>
 
           
 
@@ -353,7 +359,19 @@
       
         <p><a href="https://juejin.im/post/5c73d879e51d454b4755603f" target="_blank" rel="noopener">参考链接</a></p>
 <h3 id="vue-cli基本命令"><a href="#vue-cli基本命令" class="headerlink" title="vue-cli基本命令"></a>vue-cli基本命令</h3><p><img src="https://user-gold-cdn.xitu.io/2019/2/25/169248590b2fbadc?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
-<h3 id="vue-config-js的配置"><a href="#vue-config-js的配置" class="headerlink" title="vue.config.js的配置"></a><a href="https://juejin.im/post/5c77d0b9e51d455fb110c394#comment" target="_blank" rel="noopener">vue.config.js的配置</a></h3>
+<h3 id="vue-config-js的配置"><a href="#vue-config-js的配置" class="headerlink" title="vue.config.js的配置"></a><a href="https://juejin.im/post/5c77d0b9e51d455fb110c394#comment" target="_blank" rel="noopener">vue.config.js的配置</a></h3><h3 id="vue模块化开发流程"><a href="#vue模块化开发流程" class="headerlink" title="vue模块化开发流程"></a><a href="https://segmentfault.com/a/1190000017389046" target="_blank" rel="noopener">vue模块化开发流程</a></h3><ul>
+<li><p>初始化项目,cli构建项目结构</p>
+</li>
+<li><p>配置webpack</p>
+</li>
+<li><p>创建项目结构,安装依赖包</p>
+</li>
+<li><p>编写业务逻辑,使用Vue单页组件</p>
+</li>
+<li><p>webpack打包项目,查看打包后index.html</p>
+</li>
+</ul>
+
     </div>
 
     
@@ -415,7 +433,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-cli基本命令"><span class="nav-number">1.</span> <span class="nav-text">vue-cli基本命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-config-js的配置"><span class="nav-number">2.</span> <span class="nav-text">vue.config.js的配置</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-cli基本命令"><span class="nav-number">1.</span> <span class="nav-text">vue-cli基本命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-config-js的配置"><span class="nav-number">2.</span> <span class="nav-text">vue.config.js的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue模块化开发流程"><span class="nav-number">3.</span> <span class="nav-text">vue模块化开发流程</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -429,14 +447,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">107</span>
+          <span class="site-state-item-count">118</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-count">35</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
