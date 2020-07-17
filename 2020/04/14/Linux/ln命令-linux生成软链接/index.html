@@ -60,7 +60,7 @@
 <meta property="og:site_name" content="Cheng&#39;s Site">
 <meta property="og:description" content="ln命令">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-27T07:09:04.163Z">
+<meta property="og:updated_time" content="2020-07-14T07:52:16.961Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://siwadiya.github.io/2020/04/14/Linux/ln%E5%91%BD%E4%BB%A4-linux%E7%94%9F%E6%88%90%E8%BD%AF%E9%93%BE%E6%8E%A5/">
@@ -341,7 +341,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-27 15:09:04" itemprop="dateModified" datetime="2020-05-27T15:09:04+08:00">2020-05-27</time>
+                <time title="修改时间：2020-07-14 15:52:16" itemprop="dateModified" datetime="2020-07-14T15:52:16+08:00">2020-07-14</time>
               </span>
 
           
@@ -356,7 +356,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="ln命令语法"><a href="#ln命令语法" class="headerlink" title="ln命令语法"></a>ln命令语法</h3><pre><code class="bash">ln </code></pre>
+        <p><a href="https://www.zhihu.com/question/20729978" target="_blank" rel="noopener">符号连接、软连接、硬连接、快捷方式、副本(copy)之间有何区别和联系？</a></p>
+<h3 id="ln命令语法"><a href="#ln命令语法" class="headerlink" title="ln命令语法"></a>ln命令语法</h3><pre><code class="bash">ln -s source taget_name</code></pre>
 <pre><code class="bash">[cheng@104 ~]$ ln --help
 Usage: ln [OPTION]... [-T] TARGET LINK_NAME   (1st form)
   or:  ln [OPTION]... TARGET                  (2nd form)
@@ -385,6 +386,7 @@ Mandatory arguments to long options are mandatory for short options too.
   -P, --physical              make hard links directly to symbolic links
   -r, --relative              create symbolic links relative to link location
   -s, --symbolic              make symbolic links instead of hard links
+                                #对源文件建立符号链接，而非硬链接；
   -S, --suffix=SUFFIX         override the usual backup suffix
   -t, --target-directory=DIRECTORY  specify the DIRECTORY in which to create
                                 the links
@@ -408,6 +410,22 @@ behavior when a TARGET is a symbolic link, defaulting to -P.
 GNU coreutils online help: &lt;http://www.gnu.org/software/coreutils/&gt;
 For complete documentation, run: info coreutils &#39;ln invocation&#39;
 </code></pre>
+<p>删除软链接</p>
+<pre><code class="bash">rm -rf ./test_ln  
+#注意不要在test_ln后面加/,否则会删除源文件</code></pre>
+<h3 id="Windows创建软链接的方法"><a href="#Windows创建软链接的方法" class="headerlink" title="Windows创建软链接的方法"></a>Windows创建软链接的方法</h3><pre><code class="bash">mklink /D  target_name  filelist\src\
+C:\Users\qq862&gt;mklink
+创建符号链接。
+
+MKLINK [[/D] | [/H] | [/J]] Link Target
+
+        /D      创建目录符号链接。默认为文件
+                符号链接。
+        /H      创建硬链接而非符号链接。
+        /J      创建目录联接。
+        Link    指定新的符号链接名称。
+        Target  指定新链接引用的路径
+                (相对或绝对)。</code></pre>
 
     </div>
 
@@ -470,7 +488,7 @@ For complete documentation, run: info coreutils &#39;ln invocation&#39;
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ln命令语法"><span class="nav-number">1.</span> <span class="nav-text">ln命令语法</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ln命令语法"><span class="nav-number">1.</span> <span class="nav-text">ln命令语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows创建软链接的方法"><span class="nav-number">2.</span> <span class="nav-text">Windows创建软链接的方法</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -484,7 +502,7 @@ For complete documentation, run: info coreutils &#39;ln invocation&#39;
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">118</span>
+          <span class="site-state-item-count">122</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

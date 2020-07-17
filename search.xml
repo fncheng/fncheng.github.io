@@ -1,7 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Linux复制</title>
+    <title>小程序/小程序开发</title>
+    <url>/2020/07/15/%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/</url>
+    <content><![CDATA[<p>小程序开发常见问题</p>
+<ul>
+<li>与Vue不同,<code>双花括号</code>中不能使用函数,如str.slice(1,2)</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>Vuex</title>
+    <url>/2020/07/13/Vue/vuex/</url>
+    <content><![CDATA[<p>什么是Vuex?</p>
+<blockquote>
+<p>Vuex 是一个专为 Vue.js 应用程序开发的<strong>状态管理模式</strong>。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。</p>
+</blockquote>
+<ul>
+<li><p>新建仓库</p>
+<pre><code class="js">import Vue from &#39;vue&#39;
+import Vuex from &#39;vuex&#39;
+
+Vue.use(Vuex)
+
+export default new Vuex.Store({
+  state: {
+    name: &#39;vuex123&#39;
+  },
+  mutations: {},
+  actions: {},
+  modules: {}
+})</code></pre>
+<p>如果希望通过<code>this.$store</code>访问,需要在Vue实例上挂在store</p>
+<pre><code class="js">//main.js
+new Vue({
+  el: &#39;#app&#39;,
+  store: store,
+})</code></pre>
+</li>
+<li><p>修改state</p>
+<p>mutations —— 专门用于存放修改state的方法</p>
+<pre><code class="vue">//User.vue
+输入值:&lt;input @input=&quot;increment&quot; type=&quot;text&quot; /&gt;
+    数字:
+    &lt;span&gt;{{ $store.state.msg }}&lt;/span&gt;
+
+methods: {
+  increment(e) {
+    this.$store.commit(&quot;increment&quot;, e.target.value)
+    console.log(e)
+  }
+}</code></pre>
+<pre><code class="js">export default new Vuex.Store({
+  state: {
+    name: &#39;vuex123&#39;,
+    msg: &#39;&#39;
+  },
+  mutations: {
+    increment(state, value) {
+      // 变更状态
+      state.msg = value
+    }
+  },
+  strict: true
+})</code></pre>
+<p><a href="https://vuex.vuejs.org/zh/guide/mutations.html#%E6%8F%90%E4%BA%A4%E8%BD%BD%E8%8D%B7%EF%BC%88payload%EF%BC%89" target="_blank" rel="noopener"><strong>提交载荷</strong></a></p>
+<p>注意: mutations中第一个参数永远是state,此外,额外参数最多只能传一个;如果需要传多个参数,请传入一个对象。</p>
+</li>
+</ul>
+<p>另外mutation必须同步执行,如果需要异步执行,使用action</p>
+]]></content>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Webpack/webpack</title>
+    <url>/2020/07/12/Webpack/webpack/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>油猴脚本教程</title>
+    <url>/2020/07/10/%E6%90%9E%E6%9C%BA%E6%8A%98%E8%85%BE/%E6%B2%B9%E7%8C%B4%E8%84%9A%E6%9C%AC/</url>
+    <content><![CDATA[<h3 id="脚本构成"><a href="#脚本构成" class="headerlink" title="脚本构成:"></a>脚本构成:</h3><p><a href="https://violentmonkey.github.io/guide/creating-a-userscript/" target="_blank" rel="noopener">https://violentmonkey.github.io/guide/creating-a-userscript/</a></p>
+<p>metadata and program.即元数据和代码</p>
+<pre><code class="js">// ==UserScript==
+// @name        New script
+// @namespace   Violentmonkey Scripts
+// @match       *://*/*
+// @grant       none
+// @version     1.0
+// @author      -
+// @description 3/8/2020, 8:42:28 PM
+// ==/UserScript==</code></pre>
+<p><a href="https://segmentfault.com/a/1190000021654926" target="_blank" rel="noopener">脚本编写教程</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Linux复制多个文件的解决办法</title>
     <url>/2020/06/28/Linux/Linux%E5%A4%8D%E5%88%B6%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h3 id="cp命令"><a href="#cp命令" class="headerlink" title="cp命令"></a><a href="https://wangchujiang.com/linux-command/c/cp.html" target="_blank" rel="noopener">cp命令</a></h3><p>cp复制多个文件,使用{filename1,filename2}包起来</p>
 <pre><code class="bash">cp -avf ./DoNotStarveTogether/MyDediServer/{Caves,Master}</code></pre>
@@ -776,7 +872,8 @@ Ws.Run(&quot;strCommand&quot;,0,true)</code></pre>
   <entry>
     <title>ln命令</title>
     <url>/2020/04/14/Linux/ln%E5%91%BD%E4%BB%A4-linux%E7%94%9F%E6%88%90%E8%BD%AF%E9%93%BE%E6%8E%A5/</url>
-    <content><![CDATA[<h3 id="ln命令语法"><a href="#ln命令语法" class="headerlink" title="ln命令语法"></a>ln命令语法</h3><pre><code class="bash">ln </code></pre>
+    <content><![CDATA[<p><a href="https://www.zhihu.com/question/20729978" target="_blank" rel="noopener">符号连接、软连接、硬连接、快捷方式、副本(copy)之间有何区别和联系？</a></p>
+<h3 id="ln命令语法"><a href="#ln命令语法" class="headerlink" title="ln命令语法"></a>ln命令语法</h3><pre><code class="bash">ln -s source taget_name</code></pre>
 <pre><code class="bash">[cheng@104 ~]$ ln --help
 Usage: ln [OPTION]... [-T] TARGET LINK_NAME   (1st form)
   or:  ln [OPTION]... TARGET                  (2nd form)
@@ -805,6 +902,7 @@ Mandatory arguments to long options are mandatory for short options too.
   -P, --physical              make hard links directly to symbolic links
   -r, --relative              create symbolic links relative to link location
   -s, --symbolic              make symbolic links instead of hard links
+                                #对源文件建立符号链接，而非硬链接；
   -S, --suffix=SUFFIX         override the usual backup suffix
   -t, --target-directory=DIRECTORY  specify the DIRECTORY in which to create
                                 the links
@@ -828,6 +926,22 @@ behavior when a TARGET is a symbolic link, defaulting to -P.
 GNU coreutils online help: &lt;http://www.gnu.org/software/coreutils/&gt;
 For complete documentation, run: info coreutils &#39;ln invocation&#39;
 </code></pre>
+<p>删除软链接</p>
+<pre><code class="bash">rm -rf ./test_ln  
+#注意不要在test_ln后面加/,否则会删除源文件</code></pre>
+<h3 id="Windows创建软链接的方法"><a href="#Windows创建软链接的方法" class="headerlink" title="Windows创建软链接的方法"></a>Windows创建软链接的方法</h3><pre><code class="bash">mklink /D  target_name  filelist\src\
+C:\Users\qq862&gt;mklink
+创建符号链接。
+
+MKLINK [[/D] | [/H] | [/J]] Link Target
+
+        /D      创建目录符号链接。默认为文件
+                符号链接。
+        /H      创建硬链接而非符号链接。
+        /J      创建目录联接。
+        Link    指定新的符号链接名称。
+        Target  指定新链接引用的路径
+                (相对或绝对)。</code></pre>
 ]]></content>
       <tags>
         <tag>linux</tag>
@@ -899,8 +1013,14 @@ npm --version</code></pre>
 <pre><code class="bash">yum install zsh    #安装zsh
 
 chsh -s $(which zsh)    #使其成为默认shell</code></pre>
-<h3 id="安装oh-my-zsh"><a href="#安装oh-my-zsh" class="headerlink" title="安装oh-my-zsh"></a>安装oh-my-zsh</h3><pre><code class="bash">$ sh -c &quot;$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)&quot;</code></pre>
-<h3 id="插件配置"><a href="#插件配置" class="headerlink" title="插件配置"></a>插件配置</h3><h4 id="autojump自动跳转插件"><a href="#autojump自动跳转插件" class="headerlink" title="autojump自动跳转插件"></a><a href="https://github.com/wting/autojump" target="_blank" rel="noopener">autojump</a>自动跳转插件</h4><pre><code class="bash"># clone 到本地
+<h3 id="安装oh-my-zsh"><a href="#安装oh-my-zsh" class="headerlink" title="安装oh-my-zsh"></a>安装oh-my-zsh</h3><pre><code class="bash">//wget方式安装
+sh -c &quot;$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)&quot;
+//curl方式安装
+sh -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</code></pre>
+<h4 id="导入oh-my-zsh配置"><a href="#导入oh-my-zsh配置" class="headerlink" title="导入oh-my-zsh配置"></a>导入oh-my-zsh配置</h4><pre><code class="bash">git clone https://gitee.com/fn386/myzsh.git
+</code></pre>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="插件配置"><a href="#插件配置" class="headerlink" title="插件配置"></a>插件配置</h3><h4 id="autojump自动跳转插件"><a href="#autojump自动跳转插件" class="headerlink" title="autojump自动跳转插件"></a><a href="https://github.com/wting/autojump" target="_blank" rel="noopener">autojump</a>自动跳转插件</h4><p>autojump需要单独安装</p>
+<pre><code class="bash"># clone 到本地
 git clone git://github.com/wting/autojump.git
 # 进入clone目录，接着执行安装文件
 cd autojump
@@ -2174,9 +2294,12 @@ drwxrwxrw-  7 root root 4.0K Jan 31 17:13 wwwroot</code></pre>
     <title>js事件委托</title>
     <url>/2020/02/08/JavaScript/%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/</url>
     <content><![CDATA[<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>事件委托，通俗地来讲，就是把一个元素响应事件（click、keydown……）的函数委托到另一个元素；</p>
-<p>一般来讲，会把一个或者一组元素的事件委托到它的父层或者更外层元素上，真正绑定事件的是外层元素，当事件响应到需要绑定的元素上时，会通过<strong>事件冒泡机制</strong>从而触发它的外层元素的绑定事件上，然后在外层元素上去执行函数。</p>
+<h4 id="事件捕获和事件冒泡"><a href="#事件捕获和事件冒泡" class="headerlink" title="事件捕获和事件冒泡"></a>事件捕获和事件冒泡</h4><p>一般来讲，会把一个或者一组元素的事件委托到它的父层或者更外层元素上，真正绑定事件的是外层元素，当事件响应到需要绑定的元素上时，会通过<strong>事件冒泡机制</strong>从而触发它的外层元素的绑定事件上，然后在外层元素上去执行函数。</p>
 <p><img src="https://i.loli.net/2020/02/10/Pjci6mMzJOsFV7a.png" alt=""></p>
 <p>我们可以在绑定事件的时候指定指是在哪个阶段触发事件，element.addEventListener(event, function, useCapture)，==useCapture默认为false==，即默认在冒泡阶段触发事件</p>
+<blockquote>
+<p>事件捕获就是从上到下;事件冒泡就是从下到上。</p>
+</blockquote>
 <h3 id="功能实现"><a href="#功能实现" class="headerlink" title="功能实现"></a>功能实现</h3><p>比如有这样一个HTML片段</p>
 <pre><code class="html">&lt;ul id=&quot;list&quot;&gt;
   &lt;li&gt;item 1&lt;/li&gt;
@@ -2196,8 +2319,18 @@ document.getElementById(&#39;list&#39;).addEventListener(&#39;click&#39;, functi
   if (target.nodeName.toLocaleLowerCase === &#39;li&#39;) {
     console.log(&#39;the content is: &#39;, target.innerHTML);
   }
+  console.log(e.target);
 });</code></pre>
 <p><strong><code>Event.srcElement</code></strong> 是标准的 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Event/target" target="_blank" rel="noopener"><code>Event.target</code></a> 属性的一个别名。它只对老版本的IE浏览器有效。目的是兼容老版本的IE。</p>
+<p>e.target是一个DOM元素</p>
+<h4 id="stopPropagation-和preventDefault"><a href="#stopPropagation-和preventDefault" class="headerlink" title="stopPropagation()和preventDefault()"></a>stopPropagation()和preventDefault()</h4><ul>
+<li><p><code>event.preventDefault()</code></p>
+<p>阻止默认事件,例如阻止a标签的跳转</p>
+</li>
+<li><p><code>event.stopPropagation()</code></p>
+<p>阻止事件冒泡,即冒泡事件到了当前元素处就终止了,不会继续向上级元素传递</p>
+</li>
+</ul>
 ]]></content>
       <tags>
         <tag>JavaScript</tag>
@@ -2920,11 +3053,11 @@ console.log(adress1.address);
 </thead>
 <tbody><tr>
 <td align="center"><code>g</code></td>
-<td align="left">全局搜索。</td>
+<td align="left">全局匹配。</td>
 </tr>
 <tr>
 <td align="center"><code>i</code></td>
-<td align="left">不区分大小写搜索。</td>
+<td align="left">不区分大小写匹配。</td>
 </tr>
 <tr>
 <td align="center"><code>m</code></td>
@@ -2948,6 +3081,7 @@ console.log(adress1.address);
 <p>或</p>
 <pre><code class="js">var re = new RegExp(&quot;parttern&quot;,&quot;flags&quot;); //构造函数</code></pre>
 <p>正则工具<a href="https://www.baidufe.com/fehelper/index/index.html" target="_blank" rel="noopener">FeHelper</a></p>
+<h3 id="Everything正则表达式"><a href="#Everything正则表达式" class="headerlink" title="Everything正则表达式"></a>Everything正则表达式</h3><p><img src="img/image-20200710205533453.png" alt="image-20200710205533453"></p>
 ]]></content>
       <tags>
         <tag>正则</tag>

@@ -61,7 +61,7 @@
 <meta property="og:description" content="事件委托，通俗地来讲，就是把一个元素响应事件（click、keydown......）的函数委托到另一个元素；通常这个元素会是当前元素的父元素.">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;02&#x2F;10&#x2F;Pjci6mMzJOsFV7a.png">
-<meta property="og:updated_time" content="2020-02-12T05:35:47.283Z">
+<meta property="og:updated_time" content="2020-07-12T12:21:23.994Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;02&#x2F;10&#x2F;Pjci6mMzJOsFV7a.png">
 
@@ -343,7 +343,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 13:35:47" itemprop="dateModified" datetime="2020-02-12T13:35:47+08:00">2020-02-12</time>
+                <time title="修改时间：2020-07-12 20:21:23" itemprop="dateModified" datetime="2020-07-12T20:21:23+08:00">2020-07-12</time>
               </span>
 
           
@@ -359,9 +359,12 @@
 
       
         <h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>事件委托，通俗地来讲，就是把一个元素响应事件（click、keydown……）的函数委托到另一个元素；</p>
-<p>一般来讲，会把一个或者一组元素的事件委托到它的父层或者更外层元素上，真正绑定事件的是外层元素，当事件响应到需要绑定的元素上时，会通过<strong>事件冒泡机制</strong>从而触发它的外层元素的绑定事件上，然后在外层元素上去执行函数。</p>
+<h4 id="事件捕获和事件冒泡"><a href="#事件捕获和事件冒泡" class="headerlink" title="事件捕获和事件冒泡"></a>事件捕获和事件冒泡</h4><p>一般来讲，会把一个或者一组元素的事件委托到它的父层或者更外层元素上，真正绑定事件的是外层元素，当事件响应到需要绑定的元素上时，会通过<strong>事件冒泡机制</strong>从而触发它的外层元素的绑定事件上，然后在外层元素上去执行函数。</p>
 <p><img src="https://i.loli.net/2020/02/10/Pjci6mMzJOsFV7a.png" alt=""></p>
 <p>我们可以在绑定事件的时候指定指是在哪个阶段触发事件，element.addEventListener(event, function, useCapture)，==useCapture默认为false==，即默认在冒泡阶段触发事件</p>
+<blockquote>
+<p>事件捕获就是从上到下;事件冒泡就是从下到上。</p>
+</blockquote>
 <h3 id="功能实现"><a href="#功能实现" class="headerlink" title="功能实现"></a>功能实现</h3><p>比如有这样一个HTML片段</p>
 <pre><code class="html">&lt;ul id=&quot;list&quot;&gt;
   &lt;li&gt;item 1&lt;/li&gt;
@@ -381,8 +384,18 @@ document.getElementById(&#39;list&#39;).addEventListener(&#39;click&#39;, functi
   if (target.nodeName.toLocaleLowerCase === &#39;li&#39;) {
     console.log(&#39;the content is: &#39;, target.innerHTML);
   }
+  console.log(e.target);
 });</code></pre>
 <p><strong><code>Event.srcElement</code></strong> 是标准的 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Event/target" target="_blank" rel="noopener"><code>Event.target</code></a> 属性的一个别名。它只对老版本的IE浏览器有效。目的是兼容老版本的IE。</p>
+<p>e.target是一个DOM元素</p>
+<h4 id="stopPropagation-和preventDefault"><a href="#stopPropagation-和preventDefault" class="headerlink" title="stopPropagation()和preventDefault()"></a>stopPropagation()和preventDefault()</h4><ul>
+<li><p><code>event.preventDefault()</code></p>
+<p>阻止默认事件,例如阻止a标签的跳转</p>
+</li>
+<li><p><code>event.stopPropagation()</code></p>
+<p>阻止事件冒泡,即冒泡事件到了当前元素处就终止了,不会继续向上级元素传递</p>
+</li>
+</ul>
 
     </div>
 
@@ -445,7 +458,7 @@ document.getElementById(&#39;list&#39;).addEventListener(&#39;click&#39;, functi
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#功能实现"><span class="nav-number">2.</span> <span class="nav-text">功能实现</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#事件捕获和事件冒泡"><span class="nav-number">1.1.</span> <span class="nav-text">事件捕获和事件冒泡</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#功能实现"><span class="nav-number">2.</span> <span class="nav-text">功能实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#stopPropagation-和preventDefault"><span class="nav-number">2.1.</span> <span class="nav-text">stopPropagation()和preventDefault()</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -459,7 +472,7 @@ document.getElementById(&#39;list&#39;).addEventListener(&#39;click&#39;, functi
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">118</span>
+          <span class="site-state-item-count">122</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
